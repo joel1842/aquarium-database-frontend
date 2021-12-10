@@ -1,20 +1,41 @@
 .favCard {
-    background: rgb(248, 207, 132);
+    background: #fcbc91;
     width: 35%;
     margin: auto;
     border-radius: 20px;
     margin-top: 20px;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas: 
+        "pic name"
+        "pic delete"
+    ;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
 }
 
 .favPic {
-    display: inline-block;
+    border-radius: 20px;
+    width: 250px;
+    margin: 10px;
+    grid-area: pic;
+}
+
+.nameContainer {
+    grid-area: name;
+    background: #fca063;
     border-radius: 20px;
     margin: 20px;
-    width: 200px;
-    vertical-align: middle;
+    margin-top: 25px;
+    margin-left: 25px;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.3);
 }
 
 .favName {
-    display: inline-block;
-    margin-left: 10px;
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.favDel {
+    grid-area: delete;
 }

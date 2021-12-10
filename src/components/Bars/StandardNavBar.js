@@ -18,7 +18,7 @@ export const StandardNavBar = ({getSearchTerm}) => {
             <div className='NavMenuButtons'>
                 <MenuButton label='Browse' link='/browse'/>
                 <MenuButton label='Compatibility' link='/compatibility'/>
-                <MenuButton label='Tank' link='/tank'/>
+                <MenuButton label='Calculator' link='/tank'/>
                 <MenuButton label='About' link='/about'/>
                 <AuthenticationButton />
             </div>

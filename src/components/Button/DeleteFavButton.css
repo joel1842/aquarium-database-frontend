@@ -1,0 +1,18 @@
+.deleteFav {
+    background: #89B0AE;
+    border: none;
+    border-radius: 20px;
+    width: 45%;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 35px;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.3);
+}
+
+.deleteFav:hover {
+    background: #7ed1cd;
+    cursor: pointer;
+}

@@ -12,7 +12,7 @@ import {Browse} from './routes/Browse/Browse.js';
 import {Tank} from './routes/TankSize/Tank.js';
 import {Compatibility} from './routes/Compatibility';
 import {FishPage} from './routes/FishPage';
-import FavList from './routes/FavList';
+import FavList from './routes/FavList/FavList';
 
 const App = () => {
 

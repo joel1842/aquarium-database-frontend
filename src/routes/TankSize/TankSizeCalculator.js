@@ -45,13 +45,15 @@ const TankSizeCalculator = () => {
 
     return (
         <div>
-            <div className="tankSizeHeader">
-                <h1>Tank Size Calculator</h1>
-                <h2 className='subHeader'>Calculate Tank Size in {outputString}</h2>
-                <button onClick={unitSwitch}>Use {unitString}</button>
+            <div>
+                <h1 className="tankSizeHeader">Tank Size Calculator</h1>
             </div>
 
             <div className="inputContainer">
+                <div className='subHeaderContainer'>
+                    <h2 className='subHeader'>Calculate Tank Size in {outputString}</h2>
+                    <button onClick={unitSwitch}>Use {unitString}</button>
+                </div>
                 <div>
                     <input className="length" type="number" placeholder="Length" onChange={(event) => {
                         setLength(event.target.value);
@@ -70,12 +72,15 @@ const TankSizeCalculator = () => {
                     }}></input>
                     <h2 className='unit'>{unit}</h2>
                 </div>
+                <div className="outputContainer">
+                    <button onClick={getVolume}>Calculate Volume!</button>
+                    {tankVolume && 
+                    <div className='result'>
+                         <h1><b>{tankVolume.toFixed(2)}</b> {outputString}</h1>
+                    </div>}
+                </div>
             </div>
 
-            <div className="outputContainer">
-                <button onClick={getVolume}>Calculate Volume!</button>
-                {tankVolume && <h1><b>{tankVolume.toFixed(2)}</b> {outputString}</h1>}
-            </div>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import './DeleteFavButton.css'
 
 const DeleteFavorite = ({ userData }) => {
 
@@ -20,7 +21,7 @@ const DeleteFavorite = ({ userData }) => {
     }
 
     return(
-        <button onClick={deleteFish}>❌</button>
+        <button className='deleteFav' onClick={deleteFish}>Remove ❌</button>
     )
 }
 

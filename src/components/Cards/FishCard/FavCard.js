@@ -6,8 +6,10 @@ export const FavCard = ({ userData }) => {
     return (
         <div className='favCard'>
             <img className='favPic' src={userData.pic}/>
-            <h2 className='favName'>{userData.fishName}</h2>
-            <DeleteFavorite userData={userData}/>
+            <div className='nameContainer'>
+                <h2 className='favName'>{userData.fishName}</h2>
+            </div>
+            <DeleteFavorite className='favDel' userData={userData}/>
         </div>
     )
 }
