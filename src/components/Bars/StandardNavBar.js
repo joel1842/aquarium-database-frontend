@@ -19,7 +19,7 @@ export const StandardNavBar = ({getSearchTerm}) => {
                 <MenuButton label='Browse' link='/browse'/>
                 <MenuButton label='Compatibility' link='/compatibility'/>
                 <MenuButton label='Calculator' link='/tank'/>
-                <MenuButton label='About' link='/about'/>
+                <MenuButton label='My Tanks' link='/mytanks'/>
                 <AuthenticationButton />
             </div>
         </div>

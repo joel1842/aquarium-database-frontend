@@ -1,11 +1,11 @@
 import React from "react";
 import './DeleteFavButton.css'
 
-const DeleteFavorite = ({ userData }) => {
+const DeleteFavorite = ({ userData, deleteFish }) => {
 
     const id = userData.id;
 
-    const deleteFish = () => {
+    const deleteFishie = () => {
         fetch('http://localhost:3001/removefav/' + id, {
             method: 'DELETE',
             headers: {
@@ -18,10 +18,12 @@ const DeleteFavorite = ({ userData }) => {
         }).catch((error) => {
             console.log('Error:', error)
         })
+
+        deleteFish()
     }
 
     return(
-        <button className='deleteFav' onClick={deleteFish}>Remove ❌</button>
+        <button className='deleteFav' onClick={deleteFishie}>Remove ❌</button>
     )
 }
 

@@ -1,7 +1,7 @@
 import DeleteFavorite from '../../Button/DeleteFavButton'
 import './FavCard.css'
 
-export const FavCard = ({ userData }) => {
+export const FavCard = ({ userData, deleteFish }) => {
 
     return (
         <div className='favCard'>
@@ -9,7 +9,7 @@ export const FavCard = ({ userData }) => {
             <div className='nameContainer'>
                 <h2 className='favName'>{userData.fishName}</h2>
             </div>
-            <DeleteFavorite className='favDel' userData={userData}/>
+            <DeleteFavorite className='favDel' userData={userData} deleteFish={deleteFish}/>
         </div>
     )
 }

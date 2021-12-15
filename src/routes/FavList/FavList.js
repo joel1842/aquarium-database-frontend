@@ -4,9 +4,14 @@ import { FavCard } from "../../components/Cards/FishCard/FavCard";
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
 import './FavList.css';
 
-const FavList = () => {
+const FavList = ({ getSearchTerm }) => {
     const { user, isAuthenticated } = useAuth0()
-    const [userFavs, setUserFavs] = useState() 
+    const [userFavs, setUserFavs] = useState()
+    const [deleted, setDeleted] = useState(false)
+
+    const deleteFish = () => {
+        setDeleted(true);
+    }
 
     useEffect(() => {
 
@@ -30,18 +35,20 @@ const FavList = () => {
             }).then(jsonResponse => {
                 setUserFavs(jsonResponse)
             })
+
+            setDeleted(false)
         }
 
-    }, [isAuthenticated])
+    }, [isAuthenticated, deleted])
 
     return(
         <div>
-            <StandardNavBar />
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
 
             <h1 className='favHeader'>My Favorites</h1>
             {!isAuthenticated && <p>Catching your favorite fish...</p>}
             {isAuthenticated && userFavs && userFavs.map((userData, index) => (
-                <FavCard userData={userData} key={index}/>
+                <FavCard userData={userData} deleteFish={deleteFish} key={index}/>
             ))}
         </div>
     )
