@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FavCard } from "../../components/Cards/FishCard/FavCard";
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
+import { withAuthenticationRequired } from "@auth0/auth0-react";
+import Loading from "../Loading";
 import './FavList.css';
 
 const FavList = ({ getSearchTerm }) => {
@@ -53,5 +55,6 @@ const FavList = ({ getSearchTerm }) => {
         </div>
     )
 }
-
-export default FavList;
+export default withAuthenticationRequired(FavList, {
+    onRedirecting: () => <Loading />,
+  });

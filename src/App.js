@@ -1,7 +1,6 @@
 import './css/App.css';
 import React, { useState } from 'react';
 import {
-  BrowserRouter,
   Route,
   Routes
 } from "react-router-dom";
@@ -25,7 +24,6 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>
       <Routes>
         <Route exact path="/compatibility" element={<Compatibility/>}></Route>
         <Route exact path="/tank" element={<Tank getSearchTerm={getSearchTerm}/>}></Route>
@@ -36,7 +34,6 @@ const App = () => {
         <Route exact path="/mytanks" element={<MyTanks getSearchTerm={getSearchTerm}/>}></Route>
         <Route exact path="/" element={<Home getSearchTerm={getSearchTerm}/>}></Route>
       </Routes>
-    </BrowserRouter>
   );
 }
 
