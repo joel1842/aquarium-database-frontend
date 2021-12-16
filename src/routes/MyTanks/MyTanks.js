@@ -11,9 +11,14 @@ const MyTanks = ({ getSearchTerm }) => {
     const { user } = useAuth0();
     const [tanks, setTanks] = useState();
     const [create, setCreate] = useState(false);
+    const [deleteTank, setDeleteTank] = useState(false);
 
     const createSwitch = () => {
         setCreate(false)
+    }
+
+    const deleteSwitch = () => {
+        setDeleteTank(true);
     }
 
     useEffect(() => {
@@ -22,28 +27,29 @@ const MyTanks = ({ getSearchTerm }) => {
             user: user.email
         }
 
-        console.log(data)
+            console.log(data)
+            console.log(deleteTank)
 
-        fetch('http://localhost:3001/mytanks', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(data)
-        }).then((res) => {
-            if (res.ok) {
-                return res.json();
-            }
-        }).then(jsonResponse => {
-            if(jsonResponse.length >= 1) {
-                setTanks(jsonResponse)
-            } else {
-                console.log("No tanks!")
-            }
-        })
-        
+            fetch('http://localhost:3001/mytanks', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            }).then((res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+            }).then(jsonResponse => {
+                if(jsonResponse.length >= 1) {
+                    setTanks(jsonResponse)
+                } else {
+                    setTanks()
+                    console.log("No tanks!")
+                }
+            })
 
-    }, [create])
+    }, [create, deleteTank])
 
     return (
         <div>
@@ -55,7 +61,7 @@ const MyTanks = ({ getSearchTerm }) => {
             </div>
             
             {!create && tanks && tanks.map((tank, index) => (
-            <TankCard tank={tank} key={index}/>))}
+            <TankCard tank={tank} deleteSwitch={deleteSwitch} key={index}/>))}
             
             {!tanks && <h3>You don't have a tank yet!</h3>}
             {create && <CreateTank createSwitch={createSwitch}/>}
