@@ -60,6 +60,23 @@
     box-shadow: 0 2px 3px rgba(0,0,0,0.3)
 }
 
+.selectContainer {
+
+}
+
+.selectHeader {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tankShapes {
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 5px;
+}
+
 .length {
 
 }
