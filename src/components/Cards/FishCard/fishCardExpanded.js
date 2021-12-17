@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
 import FishCard from './FishCard';
 import './FishExpanded.css';
+import FavoritesButton from '../../Button/FavoritesButton';
+import AddToTank from '../../Button/AddToTank';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const FishExpanded = ({fishData}) => {
+
+    const {isAuthenticated} = useAuth0();
 
     return(
         <div className='fishCard'>
@@ -10,6 +15,11 @@ export const FishExpanded = ({fishData}) => {
                 <img className='fishImg'src={fishData.pic1} alt='Espes Rasbora'/>
                 <h1 className='fishName'>{fishData.name}</h1>
                 <h3 className='subName'>{fishData.scientificName}</h3>
+                {isAuthenticated && 
+                <div>
+                    <FavoritesButton fishData={fishData}/>
+                    <AddToTank fishData={fishData}/>
+                </div>}
             </div>
             <div className='fastFacts'>
                 <div className='temperament'>

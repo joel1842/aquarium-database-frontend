@@ -1,7 +1,6 @@
 import React from "react";
 import './FishCard.css';
 import { useAuth0 } from "@auth0/auth0-react";
-import FavoritesButton from '../../Button/FavoritesButton';
 
 const FishCard = ({ fishData }) => {
 
@@ -15,7 +14,7 @@ const FishCard = ({ fishData }) => {
             <div className='fishCardNames'>
                 <h1 className='name'>{fishData.name}</h1>
                 <h2 className='sciName'>{fishData.scientificName}</h2>
-                {isAuthenticated && <FavoritesButton fishData={fishData}/>}
+
             </div>
             <div className='fishCardInfo'>
                 <div className='sizeContainer'>
