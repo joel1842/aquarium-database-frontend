@@ -5,6 +5,7 @@ import Loading from "../Loading";
 import CreateTank from "./CreateTank";
 import TankCard from "../../components/Cards/FishCard/TankCard";
 import { StandardNavBar } from "../../components/Bars/StandardNavBar";
+import "./MyTanks.css"
 
 const MyTanks = ({ getSearchTerm }) => {
 
@@ -56,8 +57,8 @@ const MyTanks = ({ getSearchTerm }) => {
             <StandardNavBar getSearchTerm={getSearchTerm}/>
 
             <div>
-                <h1>My Fish Tanks</h1>
-                {!create && <button onClick={() => setCreate(true)}>New Tank</button>}
+                <h1 className="myTanksHeader">My Fish Tanks</h1>
+                {!create && <button className="newTank" onClick={() => setCreate(true)}>New Tank</button>}
             </div>
             
             {!create && tanks && tanks.map((tank, index) => (

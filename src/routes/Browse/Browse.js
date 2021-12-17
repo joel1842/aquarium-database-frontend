@@ -1,31 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
 import FishCard from '../../components/Cards/FishCard/FishCard';
 import FilterBar from '../../components/Bars/FilterBar';
 import './browse.css';
 
-export const Browse = ({ searchTerm, getSearchTerm }) => {
+export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
 
-    const [fishAPI, setFishAPI] = useState()
-    // const [searchTerm, setSearchTerm] = useState();
     const [filterCriterion, setFilterCriterion] = useState();
-
-    useEffect(() => {
-        fetch('http://localhost:3001/goldfish').then((res) => {
-            if (res.ok) {
-                console.log(res)
-                return res.json();
-            }
-        }).then(jsonResponse => {
-            setFishAPI(jsonResponse)
-        });
-    }, [])
-
-    // const getSearchTerm = (searchTerm) => {
-    //     setFilterCriterion()
-    //     console.log(searchTerm)
-    //     setSearchTerm(searchTerm);
-    // }
 
     const getFilterCriterion = (criterion) => {
         // setSearchTerm()
@@ -49,9 +31,21 @@ export const Browse = ({ searchTerm, getSearchTerm }) => {
 
                 {!searchTerm && !filterCriterion &&
                 <div className='fishCardGrid'>
-                    {fishAPI.map((fishData, index) => (
-                        <FishCard fishData={fishData} key={index} />
-                    ))}
+                    {fishAPI.map((fishData, index) => {
+
+                    let fishName = fishData.name
+                    fishName = fishName.replace(/\s+/g, '')
+                    fishName = fishName.replace(/-/g, '')
+                    fishName = fishName.replace(/'/g, '')
+                    
+                    let url = "/browse/" + fishName;
+
+                    return (
+                        <Link to={url}>
+                            <FishCard fishData={fishData} key={index} />
+                        </Link> 
+                    )
+                    })}
                 </div>}
                 
                 {searchTerm && 
@@ -60,9 +54,20 @@ export const Browse = ({ searchTerm, getSearchTerm }) => {
                         if (fishData.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                             return fishData; 
                         }
-                    }).map((fishData, index) => (
-                        <FishCard fishData={fishData} key={index} />
-                    ))}
+                    }).map((fishData, index) => {
+                        let fishName = fishData.name
+                        fishName = fishName.replace(/\s+/g, '')
+                        fishName = fishName.replace(/-/g, '')
+                        fishName = fishName.replace(/'/g, '')
+                        
+                        let url = "/browse/" + fishName;
+    
+                        return (
+                            <Link to={url}>
+                                <FishCard fishData={fishData} key={index} />
+                            </Link> 
+                        )
+                    })}
                 </div>}
 
 
@@ -71,12 +76,21 @@ export const Browse = ({ searchTerm, getSearchTerm }) => {
                     {fishAPI.filter((fishData) => {
                         if (fishData.careLevel.toLowerCase().includes(filterCriterion.toLowerCase())) {
                             return fishData;
-                        } else if (fishData.plants.toLowerCase() === filterCriterion.toLowerCase()) {
-                            return fishData;
                         }
-                    }).map((fishData, index) => (
-                        <FishCard fishData={fishData} key={index} />
-                    ))}
+                    }).map((fishData, index) => {
+                        let fishName = fishData.name
+                        fishName = fishName.replace(/\s+/g, '')
+                        fishName = fishName.replace(/-/g, '')
+                        fishName = fishName.replace(/'/g, '')
+                        
+                        let url = "/browse/" + fishName;
+    
+                        return (
+                            <Link to={url}>
+                                <FishCard fishData={fishData} key={index} />
+                            </Link> 
+                        )
+                    })}
                 </div>}
             </div>
         );

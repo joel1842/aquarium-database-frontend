@@ -1,5 +1,4 @@
 import React from "react";
-import DeleteFavorite from "./DeleteFavButton";
 
 const DeleteTankButton = ({ tank, deleteSwitch }) => {
 
@@ -22,7 +21,7 @@ const DeleteTankButton = ({ tank, deleteSwitch }) => {
         deleteSwitch()
     }
 
-    return <button onClick={deleteTank}>Remove ❌</button>
+    return <button className="deleteTank" onClick={deleteTank}>Remove ❌</button>
 }
 
 export default DeleteTankButton;
