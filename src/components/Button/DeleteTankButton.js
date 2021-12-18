@@ -14,11 +14,12 @@ const DeleteTankButton = ({ tank, deleteSwitch }) => {
             response.json()
         ).then(data => {
             console.log('Success:', data);
+            
         }).catch((error) => {
             console.log('Error:', error)
         })
-
         deleteSwitch()
+        window.history.back()
     }
 
     return <button className="deleteTank" onClick={deleteTank}>Remove ❌</button>

@@ -7,33 +7,15 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
     display: grid;
     grid-template-areas: 
-    "name delete"
-    "size delete";
+    "name size"
 }
 
 .tankName {
     grid-area: name;
+    vertical-align: middle;
 }
 
 .tankSize {
     grid-area: size;
-}
-
-.deleteTank {
-    background: #89B0AE;
-    border: none;
-    border-radius: 20px;
-    width: 50%;
-    color: white;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 10px;
-    margin: auto;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.3);
-    grid-area: delete;
-}
-
-.deleteTank:hover {
-    background: #7ed1cd;
-    cursor: pointer;
+    margin: none;
 }

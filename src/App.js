@@ -34,11 +34,28 @@ const App = () => {
   }, [])
 
   const [tanks, setTanks] = useState();
+  const [create, setCreate] = useState(false);
+  const [deleteTank, setDeleteTank] = useState(false);
+
+  const createSwitch = () => {
+    if (create) {
+      setCreate(false)
+    } else {
+      setCreate(true)
+    }
+  }
+
+  const deleteSwitch = () => {
+    if (deleteTank) {
+      setDeleteTank(false) 
+    } else {
+      setDeleteTank(true)
+    }
+  }
 
   useEffect(() => {
-    console.log('fired use effect')
+
     if (isAuthenticated) {
-      console.log('authenticated!')
 
       const data = {
           user: user.email
@@ -64,7 +81,8 @@ const App = () => {
       })
     }
 
-}, [isAuthenticated])
+  }, [isAuthenticated, create, deleteTank])
+
 
   const [searchTerm, setSearchTerm] = useState();
 
@@ -87,6 +105,7 @@ const App = () => {
 
             return <Route exact path={path} element={<FishPage fishData={fishData}/>} key={index} />
           })}
+          
           {tanks && tanks.map((tank, index) => {
 
             let tankName = tank.tankName
@@ -97,7 +116,7 @@ const App = () => {
             let path = "/" + tankName;
             console.log(path);
 
-            return <Route exact path={path} element={<TankCardExpanded tank={tank}/>} key={index} />
+            return <Route exact path={path} element={<TankCardExpanded tank={tank} deleteSwitch={deleteSwitch}/>} key={index} />
           })}
 
           <Route exact path="/compatibility" element={<Compatibility/>}></Route>
@@ -106,7 +125,7 @@ const App = () => {
           <Route exact path="/browse" element={<Browse getSearchTerm={getSearchTerm} searchTerm={searchTerm} fishAPI={fishAPI}/>}></Route>
           <Route exact path="/fish" element={<FishPage/>}></Route>
           <Route exact path="/favlist" element={<FavList getSearchTerm={getSearchTerm}/>}></Route>
-          <Route exact path="/mytanks" element={<MyTanks getSearchTerm={getSearchTerm}/>}></Route>
+          <Route exact path="/mytanks" element={<MyTanks getSearchTerm={getSearchTerm} createSwitch={createSwitch} create={create} tanks={tanks}/>}></Route>
           <Route exact path="/" element={<Home getSearchTerm={getSearchTerm}/>}></Route>
         </Routes>
     );

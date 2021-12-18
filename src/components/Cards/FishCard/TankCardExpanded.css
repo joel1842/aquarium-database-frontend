@@ -1,3 +1,52 @@
+.tankHeadContainer {
+    background: #fca063;
+    border-radius: 20px;
+    width: 400px;
+    margin: auto;
+}
+
+.tankHeader {
+    padding-top: 20px;
+    margin-bottom: 5px;
+    font-size: 45px;	
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.tankSize {
+   margin-top: 5px; 
+   text-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+}
+
+.tankFish {
+    margin-top: 20px;
+}
+
 .fishPic {
     width: 300px;
+    border-radius: 20px;
+}
+
+.tankFishName {
+    font-size: 30px;
+    margin-top: 5px;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.deleteTank {
+    background: #89B0AE;
+    border: none;
+    border-radius: 20px;
+    width: 50%;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.3);
+}
+
+.deleteTank:hover {
+    background: #7ed1cd;
+    cursor: pointer;
 }
