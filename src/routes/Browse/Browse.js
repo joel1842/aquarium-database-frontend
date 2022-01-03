@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
 import FishCard from '../../components/Cards/FishCard/FishCard';
 import FilterBar from '../../components/Bars/FilterBar';
+import Footer from '../../components/Bars/Footer';
 import './browse.css';
 
 export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
@@ -92,6 +93,7 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
                         )
                     })}
                 </div>}
+                <Footer />
             </div>
         );
 

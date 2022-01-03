@@ -1,0 +1,44 @@
+.footer {
+    background-color: #FFD6BA;
+    width: 100%;
+    display: grid;
+    margin-top: 500px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    grid-template-areas: 
+    "header nav socials cc";
+}
+
+.footerHead {
+    grid-area: header;
+    align-self: center;
+}
+
+.footerHead h1 {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.footerNav {
+    grid-area: nav;
+    align-self: center;
+}
+
+.socials {
+    grid-area: socials;
+    align-self: center;
+}
+
+.socialImg {
+    width: 35px;
+    vertical-align: middle;
+}
+
+.creativeCommons {
+    grid-area: cc;
+    align-self: center;
+}
+
+.ccImg {
+    width: 100px;
+}

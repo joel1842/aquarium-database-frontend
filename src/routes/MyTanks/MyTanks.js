@@ -5,6 +5,7 @@ import Loading from "../Loading";
 import CreateTank from "./CreateTank";
 import TankCard from "../../components/Cards/FishCard/TankCard";
 import { StandardNavBar } from "../../components/Bars/StandardNavBar";
+import Footer from "../../components/Bars/Footer";
 import "./MyTanks.css";
 
 const MyTanks = ({ getSearchTerm, createSwitch, create, tanks }) => {
@@ -34,6 +35,7 @@ const MyTanks = ({ getSearchTerm, createSwitch, create, tanks }) => {
             })}
             {!tanks && <h3>You don't have a tank yet!</h3>}
             {create && <CreateTank createSwitch={createSwitch}/>}
+            <Footer />
         </div>
     )
 }

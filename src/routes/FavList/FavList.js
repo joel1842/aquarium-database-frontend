@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { FavCard } from "../../components/Cards/FishCard/FavCard";
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
 import { withAuthenticationRequired } from "@auth0/auth0-react";
+import Footer from "../../components/Bars/Footer";
 import Loading from "../Loading";
 import './FavList.css';
 
@@ -52,6 +53,7 @@ const FavList = ({ getSearchTerm }) => {
             {isAuthenticated && userFavs && userFavs.map((userData, index) => (
                 <FavCard userData={userData} deleteFish={deleteFish} key={index}/>
             ))}
+            <Footer />
         </div>
     )
 }

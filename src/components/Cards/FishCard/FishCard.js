@@ -6,6 +6,20 @@ const FishCard = ({ fishData }) => {
 
     const { isAuthenticated } = useAuth0()
 
+    const easy = "#85D700"
+    const medium = "#F3E242"
+    const hard = "#FB4F19"
+
+    let careColor;
+
+    if (fishData.careLevel === "Difficult") {
+        careColor = hard;
+    } else if (fishData.careLevel === "Intermediate"){
+        careColor = medium;
+    } else {
+        careColor = easy;
+    }
+
     return (
         <div className='fishCardBrowse'>
             <div>
@@ -16,7 +30,7 @@ const FishCard = ({ fishData }) => {
                 <h2 className='sciName'>{fishData.scientificName}</h2>
 
             </div>
-            <div className='fishCardInfo'>
+            <div className='fishCardInfo' style={{background: careColor}}>
                 <div className='sizeContainer'>
                     <h3 className='sizeHeader'>Size</h3>
                     <h3 className='fishSize'>{fishData.sizeCM} cm</h3>

@@ -1,8 +1,10 @@
 .fishCardBrowse {
     margin: auto;
+    width: 350px;
     background: #fcbc91;
     border-radius: 20px;
     margin-top: 5%;
+    padding-bottom: 2.5%;
     margin-bottom: 5%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -44,7 +46,6 @@
 .fishCardInfo {
     margin: auto;
     width: 80%;
-    background: #fca063;
     border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;

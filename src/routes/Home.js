@@ -2,6 +2,7 @@ import React from 'react';
 import "../css/Home.css";
 import { HomeNavBar } from '../components/Bars/HomeNavBar';
 import { SearchBar } from '../components/SearchBar/SearchBar';
+import Footer from '../components/Bars/Footer';
 
 export const Home = ({ getSearchTerm }) => {
     return (
@@ -10,6 +11,7 @@ export const Home = ({ getSearchTerm }) => {
             <div className='HomeSearchBar'>
                 <SearchBar getSearchTerm={getSearchTerm}/>
             </div>
+            <Footer />
         </>
     );
 }
