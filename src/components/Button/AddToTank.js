@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import './AddToTank.css'
+import add from "../../assets/add.png"
 
 const AddToTank = ({ fishData }) => {
 
@@ -64,7 +66,9 @@ const AddToTank = ({ fishData }) => {
 
     return (
         <div>
-            <button onClick={() => setDropdown(true)}>➕</button>
+            <button className="plusButton" onClick={() => setDropdown(true)}>
+                <img src={add} alt="Add To Tank"/>
+            </button>
             {dropdown && 
             <div>
                 <select onChange={(event) => setChooseTank(event.target.value)}>

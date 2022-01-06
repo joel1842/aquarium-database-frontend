@@ -1,0 +1,15 @@
+.plusButton {
+    border: none;
+    background: none;
+    -webkit-transition: transform 100ms ease-in-out;
+}
+
+.plusButton img {
+    width: 45px;
+    align-self: center;
+    filter: drop-shadow(0 1px 1px rgb(121, 121, 121));
+}
+
+.plusButton:hover {
+    transform: scale(1.2);
+}

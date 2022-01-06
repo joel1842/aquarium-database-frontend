@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import { useAuth0 } from "@auth0/auth0-react";
+import star from "../../assets/star.png"
 import './favoritesbutton.css'
 
 const FavoritesButton = ({fishData}) => {
@@ -24,7 +25,9 @@ const FavoritesButton = ({fishData}) => {
     }
 
 
-    return <button className='favButton'onClick={sendRequest}>💖</button>
+    return <button className='favButton'onClick={sendRequest}>
+                <img src={star} alt="Add Favorite"/>
+            </button>
 }
 
 export default FavoritesButton;

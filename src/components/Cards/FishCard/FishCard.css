@@ -1,12 +1,17 @@
 .fishCardBrowse {
     margin: auto;
     width: 350px;
-    background: #fcbc91;
-    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(250, 249, 249, 0.7) -24.94%, rgba(250, 249, 249, 0.1) 40%), #faa064;
+    border-radius: 30px;
     margin-top: 5%;
     padding-bottom: 2.5%;
     margin-bottom: 5%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    -webkit-transition: transform 100ms ease-in-out;
+}
+
+.fishCardBrowse:hover {
+    transform: scale(1.05); 
 }
 
 .fishCardPic {
@@ -22,9 +27,9 @@
     width: 90%;
     margin: auto;
     margin-top: 1vw;
-    background: #7cb6ab;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #4DC5AF;
+    box-shadow: 0px 3px 0px #46AE9B;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
 }
 
 .name {
@@ -32,6 +37,7 @@
     margin-top: 0;
     margin-bottom: 0;
     font-size: 28px;
+    text-shadow: 0px 2px 0px #DDDDDD;
 }
 
 .sciName {
@@ -41,18 +47,19 @@
     font-weight: 500;
     font-size: 20px;
     color: rgb(230, 230, 230);
+    text-shadow: 0px 2px 0px #c2c2c2;
 }
 
 .fishCardInfo {
     margin: auto;
     width: 80%;
-    border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 10px;
     margin-top: 1vw;
     margin-bottom: 1vw;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
+    border-radius: 20px;
+
 }
 
 .sizeContainer {
@@ -63,13 +70,15 @@
     font-size: 16px;
     margin-top: 0;
     margin-bottom: 0;
-    color: rgb(230, 230, 230);
+    color: rgb(238, 238, 238);
+    text-shadow: 0px 2px 0px #DDDDDD;
 }
 
 .fishSize {
     font-size: 24px;
     margin-top: 0;
     margin-bottom: 0;
+    text-shadow: 0px 2px 0px #DDDDDD;
 }
 
 .careContainer {
@@ -80,11 +89,13 @@
     font-size: 16px;
     margin-top: 0;
     margin-bottom: 0;
-    color: rgb(230, 230, 230);
+    color: rgb(238, 238, 238);
+    text-shadow: 0px 2px 0px #DDDDDD;
 }
 
 .fishCare {
     font-size: 24px;
     margin-top: 0;
     margin-bottom: 0;
+    text-shadow: 0px 2px 0px #DDDDDD;
 }

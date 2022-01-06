@@ -3,6 +3,8 @@ import FishCard from './FishCard';
 import './FishExpanded.css';
 import FavoritesButton from '../../Button/FavoritesButton';
 import AddToTank from '../../Button/AddToTank';
+import Thermometer from '../../../assets/thermometer.png'
+import star from "../../../assets/star.png"
 import { useAuth0 } from '@auth0/auth0-react';
 
 export const FishExpanded = ({fishData}) => {
@@ -13,28 +15,36 @@ export const FishExpanded = ({fishData}) => {
         <div className='fishCard'>
             <div className='fishHeader'>
                 <img className='fishImg'src={fishData.pic1} alt='Espes Rasbora'/>
-                <h1 className='fishName'>{fishData.name}</h1>
-                <h3 className='subName'>{fishData.scientificName}</h3>
-                {isAuthenticated && 
-                <div>
-                    <FavoritesButton fishData={fishData}/>
-                    <AddToTank fishData={fishData}/>
-                </div>}
+                <div className='fishTitle'>
+                    <div className="fishNames">
+                        <h1 className='fishName'>{fishData.name}</h1>
+                        <h3 className='subName'>{fishData.scientificName}</h3>
+                    </div>
+                    {isAuthenticated && 
+                    <div className="buttonGroup">
+                        <div className="fav">
+                            <FavoritesButton fishData={fishData}/>
+                        </div>
+                        <div className="add">
+                            <AddToTank fishData={fishData}/>
+                        </div>
+                    </div>}
+                </div>
             </div>
             <div className='fastFacts'>
-                <div className='temperament'>
-                    <h2>{fishData.temperament}</h2>
-                    <h1></h1>
-                </div>
-                <div className='parameters'>
-                    <h2>Water Parameters</h2>
-                    <p>Temperature: <b>{fishData.tempLowC}°C</b> - <b>{fishData.tempHighC}°C</b></p>
-                    <p>pH Level: <b>{fishData.phLevelLow}</b> - <b>{fishData.phLevelHigh}</b></p>
-                    <p>dH Level: <b>{fishData.dhLevelLow}°</b> - <b>{fishData.dhLevelHigh}°</b></p>
-                </div>
                 <div className='careLevel'>
                     <h2>Care level</h2>
                     <h1>{fishData.careLevel}</h1>
+                </div>
+                <div className='temperature'>
+                    <img className="thermometer" src={Thermometer}/>
+                    <h2 className="tempHead">Temperature</h2>
+                    <h1 className="tempC"><b>{fishData.tempLowC}°C</b> - <b>{fishData.tempHighC}°C</b></h1>
+                    <h2 className="tempF">({fishData.tempLowF}°f - {fishData.tempHighF}°f)</h2>
+                </div>
+                <div className='temperament'>
+                    <h2>Temperament</h2>
+                    <h1>{fishData.temperament}</h1>
                 </div>
             </div>
             <div className='fishInfo'>

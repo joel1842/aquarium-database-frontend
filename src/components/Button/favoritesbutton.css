@@ -1,5 +1,16 @@
 .favButton {
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 27px;
+    -webkit-transition: transform 100ms ease-in-out;
+}
+
+.favButton img {
+    width: 40px;
+    align-self: center;
+    filter: drop-shadow(0 1px 1px rgb(124, 124, 124));
+}
+
+.favButton:hover {
+    transform: scale(1.2); 
 }

@@ -6,112 +6,170 @@
     margin-top: 3%;
     margin-bottom: 3%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 60% 40%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .fishHeader {
     border-radius: 20px 0 0 20px;
+    align-self: center;
 }
 
 .fishImg {
-    margin-top: 75px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     width: 90%;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.fishTitle {
+    display: grid;
+    grid-template-areas: 
+        "name buttons";
+    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #4DC5AF;
+    box-shadow: 0px 3px 0px #46AE9B;
     border-radius: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    width: 85%;
+    margin: auto;
+}
+
+.fishNames {
+    grid-area: name;
 }
 
 .fishName { 
-    font-size: 40px;
-    margin-top: 10px;
+    font-size: 30px;
+    margin-top: 0;
     margin-bottom: 0;
+    margin-left: 15px;
+    text-align: start;
+    text-shadow: 0px 2px 0px #DDDDDD;
 }
 
 .subName {
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: 15px;
     color: rgb(231, 231, 231);
+    text-align: start;
+    text-shadow: 0px 2px 0px #c9c9c9;
+}
+
+.buttonGroup {
+    padding-top: 5px;
+    grid-area: buttons;
+    align-self: center;
+}
+
+.fav {
+    display: inline-flex;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+.add {
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.fastFacts {
+    width: 100%;
+    align-self: center;
 }
 
 .temperament {
     margin: auto;
-    margin-top: 10%;
-    background: rgb(170, 253, 170);
-    width: 75%;
-    border-radius: 20px;
-    padding: 5px;
+    width: 90%;
+    margin-top: 5%;
+    padding: 7px;
+    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #F693FF;
+    box-shadow: 0px 2px 0px #EE85FF;
+    border-radius: 30px;
 }
 
 .temperament h2 {
     margin-bottom: 5px;
+    font-size: 22px;
+    text-shadow: 0px 2px 0px #DDDDDD;
 }
 
 .temperament h1 {
     margin-top: 0;
     font-weight: 800;
+    font-size: 27px;
+    text-shadow: 0px 2px 0px #DDDDDD;
 }
 
-.fishFact {
-    margin: auto;
-    background: rgb(170, 227, 253);
-    width: 75%;
-    border-radius: 20px;
+.temperature {
     padding: 7px;
     padding-top: 20px;
+    margin: auto;
+    width: 90%;
     margin-top: 5%;
+    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #FF93AD;
+    box-shadow: 0px 2px 0px #E08FA2;
+    border-radius: 30px;
 }
 
-.infoSymbol {
-    vertical-align: middle;
-    display: inline;
+.thermometer {
     width: 30px;
-    margin-right: 5px;
-}
-
-.fishFact h2 {
-    font-size: 25px;
+    display: inline-flex;
     vertical-align: middle;
-    display: inline;
-    margin-left: 5px;
 }
 
-.fishFact p {
-    width: 85%;
-    margin: auto;
+.tempHead {   
+    font-size: 22px;
+    display: inline-flex;
+    vertical-align: middle;
+    text-shadow: 0px 2px 0px #DDDDDD;
+    margin: 0;
+}
+
+.tempC {
+    margin-top: 0;
+    text-shadow: 0px 2px 0px #DDDDDD;
+}
+
+.tempF {
+    margin-top: 0;
+    text-shadow: 0px 2px 0px #DDDDDD;
+}
+
+.temperature h1 {
+    font-size: 27px;
     margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.parameters {
-    margin: auto;
-    background: rgb(255, 147, 114);
-    width: 75%;
-    border-radius: 20px;
-    padding: 7px;
-    margin-top: 5%;
-}
-
-.parameters h2 {
-    margin-top: 10px;
+    margin-bottom: 5px;
+    text-shadow: 0px 2px 0px #DDDDDD;
 }
 
 .careLevel {
-    margin: auto;
-    background: rgb(197, 135, 255);
-    width: 75%;
-    border-radius: 20px;
     padding: 7px;
-    margin-top: 5%;
+    margin: auto;
+    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #85D700;
+    box-shadow: 0px 2px 0px #79C400;
+    border-radius: 30px;
+    width: 90%;
 }
 
 .careLevel h2 {
     margin-top: 10px;
     margin-bottom: 5px;
+    font-size: 22px;
+    text-shadow: 0px 2px 0px #DDDDDD;
 }
 
 .careLevel h1 {
     margin-top: 0;
     margin-bottom: 10px;
     font-weight: 800;
+    font-size: 27px;
+    text-shadow: 0px 2px 0px #DDDDDD;
 }
 
 .fishInfo {
