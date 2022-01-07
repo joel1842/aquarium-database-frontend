@@ -1,5 +1,5 @@
 import { StandardNavBar } from "../components/Bars/StandardNavBar"
-import { FishExpanded } from "../components/Cards/FishCard/fishCardExpanded"
+import { FishExpanded } from "../components/Cards/FishCard/FishCardExpanded"
 import Footer from "../components/Bars/Footer"
 
  export const FishPage = ({fishData, tanks}) => {

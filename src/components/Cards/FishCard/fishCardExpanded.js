@@ -48,8 +48,9 @@ export const FishExpanded = ({ fishData, tanks }) => {
                 </div>
             </div>
             <div className='fishInfo'>
-                <div className='infoHeader'>
-                    <h2>Fish Information</h2>
+                <div>
+                    <h3>Origin</h3>
+                    <p>{fishData.origin}</p>
                 </div>
                 <div>
                     <h3>Size</h3>
@@ -60,20 +61,16 @@ export const FishExpanded = ({ fishData, tanks }) => {
                     <p>{fishData.dietType}</p>
                 </div>
                 <div>
-                    <h3>Origin</h3>
-                    <p>{fishData.origin}</p>
-                </div>
-                <div>
-                    <h3>Minimum Tank Size</h3>
-                    <p><b>{fishData.tankSizeL} L</b> ({fishData.tankSizeG} G)</p>
-                </div>
-                <div>
-                    <h3>Plants?</h3>
-                    <p>{fishData.plants}</p>
+                    <h3>Tank Size</h3>
+                    <p><b>{fishData.tankSizeL} L </b> ({fishData.tankSizeG} G)</p>
                 </div>
                 <div>
                     <h3>Lifespan</h3>
                     <p>{fishData.lifespan} years</p>
+                </div>
+                <div>
+                    <h3>Plants?</h3>
+                    <p>{fishData.plants}</p>
                 </div>
             </div>    
         </div>

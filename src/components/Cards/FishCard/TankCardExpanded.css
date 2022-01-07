@@ -1,12 +1,24 @@
+.tankCardContainer {
+    display: grid;
+    grid-template-areas: 
+    "header fishlist";
+}
+
 .tankHeadContainer {
-    background: #fca063;
-    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(250, 249, 249, 0.7) -24.94%, rgba(250, 249, 249, 0.1) 40%), #faa064;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
     width: 400px;
     margin: auto;
+    grid-area: header;
+}
+
+.myTankTank {
+    width: 300px;
 }
 
 .tankHeader {
-    padding-top: 20px;
+    margin-top: 0;
     margin-bottom: 5px;
     font-size: 45px;	
     text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
@@ -22,12 +34,14 @@
 }
 
 .fishPic {
-    width: 300px;
+    width: 160px;
+    max-height: 100px;
     border-radius: 20px;
 }
 
 .tankFishName {
-    font-size: 30px;
+    font-family: poppins;
+    font-size: 20px;
     margin-top: 5px;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
@@ -44,9 +58,21 @@
     margin: auto;
     margin-bottom: 20px;
     box-shadow: 0 3px 3px rgba(0,0,0,0.3);
+    font-family: poppins;
 }
 
 .deleteTank:hover {
     background: #7ed1cd;
     cursor: pointer;
+}
+
+.myFishCard {
+    background: linear-gradient(173.26deg, rgba(250, 249, 249, 0.7) -31.63%, rgba(250, 249, 249, 0.1) 94.73%), #4DC5AF;
+    box-shadow: 0px 4px 0px #34A590;
+    border-radius: 40px;
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    grid-area: fishlist;
+    margin-right: 400px;
 }

@@ -3,6 +3,7 @@
     background: #fcbc91;
     border-radius: 20px;
     width: 60%;
+    max-width: 800px;
     margin-top: 3%;
     margin-bottom: 3%;
     display: grid;
@@ -79,6 +80,8 @@
 }
 
 .fastFacts {
+    padding-top: 5%;
+    padding-right: 5%;
     width: 100%;
     align-self: center;
 }
@@ -176,13 +179,15 @@
     grid-column: 1/4;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background: rgb(170, 227, 253);
-    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #EE6C4D;
+    box-shadow: 0px 4px 0px #BB4E34;
+    border-radius: 25px;
     width: 80%;
     margin: auto;
     padding-bottom: 10px;
-    margin-top: 2%;
+    margin-top: 4%;
     margin-bottom: 3%;
+    font-family: poppins;
 }
 
 .infoHeader {

@@ -4,6 +4,7 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../../../routes/Loading";
 import { StandardNavBar } from "../../../components/Bars/StandardNavBar";
 import DeleteTankButton from "../../Button/DeleteTankButton";
+import aquarium from "../../../assets/aquarium.png"
 
 const TankCardExpanded = ({tank, deleteSwitch}) => {
 
@@ -48,22 +49,27 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
         <div>
             <StandardNavBar />
 
-            <div className="tankHeadContainer">
-                <h1 className="tankHeader">{tank.tankName}</h1>
-                <h2 className="tankSize">{tank.tankSize} {tank.unit}</h2>
-                <DeleteTankButton tank={tank} deleteSwitch={deleteSwitch}/>
+            <div className="tankCardContainer">
+                <div className="tankHeadContainer">
+                    <img className="myTankTank" src={aquarium} alt="tank"/>
+                    <h1 className="tankHeader">{tank.tankName}</h1>
+                    <h2 className="tankSize">{tank.tankSize} {tank.unit}</h2>
+                    <DeleteTankButton tank={tank} deleteSwitch={deleteSwitch}/>
+                </div>
+
+                <div className="myFishCard">
+                    <h2>My Fish</h2>
+
+                    {fishies && fishies.map((fish, index) => {
+                        return(
+                            <div className="tankFish">
+                                <img className="fishPic" src={fish.pic} alt={fish.name} />
+                                <h3 className="tankFishName">{fish.name}</h3>
+                            </div> 
+                        )
+                    })}
+                </div>
             </div>
-
-            <h2>My Fish</h2>
-
-            {fishies && fishies.map((fish, index) => {
-                return(
-                    <div className="tankFish">
-                        <img className="fishPic" src={fish.pic} alt={fish.name} />
-                        <h3 className="tankFishName">{fish.name}</h3>
-                    </div> 
-                )
-            })}
         </div>
     )
 }
