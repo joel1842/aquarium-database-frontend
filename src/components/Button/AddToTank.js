@@ -3,38 +3,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import './AddToTank.css'
 import add from "../../assets/add.png"
 
-const AddToTank = ({ fishData }) => {
+const AddToTank = ({ fishData, tanks }) => {
 
-    const { user } = useAuth0()
-
-    const [tanks, setTanks] = useState();
-
-    useEffect(() => {
-
-        const data = {
-            user: user.email
-        }
-
-        fetch('http://localhost:3001/mytanks', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(data)
-        }).then((res) => {
-            if (res.ok) {
-                return res.json();
-            }
-        }).then(jsonResponse => {
-            if(jsonResponse.length >= 1) {
-                setTanks(jsonResponse)
-            } else {
-                setTanks()
-                console.log("No tanks!")
-            }
-        })
-
-    }, [])
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0()
 
     const [dropdown, setDropdown] = useState(false);
 
@@ -43,25 +14,34 @@ const AddToTank = ({ fishData }) => {
     useEffect(() => {
         if (tanks) {
             setChooseTank(tanks[0].tankName)
+            console.log("tanks defined ")
         }
     }, [tanks])
 
-    const sendRequest = () => {
+    const sendRequest = async () => {
 
-        const data = {
-            user: user.email,
-            tank: chooseTank,
-            pic: fishData.pic1,
-            name: fishData.name
+        try {
+
+            const token = await getAccessTokenSilently()
+
+            const data = {
+                user: user.email,
+                tank: chooseTank,
+                pic: fishData.pic1,
+                name: fishData.name
+            }
+    
+            fetch('http://localhost:3001/addfish', {
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            });
+        } catch (error) {
+            console.error()
         }
-
-        fetch('http://localhost:3001/addfish', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(data)
-        });
     }
 
     return (

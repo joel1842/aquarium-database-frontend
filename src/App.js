@@ -18,7 +18,7 @@ import TankCardExpanded from './components/Cards/FishCard/TankCardExpanded';
 
 const App = () => {
 
-  const { user, isAuthenticated } = useAuth0();
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
   const [fishAPI, setFishAPI] = useState()
 
@@ -53,32 +53,41 @@ const App = () => {
     }
   }
 
+  const catchTanks = async() => {
+    try {
+
+        const token = await getAccessTokenSilently();
+        const data = {
+            user: user.email
+        }
+
+        const response = await fetch('http://localhost:3001/mytanks', {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(data)
+        })
+        const responseData = await response.json()
+
+        if (responseData.length >= 1) {
+            setTanks(responseData)
+            console.log("Caught Tanks!")
+        } else {
+            setTanks()
+            console.log("No tanks!")
+        }
+
+    } catch (error) {
+        console.error()
+    }
+}
+
   useEffect(() => {
 
     if (isAuthenticated) {
-
-      const data = {
-          user: user.email
-      }
-
-      fetch('http://localhost:3001/mytanks', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json;charset=utf-8'
-          },
-          body: JSON.stringify(data)
-      }).then((res) => {
-          if (res.ok) {
-              return res.json();
-          }
-      }).then(jsonResponse => {
-          if(jsonResponse.length >= 1) {
-              setTanks(jsonResponse)
-          } else {
-              setTanks()
-              console.log("No tanks!")
-          }
-      })
+       catchTanks()
     }
 
   }, [isAuthenticated, create, deleteTank])
@@ -94,7 +103,7 @@ const App = () => {
   if (fishAPI) {
     return (
         <Routes>
-          {fishAPI.map((fishData, index) => {
+          {tanks && fishAPI.map((fishData, index) => {
 
             let fishName = fishData.name
             fishName = fishName.replace(/\s+/g, '')
@@ -103,7 +112,7 @@ const App = () => {
 
             let path = "/browse/" + fishName
 
-            return <Route exact path={path} element={<FishPage fishData={fishData}/>} key={index} />
+            return <Route exact path={path} element={<FishPage tanks={tanks} fishData={fishData}/>} key={index} />
           })}
           
           {tanks && tanks.map((tank, index) => {

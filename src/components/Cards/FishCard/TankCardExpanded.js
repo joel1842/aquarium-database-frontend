@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "./TankCardExpanded.css";
-import { withAuthenticationRequired } from "@auth0/auth0-react";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../../../routes/Loading";
 import { StandardNavBar } from "../../../components/Bars/StandardNavBar";
 import DeleteTankButton from "../../Button/DeleteTankButton";
@@ -8,32 +8,40 @@ import DeleteTankButton from "../../Button/DeleteTankButton";
 const TankCardExpanded = ({tank, deleteSwitch}) => {
 
     const [fishies, setFishies] = useState();
+    const {getAccessTokenSilently} = useAuth0()
 
-    useEffect(() => {
-
-        const data = {
-            tank: tank.tankName
-        }
-
-        fetch('http://localhost:3001/myfish', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(data)
-        }).then((res) => {
-            if (res.ok) {
-                return res.json();
+    const catchMyFish = async () => {
+        try {
+            
+            const token = await getAccessTokenSilently()
+            const data = {
+                tank: tank.tankName
             }
-        }).then(jsonResponse => {
-            if(jsonResponse.length >= 1) {
-                setFishies(jsonResponse)
+
+            const response = await fetch('http://localhost:3001/myfish', {
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            })
+            const responseData = await response.json()
+ 
+            if (responseData.length >= 1) {
+                setFishies(responseData)
+                console.log("Caught your fishies!")
             } else {
-                setFishies()
                 console.log("No fishies!")
             }
-        })
+            
+        } catch (error) {
+            console.error()
+        }
+    }
 
+    useEffect(() => {
+        catchMyFish()
     }, [])
 
     return(

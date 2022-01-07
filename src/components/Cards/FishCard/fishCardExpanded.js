@@ -7,7 +7,7 @@ import Thermometer from '../../../assets/thermometer.png'
 import star from "../../../assets/star.png"
 import { useAuth0 } from '@auth0/auth0-react';
 
-export const FishExpanded = ({fishData}) => {
+export const FishExpanded = ({ fishData, tanks }) => {
 
     const {isAuthenticated} = useAuth0();
 
@@ -26,7 +26,7 @@ export const FishExpanded = ({fishData}) => {
                             <FavoritesButton fishData={fishData}/>
                         </div>
                         <div className="add">
-                            <AddToTank fishData={fishData}/>
+                            <AddToTank fishData={fishData} tanks={tanks}/>
                         </div>
                     </div>}
                 </div>

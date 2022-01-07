@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import { FavCard } from "../../components/Cards/FishCard/FavCard";
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
-import { withAuthenticationRequired } from "@auth0/auth0-react";
 import Footer from "../../components/Bars/Footer";
 import Loading from "../Loading";
 import './FavList.css';
@@ -16,40 +15,33 @@ const FavList = ({ getSearchTerm }) => {
         setDeleted(true);
     }
 
-    const callFavs = async () => {
+    const catchFavs = async () => {
         try {
-
             const token = await getAccessTokenSilently();
             const data = {
                 user: user.email
             }
 
-            const response = await fetch('http://localhost:3001/favlist', {
-                method: 'POST',
+            const response = await fetch('http://localhost:3001/favList', {
+                method: 'POST',    
                 headers: {
-                    'Content-Type': 'application/json;charset=utf-8',
-                    'Authorization': `Bearer ${token}`
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json; charset=UTF-8"
                 },
                 body: JSON.stringify(data)
-                }).then((res) => {
-                    if (res.ok) {
-                        return res.json();
-                    }
-                }).then(jsonResponse => {
-                    setUserFavs(jsonResponse)
-                })  
-
-                setDeleted(false)
-
-        } catch {
-            console.error()
+            });
+            const responseData = await response.json()
+            setUserFavs(responseData)
+        } catch (error) {
+            console.log(error);
         }
     }
 
     useEffect(() => {
 
         if (isAuthenticated) {
-            callFavs()
+            catchFavs()
+            setDeleted(false)
         }
 
     }, [isAuthenticated, deleted])

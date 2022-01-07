@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const CreateTank = ({ createSwitch }) => {
 
-    const { user, isAuthenticated } = useAuth0();
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
     const [start, setStart] = useState(true);
     const [create, setCreate] = useState(false);
@@ -33,7 +33,9 @@ const CreateTank = ({ createSwitch }) => {
         }
     }
     
-    const sendRequest = () => {
+    const sendRequest = async () => {
+
+        const token = await getAccessTokenSilently()
 
         const data = {
             user: user.email,
@@ -45,6 +47,7 @@ const CreateTank = ({ createSwitch }) => {
         fetch('http://localhost:3001/createtank', {
             method: 'POST',
             headers: {
+                Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify(data)
