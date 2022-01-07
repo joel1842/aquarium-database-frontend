@@ -8,7 +8,7 @@ import Loading from "../Loading";
 import './FavList.css';
 
 const FavList = ({ getSearchTerm }) => {
-    const { user, isAuthenticated } = useAuth0()
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0()
     const [userFavs, setUserFavs] = useState()
     const [deleted, setDeleted] = useState(false)
 
@@ -16,30 +16,40 @@ const FavList = ({ getSearchTerm }) => {
         setDeleted(true);
     }
 
-    useEffect(() => {
+    const callFavs = async () => {
+        try {
 
-        if (isAuthenticated) {
+            const token = await getAccessTokenSilently();
             const data = {
                 user: user.email
             }
 
-            console.log(data)
-
-            fetch('http://localhost:3001/favlist', {
+            const response = await fetch('http://localhost:3001/favlist', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
+                    'Content-Type': 'application/json;charset=utf-8',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(data)
-            }).then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-            }).then(jsonResponse => {
-                setUserFavs(jsonResponse)
-            })
+                }).then((res) => {
+                    if (res.ok) {
+                        return res.json();
+                    }
+                }).then(jsonResponse => {
+                    setUserFavs(jsonResponse)
+                })  
 
-            setDeleted(false)
+                setDeleted(false)
+
+        } catch {
+            console.error()
+        }
+    }
+
+    useEffect(() => {
+
+        if (isAuthenticated) {
+            callFavs()
         }
 
     }, [isAuthenticated, deleted])
