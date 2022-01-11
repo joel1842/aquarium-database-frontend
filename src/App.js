@@ -128,6 +128,7 @@ const App = () => {
             return <Route exact path={path} element={<TankCardExpanded tank={tank} deleteSwitch={deleteSwitch}/>} key={index} />
           })}
 
+          <Route exact path="/loading" element={<Loading/>}></Route>
           <Route exact path="/compatibility" element={<Compatibility/>}></Route>
           <Route exact path="/tank" element={<Tank getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/about" element={<About/>}></Route>

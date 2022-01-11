@@ -1,0 +1,10 @@
+.deleteTank {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #89B0AE;
+    box-shadow: 0px 3px 0px #6C9492;
+    border-radius: 30px;
+}
+
+.deleteTank:hover {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #7ed1cd;
+    cursor: pointer;
+}

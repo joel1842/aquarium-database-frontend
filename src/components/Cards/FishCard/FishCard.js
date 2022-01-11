@@ -1,6 +1,5 @@
 import React from "react";
 import './FishCard.css';
-import Star from "../../../assets/star.png"
 import { useAuth0 } from "@auth0/auth0-react";
 
 const FishCard = ({ fishData }) => {

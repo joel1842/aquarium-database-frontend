@@ -1,8 +1,9 @@
 .favCard {
-    background: #fcbc91;
     width: 35%;
     margin: auto;
-    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(250, 249, 249, 0.7) -24.94%, rgba(250, 249, 249, 0.1) 40%), #faa064;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
     margin-top: 20px;
     display: grid;
     grid-template-columns: 250px 1fr;
@@ -22,8 +23,9 @@
 
 .nameContainer {
     grid-area: name;
-    background: #fca063;
-    border-radius: 20px;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #4DC5AF;
+    box-shadow: 0px 3px 0px #46AE9B;
+    border-radius: 25px;
     margin: 20px;
     margin-top: 25px;
     margin-left: 25px;

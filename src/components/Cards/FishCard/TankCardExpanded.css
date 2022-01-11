@@ -8,9 +8,17 @@
     background: linear-gradient(180deg, rgba(250, 249, 249, 0.7) -24.94%, rgba(250, 249, 249, 0.1) 40%), #faa064;
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
-    width: 400px;
+    width: 600px;
     margin: auto;
+    margin-right: 20px;
     grid-area: header;
+    display: grid;
+    grid-template-areas: 
+    "info health";
+}
+
+.quickInfo {
+    grid-area: info;
 }
 
 .myTankTank {
@@ -34,15 +42,23 @@
 }
 
 .fishPic {
-    width: 160px;
-    max-height: 100px;
+    width: 100px;
+    max-height: 70px;
     border-radius: 20px;
+    display: inline-flex;
+    vertical-align: middle;
+
 }
 
 .tankFishName {
+    max-width: 40px;
+    vertical-align: middle;
     font-family: poppins;
     font-size: 20px;
+    display: inline-flex;
     margin-top: 5px;
+    margin-left: 15px;
+    margin-right: 70px;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
 
@@ -66,13 +82,78 @@
     cursor: pointer;
 }
 
+.quickHealth {
+    grid-area: health;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tempCard {
+    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #FF93AD;
+    box-shadow: 0px 2px 0px #E08FA2;
+    border-radius: 30px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 3px;
+}
+
+.tempCard h2 {
+    margin-bottom: 10px;
+}
+
+.tempCard p {
+    font-size: 27px;
+    margin-top: 10px;
+}
+
+.healthCard {
+    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #85D700;
+    box-shadow: 0px 2px 0px #73BA01;
+    border-radius: 30px;
+    width: 90%;
+    margin: auto;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+.healthCard h2 {
+    margin-bottom: 10px;
+}
+
+.healthCard p {
+    font-size: 27px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.phCard {
+    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #71BDB8;
+    box-shadow: 0px 2px 0px #58A6A1;
+    border-radius: 30px;
+    width: 90%;
+    margin: auto;
+    padding: 3px;
+}
+
+.phCard h2 {
+    margin-bottom: 10px;
+}
+
+.phCard p {
+    font-size: 27px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
 .myFishCard {
     background: linear-gradient(173.26deg, rgba(250, 249, 249, 0.7) -31.63%, rgba(250, 249, 249, 0.1) 94.73%), #4DC5AF;
     box-shadow: 0px 4px 0px #34A590;
     border-radius: 40px;
-    width: 50%;
+    width: 60%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 40px;
     grid-area: fishlist;
     margin-right: 400px;
+    padding-bottom: 20px;
 }

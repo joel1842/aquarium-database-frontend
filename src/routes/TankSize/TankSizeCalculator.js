@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './tanksize.css';
+import aquarium from "../../assets/aquarium.png"
 
 const TankSizeCalculator = () => {
 
@@ -120,10 +121,12 @@ const TankSizeCalculator = () => {
             </div>
 
             <div className="inputContainer">
+
                 <div className='subHeaderContainer'>
                     <h2 className='subHeader'>Calculate Tank Size in {outputString}</h2>
                     <button onClick={unitSwitch}>Use {unitString}</button>
                 </div>
+
                 <div className="selectContainer">
                     <label className="selectHeader">Choose tank shape:</label>
                     <select className="tankShapes" name="tankShapes" onChange={tankSwitch}>
@@ -132,35 +135,40 @@ const TankSizeCalculator = () => {
                         <option value="Bow Front">Bow Front</option>
                         <option value="Cylinder">Cylinder</option>
                     </select>
+                    <img className="tankPic" src={aquarium} alt="tank shape"/>
                 </div>
-                {cylinder ? null : 
-                <div>
-                    <input className="length" type="number" placeholder="Length" onChange={(event) => {
-                        setLength(event.target.value);
-                    }}></input>
-                    <h2 className='unit'>{unit}</h2>
-                </div>}
-                {cube ? null :
-                <div>
-                    <input className="height" type="number" placeholder="Width" onChange={(event) => {
-                        setWidth(event.target.value);
-                    }}></input>
-                    <h2 className='unit'>{unit}</h2>
-                </div>}
-                {cube ? null : 
-                <div>
-                    <input className="depth" type="number" placeholder="Depth" onChange={(event) => {
-                        setDepth(event.target.value);
-                    }}></input>
-                    <h2 className='unit'>{unit}</h2>
-                </div>}
-                {(rectangular || cube || cylinder) ? null : 
-                <div>
-                    <input className="fullWidth" type="number" placeholder="Full Width" onChange={(event) => {
-                        setFullWidth(event.target.value);
-                    }}></input>
-                    <h2 className='unit'>{unit}</h2>
-                </div>}
+
+                <div className="sizeInputs">
+                    {cylinder ? null : 
+                    <div>
+                        <input className="length" type="number" placeholder="Length" onChange={(event) => {
+                            setLength(event.target.value);
+                        }}></input>
+                        <h2 className='unit'>{unit}</h2>
+                    </div>}
+                    {cube ? null :
+                    <div>
+                        <input className="height" type="number" placeholder="Width" onChange={(event) => {
+                            setWidth(event.target.value);
+                        }}></input>
+                        <h2 className='unit'>{unit}</h2>
+                    </div>}
+                    {cube ? null : 
+                    <div>
+                        <input className="depth" type="number" placeholder="Depth" onChange={(event) => {
+                            setDepth(event.target.value);
+                        }}></input>
+                        <h2 className='unit'>{unit}</h2>
+                    </div>}
+                    {(rectangular || cube || cylinder) ? null : 
+                    <div>
+                        <input className="fullWidth" type="number" placeholder="Full Width" onChange={(event) => {
+                            setFullWidth(event.target.value);
+                        }}></input>
+                        <h2 className='unit'>{unit}</h2>
+                    </div>}
+                </div>
+
                 <div className="outputContainer">
                     <button onClick={getVolume}>Calculate Volume!</button>
                     {tankVolume && 
@@ -168,6 +176,7 @@ const TankSizeCalculator = () => {
                          <h1><b>{tankVolume.toFixed(2)}</b> {outputString}</h1>
                     </div>}
                 </div>
+
             </div>
         </div>
     )

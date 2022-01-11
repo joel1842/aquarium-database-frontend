@@ -1,0 +1,28 @@
+.loadingContainer {
+    width: 70%;
+    margin: auto;
+    margin-top: 15%;
+}
+
+.catching {
+    display: inline-flex;
+    vertical-align: middle;
+    font-weight: 900;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 32px;
+    text-shadow: 0px 2px 0px #DDDDDD;
+
+}
+
+.loading {
+    display: inline-flex;
+    margin: auto;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+.subCatching {
+    margin-top: 10px;
+    text-shadow: 0px 2px 0px #DDDDDD;
+}
