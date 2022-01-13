@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import './tanksize.css';
 import aquarium from "../../assets/aquarium.png"
+import rectanglePic from "../../assets/rectangle.png"
+import cubePic from "../../assets/cube.png"
+import bowfrontPic from "../../assets/bowfront.png"
+import cylinderPic from "../../assets/cylinder.png"
 
 const TankSizeCalculator = () => {
+
+    const [tankPic, setTankPic] = useState(rectanglePic);
 
     const [length, setLength] = useState();
     const [width, setWidth] = useState();
@@ -26,21 +32,25 @@ const TankSizeCalculator = () => {
 
         console.log(tankType)
         if (tankType === "Rectangular") {
+            setTankPic(rectanglePic)
             setRectangular(true);
             setCube(false);
             setBowFront(false);
             setCylinder(false);
         } else if (tankType === "Cube") {
+            setTankPic(cubePic)
             setRectangular(false);
             setCube(true);
             setBowFront(false);
             setCylinder(false);
         } else if (tankType === "Bow Front") {
+            setTankPic(bowfrontPic)
             setRectangular(false);
             setCube(false);
             setBowFront(true);
             setCylinder(false);
         } else if (tankType === "Cylinder") {
+            setTankPic(cylinderPic)
             setRectangular(false);
             setCube(false);
             setBowFront(false);
@@ -135,7 +145,7 @@ const TankSizeCalculator = () => {
                         <option value="Bow Front">Bow Front</option>
                         <option value="Cylinder">Cylinder</option>
                     </select>
-                    <img className="tankPic" src={aquarium} alt="tank shape"/>
+                    <img className="tankPic" src={tankPic} alt="tank shape"/>
                 </div>
 
                 <div className="sizeInputs">

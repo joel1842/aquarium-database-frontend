@@ -1,11 +1,11 @@
 .FilterButton {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%), #DCDCDC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: none;
-    background: #eeeeee;
     border-radius: 25px;
     margin-left: 5px;
     margin-right: 5px;
     padding: 5px;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.3);
 }
 
 .FilterButton:hover {
