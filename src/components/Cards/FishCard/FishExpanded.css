@@ -11,6 +11,16 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.back {
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-family: Poppins;
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-left: 250px;
+}
+
 .fishHeader {
     border-radius: 20px 0 0 20px;
     align-self: center;

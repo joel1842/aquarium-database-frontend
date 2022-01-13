@@ -13,6 +13,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
 
     return(
         <div className='fishCard'>
+            
             <div className='fishHeader'>
                 <img className='fishImg'src={fishData.pic1} alt='Espes Rasbora'/>
                 <div className='fishTitle'>
@@ -32,6 +33,9 @@ export const FishExpanded = ({ fishData, tanks }) => {
                 </div>
             </div>
             <div className='fastFacts'>
+                <a href="/browse">
+                    <button className="back" title="Go Back!">❌</button>
+                </a>
                 <div className='careLevel'>
                     <h2>Care level</h2>
                     <h1>{fishData.careLevel}</h1>

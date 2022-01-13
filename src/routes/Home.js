@@ -8,12 +8,14 @@ import Footer from '../components/Bars/Footer';
 export const Home = ({ getSearchTerm }) => {
     return (
         <>
-            <MobileMenu/>
-            <HomeNavBar />
-            <div className='HomeSearchBar'>
-                <SearchBar getSearchTerm={getSearchTerm}/>
+            {/* <MobileMenu/> */}
+            <div>
+                <HomeNavBar />
+                <div className='HomeSearchBar'>
+                    <SearchBar getSearchTerm={getSearchTerm} />
+                </div>
+                <Footer />
             </div>
-            <Footer />
         </>
     );
 }

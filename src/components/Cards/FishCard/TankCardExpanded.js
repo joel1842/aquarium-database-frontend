@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 import "./TankCardExpanded.css";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../../../routes/Loading";
@@ -89,10 +90,12 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
 
                     {fishies && fishies.map((fish, index) => {
                         return(
-                            <div className="tankFish">
-                                <img className="fishPic" src={fish.pic} alt={fish.name} />
-                                <h3 className="tankFishName">{fish.name}</h3>
-                            </div> 
+                            <Link to={fish.link} key={index}>
+                                <div className="tankFish">
+                                    <img className="fishPic" src={fish.pic} alt={fish.name} />
+                                    <h3 className="tankFishName">{fish.name}</h3>
+                                </div> 
+                            </Link>
                         )
                     })}
                 </div>

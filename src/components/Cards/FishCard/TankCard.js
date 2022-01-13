@@ -8,7 +8,7 @@ const TankCard = ({ tank }) => {
         <div className='tankCard'>
             <img className='tank' src={aquarium} alt="tank"/>
             <h2 className='cardTankName'>{tank.tankName}</h2>
-            <h3 className='cardTankSize'>{tank.tankSize} {tank.unit}</h3>
+            <h3 className='cardTankSize'>{tank.tankSize} {tank.unit} • {tank.tankType}</h3>
         </div>
     )
 }

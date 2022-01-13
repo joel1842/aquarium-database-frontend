@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import { FavCard } from "../../components/Cards/FishCard/FavCard";
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
@@ -18,17 +19,13 @@ const FavList = ({ getSearchTerm }) => {
     const catchFavs = async () => {
         try {
             const token = await getAccessTokenSilently();
-            const data = {
-                user: user.email
-            }
 
             const response = await fetch('http://localhost:3001/favList', {
-                method: 'POST',    
+                method: 'GET',    
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json; charset=UTF-8"
-                },
-                body: JSON.stringify(data)
+                }
             });
             const responseData = await response.json()
             setUserFavs(responseData)
@@ -53,7 +50,9 @@ const FavList = ({ getSearchTerm }) => {
             <h1 className='favHeader'>My Favorites</h1>
             {!isAuthenticated && <p>Catching your favorite fish...</p>}
             {isAuthenticated && userFavs && userFavs.map((userData, index) => (
+            <Link to={userData.link} key={index}>
                 <FavCard userData={userData} deleteFish={deleteFish} key={index}/>
+            </Link>
             ))}
             <Footer />
         </div>

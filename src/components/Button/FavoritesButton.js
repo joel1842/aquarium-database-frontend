@@ -5,13 +5,15 @@ import './favoritesbutton.css'
 
 const FavoritesButton = ({fishData}) => {
     
-    const { user, getAccessTokenSilently } = useAuth0()
+    const { getAccessTokenSilently } = useAuth0()
 
     const data = {
-        user: user.email,
         pic: fishData.pic1,
-        name: fishData.name
+        name: fishData.name,
+        link: window.location.pathname
     }
+
+    
 
     const sendRequest = async () => {
         try {

@@ -5,7 +5,7 @@ import add from "../../assets/add.png"
 
 const AddToTank = ({ fishData, tanks }) => {
 
-    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0()
+    const { user, getAccessTokenSilently } = useAuth0()
 
     const [dropdown, setDropdown] = useState(false);
 
@@ -25,10 +25,10 @@ const AddToTank = ({ fishData, tanks }) => {
             const token = await getAccessTokenSilently()
 
             const data = {
-                user: user.email,
                 tank: chooseTank,
                 pic: fishData.pic1,
-                name: fishData.name
+                name: fishData.name,
+                link: window.location.pathname
             }
     
             fetch('http://localhost:3001/addfish', {
