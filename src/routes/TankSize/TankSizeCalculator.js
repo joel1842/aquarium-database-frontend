@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './tanksize.css';
-import aquarium from "../../assets/aquarium.png"
-import rectanglePic from "../../assets/rectangle.png"
+import rectanglePic from "../../assets/rectangular.png"
 import cubePic from "../../assets/cube.png"
 import bowfrontPic from "../../assets/bowfront.png"
 import cylinderPic from "../../assets/cylinder.png"
@@ -150,28 +149,28 @@ const TankSizeCalculator = () => {
 
                 <div className="sizeInputs">
                     {cylinder ? null : 
-                    <div>
+                    <div className="calcInputs">
                         <input className="length" type="number" placeholder="Length" onChange={(event) => {
                             setLength(event.target.value);
                         }}></input>
                         <h2 className='unit'>{unit}</h2>
                     </div>}
                     {cube ? null :
-                    <div>
+                    <div className="calcInputs">
                         <input className="height" type="number" placeholder="Width" onChange={(event) => {
                             setWidth(event.target.value);
                         }}></input>
                         <h2 className='unit'>{unit}</h2>
                     </div>}
                     {cube ? null : 
-                    <div>
+                    <div className="calcInputs">
                         <input className="depth" type="number" placeholder="Depth" onChange={(event) => {
                             setDepth(event.target.value);
                         }}></input>
                         <h2 className='unit'>{unit}</h2>
                     </div>}
                     {(rectangular || cube || cylinder) ? null : 
-                    <div>
+                    <div className="calcInputs">
                         <input className="fullWidth" type="number" placeholder="Full Width" onChange={(event) => {
                             setFullWidth(event.target.value);
                         }}></input>

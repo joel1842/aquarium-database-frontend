@@ -4,9 +4,11 @@
 }
 
 .newTank {
-    background: #fca063;
+
     border: none;
-    border-radius: 20px;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.04) 100%), #FF9B3F;
+    box-shadow: 0px 4px 0px #E6964C;
+    border-radius: 25px; 
     width: 10%;
     color: white;
     font-weight: 700;
@@ -14,11 +16,13 @@
     font-family: poppins;
     padding: 10px;
     margin: auto;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.3);
+
     grid-area: delete;
 }
 
 .newTank:hover {
-    background: #ffcba9;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.04) 100%), #ffb56f;
+    box-shadow: 0px 4px 0px #ebad73;
+    border-radius: 25px; 
     cursor: pointer;
 }

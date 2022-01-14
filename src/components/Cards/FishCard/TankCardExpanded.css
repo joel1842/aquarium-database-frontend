@@ -2,15 +2,19 @@
     display: grid;
     grid-template-areas: 
     "header fishlist";
+    margin: auto;
+    margin-top: 30px;
+    font-family: poppins;
 }
 
 .tankHeadContainer {
     background: linear-gradient(180deg, rgba(250, 249, 249, 0.7) -24.94%, rgba(250, 249, 249, 0.1) 40%), #faa064;
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
-    width: 600px;
+    width: 60%;
     margin: auto;
     margin-right: 20px;
+    padding: 2%;
     grid-area: header;
     display: grid;
     grid-template-areas: 
@@ -23,12 +27,13 @@
 
 .myTankTank {
     width: 300px;
+    margin-top: 5%;
 }
 
 .tankHeader {
     margin-top: 0;
     margin-bottom: 5px;
-    font-size: 45px;	
+    font-size: 35px;	
     text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
 
@@ -38,7 +43,13 @@
 }
 
 .tankFish {
-    margin-top: 20px;
+
+}
+
+.tankFish button {
+    border-radius: 30px;
+    border: none;
+    padding: 3px;
 }
 
 .fishPic {
@@ -94,8 +105,8 @@
     border-radius: 30px;
     width: 90%;
     margin: auto;
-    margin-bottom: 10px;
-    padding: 3px;
+    margin-bottom: 15px;
+    padding: 1px;
 }
 
 .tempCard h2 {
@@ -113,8 +124,8 @@
     border-radius: 30px;
     width: 90%;
     margin: auto;
-    padding: 3px;
-    margin-bottom: 10px;
+    padding: 1px;
+    margin-bottom: 15px;
 }
 
 .healthCard h2 {
@@ -133,7 +144,7 @@
     border-radius: 30px;
     width: 90%;
     margin: auto;
-    padding: 3px;
+    padding: 1px;
 }
 
 .phCard h2 {
@@ -150,10 +161,21 @@
     background: linear-gradient(173.26deg, rgba(250, 249, 249, 0.7) -31.63%, rgba(250, 249, 249, 0.1) 94.73%), #4DC5AF;
     box-shadow: 0px 4px 0px #34A590;
     border-radius: 40px;
-    width: 60%;
-    margin: auto;
-    margin-top: 40px;
+    width: 40%;
     grid-area: fishlist;
-    margin-right: 400px;
     padding-bottom: 20px;
+    justify-content: start;
+    margin-left: 30px;
+}
+
+.myFishHeader {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #AE9AFF;
+    box-shadow: 0px 4px 0px #A088FF;
+    border-radius: 30px;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }

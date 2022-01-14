@@ -3,12 +3,13 @@ import "./Footer.css"
 import linkedin from "../../assets/linkedin.png"
 import github from "../../assets/github.png"
 import cc from "../../assets/cclogo.png"
+import logo from "../../assets/fishopedialogo.png"
 
 const Footer = () => {
     return (
         <div className="footer">
             <div className="footerHead">
-                <h1>Fish-O-Pedia 🐟</h1>
+                <img className="footerLogo" src={logo} alt="Fish-O-Pedia"/>
             </div>
             <div className="footerNav">
                 <nav>

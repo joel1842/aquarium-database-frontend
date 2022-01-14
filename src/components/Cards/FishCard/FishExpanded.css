@@ -14,11 +14,12 @@
 .back {
     border: none;
     border-radius: 20px;
-    color: white;
+    background: #555B6E;
     font-family: Poppins;
     font-size: 20px;
     margin-bottom: 15px;
     margin-left: 250px;
+    padding: 5px;
 }
 
 .fishHeader {

@@ -4,14 +4,15 @@
 }
 
 .subHeaderContainer {
-    background: #fca063;
-    border-radius: 20px;
-    width: 90%;
+    width: 60%;
     padding: 10px;
     margin: auto;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     grid-area: header;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.04) 100%), #FF9B3F;
+    box-shadow: 0px 6px 0px #E6964C;
+    border-radius: 25px;
 }
 
 .subHeaderContainer button {
@@ -19,26 +20,31 @@
 }
 
 .subHeader {
+    font-family: Poppins;
     display: inline-block;
     vertical-align: middle;
     font-weight: 700;
     margin-right: 0.25em;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+
 }
 
 .inputContainer {
     display: grid;
+    grid-template-columns: 65% 35%;
     grid-template-areas: 
     "header header"
     "select input"
     "output output"
     ;
     background: #fcbc91;
-    width: 35%;
+    width: 50%;
     margin: auto;
-    border-radius: 20px;
     padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
+    background: linear-gradient(176.38deg, rgba(250, 249, 249, 0.49) -16.78%, rgba(250, 249, 249, 0.07) 97.03%), #FFAE78;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+
 }
 
 .inputContainer button {
@@ -57,13 +63,12 @@
 
 .inputContainer input {
     margin: auto;
-    margin-bottom: 1em;
     display: inline-block;
     height: 2.8em;
     font-size: 1.3em;
     font-family: Poppins;
     border: 1px solid grey;
-    width: 100px;
+    width: 60%;
     border-radius: 20px;
     background: #f1f1f1;
     text-align: center;
@@ -73,13 +78,12 @@
 
 .selectContainer {
     background: linear-gradient(180.09deg, rgba(255, 255, 255, 0.525) 0.07%, rgba(255, 255, 255, 0.225) 99.93%), #8CBAB8;
-    box-shadow: 0px 6px 0px #61978D;
+    box-shadow: 0px 4px 0px #74aca1;
     border-radius: 50px;
     grid-area: select;
+    width: 80%;
     padding: 10px;
-    vertical-align: middle;
-    margin-left: 15px;
-    margin-top: 10px;
+    margin: auto;
 }
 
 .selectHeader {
@@ -98,14 +102,23 @@
 }
 
 .tankPic {
-    height: 275px
+    width: 90%;
+    height: 90%
 }
 
 .sizeInputs {
     grid-area: input;
     width: 200px;
-    vertical-align: middle;
     margin-top: 10px;
+    align-self: center;
+}
+
+.calcInputs {
+    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.04) 100%), #FF9B3F;
+    box-shadow: 0px 6px 0px #E6964C;
+    border-radius: 25px;  
+    
+    margin-bottom: 1em;
 }
 
 .length {
@@ -131,25 +144,34 @@
 }
 
 .outputContainer button{
+
+    border: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #89B0AE;
+    box-shadow: 0px 3px 0px #6C9492;
+    border-radius: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 15px;
+
     font-weight: 700;
     font-family: poppins;
     font-size: 1em;
     color: white;
     border: none;
-    background: #89B0AE;
-    border-radius: 25px;
-    margin-left: 5px;
-    margin-right: 5px;
+
+
+
     margin-top: 5px;
     margin-bottom: 20px;
-    padding: 20px;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.3);
+
+
 }
 
 .result {
-    background: #fca063;
-    border-radius: 20px;
-    width: 50%;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.04) 100%), #FF9B3F;
+    box-shadow: 0px 6px 0px #E6964C;
+    border-radius: 25px;
+    width: 30%;
     padding: 20px;
     margin: auto;
     margin-bottom: 15px;

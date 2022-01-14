@@ -20,8 +20,12 @@
 
 .cardTankName {
     margin-bottom: 10px;
+    margin-right: 10px;
     grid-area: name;
     vertical-align: middle;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #4DC5AF;
+    box-shadow: 0px 3px 0px #46AE9B;
+    border-radius: 25px;
 }
 
 .cardTankSize {

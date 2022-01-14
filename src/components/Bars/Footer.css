@@ -2,7 +2,7 @@
     background-color: #FFD6BA;
     width: 100%;
     display: grid;
-    margin-top: 500px;
+    margin-top: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
     grid-template-areas: 
@@ -14,9 +14,9 @@
     align-self: center;
 }
 
-.footerHead h1 {
-    font-size: 26px;
-    font-weight: 800;
+.footerLogo {
+    width: 200px;
+    vertical-align: middle;
 }
 
 .footerNav {

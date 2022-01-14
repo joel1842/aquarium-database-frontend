@@ -6,11 +6,19 @@ import Loading from "../../../routes/Loading";
 import { StandardNavBar } from "../../../components/Bars/StandardNavBar";
 import DeleteTankButton from "../../Button/DeleteTankButton";
 import aquarium from "../../../assets/aquarium.png"
+import { DeleteTankFish } from "../../Button/DeleteTankFish";
+import e from "cors";
 
 const TankCardExpanded = ({tank, deleteSwitch}) => {
 
     const [fishies, setFishies] = useState();
     const {getAccessTokenSilently} = useAuth0()
+
+
+    const [deleteFish, setDeleteFish] = useState(false)
+    const updateFish = () => {
+        setDeleteFish(true)
+    }
 
     const catchMyFish = async () => {
         try {
@@ -44,7 +52,8 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
 
     useEffect(() => {
         catchMyFish()
-    }, [])
+        setDeleteFish(false)
+    }, [deleteFish])
 
     const ph = "7.0"
     const health = "Good 💪"
@@ -62,7 +71,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
                     <div className="quickInfo">
                         <img className="myTankTank" src={aquarium} alt="tank"/>
                         <h1 className="tankHeader">{tank.tankName}</h1>
-                        <h2 className="tankSize">{tank.tankSize} {tank.unit}</h2>
+                        <h2 className="tankSize">{tank.tankSize} {tank.unit} • {tank.tankType}</h2>
                         <DeleteTankButton tank={tank} deleteSwitch={deleteSwitch}/>
                     </div>
                     
@@ -86,16 +95,19 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
 
 
                 <div className="myFishCard">
-                    <h2>My Fish</h2>
+                    <div className="myFishHeader">
+                        <h2>My Fish</h2>
+                    </div>
 
                     {fishies && fishies.map((fish, index) => {
                         return(
-                            <Link to={fish.link} key={index}>
                                 <div className="tankFish">
-                                    <img className="fishPic" src={fish.pic} alt={fish.name} />
-                                    <h3 className="tankFishName">{fish.name}</h3>
+                                    <Link to={fish.link} key={index}>
+                                        <img className="fishPic" src={fish.pic} alt={fish.name} />
+                                        <h3 className="tankFishName">{fish.name}</h3>
+                                    </Link>
+                                    <DeleteTankFish fish={fish} updateFish={updateFish} />
                                 </div> 
-                            </Link>
                         )
                     })}
                 </div>
