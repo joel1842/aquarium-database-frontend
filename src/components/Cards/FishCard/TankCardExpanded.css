@@ -1,7 +1,9 @@
 .tankCardContainer {
     display: grid;
     grid-template-areas: 
-    "header fishlist";
+    "header fishlist"
+    "levels levels";
+    grid-template-columns: 55% 45%;
     margin: auto;
     margin-top: 30px;
     font-family: poppins;
@@ -18,8 +20,8 @@
     grid-area: header;
     display: grid;
     grid-template-areas: 
-    "info health"
-    "levels levels";
+    "info health";
+    grid-template-columns: 60% 40%;
 }
 
 .quickInfo {
@@ -27,7 +29,7 @@
 }
 
 .myTankTank {
-    width: 300px;
+    width: 70%;
     margin-top: 5%;
 }
 
@@ -183,29 +185,163 @@
 
 .tankLevelContainer {
     grid-area: levels;
+    background: linear-gradient(165.88deg, rgba(255, 255, 255, 0.3) -34.37%, rgba(255, 255, 255, 0.075) 99.31%), #EE6C4D;
+    box-shadow: 0px 3px 0px #E64A24;
+    border-radius: 30px;
+    width: 30%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 60px;
+
+}
+
+.tankLevelHeader {
+    grid-column: 1/4;
+}
+
+.tankLevelHeader h1 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 7px;
+    margin-right: 5px;
+}
+
+.tankLevelHeader h2 {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.tankLevelHeader img {
+    padding-top: 8px;
+    width: 6%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tankLevels {
+    background: linear-gradient(180deg, rgba(250, 249, 249, 0.5) 0%, rgba(250, 249, 249, 0.05) 100%), #98C1D9;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.tankLevels p {
+    font-size: 20px;
+}
+
+.newEntryButton {
+    background: radial-gradient(147.24% 111.72% at 50% -17.71%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #3D5A80;
+    box-shadow: 0px 2px 0px #2F4F79;
+    border-radius: 50px;
+    border: none;
+    padding: 5px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 20px;
+}
+
+.newEntryButton:hover {
+    background: radial-gradient(147.24% 111.72% at 50% -17.71%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #6685ad;
+    box-shadow: 0px 2px 0px #466fa3;
+}
+
+.newEntryButton h2 {
+    font-family: poppins;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.newEntryButton img {
+    width: 15%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.newEntryHead {
+    background: radial-gradient(147.24% 111.72% at 50% -17.71%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #3D5A80;
+    box-shadow: 0px 2px 0px #2F4F79;
+    border-radius: 50px 50px 0px 0px;
+    width: 90%;
+    margin: auto;
+}
+
+.newEntryHead h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px;
+}
+
+.newEntryContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: linear-gradient(180deg, rgba(250, 249, 249, 0.5) 0%, rgba(250, 249, 249, 0.05) 100%), #98C1D9;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 50px 50px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .tankLevelLabel {
     font-size: 1.3em;
     display: flex;
     flex-direction:column;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 .TankLevelInput {
     display:flex;
     flex-direction:column;
     margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     height: 2.8em;
-    font-size: 1.3em;
+    font-size: 1em;
     font-family: Poppins;
     border: 1px solid grey;
-    width: 60%;
+    width: 50%;
     border-radius: 20px;
     background: #f1f1f1;
     text-align: center;
     cursor: pointer;
     box-shadow: 0 2px 3px rgba(0,0,0,0.3)
+
+}
+
+.submitLevels {
+    grid-column: 1/4;
+    margin: auto;
+}
+
+.submitLevels button {
+    margin-top: 20px;
+    border: none;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: poppins;
+    font-size: 16px;
+    color: white;
+    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #3D5A80;
+    box-shadow: 0px 2px 0px #2F4F79;
+    border-radius: 30px;
+
+}
+
+.submitLevels button:hover {
+    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #6685ad;
+    box-shadow: 0px 2px 0px #466fa3;
 }

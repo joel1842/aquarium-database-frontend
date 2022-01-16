@@ -24,9 +24,9 @@ export const DeleteTankFish = ({ fish, updateFish }) => {
         }
     }
  
-    removeRequest().then(() => {
-        updateFish()
-    })
+    // removeRequest().then(() => {
+    //     updateFish()
+    // })
 
 
     return <button className="removeFish" onClick={removeRequest}>❌</button>

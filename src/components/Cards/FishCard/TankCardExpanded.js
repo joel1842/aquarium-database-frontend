@@ -7,13 +7,13 @@ import { StandardNavBar } from "../../../components/Bars/StandardNavBar";
 import DeleteTankButton from "../../Button/DeleteTankButton";
 import aquarium from "../../../assets/aquarium.png"
 import { DeleteTankFish } from "../../Button/DeleteTankFish";
-import e from "cors";
+import journal from "../../../assets/journal.png"
+import add from "../../../assets/add.png"
 
 const TankCardExpanded = ({tank, deleteSwitch}) => {
 
     const [fishies, setFishies] = useState();
     const {getAccessTokenSilently} = useAuth0()
-
 
     const [deleteFish, setDeleteFish] = useState(false)
     const updateFish = () => {
@@ -52,6 +52,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
 
     useEffect(() => {
         catchMyFish()
+        getLevels()
         setDeleteFish(false)
     }, [deleteFish])
 
@@ -60,13 +61,58 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
     const tempC = "27 C° "
     const tempF = "(80.6 f°)"
 
-
     const [ammonia, setAmmonia] = useState();
     const [nitrate, setNitrate] = useState();
     const [nitrite, setNitrite] = useState();
     const [phLevel, setPhLevel] = useState();
     const [alkalinity, setAlkalinity] = useState();
     const [dhLevel, setDhLevel] = useState();
+
+    const [newEntry, setNewEntry] = useState(false)
+
+    const submitLevels = async () => {
+        if (ammonia && nitrate && nitrite && phLevel) {
+            try {
+
+                const data = {
+                    ammonia: ammonia,
+                    nitrate: nitrate,
+                    nitrite: nitrite,
+                    phLevel: phLevel,
+                    alkalinity: alkalinity,
+                    dhLevel: dhLevel
+                }
+
+                const token = await getAccessTokenSilently()
+                const response = await fetch('http://localhost:3001/newentry', {
+                    method: 'POST',
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify(data)
+                })
+            } catch (error) {
+                console.error()
+            }
+            
+        }
+    }
+
+    const [levels, setLevels] = useState();
+
+    const getLevels = async () => {
+        const token = await getAccessTokenSilently()
+        const response = await fetch('http://localhost:3001/getjournal', {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+        })
+        const responseData = await response.json()
+        setLevels(responseData)
+    }
 
     return(
         <div>
@@ -98,78 +144,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
                         </div>
                     </div>
 
-                    <div className="tankLevelContainer">
-                        <div>
-                            <label className="tankLevelLabel" for="ammonia">Ammonia</label>
-                            <input 
-                            id="ammonia"
-                            className="TankLevelInput" 
-                            type="text"
-                            placeholder="Ammonia..." 
-                            onChange={(event) => {
-                            setAmmonia(event.target.value)}}
-                            />
-                        </div>
-                        <div>
-                            <label className="tankLevelLabel" for="nitrites">Nitrites</label>
-                            <input 
-                            id="nitrites"
-                            className="TankLevelInput" 
-                            type="text"
-                            placeholder="Nitrites..." 
-                            onChange={(event) => {
-                            setNitrite(event.target.value)}}
-                            />
-                        </div>
-                        <div>
-                            <label className="tankLevelLabel" for="nitrates">Nitrates</label>
-                            <input 
-                            id="nitrates"
-                            className="TankLevelInput" 
-                            type="text"
-                            placeholder="Nitrates..." 
-                            onChange={(event) => {
-                            setNitrate(event.target.value)}}
-                            />
-                        </div>
-                        <div>
-                            <label className="tankLevelLabel" for="ph">pH Level</label>
-                            <input 
-                            id="ph"
-                            className="TankLevelInput" 
-                            type="text"
-                            placeholder="pH Level..." 
-                            onChange={(event) => {
-                            setPhLevel(event.target.value)}}
-                            />
-                        </div>
-                        <div>
-                            <label className="tankLevelLabel" for="alkalinity">Alkalinity</label>
-                            <input 
-                            id="alkalinity"
-                            className="TankLevelInput" 
-                            type="text"
-                            placeholder="Alkalinity..." 
-                            onChange={(event) => {
-                            setAlkalinity(event.target.value)}}
-                            />
-                        </div>
-                        <div>
-                            <label className="tankLevelLabel" for="dh">dH Level</label>
-                            <input 
-                            id="dh"
-                            className="TankLevelInput" 
-                            type="text"
-                            placeholder="dH Level..." 
-                            onChange={(event) => {
-                            setDhLevel(event.target.value)}}
-                            />
-                        </div>
-                    </div>
                 </div>
-
-
-
 
                 <div className="myFishCard">
                     <div className="myFishHeader">
@@ -178,16 +153,139 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
 
                     {fishies && fishies.map((fish, index) => {
                         return(
-                                <div className="tankFish">
-                                    <Link to={fish.link} key={index}>
-                                        <img className="fishPic" src={fish.pic} alt={fish.name} />
-                                        <h3 className="tankFishName">{fish.name}</h3>
-                                    </Link>
-                                    <DeleteTankFish fish={fish} updateFish={updateFish} />
-                                </div> 
+                            <div className="tankFish">
+                                <Link to={fish.link} key={index}>
+                                    <img className="fishPic" src={fish.pic} alt={fish.name} />
+                                    <h3 className="tankFishName">{fish.name} x {fish.quantity}</h3>
+                                </Link>
+                                <DeleteTankFish fish={fish} />
+                            </div> 
                         )
                     })}
                 </div>
+
+                <div className="tankLevelContainer">
+                        <div className="tankLevelHeader">
+                            <img src={journal} alt="Tank Journal"/>
+                            <h1>Tank Journal</h1>
+                            {/* <h2>• tested 2 weeks ago</h2> */}
+                        </div>
+
+                        {levels && !newEntry &&
+                        <div className="tankLevels">
+                            <div>
+                                <h3>Ammonia</h3>
+                                <p>{levels[0].ammonia} ppm</p>
+                            </div>
+                            <div>
+                                <h3>Nitrites</h3>
+                                <p>{levels[0].nitrites} ppm</p>
+                            </div>
+                            <div>
+                                <h3>Nitrates</h3>
+                                <p>{levels[0].nitrates} ppm</p>
+                            </div>
+                            <div>
+                                <h3>pH Level</h3>
+                                <p>{levels[0].phLevel} pH</p>
+                            </div>
+                            <div>
+                                <h3>Alkalinity</h3>
+                                <p>{levels[0].alkalinity} ppm</p>
+                            </div>
+                            <div>
+                                <h3>dH Level</h3>
+                                <p>{levels[0].dhLevel} ppm</p>
+                            </div>
+                        </div>}
+
+                        {!newEntry &&
+                        <div>
+                            <button className="newEntryButton" onClick={() => setNewEntry(true)}>
+                                <h2>New Entry</h2>
+                                <img src={add} alt="New Entry!" />
+                            </button>
+                        </div>}
+                        {newEntry &&
+                        <div>
+                            <div className="newEntryHead">
+                                <h2>New Entry</h2>
+                            </div>
+                            <div className="newEntryContainer">
+                                <div>
+                                    <label className="tankLevelLabel" for="ammonia">Ammonia</label>
+                                    <input 
+                                    id="ammonia"
+                                    className="TankLevelInput" 
+                                    type="number"
+                                    placeholder="Ammonia..." 
+                                    onChange={(event) => {
+                                    setAmmonia(event.target.value)}}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="tankLevelLabel" for="nitrites">Nitrites</label>
+                                    <input 
+                                    id="nitrites"
+                                    className="TankLevelInput" 
+                                    type="number"
+                                    placeholder="Nitrites..." 
+                                    onChange={(event) => {
+                                    setNitrite(event.target.value)}}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="tankLevelLabel" for="nitrates">Nitrates</label>
+                                    <input 
+                                    id="nitrates"
+                                    className="TankLevelInput" 
+                                    type="number"
+                                    placeholder="Nitrates..." 
+                                    onChange={(event) => {
+                                    setNitrate(event.target.value)}}
+                                    />
+                                </div>
+                                
+                                <div>
+                                    <label className="tankLevelLabel" for="ph">pH Level</label>
+                                    <input 
+                                    id="ph"
+                                    className="TankLevelInput" 
+                                    type="number"
+                                    placeholder="pH Level..." 
+                                    onChange={(event) => {
+                                    setPhLevel(event.target.value)}}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="tankLevelLabel" for="alkalinity">Alkalinity</label>
+                                    <input 
+                                    id="alkalinity"
+                                    className="TankLevelInput" 
+                                    type="number"
+                                    placeholder="Alkalinity..." 
+                                    onChange={(event) => {
+                                    setAlkalinity(event.target.value)}}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="tankLevelLabel" for="dh">dH Level</label>
+                                    <input 
+                                    id="dh"
+                                    className="TankLevelInput" 
+                                    type="number"
+                                    placeholder="dH Level..." 
+                                    onChange={(event) => {
+                                    setDhLevel(event.target.value)}}
+                                    />
+                                </div>
+                                <div className="submitLevels">
+                                    <button onClick={submitLevels}>Submit Entry</button>
+                                </div>
+                            </div>
+                        </div>}
+                        
+                    </div>
 
             </div>
         </div>

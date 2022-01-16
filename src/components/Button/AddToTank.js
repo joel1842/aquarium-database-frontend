@@ -10,6 +10,7 @@ const AddToTank = ({ fishData, tanks }) => {
     const [dropdown, setDropdown] = useState(false);
 
     const [chooseTank, setChooseTank] = useState();
+    const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         if (tanks) {
@@ -28,7 +29,8 @@ const AddToTank = ({ fishData, tanks }) => {
                 tank: chooseTank,
                 pic: fishData.pic1,
                 name: fishData.name,
-                link: window.location.pathname
+                link: window.location.pathname,
+                quantity: quantity
             }
     
             fetch('http://localhost:3001/addfish', {
@@ -56,6 +58,11 @@ const AddToTank = ({ fishData, tanks }) => {
                         <option value={tank.tankName} key={index}>{tank.tankName}</option>
                     ))}
                 </select>
+                <p>Quantity: {quantity}</p>
+                <button onClick={() => setQuantity(quantity + 1)}>+</button>
+                <button onClick={() => setQuantity(quantity - 1)}>-</button>
+
+
                 {chooseTank && <button onClick={sendRequest}>Add to tank!</button>}
             </div>}
         </div>
