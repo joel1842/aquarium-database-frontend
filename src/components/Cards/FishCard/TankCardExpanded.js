@@ -60,6 +60,14 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
     const tempC = "27 C° "
     const tempF = "(80.6 f°)"
 
+
+    const [ammonia, setAmmonia] = useState();
+    const [nitrate, setNitrate] = useState();
+    const [nitrite, setNitrite] = useState();
+    const [phLevel, setPhLevel] = useState();
+    const [alkalinity, setAlkalinity] = useState();
+    const [dhLevel, setDhLevel] = useState();
+
     return(
         <div>
             <StandardNavBar />
@@ -87,6 +95,75 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
                         <div className="phCard">
                             <h2>pH Level</h2>
                             <p>{ph}</p>
+                        </div>
+                    </div>
+
+                    <div className="tankLevelContainer">
+                        <div>
+                            <label className="tankLevelLabel" for="ammonia">Ammonia</label>
+                            <input 
+                            id="ammonia"
+                            className="TankLevelInput" 
+                            type="text"
+                            placeholder="Ammonia..." 
+                            onChange={(event) => {
+                            setAmmonia(event.target.value)}}
+                            />
+                        </div>
+                        <div>
+                            <label className="tankLevelLabel" for="nitrites">Nitrites</label>
+                            <input 
+                            id="nitrites"
+                            className="TankLevelInput" 
+                            type="text"
+                            placeholder="Nitrites..." 
+                            onChange={(event) => {
+                            setNitrite(event.target.value)}}
+                            />
+                        </div>
+                        <div>
+                            <label className="tankLevelLabel" for="nitrates">Nitrates</label>
+                            <input 
+                            id="nitrates"
+                            className="TankLevelInput" 
+                            type="text"
+                            placeholder="Nitrates..." 
+                            onChange={(event) => {
+                            setNitrate(event.target.value)}}
+                            />
+                        </div>
+                        <div>
+                            <label className="tankLevelLabel" for="ph">pH Level</label>
+                            <input 
+                            id="ph"
+                            className="TankLevelInput" 
+                            type="text"
+                            placeholder="pH Level..." 
+                            onChange={(event) => {
+                            setPhLevel(event.target.value)}}
+                            />
+                        </div>
+                        <div>
+                            <label className="tankLevelLabel" for="alkalinity">Alkalinity</label>
+                            <input 
+                            id="alkalinity"
+                            className="TankLevelInput" 
+                            type="text"
+                            placeholder="Alkalinity..." 
+                            onChange={(event) => {
+                            setAlkalinity(event.target.value)}}
+                            />
+                        </div>
+                        <div>
+                            <label className="tankLevelLabel" for="dh">dH Level</label>
+                            <input 
+                            id="dh"
+                            className="TankLevelInput" 
+                            type="text"
+                            placeholder="dH Level..." 
+                            onChange={(event) => {
+                            setDhLevel(event.target.value)}}
+                            />
                         </div>
                     </div>
                 </div>

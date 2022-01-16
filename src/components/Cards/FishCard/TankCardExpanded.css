@@ -18,7 +18,8 @@
     grid-area: header;
     display: grid;
     grid-template-areas: 
-    "info health";
+    "info health"
+    "levels levels";
 }
 
 .quickInfo {
@@ -178,4 +179,33 @@
     margin-bottom: 10px;
     padding-top: 1px;
     padding-bottom: 1px;
+}
+
+.tankLevelContainer {
+    grid-area: levels;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tankLevelLabel {
+    font-size: 1.3em;
+    display: flex;
+    flex-direction:column;
+}
+
+.TankLevelInput {
+    display:flex;
+    flex-direction:column;
+    margin: auto;
+    margin-bottom: 10px;
+    height: 2.8em;
+    font-size: 1.3em;
+    font-family: Poppins;
+    border: 1px solid grey;
+    width: 60%;
+    border-radius: 20px;
+    background: #f1f1f1;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3)
 }
