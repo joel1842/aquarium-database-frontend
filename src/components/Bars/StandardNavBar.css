@@ -1,22 +1,125 @@
-.NavContainer {
-    background-color: #FFD6BA;
+.mobileNav {
+    background: #FFD6BA;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    vertical-align: middle;
+}
+
+.logo a {
+    width: 200px;
+}
+
+.logo img{
+    width: 50%;
+    vertical-align: middle;
+    max-width: 500px;
+    min-width: 200px;
+}
+
+.menuIcon {
+    display: none;
+}
+
+.menuIcon button {
+    border: none;
+    background: none;
+    vertical-align: middle;
+}
+
+.menuIcon button img {
     width: 100%;
-    padding: 0.5em;
-    margin: 0;
-    height: 3.3em;
+    min-width: 40px;
+    max-width: 50px;
 }
 
-.LogoStandard {
-    padding: 0.4em;
-    float: left;
+.navContainer {
+    position: absolute;
+    top: 0;
+    right: 30px;
 }
 
-.SearchBarCompact {
-    float: left;
+.navMenu {
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+
 }
 
-.NavMenuButtons {
-    padding-right: 1.8em;
-    margin: 0.3em;
-    float: right;
+.SearchBar {
+    margin-left: 3%;
+}
+
+.SearchBarMobile {
+    display: none;
+    margin-left: 5%;
+    
+}
+
+.menuItem {
+    padding: 0.1em;
+    display: inline-block;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .SearchBar {
+        display: none;
+    }
+
+    .SearchBarCompact {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .navContainer {
+        position: static;
+    }
+
+    .menuIcon {
+        display: flex;
+        cursor: pointer;
+        position: absolute;
+        right: 30px;
+    }
+    
+    .menuItem {
+        justify-content: center;
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .navMenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 500px;
+        position: absolute;
+        top: 60px;
+        left:-100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+
+    }
+
+    .navMenu.active {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        background: linear-gradient(176.38deg, rgba(250, 249, 249, 0.49) -16.78%, rgba(250, 249, 249, 0.07) 97.03%), #FFAE78;
+        left: 0;
+        padding: 0;
+        opacity: 1;
+        transition: all 0.5 ease;
+        z-index: 1;
+        overflow: visible;
+        box-sizing: border-box;
+    }
 }

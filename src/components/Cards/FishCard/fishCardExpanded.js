@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import FishCard from './FishCard';
 import './FishExpanded.css';
 import FavoritesButton from '../../Button/FavoritesButton';
 import AddToTank from '../../Button/AddToTank';
