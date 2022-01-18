@@ -69,15 +69,6 @@
 
 @media screen and (max-width: 1200px) {
 
-    .SearchBar {
-        display: none;
-    }
-
-    .SearchBarCompact {
-        display: block;
-        margin-bottom: 20px;
-    }
-
     .navContainer {
         position: static;
     }
@@ -122,4 +113,17 @@
         overflow: visible;
         box-sizing: border-box;
     }
+}
+
+@media screen and (max-width: 650px) {
+    
+    .SearchBar {
+        display: none;
+    }
+
+    .SearchBarMobile {
+        display: block;
+        margin-bottom: 20px;
+    }
+
 }
