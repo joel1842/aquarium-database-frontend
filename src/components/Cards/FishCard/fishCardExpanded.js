@@ -11,6 +11,27 @@ export const FishExpanded = ({ fishData, tanks }) => {
 
     const {isAuthenticated} = useAuth0();
 
+    const easy = "radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #85D700"
+    const easyShadow = "0px 2px 0px #79C400"
+    const medium = "radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #F3E242"
+    const mediumShadow = "0px 2px 0px #D8C93B"
+    const hard = "radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #FB4F19"
+    const hardShadow = "0px 2px 0px #D34315"
+
+    let careColor;
+    let shadow;
+
+    if (fishData.careLevel === "Difficult") {
+        careColor = hard;
+        shadow = hardShadow;
+    } else if (fishData.careLevel === "Intermediate"){
+        careColor = medium;
+        shadow = mediumShadow;
+    } else {
+        careColor = easy;
+        shadow = easyShadow;
+    }
+    
     return(
         <div className='fishCard'>
             
@@ -36,7 +57,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
                 <a href="/browse">
                     <button className="back" title="Go Back!">❌</button>
                 </a>
-                <div className='careLevel'>
+                <div className='careLevel' style={{background: careColor, boxShadow: shadow}}>
                     <h2>Care level</h2>
                     <h1>{fishData.careLevel}</h1>
                 </div>

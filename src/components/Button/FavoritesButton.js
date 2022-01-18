@@ -35,7 +35,7 @@ const FavoritesButton = ({fishData}) => {
     }
 
 
-    return <button className='favButton'onClick={sendRequest}>
+    return <button title="Add To Favorites" className='favButton'onClick={sendRequest}>
                 <img src={star} alt="Add Favorite"/>
             </button>
 }

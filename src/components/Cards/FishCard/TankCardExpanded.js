@@ -9,13 +9,36 @@ import aquarium from "../../../assets/aquarium.png"
 import { DeleteTankFish } from "../../Button/DeleteTankFish";
 import journal from "../../../assets/journal.png"
 import add from "../../../assets/add.png"
+import { AddLevelsButton } from "../../Button/AddLevelsButton";
 
 const TankCardExpanded = ({tank, deleteSwitch}) => {
 
     const [fishies, setFishies] = useState();
     const {getAccessTokenSilently} = useAuth0()
 
+    const ph = "7.0"
+    const health = "Good 💪"
+    const tempC = "27 C° "
+    const tempF = "(80.6 f°)"
+
+    const [ammonia, setAmmonia] = useState();
+    const [nitrite, setNitrite] = useState();
+    const [nitrate, setNitrate] = useState();
+    const [phLevel, setPhLevel] = useState();
+    const [alkalinity, setAlkalinity] = useState();
+    const [dhLevel, setDhLevel] = useState();
+    const [newEntry, setNewEntry] = useState(false)
     const [deleteFish, setDeleteFish] = useState(false)
+
+    const fishLevels = {
+        ammonia: ammonia,
+        nitrite: nitrite,
+        nitrate: nitrate,
+        phLevel: phLevel,
+        alkalinity: alkalinity,
+        dhLevel: dhLevel
+    }
+
     const updateFish = () => {
         setDeleteFish(true)
     }
@@ -50,55 +73,6 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
         }
     }
 
-    useEffect(() => {
-        catchMyFish()
-        getLevels()
-        setDeleteFish(false)
-    }, [deleteFish])
-
-    const ph = "7.0"
-    const health = "Good 💪"
-    const tempC = "27 C° "
-    const tempF = "(80.6 f°)"
-
-    const [ammonia, setAmmonia] = useState();
-    const [nitrate, setNitrate] = useState();
-    const [nitrite, setNitrite] = useState();
-    const [phLevel, setPhLevel] = useState();
-    const [alkalinity, setAlkalinity] = useState();
-    const [dhLevel, setDhLevel] = useState();
-
-    const [newEntry, setNewEntry] = useState(false)
-
-    const submitLevels = async () => {
-        if (ammonia && nitrate && nitrite && phLevel) {
-            try {
-
-                const data = {
-                    ammonia: ammonia,
-                    nitrate: nitrate,
-                    nitrite: nitrite,
-                    phLevel: phLevel,
-                    alkalinity: alkalinity,
-                    dhLevel: dhLevel
-                }
-
-                const token = await getAccessTokenSilently()
-                const response = await fetch('http://localhost:3001/newentry', {
-                    method: 'POST',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json;charset=utf-8'
-                    },
-                    body: JSON.stringify(data)
-                })
-            } catch (error) {
-                console.error()
-            }
-            
-        }
-    }
-
     const [levels, setLevels] = useState();
 
     const getLevels = async () => {
@@ -113,6 +87,12 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
         const responseData = await response.json()
         setLevels(responseData)
     }
+
+    useEffect(() => {
+        catchMyFish()
+        getLevels()
+        setDeleteFish(false)
+    }, [deleteFish])
 
     return(
         <div>
@@ -279,9 +259,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
                                     setDhLevel(event.target.value)}}
                                     />
                                 </div>
-                                <div className="submitLevels">
-                                    <button onClick={submitLevels}>Submit Entry</button>
-                                </div>
+                                <AddLevelsButton fishLevels={fishLevels}/>
                             </div>
                         </div>}
                         

@@ -48,7 +48,7 @@ const AddToTank = ({ fishData, tanks }) => {
 
     return (
         <div>
-            <button className="plusButton" onClick={() => setDropdown(true)}>
+            <button title="Add To Tank" className="plusButton" onClick={() => setDropdown(true)}>
                 <img src={add} alt="Add To Tank"/>
             </button>
             {dropdown && 

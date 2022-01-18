@@ -8,7 +8,7 @@ import Footer from '../components/Bars/Footer';
 export const Home = ({ getSearchTerm }) => {
     return (
         <>
-            {/* <MobileMenu/> */}
+            <MobileMenu/>
             <div>
                 <HomeNavBar />
                 <div className='HomeSearchBar'>

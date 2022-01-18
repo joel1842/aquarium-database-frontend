@@ -165,8 +165,6 @@
 .careLevel {
     padding: 7px;
     margin: auto;
-    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #85D700;
-    box-shadow: 0px 2px 0px #79C400;
     border-radius: 30px;
     width: 90%;
 }
