@@ -104,16 +104,15 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
 
                     <div className="quickInfo">
                         <img className="myTankTank" src={aquarium} alt="tank"/>
-                        <h1 className="tankHeader">{tank.tankName}</h1>
-                        <h2 className="tankSize">{tank.tankSize} {tank.unit} • {tank.tankType}</h2>
+                        <div className="tankNameContainer">
+                            <h1 className="tankHeader">{tank.tankName}</h1>
+                            <h2 className="tankSize">{tank.tankSize} {tank.unit} • {tank.tankType}</h2>
+                        </div>
                         <DeleteTankButton tank={tank} deleteSwitch={deleteSwitch}/>
                     </div>
                     
                     <div className="quickHealth">
-                        <div className="tempCard">
-                            <h2>Temperature</h2>
-                            <p><b>{tempC}</b>{tempF}</p>
-                        </div>
+      
                         <div className="healthCard">
                             <h2>Health</h2>
                             <p>{health}</p>
@@ -121,6 +120,10 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
                         <div className="phCard">
                             <h2>pH Level</h2>
                             <p>{ph}</p>
+                        </div>
+                        <div className="tempCard">
+                            <h2>Temperature</h2>
+                            <p><b>{tempC}</b>{tempF}</p>
                         </div>
                     </div>
 
@@ -134,11 +137,10 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
                     {fishies && fishies.map((fish, index) => {
                         return(
                             <div className="tankFish">
-                                <Link to={fish.link} key={index}>
-                                    <img className="fishPic" src={fish.pic} alt={fish.name} />
-                                    <h3 className="tankFishName">{fish.name} x {fish.quantity}</h3>
-                                </Link>
-                                <DeleteTankFish fish={fish} />
+                                <img className="fishPic" src={fish.pic} alt={fish.name} />
+                                <h3 className="tankFishName">{fish.name}</h3>
+                                <h4 className="quantity">x {fish.quantity}</h4>
+                                <DeleteTankFish className="deletefish" fish={fish} />
                             </div> 
                         )
                     })}

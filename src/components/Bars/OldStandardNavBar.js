@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import './StandardNavBar.css';
 
 //Nav Bar to be used on all pages other than the homepage
-export const StandardNavBar = ({getSearchTerm}) => {
+export const OldStandardNavBar = ({getSearchTerm}) => {
 
     const { isAuthenticated } = useAuth0();
     if(isAuthenticated) {

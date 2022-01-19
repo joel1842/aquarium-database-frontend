@@ -15,10 +15,6 @@
     border-radius: 25px;
 }
 
-.subHeaderContainer button {
-    font-family: poppins;
-}
-
 .subHeader {
     font-family: Poppins;
     display: inline-block;
@@ -51,12 +47,13 @@
     color: white;
     display: inline-block;
     border: none;
-    background: #89B0AE;
-    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #50C9CE;
+    box-shadow: 0px 2px 2px #30ADB3;
+    border-radius: 30px;
+    font-family: Poppins;
     margin-left: 5px;
     margin-right: 5px;
     padding: 10px;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.3);
     vertical-align: middle;
     font-weight: 500;
 }
@@ -77,8 +74,9 @@
 }
 
 .selectContainer {
-    background: linear-gradient(180.09deg, rgba(255, 255, 255, 0.525) 0.07%, rgba(255, 255, 255, 0.225) 99.93%), #8CBAB8;
-    box-shadow: 0px 4px 0px #74aca1;
+
+    background: linear-gradient(180.07deg, rgba(255, 255, 255, 0.525) -19.61%, rgba(255, 255, 255, 0.225) 99.94%), #3185FC;
+    box-shadow: 0px 4px 2px rgba(28, 106, 216, 0.5);
     border-radius: 50px;
     grid-area: select;
     width: 80%;
@@ -99,6 +97,11 @@
     margin-left: 10px;
     font-family: poppins;
     text-align: center;
+
+    background: linear-gradient(183.12deg, rgba(255, 255, 255, 0.2) 2.57%, rgba(255, 255, 255, 0) 97.42%), #E4E4E4;
+    box-shadow: 0px 4px 0px #C9C9C9;
+    border-radius: 15px;
+
 }
 
 .tankPic {
@@ -152,15 +155,13 @@
     margin-left: 5px;
     margin-right: 5px;
     padding: 15px;
-
     font-weight: 700;
-    font-family: poppins;
     font-size: 1em;
     color: white;
     border: none;
-
-
-
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #50C9CE;
+    box-shadow: 0px 2px 2px #30ADB3;
+    border-radius: 30px;
     margin-top: 5px;
     margin-bottom: 20px;
 

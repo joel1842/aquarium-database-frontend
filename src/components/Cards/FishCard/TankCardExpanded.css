@@ -3,7 +3,7 @@
     grid-template-areas: 
     "header fishlist"
     "levels levels";
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 60% 40%;
     margin: auto;
     margin-top: 30px;
     font-family: poppins;
@@ -13,7 +13,7 @@
     background: linear-gradient(180deg, rgba(250, 249, 249, 0.7) -24.94%, rgba(250, 249, 249, 0.1) 40%), #faa064;
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
-    width: 60%;
+    width: 70%;
     margin: auto;
     margin-right: 20px;
     padding: 2%;
@@ -33,20 +33,44 @@
     margin-top: 5%;
 }
 
+.tankNameContainer {
+    width: 80%;
+    margin: auto;
+    background: linear-gradient(179.58deg, rgba(255, 255, 255, 0.525) -43.81%, rgba(255, 255, 255, 0.075) 99.63%), #50C9CE;
+    box-shadow: 0px 2px 2px #32B2B8;
+    border-radius: 20px;
+    padding: 10px;
+
+}
+
 .tankHeader {
     margin-top: 0;
     margin-bottom: 5px;
-    font-size: 35px;	
+    font-size: 32px;	
     text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
 
 .tankSize {
    margin-top: 5px; 
+   margin-bottom: 0;
    text-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+   font-size: 22px;
+   color: #f4f4f4;
 }
 
 .tankFish {
-
+    margin: auto;
+    margin-top: 20px;
+    background: linear-gradient(180.07deg, rgba(255, 255, 255, 0.525) -19.61%, rgba(255, 255, 255, 0.225) 99.94%), #3185FC;
+    box-shadow: 0px 4px 2px rgba(28, 106, 216, 0.5);
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "pic name name"
+    "pic quantity delete"
+    ;
+    width: 90%;
 }
 
 .tankFish button {
@@ -56,39 +80,54 @@
 }
 
 .fishPic {
-    width: 100px;
-    max-height: 70px;
-    border-radius: 20px;
-    display: inline-flex;
-    vertical-align: middle;
-
+    width: 150px;
+    max-height: 100px;
+    border-radius: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    grid-area: pic;
 }
 
 .tankFishName {
-    max-width: 40px;
-    vertical-align: middle;
+    justify-self: center;
     font-family: poppins;
     font-size: 20px;
-    display: inline-flex;
-    margin-top: 5px;
-    margin-left: 15px;
-    margin-right: 70px;
+    margin: 0;
+    margin-bottom: 10px;
+    align-self: end;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    grid-area: name;
+}
+
+.quantity {
+    margin: 0;
+    grid-area: quantity;
+    align-self: start;
+    justify-self: end;
+    margin-right: 20px;
+}
+
+.removeFish {
+    width: 50%;
+    align-self: start;
+
 }
 
 .deleteTank {
     background: #89B0AE;
     border: none;
-    border-radius: 20px;
     width: 50%;
     color: white;
     font-weight: 700;
     font-size: 16px;
     padding: 10px;
     margin: auto;
+    margin-top: 20px;
     margin-bottom: 20px;
     box-shadow: 0 3px 3px rgba(0,0,0,0.3);
     font-family: poppins;
+    grid-area: delete;
 }
 
 .deleteTank:hover {
@@ -103,12 +142,11 @@
 }
 
 .tempCard {
-    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #FF93AD;
-    box-shadow: 0px 2px 0px #E08FA2;
+    background: linear-gradient(165.88deg, rgba(255, 255, 255, 0.525) -79.22%, rgba(255, 255, 255, 0.075) 99.31%), #00A676;
+    box-shadow: 0px 2px 2px #027755;
     border-radius: 30px;
     width: 90%;
     margin: auto;
-    margin-bottom: 15px;
     padding: 1px;
 }
 
@@ -142,12 +180,13 @@
 }
 
 .phCard {
-    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #71BDB8;
-    box-shadow: 0px 2px 0px #58A6A1;
+    background: linear-gradient(178.54deg, rgba(255, 255, 255, 0.5175) -2.49%, rgba(255, 255, 255, 0.075) 98.77%), #CA9CE1;
+    box-shadow: 0px 2px 2px #A268BF;
     border-radius: 30px;
     width: 90%;
     margin: auto;
     padding: 1px;
+    margin-bottom: 15px;
 }
 
 .phCard h2 {
@@ -164,7 +203,7 @@
     background: linear-gradient(173.26deg, rgba(250, 249, 249, 0.7) -31.63%, rgba(250, 249, 249, 0.1) 94.73%), #4DC5AF;
     box-shadow: 0px 4px 0px #34A590;
     border-radius: 40px;
-    width: 40%;
+    width: 60%;
     grid-area: fishlist;
     padding-bottom: 20px;
     justify-content: start;
@@ -172,9 +211,10 @@
 }
 
 .myFishHeader {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #AE9AFF;
-    box-shadow: 0px 4px 0px #A088FF;
-    border-radius: 30px;
+
+    background: linear-gradient(180.77deg, rgba(255, 255, 255, 0.5) -64.46%, rgba(255, 255, 255, 0) 99.34%), #445E93;
+    box-shadow: 0px 4px 2px #314E88;
+    border-radius: 20px;
     width: 50%;
     margin: auto;
     margin-top: 10px;
@@ -221,8 +261,8 @@
 }
 
 .tankLevels {
-    background: linear-gradient(180deg, rgba(250, 249, 249, 0.5) 0%, rgba(250, 249, 249, 0.05) 100%), #98C1D9;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(179.58deg, rgba(255, 255, 255, 0.525) -43.81%, rgba(255, 255, 255, 0.075) 99.63%), #50C9CE;
+    box-shadow: 0px 2px 2px #32B2B8;
     border-radius: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -237,8 +277,8 @@
 }
 
 .newEntryButton {
-    background: radial-gradient(147.24% 111.72% at 50% -17.71%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #3D5A80;
-    box-shadow: 0px 2px 0px #2F4F79;
+    background: linear-gradient(180.77deg, rgba(255, 255, 255, 0.5) -64.46%, rgba(255, 255, 255, 0) 99.34%), #445E93;
+    box-shadow: 0px 2px 2px #314E88;
     border-radius: 50px;
     border: none;
     padding: 5px;

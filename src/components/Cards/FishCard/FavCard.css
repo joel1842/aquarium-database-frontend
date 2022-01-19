@@ -16,9 +16,11 @@
 
 .favPic {
     border-radius: 20px;
-    width: 250px;
+    width: 90%;
     margin: 10px;
+    margin-left: 17px;
     grid-area: pic;
+    align-self: center;
 }
 
 .nameContainer {
@@ -29,6 +31,7 @@
     margin: 20px;
     margin-top: 25px;
     margin-left: 25px;
+    width: 80%;
     box-shadow: 0 3px 3px rgba(0,0,0,0.3);
 }
 

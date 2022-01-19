@@ -27,8 +27,8 @@
     width: 90%;
     margin: auto;
     margin-top: 1vw;
-    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #4DC5AF;
-    box-shadow: 0px 3px 0px #46AE9B;
+    background: linear-gradient(179.58deg, rgba(255, 255, 255, 0.525) -43.81%, rgba(255, 255, 255, 0.075) 99.63%), #50C9CE;
+    box-shadow: 0px 2px 2px #32B2B8;
     border-radius: 20px;
 }
 
@@ -37,7 +37,7 @@
     margin-top: 0;
     margin-bottom: 0;
     font-size: 28px;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .sciName {
@@ -47,7 +47,7 @@
     font-weight: 500;
     font-size: 20px;
     color: rgb(230, 230, 230);
-    text-shadow: 0px 2px 0px #c2c2c2;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .fishCardInfo {
@@ -71,14 +71,14 @@
     margin-top: 0;
     margin-bottom: 0;
     color: rgb(255, 255, 255);
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 1px 2px rgba(68, 65, 64, 0.5);
 }
 
 .fishSize {
     font-size: 24px;
     margin-top: 0;
     margin-bottom: 0;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .careContainer {
@@ -90,12 +90,12 @@
     margin-top: 0;
     margin-bottom: 0;
     color: rgb(255, 255, 255);
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 1px 2px rgba(68, 65, 64, 0.5);
 }
 
 .fishCare {
     font-size: 24px;
     margin-top: 0;
     margin-bottom: 0;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }

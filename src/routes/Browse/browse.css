@@ -1,4 +1,19 @@
 .fishCardGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+@media screen and (max-width: 1300px) {
+    .fishCardGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .fishCardGrid {
+        display: block;
+        margin: auto;
+    }
 }

@@ -39,8 +39,8 @@
     display: grid;
     grid-template-areas: 
         "name buttons";
-    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #4DC5AF;
-    box-shadow: 0px 3px 0px #46AE9B;
+    background: linear-gradient(179.58deg, rgba(255, 255, 255, 0.525) -43.81%, rgba(255, 255, 255, 0.075) 99.63%), #50C9CE;
+    box-shadow: 0px 2px 2px #32B2B8;
     border-radius: 20px;
     padding-right: 10px;
     padding-left: 10px;
@@ -60,7 +60,7 @@
     margin-bottom: 0;
     margin-left: 15px;
     text-align: start;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .subName {
@@ -70,7 +70,7 @@
     margin-left: 15px;
     color: rgb(231, 231, 231);
     text-align: start;
-    text-shadow: 0px 2px 0px #c9c9c9;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .buttonGroup {
@@ -102,22 +102,24 @@
     width: 90%;
     margin-top: 5%;
     padding: 7px;
-    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #F693FF;
-    box-shadow: 0px 2px 0px #EE85FF;
+
+    background: linear-gradient(165.88deg, rgba(255, 255, 255, 0.525) -79.22%, rgba(255, 255, 255, 0.075) 99.31%), #3185FC;
+    box-shadow: 0px 2px 2px #1B62C8;
     border-radius: 30px;
+
 }
 
 .temperament h2 {
     margin-bottom: 5px;
     font-size: 22px;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .temperament h1 {
     margin-top: 0;
     font-weight: 800;
     font-size: 27px;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .temperature {
@@ -126,9 +128,10 @@
     margin: auto;
     width: 90%;
     margin-top: 5%;
-    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #FF93AD;
-    box-shadow: 0px 2px 0px #E08FA2;
+    background: linear-gradient(165.88deg, rgba(255, 255, 255, 0.525) -79.22%, rgba(255, 255, 255, 0.075) 99.31%), #00A676;
+    box-shadow: 0px 2px 2px #027755;
     border-radius: 30px;
+
 }
 
 .thermometer {
@@ -141,25 +144,25 @@
     font-size: 22px;
     display: inline-flex;
     vertical-align: middle;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
     margin: 0;
 }
 
 .tempC {
     margin-top: 0;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .tempF {
     margin-top: 0;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .temperature h1 {
     font-size: 27px;
     margin-top: 10px;
     margin-bottom: 5px;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .careLevel {
@@ -173,7 +176,7 @@
     margin-top: 10px;
     margin-bottom: 5px;
     font-size: 22px;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
 }
 
 .careLevel h1 {
@@ -181,22 +184,22 @@
     margin-bottom: 10px;
     font-weight: 800;
     font-size: 27px;
-    text-shadow: 0px 2px 0px #DDDDDD;
+    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
+
 }
 
 .fishInfo {
     grid-column: 1/4;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #EE6C4D;
-    box-shadow: 0px 4px 0px #BB4E34;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) -126.58%, rgba(255, 255, 255, 0) 100%), #FF9B3F;
+    box-shadow: 0px 2px 2px #DD6A00;
     border-radius: 25px;
     width: 80%;
     margin: auto;
     padding-bottom: 10px;
     margin-top: 4%;
     margin-bottom: 3%;
-    font-family: poppins;
 }
 
 .infoHeader {
