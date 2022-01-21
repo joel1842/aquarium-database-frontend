@@ -36,7 +36,8 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
         nitrate: nitrate,
         phLevel: phLevel,
         alkalinity: alkalinity,
-        dhLevel: dhLevel
+        dhLevel: dhLevel,
+        tankName: tank.tankName
     }
 
     const updateFish = () => {
@@ -73,19 +74,28 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
         }
     }
 
+
     const [levels, setLevels] = useState();
 
     const getLevels = async () => {
         const token = await getAccessTokenSilently()
+        const fishtankName = {
+            tank: tank.tankName
+        }
         const response = await fetch('http://localhost:3001/getjournal', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json;charset=utf-8'
-            }
+            },
+            body: JSON.stringify(fishtankName)
         })
         const responseData = await response.json()
-        setLevels(responseData)
+
+        if (responseData.length >= 1) {
+            setLevels(responseData)
+        } 
+        
     }
 
     useEffect(() => {
@@ -134,6 +144,15 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
                         <h2>My Fish</h2>
                     </div>
 
+                    {!fishies && 
+                    <div>
+                        <h2 className="noFish">No Fish Yet...</h2>
+                        <Link to="/browse">
+                            <button className="addFishButton">Add Fish!</button>
+                        </Link>
+                    </div>
+                    }
+
                     {fishies && fishies.map((fish, index) => {
                         return(
                             <div className="tankFish">
@@ -152,6 +171,12 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
                             <h1>Tank Journal</h1>
                             {/* <h2>• tested 2 weeks ago</h2> */}
                         </div>
+
+                        {!levels && 
+                        <div>
+                            <h2 className="noEntries">No Entries Yet!</h2>
+                        </div>
+                        }
 
                         {levels && !newEntry &&
                         <div className="tankLevels">

@@ -35,9 +35,9 @@ export const HomeNavBar = () => {
                 <h3 className="tagLine">A fish & plant search tool</h3>
                 <nav className="navButtons">
                     <MenuButton link='/browse' label='Browse Database'/>
-                    <MenuButton link='/compatibility' label='Fish Compatibility'/>
                     <MenuButton link='/about' label='About Us'/>
-                    <MenuButton link='/tank' label='Calculator'/>
+                    <MenuButton link='/care' label='Fish Care'/>
+                    <MenuButton link='/tank' label='Tank Calculator'/>
                     <AuthenticationButton />
                 </nav>
             </div>

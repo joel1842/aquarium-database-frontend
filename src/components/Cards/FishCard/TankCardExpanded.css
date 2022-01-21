@@ -223,6 +223,25 @@
     padding-bottom: 1px;
 }
 
+.noFish {
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.addFishButton {
+    background: linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A;
+    box-shadow: 0px 2px 2px #65C21B;
+    border-radius: 20px;
+    border: none;
+    padding: 5px;
+    font-family: Poppins;
+    font-weight: 600;
+    color: white;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
 .tankLevelContainer {
     grid-area: levels;
     background: linear-gradient(165.88deg, rgba(255, 255, 255, 0.3) -34.37%, rgba(255, 255, 255, 0.075) 99.31%), #EE6C4D;
@@ -258,6 +277,11 @@
     width: 6%;
     display: inline-block;
     vertical-align: middle;
+}
+
+.noEntries {
+    margin-top: 2%;
+    margin-bottom: 8%;
 }
 
 .tankLevels {

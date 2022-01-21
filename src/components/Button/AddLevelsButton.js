@@ -6,9 +6,9 @@ export const AddLevelsButton = ({fishLevels}) => {
     const { getAccessTokenSilently } = useAuth0()
 
     const submitLevels = async () => {
-        if (fishLevels.ammonia && fishLevels.nitrate && fishLevels.nitrite && fishLevels.phLevel) {
+        if (fishLevels.tankName && fishLevels.ammonia && fishLevels.nitrate && fishLevels.nitrite && fishLevels.phLevel) {
             try {
-
+                console.log("name:", fishLevels.tankName)
                 const token = await getAccessTokenSilently()
                 fetch('http://localhost:3001/newentry', {
                     method: 'POST',

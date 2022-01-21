@@ -15,6 +15,7 @@ import FavList from './routes/FavList/FavList';
 import MyTanks from './routes/MyTanks/MyTanks';
 import Loading from './routes/Loading';
 import TankCardExpanded from './components/Cards/FishCard/TankCardExpanded';
+import { Disclaimer } from './routes/Disclaimer';
 
 const App = () => {
 
@@ -136,6 +137,7 @@ const App = () => {
           <Route exact path="/fish" element={<FishPage/>}></Route>
           <Route exact path="/favlist" element={<FavList getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/mytanks" element={<MyTanks getSearchTerm={getSearchTerm} createSwitch={createSwitch} create={create} tanks={tanks}/>}></Route>
+          <Route exact path="/disclaimer" element={<Disclaimer />}></Route>
           <Route exact path="/" element={<Home getSearchTerm={getSearchTerm}/>}></Route>
         </Routes>
     );

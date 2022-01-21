@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './FishExpanded.css';
 import FavoritesButton from '../../Button/FavoritesButton';
 import AddToTank from '../../Button/AddToTank';
 import Thermometer from '../../../assets/thermometer.png'
 import star from "../../../assets/star.png"
 import { useAuth0 } from '@auth0/auth0-react';
+import arrow from "../../../assets/arrow.png"
 
 export const FishExpanded = ({ fishData, tanks }) => {
 
@@ -32,8 +34,15 @@ export const FishExpanded = ({ fishData, tanks }) => {
     }
     
     return(
+        <>
+        <Link to="/browse">
+            <button className="back" title="Go Back!">
+                <img src={arrow}/>
+                <h2>Browse</h2>
+            </button>
+        </Link>
+
         <div className='fishCard'>
-            
             <div className='fishHeader'>
                 <img className='fishImg'src={fishData.pic1} alt='Espes Rasbora'/>
                 <div className='fishTitle'>
@@ -53,9 +62,6 @@ export const FishExpanded = ({ fishData, tanks }) => {
                 </div>
             </div>
             <div className='fastFacts'>
-                <a href="/browse">
-                    <button className="back" title="Go Back!">❌</button>
-                </a>
                 <div className='careLevel' style={{background: careColor, boxShadow: shadow}}>
                     <h2>Care level</h2>
                     <h1>{fishData.careLevel}</h1>
@@ -98,5 +104,6 @@ export const FishExpanded = ({ fishData, tanks }) => {
                 </div>
             </div>    
         </div>
+        </>
     )
 }
