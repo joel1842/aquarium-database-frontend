@@ -10,6 +10,7 @@ import { DeleteTankFish } from "../../Button/DeleteTankFish";
 import journal from "../../../assets/journal.png"
 import add from "../../../assets/add.png"
 import { AddLevelsButton } from "../../Button/AddLevelsButton";
+import { OnTimeCard } from "./OnTimeCard"
 
 const TankCardExpanded = ({tank, deleteSwitch}) => {
 
@@ -291,6 +292,8 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
                         </div>}
                         
                     </div>
+
+                    <OnTimeCard />
 
             </div>
         </div>

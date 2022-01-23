@@ -2,7 +2,7 @@
     display: grid;
     grid-template-areas: 
     "header fishlist"
-    "levels levels";
+    "levels notification";
     grid-template-columns: 60% 40%;
     margin: auto;
     margin-top: 30px;
@@ -203,11 +203,11 @@
     background: linear-gradient(173.26deg, rgba(250, 249, 249, 0.7) -31.63%, rgba(250, 249, 249, 0.1) 94.73%), #4DC5AF;
     box-shadow: 0px 4px 0px #34A590;
     border-radius: 40px;
-    width: 60%;
+    width: 80%;
     grid-area: fishlist;
     padding-bottom: 20px;
     justify-content: start;
-    margin-left: 30px;
+    margin-left: 5%;
 }
 
 .myFishHeader {
@@ -247,9 +247,10 @@
     background: linear-gradient(165.88deg, rgba(255, 255, 255, 0.3) -34.37%, rgba(255, 255, 255, 0.075) 99.31%), #EE6C4D;
     box-shadow: 0px 3px 0px #E64A24;
     border-radius: 30px;
-    width: 30%;
-    margin: auto;
+    width: 70%;
+    justify-self: end;
     margin-top: 40px;
+    margin-right: 3%;
     margin-bottom: 60px;
 
 }
@@ -408,4 +409,8 @@
 .submitLevels button:hover {
     background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #6685ad;
     box-shadow: 0px 2px 0px #466fa3;
+}
+
+.onTimeContainer {
+    grid-area: notification;
 }

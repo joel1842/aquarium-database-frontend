@@ -1,0 +1,88 @@
+.onTimeContainer {
+    background: linear-gradient(165.88deg, rgba(255, 255, 255, 0.3) -34.37%, rgba(255, 255, 255, 0.075) 99.31%), #CA9CE1;
+    box-shadow: 0px 3px 0px #BB83D7;
+    border-radius: 50px;
+    width: 80%;
+    padding: 2%;
+    justify-self: start;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.onTimeHeader {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #AC6DCB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 3%;
+    padding: 2%;
+}
+
+.onTimeHeader h1 {
+    margin-bottom: 2%;
+}
+
+.onTimeHeader h3 {
+    margin-top: 2%;
+}
+
+.onTimeFormContainer {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) -8.91%, rgba(255, 255, 255, 0) 111.78%), #E0607E;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    width: 90%;
+    margin: auto;
+    padding: 5%;
+}
+
+.onTimeFormContainer h3 {
+    margin-bottom: 3%;
+}
+
+.onTimeForm {
+
+}
+
+.onTimeForm h3 {
+    font-weight: 600;
+}
+
+.everyLabel {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-right: 2%;
+}
+
+.intervalInput {
+    background: linear-gradient(183.12deg, rgba(255, 255, 255, 0.2) 2.57%, rgba(255, 255, 255, 0) 97.42%), #E4E4E4;
+    box-shadow: 0px 4px 0px #C9C9C9;
+    border-radius: 15px;
+    padding: 2%;
+    border: none;
+    font-family: Poppins;
+    font-size: 1.1em;
+    color: #444140;
+    text-align: center;
+}
+
+.emailNotify {
+    display: inline-block;
+    margin-right: 2%;
+}
+
+.textNotify {
+    display: inline-block;
+    margin-left: 2%;
+}
+
+.onTimeSubmit {
+    border: none;
+    border-radius: 30px;
+    padding: 2%;
+    margin-top: 5%;
+    font-family: Poppins;
+    padding: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
