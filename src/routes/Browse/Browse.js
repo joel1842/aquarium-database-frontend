@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
-import FishCard from '../../components/Cards/FishCard/FishCard';
+import FishCard from '../../components/Cards/FishCard';
 import FilterBar from '../../components/Bars/FilterBar';
 import Footer from '../../components/Bars/Footer';
 import './browse.css';

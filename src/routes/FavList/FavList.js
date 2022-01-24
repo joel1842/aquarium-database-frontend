@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import { FavCard } from "../../components/Cards/FishCard/FavCard";
+import { FavCard } from "../../components/Cards/FavCard";
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
 import Footer from "../../components/Bars/Footer";
 import Loading from "../Loading";

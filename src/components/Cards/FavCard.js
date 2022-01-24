@@ -1,4 +1,4 @@
-import DeleteFavorite from '../../Button/DeleteFavButton'
+import DeleteFavorite from '../Button/DeleteFavButton'
 import './FavCard.css'
 
 export const FavCard = ({ userData, deleteFish }) => {

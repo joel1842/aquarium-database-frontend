@@ -14,7 +14,7 @@ import {FishPage} from './routes/FishPage';
 import FavList from './routes/FavList/FavList';
 import MyTanks from './routes/MyTanks/MyTanks';
 import Loading from './routes/Loading';
-import TankCardExpanded from './components/Cards/FishCard/TankCardExpanded';
+import TankCardExpanded from './components/Cards/TankCards/TankCardExpanded';
 import { Disclaimer } from './routes/Disclaimer';
 
 const App = () => {

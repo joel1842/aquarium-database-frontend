@@ -6,56 +6,8 @@
     grid-template-columns: 60% 40%;
     margin: auto;
     margin-top: 30px;
-    font-family: poppins;
-}
-
-.tankHeadContainer {
-    background: linear-gradient(180deg, rgba(250, 249, 249, 0.7) -24.94%, rgba(250, 249, 249, 0.1) 40%), #faa064;
-    border-radius: 30px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
-    width: 70%;
-    margin: auto;
-    margin-right: 20px;
-    padding: 2%;
-    grid-area: header;
-    display: grid;
-    grid-template-areas: 
-    "info health";
-    grid-template-columns: 60% 40%;
-}
-
-.quickInfo {
-    grid-area: info;
-}
-
-.myTankTank {
-    width: 70%;
-    margin-top: 5%;
-}
-
-.tankNameContainer {
     width: 80%;
-    margin: auto;
-    background: linear-gradient(179.58deg, rgba(255, 255, 255, 0.525) -43.81%, rgba(255, 255, 255, 0.075) 99.63%), #50C9CE;
-    box-shadow: 0px 2px 2px #32B2B8;
-    border-radius: 20px;
-    padding: 10px;
-
-}
-
-.tankHeader {
-    margin-top: 0;
-    margin-bottom: 5px;
-    font-size: 32px;	
-    text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-}
-
-.tankSize {
-   margin-top: 5px; 
-   margin-bottom: 0;
-   text-shadow: 2px 2px 2px rgba(0,0,0,0.1);
-   font-size: 22px;
-   color: #f4f4f4;
+    font-family: poppins;
 }
 
 .tankFish {
@@ -114,96 +66,11 @@
 
 }
 
-.deleteTank {
-    background: #89B0AE;
-    border: none;
-    width: 50%;
-    color: white;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 10px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.3);
-    font-family: poppins;
-    grid-area: delete;
-}
-
-.deleteTank:hover {
-    background: #7ed1cd;
-    cursor: pointer;
-}
-
-.quickHealth {
-    grid-area: health;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.tempCard {
-    background: linear-gradient(165.88deg, rgba(255, 255, 255, 0.525) -79.22%, rgba(255, 255, 255, 0.075) 99.31%), #00A676;
-    box-shadow: 0px 2px 2px #027755;
-    border-radius: 30px;
-    width: 90%;
-    margin: auto;
-    padding: 1px;
-}
-
-.tempCard h2 {
-    margin-bottom: 10px;
-}
-
-.tempCard p {
-    font-size: 27px;
-    margin-top: 10px;
-}
-
-.healthCard {
-    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #85D700;
-    box-shadow: 0px 2px 0px #73BA01;
-    border-radius: 30px;
-    width: 90%;
-    margin: auto;
-    padding: 1px;
-    margin-bottom: 15px;
-}
-
-.healthCard h2 {
-    margin-bottom: 10px;
-}
-
-.healthCard p {
-    font-size: 27px;
-    font-weight: 600;
-    margin-top: 10px;
-}
-
-.phCard {
-    background: linear-gradient(178.54deg, rgba(255, 255, 255, 0.5175) -2.49%, rgba(255, 255, 255, 0.075) 98.77%), #CA9CE1;
-    box-shadow: 0px 2px 2px #A268BF;
-    border-radius: 30px;
-    width: 90%;
-    margin: auto;
-    padding: 1px;
-    margin-bottom: 15px;
-}
-
-.phCard h2 {
-    margin-bottom: 10px;
-}
-
-.phCard p {
-    font-size: 27px;
-    font-weight: 600;
-    margin-top: 10px;
-}
-
 .myFishCard {
     background: linear-gradient(173.26deg, rgba(250, 249, 249, 0.7) -31.63%, rgba(250, 249, 249, 0.1) 94.73%), #4DC5AF;
     box-shadow: 0px 4px 0px #34A590;
     border-radius: 40px;
-    width: 80%;
+    width: 100%;
     grid-area: fishlist;
     padding-bottom: 20px;
     justify-content: start;
@@ -247,7 +114,7 @@
     background: linear-gradient(165.88deg, rgba(255, 255, 255, 0.3) -34.37%, rgba(255, 255, 255, 0.075) 99.31%), #EE6C4D;
     box-shadow: 0px 3px 0px #E64A24;
     border-radius: 30px;
-    width: 70%;
+    width: 100%;
     justify-self: end;
     margin-top: 40px;
     margin-right: 3%;

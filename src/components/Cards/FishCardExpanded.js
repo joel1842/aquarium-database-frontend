@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FishExpanded.css';
-import FavoritesButton from '../../Button/FavoritesButton';
-import AddToTank from '../../Button/AddToTank';
-import Thermometer from '../../../assets/thermometer.png'
-import star from "../../../assets/star.png"
+import FavoritesButton from '../Button/FavoritesButton';
+import AddToTank from '../Button/AddToTank';
+import Thermometer from '../../assets/thermometer.png'
+import star from "../../assets/star.png"
 import { useAuth0 } from '@auth0/auth0-react';
-import arrow from "../../../assets/arrow.png"
+import arrow from "../../assets/arrow.png"
 
 export const FishExpanded = ({ fishData, tanks }) => {
 

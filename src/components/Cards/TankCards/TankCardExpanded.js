@@ -11,16 +11,12 @@ import journal from "../../../assets/journal.png"
 import add from "../../../assets/add.png"
 import { AddLevelsButton } from "../../Button/AddLevelsButton";
 import { OnTimeCard } from "./OnTimeCard"
+import { TankCardMain } from "./TankCardMain"
 
 const TankCardExpanded = ({tank, deleteSwitch}) => {
 
     const [fishies, setFishies] = useState();
     const {getAccessTokenSilently} = useAuth0()
-
-    const ph = "7.0"
-    const health = "Good 💪"
-    const tempC = "27 C° "
-    const tempF = "(80.6 f°)"
 
     const [ammonia, setAmmonia] = useState();
     const [nitrite, setNitrite] = useState();
@@ -111,34 +107,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
 
             <div className="tankCardContainer">
 
-                <div className="tankHeadContainer">
-
-                    <div className="quickInfo">
-                        <img className="myTankTank" src={aquarium} alt="tank"/>
-                        <div className="tankNameContainer">
-                            <h1 className="tankHeader">{tank.tankName}</h1>
-                            <h2 className="tankSize">{tank.tankSize} {tank.unit} • {tank.tankType}</h2>
-                        </div>
-                        <DeleteTankButton tank={tank} deleteSwitch={deleteSwitch}/>
-                    </div>
-                    
-                    <div className="quickHealth">
-      
-                        <div className="healthCard">
-                            <h2>Health</h2>
-                            <p>{health}</p>
-                        </div>
-                        <div className="phCard">
-                            <h2>pH Level</h2>
-                            <p>{ph}</p>
-                        </div>
-                        <div className="tempCard">
-                            <h2>Temperature</h2>
-                            <p><b>{tempC}</b>{tempF}</p>
-                        </div>
-                    </div>
-
-                </div>
+                <TankCardMain tank={tank} deleteSwitch={deleteSwitch}/>
 
                 <div className="myFishCard">
                     <div className="myFishHeader">

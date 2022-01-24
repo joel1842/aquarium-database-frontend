@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../Loading";
 import CreateTank from "./CreateTank";
-import TankCard from "../../components/Cards/FishCard/TankCard";
+import TankCard from "../../components/Cards/TankCards/TankCard";
 import { StandardNavBar } from "../../components/Bars/StandardNavBar";
 import Footer from "../../components/Bars/Footer";
 import "./MyTanks.css";
