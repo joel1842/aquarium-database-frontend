@@ -31,6 +31,7 @@ const App = () => {
         }
     }).then(jsonResponse => {
         setFishAPI(jsonResponse)
+        console.log(fishAPI)
     });
   }, [])
 
@@ -110,6 +111,7 @@ const App = () => {
             fishName = fishName.replace(/\s+/g, '')
             fishName = fishName.replace(/-/g, '')
             fishName = fishName.replace(/'/g, '')
+            fishName = fishName.toLowerCase();
 
             let path = "/browse/" + fishName
 
@@ -122,6 +124,7 @@ const App = () => {
             tankName = tankName.replace(/\s+/g, '')
             tankName = tankName.replace(/-/g, '')
             tankName = tankName.replace(/'/g, '')
+            tankName = tankName.toLowerCase();
 
             let path = "/" + tankName;
             console.log(path);

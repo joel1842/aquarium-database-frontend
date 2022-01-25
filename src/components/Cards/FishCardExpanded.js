@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './FishExpanded.css';
+import './FishCardExpanded.css';
 import FavoritesButton from '../Button/FavoritesButton';
 import AddToTank from '../Button/AddToTank';
 import Thermometer from '../../assets/thermometer.png'
-import star from "../../assets/star.png"
+import document from "../../assets/document.png"
 import { useAuth0 } from '@auth0/auth0-react';
 import arrow from "../../assets/arrow.png"
+import error from "../../assets/error.png"
 
 export const FishExpanded = ({ fishData, tanks }) => {
 
@@ -32,12 +33,22 @@ export const FishExpanded = ({ fishData, tanks }) => {
         careColor = easy;
         shadow = easyShadow;
     }
+
+    const [showSource, setShowSource] = useState(false);
+
+    const sourceSwitch = () => {
+        if(showSource) {
+            setShowSource(false)
+        } else {
+            setShowSource(true)
+        }
+    }
     
     return(
         <>
         <Link to="/browse">
             <button className="back" title="Go Back!">
-                <img src={arrow}/>
+                <img src={arrow} alt="Go Back!"/>
                 <h2>Browse</h2>
             </button>
         </Link>
@@ -71,7 +82,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
                     <h1>{fishData.temperament}</h1>
                 </div>
                 <div className='temperature'>
-                    <img className="thermometer" src={Thermometer}/>
+                    <img className="thermometer" src={Thermometer} alt="Thermometer"/>
                     <h2 className="tempHead">Temperature</h2>
                     <h1 className="tempC"><b>{fishData.tempLowC}°C</b> - <b>{fishData.tempHighC}°C</b></h1>
                     <h2 className="tempF">({fishData.tempLowF}°f - {fishData.tempHighF}°f)</h2>
@@ -102,7 +113,30 @@ export const FishExpanded = ({ fishData, tanks }) => {
                     <h3>Plants?</h3>
                     <p>{fishData.plants}</p>
                 </div>
-            </div>    
+            </div>   
+
+            <div className='cardButtons'>
+                <div className="sourcesContainer">
+                    <button className='sourcesButton' onClick={sourceSwitch}>
+                        <img src={document} alt="Sources"/>
+                        <h3>Sources</h3>
+                    </button>
+                    {showSource && 
+                    <div className='sourceLinkContainer'>
+                        <a className='sourceLink' href={fishData.wikipedia}>WikiPedia</a>
+                        <a className='sourceLink' href={fishData.fishbase}>FishBase</a>
+                        <a className='sourceLink' href={fishData.aquawiki}>AquaWiki</a>
+                    </div>}
+                </div> 
+
+                <div className='errorContainer'>
+                    <button className='errorButton'>
+                        <img src={error} alt="Sources"/>
+                        <h3>Find an error?</h3>
+                    </button>
+                </div>
+            </div>
+
         </div>
         </>
     )

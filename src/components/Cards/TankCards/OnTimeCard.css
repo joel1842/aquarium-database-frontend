@@ -7,6 +7,7 @@
     justify-self: start;
     margin-top: 5%;
     margin-left: 5%;
+    grid-area: notification;
 }
 
 .onTimeHeader {
