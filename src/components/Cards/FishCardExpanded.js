@@ -8,6 +8,7 @@ import document from "../../assets/document.png"
 import { useAuth0 } from '@auth0/auth0-react';
 import arrow from "../../assets/arrow.png"
 import error from "../../assets/error.png"
+import { ErrorCard } from './ErrorCard';
 
 export const FishExpanded = ({ fishData, tanks }) => {
 
@@ -41,6 +42,16 @@ export const FishExpanded = ({ fishData, tanks }) => {
             setShowSource(false)
         } else {
             setShowSource(true)
+        }
+    }
+
+    const [showError, setShowError] = useState(false);
+
+    const errorSwitch = () => {
+        if (showError) {
+            setShowError(false)
+        } else {
+            setShowError(true)
         }
     }
     
@@ -130,10 +141,12 @@ export const FishExpanded = ({ fishData, tanks }) => {
                 </div> 
 
                 <div className='errorContainer'>
-                    <button className='errorButton'>
+                    <button className='errorButton' onClick={errorSwitch}>
                         <img src={error} alt="Sources"/>
                         <h3>Find an error?</h3>
                     </button>
+                    {showError && <ErrorCard />}
+
                 </div>
             </div>
 

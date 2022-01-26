@@ -233,11 +233,12 @@
 .cardButtons {
     grid-column: 1/3;
     margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .sourcesContainer {
     display: inline;
-    margin-right: 20px;
 }
 
 .sourcesButton {
@@ -279,7 +280,6 @@
 
 .errorContainer {
     display: inline;
-    margin-left: 20px;
 }
 
 .errorButton {

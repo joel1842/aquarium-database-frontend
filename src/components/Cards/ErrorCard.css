@@ -1,0 +1,45 @@
+.errorFormContainer {
+    background: linear-gradient(360deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), #FFCCAA;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    padding: 2%;
+    padding-bottom: 4%;
+    width: 70%;
+    margin: auto;
+}
+
+.errorForm p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.errorForm input {
+    height: 2.2em;
+    width: 85%;
+    font-size: 0.8em;
+    font-family: Poppins;
+    border: 1px solid grey;
+    border-radius: 20px;
+    background: #f1f1f1;
+    text-align: center;
+    cursor: pointer;
+    padding: 2%;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3)
+}
+
+.errorForm button {
+    border: none;
+    border-radius: 20px;
+    font-family: Poppins;
+    color: grey;
+    padding: 2%;
+    margin-top: 5%;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+    transition: all 0.5s ease-in-out;
+}
+
+.errorForm button:hover {
+    color: black;
+    transform: scale(1.2);
+}
