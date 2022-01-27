@@ -24,7 +24,7 @@ const App = () => {
   const [fishAPI, setFishAPI] = useState()
 
   useEffect(() => {
-    fetch('http://localhost:3001/allfish').then((res) => {
+    fetch('http://localhost:3001/allfish?page=1&limit=20').then((res) => {
         if (res.ok) {
             console.log(res)
             return res.json();

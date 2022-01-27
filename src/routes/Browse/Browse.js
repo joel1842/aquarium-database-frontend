@@ -16,7 +16,61 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
         console.log(criterion)
     }
 
-    if (fishAPI) {
+    let page = 1;
+
+    useEffect(() => {
+        getFish()
+    }, [])
+
+    useEffect(() => {
+        let fetching = false;
+        const onScroll = (event) => {
+            const { scrollHeight, scrollTop, clientHeight } = event.target.scrollingElement;
+
+            if (!fetching && scrollHeight - scrollTop <= clientHeight * 1.5) {
+                fetching = true;
+                page++
+                getFish() 
+            }
+        }
+
+        document.addEventListener("scroll", onScroll)
+        return () => {
+            document.removeEventListener("scroll", onScroll)
+        }
+    }, [])
+
+    const [fish, setFish] = useState([])
+
+    const getFish = async () => {
+        try {
+
+            console.log(page)
+
+            const response = await fetch(`http://localhost:3001/allfish?page=${page}&limit=20`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                }
+            })
+            const responseData = await response.json()
+            setFish(fish => {
+                return [...fish, responseData]
+            })
+            
+            // if (!fish) {
+            //     setFish(responseData)
+            // } else {
+                
+            //     console.log("fired")
+            // }
+            
+        } catch (error) {
+            console.error()
+        }
+    }
+
+    if (fish) {
 
         return(
             <div>
@@ -32,7 +86,7 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
 
                 {!searchTerm && !filterCriterion &&
                 <div className='fishCardGrid'>
-                    {fishAPI.map((fishData, index) => {
+                    {fish.map((fishData, index) => {
 
                     let fishName = fishData.name
                     fishName = fishName.replace(/\s+/g, '')
@@ -51,7 +105,7 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
                 
                 {searchTerm && 
                 <div className='fishCardGrid'>
-                    {fishAPI.filter((fishData) => {
+                    {fish.filter((fishData) => {
                         if (fishData.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                             return fishData; 
                         }
@@ -74,7 +128,7 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
 
                 {filterCriterion && 
                 <div className='fishCardGrid'>
-                    {fishAPI.filter((fishData) => {
+                    {fish.filter((fishData) => {
                         if (fishData.careLevel.toLowerCase().includes(filterCriterion.toLowerCase())) {
                             return fishData;
                         }
