@@ -5,6 +5,26 @@
     margin-right: 100px;
 }
 
+.moreFish {
+    border: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #50C9CE;
+    box-shadow: 0px 2px 2px #30ADB3;
+    border-radius: 30px;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-top: 3%;
+    padding: 1.5%;
+    transition: all 0.2s ease-in-out;
+}
+
+.moreFish:hover {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #6cd4d8;
+    box-shadow: 0px 2px 2px #45bdc4;
+    transform: scale(1.2);
+}
+
 @media screen and (max-width: 1300px) {
     .fishCardGrid {
         grid-template-columns: 1fr 1fr;
