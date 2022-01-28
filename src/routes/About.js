@@ -10,7 +10,7 @@ export const About = () => {
     return(
         <>
             <StandardNavBar/>
-            <div>
+            <div className="aboutContainer">
                 <div className='goal'>
                     <div className='goalHeader'>
                         <h1>The Goal</h1>

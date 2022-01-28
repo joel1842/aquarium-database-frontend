@@ -47,13 +47,15 @@ const FavList = ({ getSearchTerm }) => {
         <div>
             <StandardNavBar getSearchTerm={getSearchTerm}/>
 
-            <h1 className='favHeader'>My Favorites</h1>
-            {!isAuthenticated && <p>Catching your favorite fish...</p>}
-            {isAuthenticated && userFavs && userFavs.map((userData, index) => (
-            <Link to={userData.link} key={index}>
-                <FavCard userData={userData} deleteFish={deleteFish} key={index}/>
-            </Link>
-            ))}
+            <div className="favContainer">
+                <h1 className='favHeader'>My Favorites</h1>
+                {!isAuthenticated && <p>Catching your favorite fish...</p>}
+                {isAuthenticated && userFavs && userFavs.map((userData, index) => (
+                <Link to={userData.link} key={index}>
+                    <FavCard userData={userData} deleteFish={deleteFish} key={index}/>
+                </Link>
+                ))}
+            </div>
             <Footer />
         </div>
     )

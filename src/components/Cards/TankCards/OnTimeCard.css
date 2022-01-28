@@ -77,6 +77,28 @@
     margin-left: 2%;
 }
 
+.react-tel-input .form-control{
+    font-family: Poppins;
+}
+
+.react-tel-input .country-list .country {
+    background-color: #e0abfa;
+    font-family: poppins;
+}
+
+.react-tel-input .country-list .country.highlight {
+    background-color: #AC6DCB;
+}
+
+.react-tel-input .country-list .country:hover {
+    background-color: #AC6DCB;
+}
+
+.react-tel-input .country-list .country .dial-code {
+    color: #f0f0f0;
+    font-weight: 700;
+}
+
 .onTimeSubmit {
     border: none;
     border-radius: 30px;

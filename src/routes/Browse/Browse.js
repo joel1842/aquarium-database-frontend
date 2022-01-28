@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {useInfiniteQuery, useQueryClient} from 'react-query';
 import { Link } from 'react-router-dom';
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
 import FishCard from '../../components/Cards/FishCard';
 import FilterBar from '../../components/Bars/FilterBar';
 import Footer from '../../components/Bars/Footer';
 import './browse.css';
-
 export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
 
     // const [filterCriterion, setFilterCriterion] = useState();
@@ -22,26 +20,27 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
     // }, [])
 
     // let fetching = false;
+    let activated = false;
 
-    // useEffect(() => {
-    //     const onScroll = (event) => {
-    //         const { scrollHeight, scrollTop, clientHeight } = event.target.scrollingElement;
+    useEffect(() => {
+        const onScroll = (event) => {
+            const { scrollHeight, scrollTop, clientHeight } = event.target.scrollingElement;
 
-    //         if (!fetching && scrollHeight - scrollTop <= clientHeight * 1.5) {
-    //             fetching = true;
-    //             nextPage()
-    //         }
-    //     }
+            if (!activated && scrollHeight - scrollTop <= clientHeight * 1.5) {
+                activated = true
+                nextPage()
+                console.log('FIRED')
+            }
+        }
 
-    //     document.addEventListener("scroll", onScroll)
-    //     return () => {
-    //         document.removeEventListener("scroll", onScroll)
-    //     }
-    // }, [])
+        document.addEventListener("scroll", onScroll)
+        return () => {
+            document.removeEventListener("scroll", onScroll)
+        }
+    }, [])
 
     const [page, setPage] = useState(1)
     const [fish, setFish] = useState([])
-    const [display, setDisplay] = useState(true)
 
     useEffect(() => {
         getFish()
@@ -53,7 +52,6 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
             const response = await fetch(`http://localhost:3001/allfish?page=${page}&limit=21`);
             const data = await response.json();
             setFish(oldData => oldData.concat(data))
-
         } catch (err) {
             throw new Error(err);
         }
@@ -62,7 +60,7 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
 
     const nextPage = () => {
         setPage(prevPage => prevPage + 1)
-        console.log(page)
+        activated = false
     }
 
     if (fish) {
@@ -95,6 +93,8 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
                 <div>
                     <button className="moreFish" onClick={nextPage}>More Fish...</button>
                 </div>
+
+                <Footer />
             </div>
         )
 

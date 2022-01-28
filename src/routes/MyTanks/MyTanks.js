@@ -13,28 +13,31 @@ const MyTanks = ({ getSearchTerm, createSwitch, create, tanks }) => {
     return (
         <div>
             <StandardNavBar getSearchTerm={getSearchTerm}/>
-
-            <div>
-                <h1 className="myTanksHeader">My Fish Tanks</h1>
-                {!create && <button className="newTank" onClick={createSwitch}>New Tank</button>}
-            </div>
             
-            {!create && tanks && tanks.map((tank, index) => {
-            let tankName = tank.tankName
-            tankName = tankName.replace(/\s+/g, '')
-            tankName = tankName.replace(/-/g, '')
-            tankName = tankName.replace(/'/g, '')
+            <div className="myTanksContainer">
+                <div>
+                    <h1 className="myTanksHeader">My Fish Tanks</h1>
+                    {!create && <button className="newTank" onClick={createSwitch}>New Tank</button>}
+                </div>
+                
+                {!create && tanks && tanks.map((tank, index) => {
+                let tankName = tank.tankName
+                tankName = tankName.replace(/\s+/g, '')
+                tankName = tankName.replace(/-/g, '')
+                tankName = tankName.replace(/'/g, '')
 
-            let url = "/" + tankName;
-            console.log(url)
+                let url = "/" + tankName;
+                console.log(url)
 
-            return ( 
-            <Link to={url}>
-                <TankCard tank={tank} key={index}/>
-            </Link>)
-            })}
-            {!tanks && <h3>You don't have a tank yet!</h3>}
-            {create && <CreateTank createSwitch={createSwitch}/>}
+                return ( 
+                <Link to={url}>
+                    <TankCard tank={tank} key={index}/>
+                </Link>)
+                })}
+                {!tanks && <h3>You don't have a tank yet!</h3>}
+                {create && <CreateTank createSwitch={createSwitch}/>}
+            </div>
+
             <Footer />
         </div>
     )
