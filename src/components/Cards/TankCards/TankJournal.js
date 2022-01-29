@@ -3,11 +3,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { AddLevelsButton } from "../../Button/AddLevelsButton"
 import journal from "../../../assets/journal.png"
 import add from "../../../assets/add.png"
+import dayjs from 'dayjs';
 import "./TankJournal.css"
 
 export const TankJournal = ({tank}) => {
 
-    const {getAccessTokenSilently} = useAuth0();
+    const { getAccessTokenSilently } = useAuth0();
 
     const [levels, setLevels] = useState();
     const [ammonia, setAmmonia] = useState();
@@ -31,35 +32,6 @@ export const TankJournal = ({tank}) => {
     useEffect(() => {
         getLevels()
     }, [])
-
-    // const timeSince = () => {
-    //     const seconds = Math.floor((new Date() - date) / 1000);
-    //     const interval = seconds / 31536000;
-
-    //     if (interval > 1) {
-    //         return Math.floor(interval) + " years";
-    //     }
-    //     interval = seconds / 2592000;
-    //     if (interval > 1) {
-    //         return Math.floor(interval) + " months";
-    //     }
-    //     interval = seconds / 86400;
-    //     if (interval > 1) {
-    //         return Math.floor(interval) + " days";
-    //     }
-    //     interval = seconds / 3600;
-    //     if (interval > 1) {
-    //         return Math.floor(interval) + " hours";
-    //     }
-    //     interval = seconds / 60;
-    //     if (interval > 1) {
-    //         return Math.floor(interval) + " minutes";
-    //     }
-    //         return Math.floor(seconds) + " seconds";
-    //     }
-    // }
-
-    // const aDay = 24*60*60*1000;
 
     const getLevels = async () => {
         const token = await getAccessTokenSilently()

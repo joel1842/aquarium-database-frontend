@@ -16,6 +16,7 @@ import MyTanks from './routes/MyTanks/MyTanks';
 import Loading from './routes/Loading';
 import TankCardExpanded from './components/Cards/TankCards/TankCardExpanded';
 import { Disclaimer } from './routes/Disclaimer';
+import { Care } from './routes/Care';
 
 const App = () => {
 
@@ -141,6 +142,7 @@ const App = () => {
           <Route exact path="/favlist" element={<FavList getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/mytanks" element={<MyTanks getSearchTerm={getSearchTerm} createSwitch={createSwitch} create={create} tanks={tanks}/>}></Route>
           <Route exact path="/disclaimer" element={<Disclaimer />}></Route>
+          <Route exact path="/care" element={<Care />}></Route>
           <Route exact path="/" element={<Home getSearchTerm={getSearchTerm}/>}></Route>
         </Routes>
     );
