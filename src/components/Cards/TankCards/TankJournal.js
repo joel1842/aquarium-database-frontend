@@ -4,6 +4,7 @@ import { AddLevelsButton } from "../../Button/AddLevelsButton"
 import journal from "../../../assets/journal.png"
 import add from "../../../assets/add.png"
 import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime'
 import "./TankJournal.css"
 
 export const TankJournal = ({tank}) => {
@@ -47,11 +48,37 @@ export const TankJournal = ({tank}) => {
             body: JSON.stringify(fishtankName)
         })
         const responseData = await response.json()
-
         if (responseData.length >= 1) {
             setLevels(responseData)
         } 
         
+    }
+
+    const [timeSince, setTimeSince] = useState()
+    const [page, setPage] = useState(0)
+
+    useEffect(() => {
+        if(levels) {
+            getDate()
+        }
+ 
+    }, [levels, page])
+
+    const getDate = () => {
+        let date = Number(levels[page].date)
+        dayjs.extend(relativeTime)
+        setTimeSince(dayjs().to(date))
+    }
+
+    const viewJournal = () => {
+        const length = levels.length
+        const entries = length - 1
+
+        if (entries === page) {
+            console.log("No more pages!")
+        } else {
+            setPage(prevPage => prevPage + 1)
+        }
     }
 
     return (
@@ -59,7 +86,7 @@ export const TankJournal = ({tank}) => {
             <div className="tankLevelHeader">
                 <img src={journal} alt="Tank Journal"/>
                 <h1>Tank Journal</h1>
-                {/* <h2>• tested 2 weeks ago</h2> */}
+                <h2>{timeSince}</h2>
             </div>
 
             {!levels && 
@@ -72,27 +99,30 @@ export const TankJournal = ({tank}) => {
             <div className="tankLevels">
                 <div>
                     <h3>Ammonia</h3>
-                    <p>{levels[0].ammonia} ppm</p>
+                    <p>{levels[page].ammonia} ppm</p>
                 </div>
                 <div>
                     <h3>Nitrites</h3>
-                    <p>{levels[0].nitrites} ppm</p>
+                    <p>{levels[page].nitrites} ppm</p>
                 </div>
                 <div>
                     <h3>Nitrates</h3>
-                    <p>{levels[0].nitrates} ppm</p>
+                    <p>{levels[page].nitrates} ppm</p>
                 </div>
                 <div>
                     <h3>pH Level</h3>
-                    <p>{levels[0].phLevel} pH</p>
+                    <p>{levels[page].phLevel} pH</p>
                 </div>
                 <div>
                     <h3>Alkalinity</h3>
-                    <p>{levels[0].alkalinity} ppm</p>
+                    <p>{levels[page].alkalinity} ppm</p>
                 </div>
                 <div>
                     <h3>dH Level</h3>
-                    <p>{levels[0].dhLevel} ppm</p>
+                    <p>{levels[page].dhLevel} ppm</p>
+                </div>
+                <div>
+                    <button onClick={viewJournal}>Next entry...</button>
                 </div>
             </div>}
 
