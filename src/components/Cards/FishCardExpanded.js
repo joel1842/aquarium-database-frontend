@@ -54,6 +54,34 @@ export const FishExpanded = ({ fishData, tanks }) => {
             setShowError(true)
         }
     }
+
+    const [fishPic, setFishPic] = useState(fishData.pic1)
+    const [number, setNumber] = useState(1)
+
+    useEffect(() => {
+        picSwitch()
+    }, [number])
+
+    const numberSwitch = () => {
+        if (number < 3) {
+            setNumber(prevNumber => prevNumber + 1)
+        } else {
+            setNumber(1)
+            console.log("Reset!")
+        }
+ 
+    }
+
+    const picSwitch = () => {
+
+        if (number === 3 && fishData.pic3 !== undefined) {
+            setFishPic(fishData.pic3)
+        } else if (number === 2 && fishData.pic2 !== undefined) {
+            setFishPic(fishData.pic2)
+        } else {
+            setFishPic(fishData.pic1)
+        } 
+    }
     
     return(
         <>
@@ -66,7 +94,8 @@ export const FishExpanded = ({ fishData, tanks }) => {
 
         <div className='fishCard'>
             <div className='fishHeader'>
-                <img className='fishImg'src={fishData.pic1} alt='Espes Rasbora'/>
+                <img className='fishImg'src={fishPic} alt='Espes Rasbora'/>
+                <button onClick={numberSwitch}>Next Pic...</button>
                 <div className='fishTitle'>
                     <div className="fishNames">
                         <h1 className='fishName'>{fishData.name}</h1>
