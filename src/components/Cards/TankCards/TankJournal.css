@@ -57,6 +57,55 @@
     font-size: 20px;
 }
 
+.timeSince {
+    grid-column: 1/4;
+    margin-top: 2%;
+}
+
+.timeSince div {
+    display: inline-block;
+    vertical-align: middle;
+    width: 33%;
+}
+
+.timeSince button {
+    display: inline;
+    border: none;
+    background: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.timeSince button:hover {
+    transform: scale(1.1);
+}
+
+.timeSince button img {
+    width: 10%;
+    vertical-align: middle;
+    margin-left: 2%;
+}
+
+.timeSince button h2 {
+    font-family: Poppins;
+    font-size: 18px;
+    vertical-align: middle;
+    color: white;
+}
+
+.timeSince img {
+    width: 25px;
+    display: inline;
+    vertical-align: middle;
+    margin-right: 2%;
+}
+
+.timeSince h2 {
+    display: inline;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: 500;
+}
+
 .newEntryButton {
     background: linear-gradient(180.77deg, rgba(255, 255, 255, 0.5) -64.46%, rgba(255, 255, 255, 0) 99.34%), #445E93;
     box-shadow: 0px 2px 2px #314E88;

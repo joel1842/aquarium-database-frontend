@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import { AddLevelsButton } from "../../Button/AddLevelsButton"
+import arrowLeft from "../../../assets/arrow.png"
+import arrowRight from "../../../assets/arrowrotated.png"
+import clock from "../../../assets/clock.png"
 import journal from "../../../assets/journal.png"
 import add from "../../../assets/add.png"
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime'
 import "./TankJournal.css"
 
-export const TankJournal = ({tank}) => {
+export const TankJournal = ({tank, levels}) => {
 
-    const { getAccessTokenSilently } = useAuth0();
-
-    const [levels, setLevels] = useState();
     const [ammonia, setAmmonia] = useState();
     const [nitrite, setNitrite] = useState();
     const [nitrate, setNitrate] = useState();
     const [phLevel, setPhLevel] = useState();
-    const [alkalinity, setAlkalinity] = useState();
-    const [dhLevel, setDhLevel] = useState();
+    const [khLevel, setKhLevel] = useState();
+    const [ghLevel, setGhLevel] = useState();
     const [newEntry, setNewEntry] = useState(false);
 
     const fishLevels = {
@@ -25,33 +25,9 @@ export const TankJournal = ({tank}) => {
         nitrite: nitrite,
         nitrate: nitrate,
         phLevel: phLevel,
-        alkalinity: alkalinity,
-        dhLevel: dhLevel,
+        khLevel: khLevel,
+        ghLevel: ghLevel,
         tankName: tank.tankName
-    }
-
-    useEffect(() => {
-        getLevels()
-    }, [])
-
-    const getLevels = async () => {
-        const token = await getAccessTokenSilently()
-        const fishtankName = {
-            tank: tank.tankName
-        }
-        const response = await fetch('http://localhost:3001/getjournal', {
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(fishtankName)
-        })
-        const responseData = await response.json()
-        if (responseData.length >= 1) {
-            setLevels(responseData)
-        } 
-        
     }
 
     const [timeSince, setTimeSince] = useState()
@@ -70,15 +46,49 @@ export const TankJournal = ({tank}) => {
         setTimeSince(dayjs().to(date))
     }
 
+    const [showNext, setShowNext] = useState(true)
+    const [showBack, setShowBack] = useState(false)
+
+    useEffect(() => {
+
+        if (levels) {
+            const length = levels.length
+            const entries = length - 1
+
+            if (page > 0) {
+                setShowBack(true)
+            } else {
+                setShowBack(false)
+            }
+
+            if (page === entries) {
+                setShowNext(false)
+            } else {
+                setShowNext(true)
+            }
+        }
+
+    }, [page])
+
     const viewJournal = () => {
         const length = levels.length
         const entries = length - 1
 
         if (entries === page) {
             console.log("No more pages!")
+            console.log(page)
         } else {
             setPage(prevPage => prevPage + 1)
+            console.log(page)
         }
+    }
+
+    const backJournal = () => {
+        // const length = levels.length
+        // const entries = length - 1
+
+        setPage(prevPage => prevPage - 1)
+        console.log(page)
     }
 
     return (
@@ -86,7 +96,6 @@ export const TankJournal = ({tank}) => {
             <div className="tankLevelHeader">
                 <img src={journal} alt="Tank Journal"/>
                 <h1>Tank Journal</h1>
-                <h2>{timeSince}</h2>
             </div>
 
             {!levels && 
@@ -97,6 +106,26 @@ export const TankJournal = ({tank}) => {
 
             {levels && !newEntry &&
             <div className="tankLevels">
+                <div className='timeSince'>
+                    {showBack && 
+                    <div>
+                        <button onClick={backJournal}>
+                            <img src={arrowLeft} alt="Next Entry..."/>
+                            <h2>Last Entry</h2>
+                        </button>
+                    </div>}
+                    <div>
+                        <img src={clock} alt="Time since..."/>
+                        <h2>{timeSince}</h2>
+                    </div>
+                    {showNext && 
+                    <div>
+                        <button onClick={viewJournal}>
+                            <h2>Next Entry</h2>
+                            <img src={arrowRight} alt="Next Entry..."/>
+                        </button>
+                    </div>}
+                </div>
                 <div>
                     <h3>Ammonia</h3>
                     <p>{levels[page].ammonia} ppm</p>
@@ -115,15 +144,13 @@ export const TankJournal = ({tank}) => {
                 </div>
                 <div>
                     <h3>Alkalinity</h3>
-                    <p>{levels[page].alkalinity} ppm</p>
+                    <p>{levels[page].khLevel} ppm</p>
                 </div>
                 <div>
                     <h3>dH Level</h3>
-                    <p>{levels[page].dhLevel} ppm</p>
+                    <p>{levels[page].ghLevel} ppm</p>
                 </div>
-                <div>
-                    <button onClick={viewJournal}>Next entry...</button>
-                </div>
+
             </div>}
 
             {!newEntry &&
@@ -141,69 +168,115 @@ export const TankJournal = ({tank}) => {
                 <div className="newEntryContainer">
                     <div>
                         <label className="tankLevelLabel" for="ammonia">Ammonia</label>
+                        <p>( 0-8 ppm )</p>
                         <input 
                         id="ammonia"
                         className="TankLevelInput" 
                         type="number"
-                        placeholder="Ammonia..." 
+                        placeholder="ex. 0.25" 
+                        min="0"
+                        max="8"
                         onChange={(event) => {
-                        setAmmonia(event.target.value)}}
+                            if (event.target.value < 0 | event.target.value > 8) {
+                                event.target.value = undefined
+                            } else {
+                                setAmmonia(event.target.value)}}
+                            }
                         />
                     </div>
                     <div>
                         <label className="tankLevelLabel" for="nitrites">Nitrites</label>
+                        <p>( 0-5 ppm )</p>
                         <input 
                         id="nitrites"
                         className="TankLevelInput" 
                         type="number"
-                        placeholder="Nitrites..." 
+                        placeholder="ex. 0.5" 
+                        min="0"
+                        max="5"
                         onChange={(event) => {
-                        setNitrite(event.target.value)}}
+                            if (event.target.value < 0 | event.target.value > 5) {
+                                event.target.value = undefined
+                            } else {
+                                setNitrite(event.target.value)
+                            }
+                        }}
                         />
                     </div>
                     <div>
                         <label className="tankLevelLabel" for="nitrates">Nitrates</label>
+                        <p>( 0-160 ppm )</p>
                         <input 
                         id="nitrates"
                         className="TankLevelInput" 
                         type="number"
-                        placeholder="Nitrates..." 
+                        placeholder="ex. 20" 
+                        min="0"
+                        max="160"
                         onChange={(event) => {
-                        setNitrate(event.target.value)}}
+                            if (event.target.value < 0 | event.target.value > 160) {
+                                event.target.value = undefined
+                            } else {
+                                setNitrate(event.target.value)
+                            }
+                        }}
                         />
                     </div>
                     
                     <div>
                         <label className="tankLevelLabel" for="ph">pH Level</label>
+                        <p>( 5-9 pH )</p>
                         <input 
                         id="ph"
                         className="TankLevelInput" 
                         type="number"
-                        placeholder="pH Level..." 
+                        placeholder="ex. 7.2"
+                        min="5"
+                        max="9" 
                         onChange={(event) => {
-                        setPhLevel(event.target.value)}}
+                            if (event.target.value < 5 | event.target.value > 9) {
+                                event.target.value = undefined
+                            } else {
+                                setPhLevel(event.target.value)}}
+                            }
                         />
                     </div>
                     <div>
-                        <label className="tankLevelLabel" for="alkalinity">Alkalinity</label>
+                        <label className="tankLevelLabel" for="khLevel">kH Level</label>
+                        <p>( 0-240 ppm )</p>
                         <input 
-                        id="alkalinity"
+                        id="kHLevel"
                         className="TankLevelInput" 
                         type="number"
-                        placeholder="Alkalinity..." 
+                        placeholder="ex. 40" 
+                        min="0"
+                        max="240"
                         onChange={(event) => {
-                        setAlkalinity(event.target.value)}}
+                            if (event.target.value < 0 | event.target.value > 240) {
+                                event.target.value = undefined
+                            } else {
+                                setKhLevel(event.target.value)
+                            }
+                        }}
                         />
                     </div>
                     <div>
-                        <label className="tankLevelLabel" for="dh">dH Level</label>
+                        <label className="tankLevelLabel" for="ghLevel">gH Level</label>
+                        <p>( 0-180 ppm )</p>
                         <input 
-                        id="dh"
+                        id="gHLevel"
                         className="TankLevelInput" 
                         type="number"
-                        placeholder="dH Level..." 
+                        placeholder="ex. 30"
+                        min="0"
+                        max="180" 
                         onChange={(event) => {
-                        setDhLevel(event.target.value)}}
+                            if (event.target.value < 0 | event.target.value > 180) {
+                                event.target.value = undefined
+                            } else {
+                                setGhLevel(event.target.value)
+                            }
+                        }}
                         />
                     </div>
                     <AddLevelsButton fishLevels={fishLevels}/>

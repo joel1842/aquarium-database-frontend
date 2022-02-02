@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import "./TankCardExpanded.css";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../../../routes/Loading";
@@ -11,17 +12,45 @@ import Footer from "../../Bars/Footer"
 
 const TankCardExpanded = ({tank, deleteSwitch}) => {
 
+    const { getAccessTokenSilently } = useAuth0();
+    
+    const [levels, setLevels] = useState();
+
+    useEffect(() => {
+        getLevels()
+    }, [])
+
+    const getLevels = async () => {
+        const token = await getAccessTokenSilently()
+        const fishtankName = {
+            tank: tank.tankName
+        }
+        const response = await fetch('http://localhost:3001/getjournal', {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(fishtankName)
+        })
+        const responseData = await response.json()
+        if (responseData.length >= 1) {
+            setLevels(responseData)
+        } 
+        
+    }
+
     return(
         <div>
             <StandardNavBar />
 
             <div className="tankCardContainer">
 
-                <TankCardMain tank={tank} deleteSwitch={deleteSwitch}/>
+                <TankCardMain tank={tank} levels={levels} deleteSwitch={deleteSwitch}/>
 
                 <MyFish tank={tank}/>
 
-                <TankJournal tank={tank}/>
+                <TankJournal tank={tank} levels={levels}/>
 
                 <OnTimeCard />
 
