@@ -10,6 +10,7 @@ export const Home = ({ getSearchTerm }) => {
     return (
         <div>
             <HomeNavBar />
+            
             {/* <NotificationBar /> */}
             <div className='HomeSearchBar'>
                 <SearchBar getSearchTerm={getSearchTerm} />

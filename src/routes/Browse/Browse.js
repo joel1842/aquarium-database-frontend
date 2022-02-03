@@ -44,14 +44,19 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
 
     useEffect(() => {
         getFish()
-    }, [page])
+    }, [page, searchTerm])
 
     const getFish = async () => {
     
         try {
-            const response = await fetch(`http://localhost:3001/allfish?page=${page}&limit=21`);
+            const response = await fetch(`http://localhost:3001/allfish?page=${page}&limit=21&search=${searchTerm}`);
             const data = await response.json();
-            setFish(oldData => oldData.concat(data))
+            if (searchTerm === undefined) {
+                setFish(oldData => oldData.concat(data))
+            } else {
+                setFish(data)
+            }
+            
         } catch (err) {
             throw new Error(err);
         }

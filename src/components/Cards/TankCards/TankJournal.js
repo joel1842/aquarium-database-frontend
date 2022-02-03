@@ -9,8 +9,19 @@ import add from "../../../assets/add.png"
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime'
 import "./TankJournal.css"
+import e from 'cors';
 
 export const TankJournal = ({tank, levels}) => {
+
+    const [success, setSuccess] = useState(false)
+    const added = () => {
+        if (success === false) {
+            setSuccess(true)
+            console.log("TRUE")
+        } else {
+            setSuccess(false)
+        }
+    }
 
     const [ammonia, setAmmonia] = useState();
     const [nitrite, setNitrite] = useState();
@@ -18,6 +29,8 @@ export const TankJournal = ({tank, levels}) => {
     const [phLevel, setPhLevel] = useState();
     const [khLevel, setKhLevel] = useState();
     const [ghLevel, setGhLevel] = useState();
+    const [temp, setTemp] = useState();
+    const [tempScale, setTempScale] = useState("c");
     const [newEntry, setNewEntry] = useState(false);
 
     const fishLevels = {
@@ -27,6 +40,8 @@ export const TankJournal = ({tank, levels}) => {
         phLevel: phLevel,
         khLevel: khLevel,
         ghLevel: ghLevel,
+        temp: temp,
+        tempScale: tempScale,
         tankName: tank.tankName
     }
 
@@ -126,6 +141,7 @@ export const TankJournal = ({tank, levels}) => {
                         </button>
                     </div>}
                 </div>
+
                 <div>
                     <h3>Ammonia</h3>
                     <p>{levels[page].ammonia} ppm</p>
@@ -166,6 +182,36 @@ export const TankJournal = ({tank, levels}) => {
                     <h2>New Entry</h2>
                 </div>
                 <div className="newEntryContainer">
+
+                    <div className='tempInputContainer'>
+                        <label className="tempLevelLabel" for="temp">Temperature</label>
+                        <input 
+                        id="temp"
+                        className="tempInput" 
+                        type="number"
+                        placeholder="ex. 25.3" 
+                        min="0"
+                        max="100"
+                        onChange={(event) => {
+                            if (event.target.value < 0 | event.target.value > 100) {
+                                event.target.value = undefined
+                            } else {
+                                setTemp(event.target.value)}}
+                            }
+                        />
+                        <div className='radioInput'>
+                            <div>
+                                <input type="radio" name="scale" id="c" value="c" checked onChange={(event) => setTempScale(event.target.value)}/>
+                                <label for="c">Celcius</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="scale" id="f" value="f" onChange={(event) => setTempScale(event.target.value)}/>
+                                <label for="f">Fahrenheit</label>
+                            </div>
+
+                        </div>
+                    </div>
+
                     <div>
                         <label className="tankLevelLabel" for="ammonia">Ammonia</label>
                         <p>( 0-8 ppm )</p>
@@ -279,7 +325,7 @@ export const TankJournal = ({tank, levels}) => {
                         }}
                         />
                     </div>
-                    <AddLevelsButton fishLevels={fishLevels}/>
+                    <AddLevelsButton fishLevels={fishLevels} success={success} added={added}/>
                 </div>
             </div>}
             

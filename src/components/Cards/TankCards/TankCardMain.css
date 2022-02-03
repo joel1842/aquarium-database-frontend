@@ -71,6 +71,10 @@
     margin-top: 10px;
 }
 
+.tempCard b {
+    margin-right: 2%;
+}
+
 .healthCard {
     border-radius: 30px;
     width: 90%;

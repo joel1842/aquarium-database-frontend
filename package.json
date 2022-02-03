@@ -15,6 +15,7 @@
     "dotenv": "^10.0.0",
     "react": "^17.0.2",
     "react-burger-menu": "^3.0.6",
+    "react-checkmark": "^1.4.0",
     "react-cssfx-loading": "^1.0.3",
     "react-dom": "^17.0.2",
     "react-phone-input-2": "^2.14.0",

@@ -12,6 +12,16 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
 
     const [score, setScore] = useState()
 
+    const [celcius, setCelcius] = useState()
+    const [fahrenheit, setFahrenheit] = useState()
+
+    useEffect(() => {
+        if (levels) {
+            setCelcius(Number(levels[0].celcius).toFixed(1))
+            setFahrenheit(Number(levels[0].fahrenheit).toFixed(1))
+        }
+    }, [levels])
+
     // ammonia 0ppm, more than 2 is dangerous
     const [ammoniaHealth, setAmmoniaHealth] = useState()
     // nitrite 0 - 0.2ppm
@@ -19,7 +29,7 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
     // nitrate 0 - 40ppm 
     const [nitrateHealth, setNitrateHealth] = useState()
     // pH level 6 - 8
-    const [phLevelHealth, setPhLevelHealth] = useState()
+    // const [phLevelHealth, setPhLevelHealth] = useState()
     // kh level 4 - 8 dKh, 70 - 140 ppm
     // const khLevel = 5
     // gh level 4 - 8 dGh, 70 -140 ppm
@@ -114,9 +124,6 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
         }
     }
 
-    const tempC = "27 C° "
-    const tempF = "(80.6 f°)"
-
     return (
         
         <div className="tankHeadContainer">
@@ -145,7 +152,7 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
                 </div>
                 <div className="tempCard">
                     <h2>Temperature</h2>
-                    <p><b>{tempC}</b>{tempF}</p> 
+                    {levels && <p><b>{celcius} °C</b>({fahrenheit} °F) </p> }
                 </div>
             </div>
 

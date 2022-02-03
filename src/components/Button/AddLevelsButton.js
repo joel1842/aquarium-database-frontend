@@ -1,15 +1,16 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Checkmark } from "react-checkmark";
 
-export const AddLevelsButton = ({fishLevels}) => {
+export const AddLevelsButton = ({fishLevels, success, added}) => {
 
     const { getAccessTokenSilently } = useAuth0()
 
     const submitLevels = async () => {
         if (fishLevels.tankName && fishLevels.ammonia && fishLevels.nitrate && fishLevels.nitrite && fishLevels.phLevel) {
             try {
-                console.log("name:", fishLevels.tankName)
                 const token = await getAccessTokenSilently()
+                
                 fetch('http://localhost:3001/newentry', {
                     method: 'POST',
                     headers: {
@@ -17,7 +18,14 @@ export const AddLevelsButton = ({fishLevels}) => {
                         'Content-Type': 'application/json;charset=utf-8'
                     },
                     body: JSON.stringify(fishLevels)
+                }).then(res => {
+                    if (res.ok) {
+                        console.log(res)
+                        added()
+                        setTimeout(() => {window.location.reload()}, 3000)
+                    }
                 })
+                
             } catch (error) {
                 console.error()
             }
@@ -25,5 +33,15 @@ export const AddLevelsButton = ({fishLevels}) => {
         }
     }
 
-    return <button className="submitLevels" onClick={submitLevels}>Submit Entry</button>
+    if (success) {
+        return (
+            <div className="success">
+                <Checkmark size='30px'/>
+                <p>Entry Added!</p>
+            </div>
+        )
+    } else {
+        return <button className="submitLevels" onClick={submitLevels}>Submit Entry</button>
+    }
+    
 }
