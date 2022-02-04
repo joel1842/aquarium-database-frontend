@@ -12,7 +12,7 @@ const DeleteTankButton = ({ tank, deleteSwitch }) => {
 
             const token = await getAccessTokenSilently()
 
-            fetch('http://localhost:3001/deletetank/' + id, {
+            fetch('https://localhost:8000/deletetank/' + id, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,

@@ -11,7 +11,7 @@ export const DeleteTankFish = ({ fish, updateFish }) => {
         try {
             const token = await getAccessTokenSilently()
 
-            const response = fetch('http://localhost:3001/deletetankfish/' + id, {
+            const response = fetch('https://localhost:8000/deletetankfish/' + id, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,

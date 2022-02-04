@@ -25,7 +25,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
         const fishtankName = {
             tank: tank.tankName
         }
-        const response = await fetch('http://localhost:3001/getjournal', {
+        const response = await fetch('https://localhost:8000/getjournal', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,

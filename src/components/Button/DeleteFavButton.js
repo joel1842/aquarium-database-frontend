@@ -10,7 +10,7 @@ const DeleteFavorite = ({ userData, deleteFish }) => {
     const deleteFishie = async () => {
         try{
             const token = await getAccessTokenSilently()
-            const response = await fetch('http://localhost:3001/removefav/' + id, {
+            const response = await fetch('https://localhost:8000/removefav/' + id, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,

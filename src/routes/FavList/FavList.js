@@ -20,7 +20,7 @@ const FavList = ({ getSearchTerm }) => {
         try {
             const token = await getAccessTokenSilently();
 
-            const response = await fetch('http://localhost:3001/favList', {
+            const response = await fetch('https://localhost:8000/favList', {
                 method: 'GET',    
                 headers: {
                     Authorization: `Bearer ${token}`,

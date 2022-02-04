@@ -22,7 +22,7 @@ export const MyFish = ({tank}) => {
                 tank: tank.tankName
             }
 
-            const response = await fetch('http://localhost:3001/myfish', {
+            const response = await fetch('https://localhost:8000/myfish', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

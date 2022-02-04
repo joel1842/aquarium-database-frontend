@@ -29,7 +29,7 @@ export const OnTimeCard = () => {
                 phone: phone
             }
 
-            fetch('http://localhost:3001/ontime', {
+            fetch('https://localhost:8000/ontime', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

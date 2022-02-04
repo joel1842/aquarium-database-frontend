@@ -25,7 +25,7 @@ const App = () => {
   const [fishAPI, setFishAPI] = useState()
 
   useEffect(() => {
-    fetch('http://localhost:3001/allfish?page=1&limit=20').then((res) => {
+    fetch('https://localhost:8000/allfish?page=1&limit=20').then((res) => {
         if (res.ok) {
             console.log(res)
             return res.json();
@@ -64,7 +64,7 @@ const App = () => {
             user: user.email
         }
 
-        const response = await fetch('http://localhost:3001/mytanks', {
+        const response = await fetch('https://localhost:8000/mytanks', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,

@@ -33,7 +33,7 @@ const AddToTank = ({ fishData, tanks }) => {
                 quantity: quantity
             }
     
-            fetch('http://localhost:3001/addfish', {
+            fetch('https://localhost:8000/addfish', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

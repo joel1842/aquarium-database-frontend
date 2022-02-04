@@ -20,7 +20,7 @@ const FavoritesButton = ({fishData}) => {
 
             const token = await getAccessTokenSilently()
 
-            fetch('http://localhost:3001/favorites', {
+            fetch('https://localhost:8000/favorites', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

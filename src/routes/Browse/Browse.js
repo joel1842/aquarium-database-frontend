@@ -49,7 +49,7 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
     const getFish = async () => {
     
         try {
-            const response = await fetch(`http://localhost:3001/allfish?page=${page}&limit=21&search=${searchTerm}`);
+            const response = await fetch(`https://localhost:8000/allfish?page=${page}&limit=21&search=${searchTerm}`);
             const data = await response.json();
             if (searchTerm === undefined) {
                 setFish(oldData => oldData.concat(data))

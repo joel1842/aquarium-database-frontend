@@ -11,7 +11,7 @@ export const AddLevelsButton = ({fishLevels, success, added}) => {
             try {
                 const token = await getAccessTokenSilently()
                 
-                fetch('http://localhost:3001/newentry', {
+                fetch('https://localhost:8000/newentry', {
                     method: 'POST',
                     headers: {
                         Authorization: `Bearer ${token}`,

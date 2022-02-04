@@ -18,7 +18,7 @@ export const ErrorCard = () => {
         try {
             const token = await getAccessTokenSilently()
 
-            fetch('http://localhost:3001/errorform', {
+            fetch('https://localhost:8000/errorform', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,
