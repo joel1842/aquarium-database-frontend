@@ -52,7 +52,7 @@ const CreateTank = ({ createSwitch }) => {
             unit: unit
         }
 
-        fetch('http://localhost:3001/createtank', {
+        fetch('https://localhost:8000/createtank', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,

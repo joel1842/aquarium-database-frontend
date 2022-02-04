@@ -46,11 +46,37 @@
 }
 
 .fishImg {
-    margin-bottom: 20px;
     margin-top: 20px;
     width: 90%;
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.nextPic {
+    border: none;
+    background: none;
+    border-radius: 30px;
+    font-family: Poppins;
+    font-size: 15px;
+    color: white;
+    margin-bottom: 2%;
+    margin-right: 10%;
+    float: right;
+}
+
+.nextPic h3 {
+    display: inline;
+    vertical-align: middle;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-shadow: 1px 2px 2px rgba(68, 65, 64, 0.3);
+}
+
+.nextPic img {
+    width: 20px;
+    display: inline;
+    vertical-align: middle;
+    margin-left: 5px;
 }
 
 .fishTitle {
@@ -130,14 +156,14 @@
 .temperament h2 {
     margin-bottom: 5px;
     font-size: 22px;
-    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.5);
 }
 
 .temperament h1 {
     margin-top: 0;
     font-weight: 800;
     font-size: 27px;
-    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.5);
 }
 
 .temperature {
@@ -162,25 +188,25 @@
     font-size: 22px;
     display: inline-flex;
     vertical-align: middle;
-    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.5);
     margin: 0;
 }
 
 .tempC {
     margin-top: 0;
-    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.5);
 }
 
 .tempF {
     margin-top: 0;
-    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.5);
 }
 
 .temperature h1 {
     font-size: 27px;
     margin-top: 10px;
     margin-bottom: 5px;
-    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.5);
 }
 
 .careLevel {
@@ -194,7 +220,7 @@
     margin-top: 10px;
     margin-bottom: 5px;
     font-size: 22px;
-    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.5);
 }
 
 .careLevel h1 {
@@ -202,7 +228,7 @@
     margin-bottom: 10px;
     font-weight: 800;
     font-size: 27px;
-    text-shadow: 0px 2px 2px rgba(68, 65, 64, 0.5);
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.5);
 
 }
 
@@ -220,14 +246,12 @@
     margin-bottom: 3%;
 }
 
-.infoHeader {
-    grid-column: 1/4;
+.fishInfo div h3 {
+    text-shadow: 1px 1px 2px rgba(68, 65, 64, 0.5);
 }
 
-.fishSex {
-    grid-column: 2/4;
-    width: 70%;
-    margin: auto;
+.fishInfo div p {
+    text-shadow: 1px 1px 2px rgba(68, 65, 64, 0.3);
 }
 
 .cardButtons {
@@ -260,10 +284,10 @@
     color: white;
     display: inline;
     vertical-align: middle;
+    text-shadow: 1px 2px 3px rgba(68, 65, 64, 0.3);
 }
 
 .sourceLinkContainer {
-
     background: linear-gradient(360deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), #FFCCAA;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
@@ -301,4 +325,5 @@
     color: white;
     display: inline;
     vertical-align: middle;
+    text-shadow: 1px 2px 3px rgba(68, 65, 64, 0.3);
 }

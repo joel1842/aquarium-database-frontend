@@ -5,6 +5,10 @@
     margin-right: 100px;
 }
 
+.browseContainer {
+    margin-bottom: 3%;
+}
+
 .moreFish {
     border: none;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #50C9CE;

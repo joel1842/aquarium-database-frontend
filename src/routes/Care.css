@@ -7,6 +7,7 @@
     margin-top: 3%;
     margin-bottom: 1.5%;
     padding: 1%;
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.3);
 }
 
 .careLinks {
@@ -16,12 +17,12 @@
     width: 50%;
     margin: auto;
     margin-bottom: 5%;
-    padding: 3%;
-    
+    padding: 2%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 24px;
+    text-shadow: 1px 2px 2px rgba(68, 65, 64, 0.3);
 }
 
 .mainCare {
@@ -40,5 +41,5 @@
 
 .list li:hover {
     transform: scale(1.1);
-    font-weight: 600;
+    font-weight: 800;
 }

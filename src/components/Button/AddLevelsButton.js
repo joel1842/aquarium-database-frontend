@@ -20,7 +20,6 @@ export const AddLevelsButton = ({fishLevels, success, added}) => {
                     body: JSON.stringify(fishLevels)
                 }).then(res => {
                     if (res.ok) {
-                        console.log(res)
                         added()
                         setTimeout(() => {window.location.reload()}, 3000)
                     }

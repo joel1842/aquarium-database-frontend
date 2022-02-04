@@ -42,6 +42,15 @@ html {
 .footerNav {
     grid-area: nav;
     align-self: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.footerNav nav a{
+    transition: all 0.2s ease-in-out;
+}
+
+.footerNav nav a:hover {
+    transform: scale(1.2);
 }
 
 .socials {

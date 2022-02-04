@@ -18,6 +18,7 @@
     margin: auto;
     margin-bottom: 3%;
     padding: 2%;
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.4);
 }
 
 .onTimeHeader h1 {
@@ -35,6 +36,7 @@
     width: 90%;
     margin: auto;
     padding: 5%;
+    text-shadow: 1px 2px 4px rgba(68, 65, 64, 0.4);
 }
 
 .onTimeFormContainer h3 {
@@ -101,11 +103,43 @@
 
 .onTimeSubmit {
     border: none;
-    border-radius: 30px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #AC6DCB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
     padding: 2%;
     margin-top: 5%;
+    color: white;
     font-family: Poppins;
-    padding: 5%;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3%;
     padding-left: 10%;
     padding-right: 10%;
+    transition: all 0.2s ease-in-out;
+}
+
+.onTimeSubmit:hover {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #894da7;
+    transform: scale(1.1)
+}
+
+.onTimeSuccess {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #AC6DCB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    width: 80%;
+    margin: auto;
+    margin-top: 3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.onTimeSuccess p {
+    display: inline;
+    font-weight: 600;
+    margin-left: 3%;
+}
+
+.checkmark {
+    display: inline;
 }

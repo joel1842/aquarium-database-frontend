@@ -7,6 +7,7 @@ import Thermometer from '../../assets/thermometer.png'
 import document from "../../assets/document.png"
 import { useAuth0 } from '@auth0/auth0-react';
 import arrow from "../../assets/arrow.png"
+import arrowRotated from "../../assets/arrowrotated.png"
 import error from "../../assets/error.png"
 import { ErrorCard } from './ErrorCard';
 
@@ -95,7 +96,10 @@ export const FishExpanded = ({ fishData, tanks }) => {
         <div className='fishCard'>
             <div className='fishHeader'>
                 <img className='fishImg'src={fishPic} alt='Espes Rasbora'/>
-                <button onClick={numberSwitch}>Next Pic...</button>
+                <button className="nextPic" onClick={numberSwitch}>
+                    <h3>Next</h3>
+                    <img src={arrowRotated} alt="Next Pic..."/>
+                </button>
                 <div className='fishTitle'>
                     <div className="fishNames">
                         <h1 className='fishName'>{fishData.name}</h1>

@@ -42,8 +42,8 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
     const hard = "linear-gradient(165.88deg, rgba(255, 255, 255, 0.525) -47.86%, rgba(255, 255, 255, 0.075) 89.89%), #FF3434"
     const hardShadow = "0px 2px 2px #D34315"
 
-    const [careColor, setCareColor] = useState()
-    const [shadow, setShadow] = useState()
+    const [careColor, setCareColor] = useState(easy)
+    const [shadow, setShadow] = useState(easyShadow)
 
     useEffect(() => {
         if (levels) {
@@ -142,16 +142,18 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
 
                 <div className="healthCard" style={{background: careColor, boxShadow: shadow}}>
                     <h2>Health</h2>
+                    {!health && <p>No entries!</p>}
                     {health && <p>{health}</p>}
                 </div>
                 <div className="phCard">
                     <h2>pH Level</h2>
-                    {!levels && <p>Make an entry!</p>}
+                    {!levels && <p>No entries!</p>}
                     {levels && <p>{levels[0].phLevel} pH</p>}
                     
                 </div>
                 <div className="tempCard">
                     <h2>Temperature</h2>
+                    {!levels && <p>No entries!</p>}
                     {levels && <p><b>{celcius} °C</b>({fahrenheit} °F) </p> }
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './tanksize.css';
+import './tanksizecalculator.css';
 import rectanglePic from "../../assets/rectangular.png"
 import cubePic from "../../assets/cube.png"
 import bowfrontPic from "../../assets/bowfront.png"
@@ -180,7 +180,7 @@ const TankSizeCalculator = () => {
 
                 <div className="outputContainer">
                     <button onClick={getVolume}>Calculate Volume!</button>
-                    {tankVolume && 
+                    {tankVolume > 0 &&
                     <div className='result'>
                          <h1><b>{tankVolume.toFixed(2)}</b> {outputString}</h1>
                     </div>}

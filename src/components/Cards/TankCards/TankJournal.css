@@ -20,13 +20,7 @@
     vertical-align: middle;
     margin-left: 7px;
     margin-right: 5px;
-}
-
-.tankLevelHeader h2 {
-    display: inline-block;
-    vertical-align: middle;
-    font-weight: 500;
-    font-size: 20px;
+    text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.4);
 }
 
 .tankLevelHeader img {
@@ -51,6 +45,7 @@
     margin: auto;
     margin-bottom: 20px;
     padding: 10px;
+    text-shadow: 1px 2px 4px rgba(68, 65, 64, 0.4);
 }
 
 .tankLevels p {
@@ -90,6 +85,7 @@
     font-size: 18px;
     vertical-align: middle;
     color: white;
+    text-shadow: 1px 2px 4px rgba(68, 65, 64, 0.4);
 }
 
 .timeSince img {
@@ -271,7 +267,7 @@
 }
 
 .success {
-    width: 30%;
+    width: 40%;
     grid-column: 1/4;
     margin: auto;
     background: linear-gradient(180.77deg, rgba(255, 255, 255, 0.5) -64.46%, rgba(255, 255, 255, 0) 99.34%), #445E93;

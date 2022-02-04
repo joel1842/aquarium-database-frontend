@@ -3,6 +3,7 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 import "./OnTimeCard.css";
 import { useAuth0 } from '@auth0/auth0-react';
+import { Checkmark } from 'react-checkmark';
 
 export const OnTimeCard = () => {
 
@@ -12,10 +13,10 @@ export const OnTimeCard = () => {
 
     const { user, getAccessTokenSilently } = useAuth0()
 
+    // useEffect(() => {
+    // }, [notification, interval])
 
-    useEffect(() => {
-    }, [notification, interval])
-
+    const [submit, setSubmit] = useState(false)
 
     const submitInfo = async() => {
         try {
@@ -36,6 +37,10 @@ export const OnTimeCard = () => {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
                 body: JSON.stringify(data)
+            }).then(res => {
+                if (res.ok) {
+                    setSubmit(true)
+                }
             })
         } catch (err) {
             throw new Error(err)
@@ -78,9 +83,14 @@ export const OnTimeCard = () => {
                         }
                     </div>
                 </form>
-                {notification && 
+                {!submit && 
                 <div>
                     <button className="onTimeSubmit" onClick={submitInfo}>Submit!</button>
+                </div>}
+                {submit &&
+                <div className='onTimeSuccess'>
+                    <Checkmark size='30px'/>
+                    <p>You will be notified!</p>
                 </div>}
             </div>
          </div>

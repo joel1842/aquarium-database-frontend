@@ -31,7 +31,7 @@ const App = () => {
             return res.json();
         }
     }).then(jsonResponse => {
-        setFishAPI(jsonResponse)
+        setFishAPI(jsonResponse.fish)
         console.log(fishAPI)
     });
   }, [])

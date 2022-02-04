@@ -2,7 +2,7 @@
     width: 35%;
     margin: auto;
     background: linear-gradient(180deg, rgba(250, 249, 249, 0.7) -24.94%, rgba(250, 249, 249, 0.1) 40%), #faa064;
-    border-radius: 30px;
+    border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
     margin-top: 20px;
     display: grid;
@@ -15,12 +15,13 @@
 }
 
 .favPic {
-    border-radius: 20px;
+    border-radius: 40px;
     width: 90%;
     margin: 10px;
     margin-left: 17px;
     grid-area: pic;
     align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .nameContainer {
@@ -39,6 +40,7 @@
     font-size: 24px;
     text-align: center;
     vertical-align: middle;
+    text-shadow: 1px 2px 4px rgba(68, 65, 64, 0.4);
 }
 
 .favDel {

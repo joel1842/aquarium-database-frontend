@@ -20,27 +20,28 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
     // }, [])
 
     // let fetching = false;
-    let activated = false;
+    // let activated = false;
 
-    useEffect(() => {
-        const onScroll = (event) => {
-            const { scrollHeight, scrollTop, clientHeight } = event.target.scrollingElement;
+    // useEffect(() => {
+    //     const onScroll = (event) => {
+    //         const { scrollHeight, scrollTop, clientHeight } = event.target.scrollingElement;
 
-            if (!activated && scrollHeight - scrollTop <= clientHeight * 1.5) {
-                activated = true
-                nextPage()
-                console.log('FIRED')
-            }
-        }
+    //         if (!activated && scrollHeight - scrollTop <= clientHeight * 1.5) {
+    //             activated = true
+    //             nextPage()
+    //             console.log('FIRED')
+    //         }
+    //     }
 
-        document.addEventListener("scroll", onScroll)
-        return () => {
-            document.removeEventListener("scroll", onScroll)
-        }
-    }, [])
+    //     document.addEventListener("scroll", onScroll)
+    //     return () => {
+    //         document.removeEventListener("scroll", onScroll)
+    //     }
+    // }, [])
 
     const [page, setPage] = useState(1)
     const [fish, setFish] = useState([])
+    const [count, setCount] = useState(21)
 
     useEffect(() => {
         getFish()
@@ -49,12 +50,21 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
     const getFish = async () => {
     
         try {
-            const response = await fetch(`https://localhost:8000/allfish?page=${page}&limit=21&search=${searchTerm}`);
+            const response = await fetch(`https://localhost:8000/allfish?page=${page}&search=${searchTerm}`);
             const data = await response.json();
+
             if (searchTerm === undefined) {
-                setFish(oldData => oldData.concat(data))
+                setFish(oldData => oldData.concat(data.fish))
+                setCount(data.fishCount)
             } else {
-                setFish(data)
+                if (count === 21) {
+                    setFish(oldData => oldData.concat(data.fish))
+                    setCount(data.fishCount)
+                } else {
+                    setFish(data.fish)
+                    setCount(data.fishCount)
+                }
+
             }
             
         } catch (err) {
@@ -65,7 +75,7 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
 
     const nextPage = () => {
         setPage(prevPage => prevPage + 1)
-        activated = false
+        // activated = false
     }
 
     if (fish) {
@@ -76,27 +86,29 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
                     <StandardNavBar getSearchTerm={getSearchTerm}/>
                 </div>
 
-                
-                <div className='fishCardGrid'>
-                    {fish.map((fishData, index) => {
+                <div className='browseContainer'>                  
+                    <div className='fishCardGrid'>
+                        {fish.map((fishData, index) => {
 
-                    let fishName = fishData.name
-                    fishName = fishName.replace(/\s+/g, '')
-                    fishName = fishName.replace(/-/g, '')
-                    fishName = fishName.replace(/'/g, '')
-                    
-                    let url = "/browse/" + fishName;
+                        let fishName = fishData.name
+                        fishName = fishName.replace(/\s+/g, '')
+                        fishName = fishName.replace(/-/g, '')
+                        fishName = fishName.replace(/'/g, '')
+                        
+                        let url = "/browse/" + fishName;
 
-                    return (
-                        <Link to={url}>
-                            <FishCard fishData={fishData} key={fishData.id} />
-                        </Link> 
-                    )
-                    })}
-                </div>
+                        return (
+                            <Link to={url}>
+                                <FishCard fishData={fishData} key={fishData.id} />
+                            </Link> 
+                        )
+                        })}
+                    </div>
 
-                <div>
-                    <button className="moreFish" onClick={nextPage}>More Fish...</button>
+                    {count === 21 && 
+                    <div>
+                        <button className="moreFish" onClick={nextPage}>More Fish...</button>
+                    </div>}
                 </div>
 
                 <Footer />
