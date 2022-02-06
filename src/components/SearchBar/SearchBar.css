@@ -34,3 +34,34 @@
 .SearchSubmitButton:hover {
     background: #7884ad;
 }
+
+@media screen and (max-width: 850px) {
+
+    .SearchButtonImage {
+        width: 3em;
+    }
+ 
+    .SearchText {
+        margin-right: 0.3em;
+        position: relative;
+        height: 2.8em;
+        bottom: 15px;
+        font-size: 14px;
+        font-family: Poppins;
+        border: 1px solid grey;
+        width: 45%;
+        border-radius: 20px;
+        background: #f1f1f1;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 2px 3px rgba(0,0,0,0.3)
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .SearchText {
+        width: 60%;
+        min-width: 230px;
+
+    }
+}

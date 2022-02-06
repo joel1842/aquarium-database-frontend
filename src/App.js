@@ -24,16 +24,19 @@ const App = () => {
 
   const [fishAPI, setFishAPI] = useState()
 
+  const getFish = async () => {
+    try {
+        const response = await fetch(`https://localhost:8000/allfish?page=1s`);
+        const data = await response.json();
+        console.log(data)
+        setFishAPI(data.fish)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   useEffect(() => {
-    fetch('https://localhost:8000/allfish?page=1&limit=20').then((res) => {
-        if (res.ok) {
-            console.log(res)
-            return res.json();
-        }
-    }).then(jsonResponse => {
-        setFishAPI(jsonResponse.fish)
-        console.log(fishAPI)
-    });
+    getFish()
   }, [])
 
   const [tanks, setTanks] = useState();

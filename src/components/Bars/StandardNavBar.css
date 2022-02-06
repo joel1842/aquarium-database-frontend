@@ -49,7 +49,6 @@
     list-style: none;
     padding: 0;
     justify-content: center;
-
 }
 
 .SearchBar {
@@ -59,7 +58,6 @@
 .SearchBarMobile {
     display: none;
     margin-left: 5%;
-    
 }
 
 .menuItem {
