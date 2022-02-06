@@ -2,12 +2,14 @@ import React, {useState, useEffect} from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import './AddToTank.css'
 import add from "../../assets/add.png"
+import { Checkmark } from "react-checkmark";
 
 const AddToTank = ({ fishData, tanks }) => {
 
     const { user, getAccessTokenSilently } = useAuth0()
 
     const [dropdown, setDropdown] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     const [chooseTank, setChooseTank] = useState();
     const [quantity, setQuantity] = useState(1);
@@ -40,7 +42,15 @@ const AddToTank = ({ fishData, tanks }) => {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
                 body: JSON.stringify(data)
-            });
+            }).then(res => {
+                if(res.ok) {
+                    setSuccess(true)
+                    setDropdown(false)
+                    setTimeout(() => {
+                        setSuccess(false)
+                    }, 3000)
+                }
+            })
         } catch (error) {
             console.error()
         }
@@ -48,22 +58,26 @@ const AddToTank = ({ fishData, tanks }) => {
 
     return (
         <div>
-            <button title="Add To Tank" className="plusButton" onClick={() => setDropdown(true)}>
+            
+            {success && <Checkmark size="40px" />}
+            {!success && <button title="Add To Tank" className="plusButton" onClick={() => setDropdown(true)}>
                 <img src={add} alt="Add To Tank"/>
-            </button>
+            </button>}
             {dropdown && 
             <div>
-                <select onChange={(event) => setChooseTank(event.target.value)}>
+                <select className="chooseTank" onChange={(event) => setChooseTank(event.target.value)}>
                     {tanks.map((tank, index) => (
                         <option value={tank.tankName} key={index}>{tank.tankName}</option>
                     ))}
                 </select>
-                <p>Quantity: {quantity}</p>
-                <button onClick={() => setQuantity(quantity + 1)}>+</button>
-                <button onClick={() => setQuantity(quantity - 1)}>-</button>
+                <div>
+                    <p className="qtyView">Qty: {quantity}</p>
+                    <button className="qty" onClick={() => setQuantity(quantity + 1)}>+</button>
+                    <button className="qty" onClick={() => setQuantity(quantity - 1)}>-</button>
+                </div>
 
+                {chooseTank && <button className="addToTank"onClick={sendRequest}>Add to tank!</button>}
 
-                {chooseTank && <button onClick={sendRequest}>Add to tank!</button>}
             </div>}
         </div>
     )

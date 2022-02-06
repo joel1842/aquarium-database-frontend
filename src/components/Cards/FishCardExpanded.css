@@ -48,6 +48,8 @@
 .fishImg {
     margin-top: 20px;
     width: 90%;
+    height: 300px;
+    object-fit: cover;
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -256,7 +258,10 @@
 
 .cardButtons {
     grid-column: 1/3;
-    margin-bottom: 25px;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -268,6 +273,12 @@
 .sourcesButton {
     border: none;
     background: none;
+    transition: all 0.1s ease-in-out;
+}
+
+.sourcesButton:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .sourcesButton img {
@@ -309,6 +320,12 @@
 .errorButton {
     border: none;
     background: none;
+    transition: all 0.1s ease-in-out;
+}
+
+.errorButton:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .errorButton img {
@@ -326,4 +343,61 @@
     display: inline;
     vertical-align: middle;
     text-shadow: 1px 2px 3px rgba(68, 65, 64, 0.3);
+}
+
+@media screen and (max-width: 1200px) {
+    .fishCard {
+        width: 90%;
+
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .fishCard {
+        display: block;
+    }
+
+    .fastFacts {
+        padding-right: 0;
+        width: 80%;
+        margin: auto;
+    }
+
+    .fishInfo {
+        grid-template-columns: 1fr 1fr;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .fishTitle {
+        display: block;
+        padding-top: 5%;
+        width: 90%;
+    }
+
+    .fishImg {
+        height: 200px;
+    }
+
+    .fishName {
+        text-align: center; 
+    }
+    
+    .subName {
+        text-align: center;
+    }
+
+    .fastFacts {
+        width: 100%;
+    }
+
+    .sourcesButton h3 {
+        display: none;
+    }
+
+    .errorButton h3 {
+        display: none;
+    }
 }

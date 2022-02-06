@@ -5,19 +5,7 @@ import FishCard from '../../components/Cards/FishCard';
 import FilterBar from '../../components/Bars/FilterBar';
 import Footer from '../../components/Bars/Footer';
 import './browse.css';
-export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
-
-    // const [filterCriterion, setFilterCriterion] = useState();
-
-    // const getFilterCriterion = (criterion) => {
-    //     // setSearchTerm()
-    //     setFilterCriterion(criterion);
-    //     console.log(criterion)
-    // }
-
-    // useEffect(() => {
-    //     getFish()
-    // }, [])
+export const Browse = ({ getSearchTerm, getFilterCriterion, fish, count, nextPage}) => {
 
     // let fetching = false;
     // let activated = false;
@@ -39,44 +27,6 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
     //     }
     // }, [])
 
-    const [page, setPage] = useState(1)
-    const [fish, setFish] = useState([])
-    const [count, setCount] = useState(21)
-
-    useEffect(() => {
-        getFish()
-    }, [page, searchTerm])
-
-    const getFish = async () => {
-    
-        try {
-            const response = await fetch(`https://localhost:8000/allfish?page=${page}&search=${searchTerm}`);
-            const data = await response.json();
-
-            if (searchTerm === undefined) {
-                setFish(oldData => oldData.concat(data.fish))
-                setCount(data.fishCount)
-            } else {
-                if (count === 21) {
-                    setFish(oldData => oldData.concat(data.fish))
-                    setCount(data.fishCount)
-                } else {
-                    setFish(data.fish)
-                    setCount(data.fishCount)
-                }
-
-            }
-            
-        } catch (err) {
-            throw new Error(err);
-        }
-        
-    }
-
-    const nextPage = () => {
-        setPage(prevPage => prevPage + 1)
-        // activated = false
-    }
 
     if (fish) {
 
@@ -84,6 +34,10 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
             <div>
                 <div>
                     <StandardNavBar getSearchTerm={getSearchTerm}/>
+                </div>
+
+                <div>
+                    <FilterBar getFilterCriterion={getFilterCriterion}/>
                 </div>
 
                 <div className='browseContainer'>                  
@@ -114,85 +68,6 @@ export const Browse = ({ searchTerm, getSearchTerm, fishAPI }) => {
                 <Footer />
             </div>
         )
-
-        // return(
-        //     <div>
-        //         <div>
-        //             <StandardNavBar getSearchTerm={getSearchTerm}/>
-        //         </div>
-                
-        //         <br />
-
-        //         <div>
-        //             <FilterBar getFilterCriterion={getFilterCriterion}/>
-        //         </div>
-
-                // {!searchTerm && !filterCriterion &&
-                // <div className='fishCardGrid'>
-                //     {fish.map((fishData, index) => {
-
-                //     let fishName = fishData.name
-                //     fishName = fishName.replace(/\s+/g, '')
-                //     fishName = fishName.replace(/-/g, '')
-                //     fishName = fishName.replace(/'/g, '')
-                    
-                //     let url = "/browse/" + fishName;
-
-                //     return (
-                //         <Link to={url}>
-                //             <FishCard fishData={fishData} key={index} />
-                //         </Link> 
-                //     )
-                //     })}
-                // </div>}
-                
-        //         {searchTerm && 
-        //         <div className='fishCardGrid'>
-        //             {fish.filter((fishData) => {
-        //                 if (fishData.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-        //                     return fishData; 
-        //                 }
-        //             }).map((fishData, index) => {
-        //                 let fishName = fishData.name
-        //                 fishName = fishName.replace(/\s+/g, '')
-        //                 fishName = fishName.replace(/-/g, '')
-        //                 fishName = fishName.replace(/'/g, '')
-                        
-        //                 let url = "/browse/" + fishName;
-    
-        //                 return (
-        //                     <Link to={url}>
-        //                         <FishCard fishData={fishData} key={index} />
-        //                     </Link> 
-        //                 )
-        //             })}
-        //         </div>}
-
-
-        //         {filterCriterion && 
-        //         <div className='fishCardGrid'>
-        //             {fish.filter((fishData) => {
-        //                 if (fishData.careLevel.toLowerCase().includes(filterCriterion.toLowerCase())) {
-        //                     return fishData;
-        //                 }
-        //             }).map((fishData, index) => {
-        //                 let fishName = fishData.name
-        //                 fishName = fishName.replace(/\s+/g, '')
-        //                 fishName = fishName.replace(/-/g, '')
-        //                 fishName = fishName.replace(/'/g, '')
-                        
-        //                 let url = "/browse/" + fishName;
-    
-        //                 return (
-        //                     <Link to={url}>
-        //                         <FishCard fishData={fishData} key={index} />
-        //                     </Link> 
-        //                 )
-        //             })}
-        //         </div>}
-        //         <Footer />
-        //     </div>
-        // );
 
     } else {
         return (

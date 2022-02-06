@@ -22,22 +22,59 @@ const App = () => {
 
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
-  const [fishAPI, setFishAPI] = useState()
+  const [fish, setFish] = useState([]);
+  const [filter, setFilter] = useState();
+  const [filterCategory, setCategory] = useState();
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(21);
+  const [searchTerm, setSearchTerm] = useState();
 
-  const getFish = async () => {
-    try {
-        const response = await fetch(`https://localhost:8000/allfish?page=1s`);
-        const data = await response.json();
-        console.log(data)
-        setFishAPI(data.fish)
-    } catch (err) {
-      console.log(err)
-    }
+  const getSearchTerm = (search) => {
+    setFish([])
+    setSearchTerm(search)
+    setCategory('name')
+  }
+
+  const getFilterCriterion = (filter, category) => {
+      setFish([])
+      setSearchTerm(filter)
+      setCategory(category)
+  }
+
+  const nextPage = () => {
+    setPage(prevPage => prevPage + 1)
   }
 
   useEffect(() => {
-    getFish()
-  }, [])
+      getFish()
+  }, [page, searchTerm])
+
+  const getFish = async () => {
+    
+    try {
+        const response = await fetch(`https://localhost:8000/allfish?page=${page}&search=${searchTerm}&category=${filterCategory}`);
+        const data = await response.json();
+
+        if (searchTerm === undefined) {
+            setFish(oldData => oldData.concat(data.fish))
+            setCount(data.fishCount)
+        } else {
+            if (count === 21) {
+                setFish(oldData => oldData.concat(data.fish))
+                setCount(data.fishCount)
+            } else {
+                setFish(data.fish)
+                setCount(data.fishCount)
+            }
+
+        }
+        
+    } catch (err) {
+        throw new Error(err);
+    }
+    
+  }
+  
 
   const [tanks, setTanks] = useState();
   const [create, setCreate] = useState(false);
@@ -98,18 +135,10 @@ const App = () => {
 
   }, [isAuthenticated, create, deleteTank])
 
-
-  const [searchTerm, setSearchTerm] = useState();
-
-  const getSearchTerm = (search) => {
-    setSearchTerm(search)
-    console.log(searchTerm)
-  }
-
-  if (fishAPI) {
+  if (fish) {
     return (
         <Routes>
-          {tanks && fishAPI.map((fishData, index) => {
+          {tanks && fish.map((fishData, index) => {
 
             let fishName = fishData.name
             fishName = fishName.replace(/\s+/g, '')
@@ -140,7 +169,7 @@ const App = () => {
           <Route exact path="/compatibility" element={<Compatibility/>}></Route>
           <Route exact path="/tank" element={<Tank getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/about" element={<About/>}></Route>
-          <Route exact path="/browse" element={<Browse getSearchTerm={getSearchTerm} searchTerm={searchTerm} fishAPI={fishAPI}/>}></Route>
+          <Route exact path="/browse" element={<Browse getSearchTerm={getSearchTerm} getFilterCriterion={getFilterCriterion} fish={fish} count={count} nextPage={nextPage}/>}></Route>
           <Route exact path="/fish" element={<FishPage/>}></Route>
           <Route exact path="/favlist" element={<FavList getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/mytanks" element={<MyTanks getSearchTerm={getSearchTerm} createSwitch={createSwitch} create={create} tanks={tanks}/>}></Route>

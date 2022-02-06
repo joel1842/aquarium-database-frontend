@@ -95,15 +95,15 @@ export const FishExpanded = ({ fishData, tanks }) => {
 
         <div className='fishCard'>
             <div className='fishHeader'>
-                <img className='fishImg'src={fishPic} alt='Espes Rasbora'/>
-                <button className="nextPic" onClick={numberSwitch}>
+                <img className='fishImg' src={fishPic} alt='Espes Rasbora'/>
+                {/* <button className="nextPic" onClick={numberSwitch}>
                     <h3>Next</h3>
                     <img src={arrowRotated} alt="Next Pic..."/>
-                </button>
+                </button> */}
                 <div className='fishTitle'>
                     <div className="fishNames">
                         <h1 className='fishName'>{fishData.name}</h1>
-                        <h3 className='subName'>{fishData.scientificName}</h3>
+                        <h3 className='subName'>{fishData.scientificname}</h3>
                     </div>
                     {isAuthenticated && 
                     <div className="buttonGroup">
@@ -119,7 +119,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
             <div className='fastFacts'>
                 <div className='careLevel' style={{background: careColor, boxShadow: shadow}}>
                     <h2>Care level</h2>
-                    <h1>{fishData.careLevel}</h1>
+                    <h1>{fishData.carelevel}</h1>
                 </div>
                 <div className='temperament'>
                     <h2>Temperament</h2>
@@ -128,8 +128,8 @@ export const FishExpanded = ({ fishData, tanks }) => {
                 <div className='temperature'>
                     <img className="thermometer" src={Thermometer} alt="Thermometer"/>
                     <h2 className="tempHead">Temperature</h2>
-                    <h1 className="tempC"><b>{fishData.tempLowC}°C</b> - <b>{fishData.tempHighC}°C</b></h1>
-                    <h2 className="tempF">({fishData.tempLowF}°f - {fishData.tempHighF}°f)</h2>
+                    <h1 className="tempC"><b>{fishData.templowc}°C</b> - <b>{fishData.temphighc}°C</b></h1>
+                    <h2 className="tempF">({fishData.templowf}°f - {fishData.temphighf}°f)</h2>
                 </div>
             </div>
             <div className='fishInfo'>
@@ -139,15 +139,15 @@ export const FishExpanded = ({ fishData, tanks }) => {
                 </div>
                 <div>
                     <h3>Size</h3>
-                    <p><b>{fishData.sizeCM} cm</b> ({fishData.sizeIN} in)</p>
+                    <p><b>{fishData.sizecm} cm</b> ({fishData.sizein} in)</p>
                 </div>
                 <div>
                     <h3>Diet Type</h3>
-                    <p>{fishData.dietType}</p>
+                    <p>{fishData.diettype}</p>
                 </div>
                 <div>
                     <h3>Tank Size</h3>
-                    <p><b>{fishData.tankSizeL} L </b> ({fishData.tankSizeG} G)</p>
+                    <p><b>{fishData.tanksizel} L </b> ({fishData.tanksizeg} G)</p>
                 </div>
                 <div>
                     <h3>Lifespan</h3>

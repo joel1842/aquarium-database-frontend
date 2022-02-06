@@ -2,16 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './FilterButton.css';
 
 //Button to filter fish!
-//Takes a label, and an object (filter criterion)
-export const FilterButton = ({label, filterCriterion, getFilterCriterion}) => {
-    // const [filtered, setFilter] = useState(false);
-    // useEffect(() => {
-    //     if (filtered === true) {
-            
-    //     }
-    // },[filtered])
+export const FilterButton = ({label, filterCriterion, category, getFilterCriterion}) => {
+
     return(
-        <button className='FilterButton' onClick={() => getFilterCriterion(filterCriterion)}>
+        <button className='FilterButton' onClick={() => getFilterCriterion(filterCriterion, category)}>
             <p>{label}</p>
         </button>
     );

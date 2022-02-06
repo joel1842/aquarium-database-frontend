@@ -2,11 +2,12 @@ import { FilterButton } from "../Button/FilterButton"
 
 const FilterBar = ({getFilterCriterion}) => {
     return (
-        <div>
-            <FilterButton label='Beginner' filterCriterion='beginner' getFilterCriterion={getFilterCriterion}/>
-            <FilterButton label='Intermediate' filterCriterion='intermediate' getFilterCriterion={getFilterCriterion}/>
-            <FilterButton label='Difficult' filterCriterion='difficult' getFilterCriterion={getFilterCriterion}/>
-            <FilterButton label='Plant Compatible' filterCriterion='yes' getFilterCriterion={getFilterCriterion}/>
+        <div className="filterBar">
+            <FilterButton label='Beginner' filterCriterion='beginner' category='careLevel' getFilterCriterion={getFilterCriterion}/>
+            <FilterButton label='Intermediate' filterCriterion='intermediate' category='careLevel' getFilterCriterion={getFilterCriterion}/>
+            <FilterButton label='Difficult' filterCriterion='difficult' category='careLevel' getFilterCriterion={getFilterCriterion}/>
+            <FilterButton label='Plant Compatible' filterCriterion='yes' category='plants' getFilterCriterion={getFilterCriterion}/>
+            <FilterButton label='Omnivore' filterCriterion='omnivore' category='diettype' getFilterCriterion={getFilterCriterion}/>
         </div>
     )
 }
