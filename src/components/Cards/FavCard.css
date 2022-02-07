@@ -4,7 +4,7 @@
     background: linear-gradient(180deg, rgba(250, 249, 249, 0.7) -24.94%, rgba(250, 249, 249, 0.1) 40%), #faa064;
     border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
-    margin-top: 20px;
+    margin-top: 40px;
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-areas: 
@@ -45,4 +45,39 @@
 
 .favDel {
     grid-area: delete;
+}
+
+@media screen and (max-width: 1500px) {
+    .favCard {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .favCard {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .favCard {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .favCard {
+        display: block;
+    }
+
+    .favPic {
+        margin: 10px;
+        margin-top: 20px;
+    }
+
+    .nameContainer {
+        margin: auto;
+        margin-bottom: 5%;
+        padding: 0.5%;
+    }
 }

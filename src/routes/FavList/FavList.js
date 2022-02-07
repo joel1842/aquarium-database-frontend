@@ -28,7 +28,10 @@ const FavList = ({ getSearchTerm }) => {
                 }
             });
             const responseData = await response.json()
-            setUserFavs(responseData)
+            if (responseData.length > 0) {
+                setUserFavs(responseData)
+            }
+            
         } catch (error) {
             console.log(error);
         }
@@ -47,15 +50,23 @@ const FavList = ({ getSearchTerm }) => {
         <div>
             <StandardNavBar getSearchTerm={getSearchTerm}/>
 
+            {!userFavs && 
+            <div>
+                <h1 className='favHeader'>My Favorites</h1>
+                <h3 className="noFishSub">You don't have any favorites...</h3>
+                <Link to="/browse">
+                    <button className="addFishButton">Add Fish!</button>
+                </Link>
+            </div>}
+
+            {userFavs &&           
             <div className="favContainer">
                 <h1 className='favHeader'>My Favorites</h1>
-                {!isAuthenticated && <p>Catching your favorite fish...</p>}
                 {isAuthenticated && userFavs && userFavs.map((userData, index) => (
-                <Link to={userData.link} key={index}>
                     <FavCard userData={userData} deleteFish={deleteFish} key={index}/>
-                </Link>
                 ))}
-            </div>
+            </div>}
+
             <Footer />
         </div>
     )

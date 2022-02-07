@@ -1,0 +1,180 @@
+.createHeader {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) -28.73%, rgba(255, 255, 255, 0.04) 100%), #FF9B3F;
+    box-shadow: 0px 6px 2px #E6964C;
+    border-radius: 40px;
+    width: 30%;
+    margin: auto;
+    margin-top: 3%;
+    padding: 1%;
+}
+
+.createBody {
+    background: linear-gradient(180deg, rgba(250, 249, 249, 0.49) -20%, rgba(250, 249, 249, 0.07) 100%), #FFAE78;
+    box-shadow: 0px 6px 2px rgba(228, 135, 73, 0.7);
+    border-radius: 80px;
+    width: 40%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.createBody div {
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.createBody div h4 {
+    font-size: 20px;
+
+    margin-bottom: 3%;
+}
+
+.TankNameInput  {
+    height: 2.8em;
+    font-size: 1em;
+    font-family: Poppins;
+    border: 1px solid grey;
+    width: 45%;
+    border-radius: 20px;
+    background: #f1f1f1;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+    margin-bottom: 3%;
+}
+
+.createSubmit {
+    background: linear-gradient(180deg, rgba(250, 249, 249, 0.49) -41.21%, rgba(250, 249, 249, 0.07) 100%), #50C9CE;
+    box-shadow: 0px 2px 0px #359ca0;
+    border-radius: 50px;
+    border: none;
+    font-size: 15px;
+    font-family: Poppins;
+    font-weight: 600;
+    color: white;
+    padding: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    display: block;
+    margin: auto;
+    margin-bottom: 3%;
+
+}
+
+.tankType {
+
+}
+
+.tankType div {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    width: 50%;
+}
+
+.tankType label {
+    font-size: 20px;
+    font-weight: 600;
+    justify-self: start;
+}
+
+.tankType input {
+    justify-self: end;
+    margin-right: 15%;
+}
+
+.typeSubmit {
+    background: linear-gradient(180deg, rgba(250, 249, 249, 0.49) -41.21%, rgba(250, 249, 249, 0.07) 100%), #50C9CE;
+    box-shadow: 0px 2px 0px #359ca0;
+    border-radius: 50px;
+    border: none;
+    font-size: 15px;
+    font-family: Poppins;
+    font-weight: 600;
+    color: white;
+    padding: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    display: block;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.sizeInput {
+    height: 2.8em;
+    font-size: 1em;
+    font-family: Poppins;
+    border: 1px solid grey;
+    width: 45%;
+    border-radius: 20px;
+    background: #f1f1f1;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+}
+
+.unitSwitch {
+
+    background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.04) 100%), #FF9B3F;
+    box-shadow: 0px 3px 0px #E6964C;
+    border-radius: 40px;
+    border: none;
+    padding: 2%;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    margin-right: 1%;
+}
+
+.tankSubmit {
+    background: linear-gradient(180deg, rgba(250, 249, 249, 0.49) -41.21%, rgba(250, 249, 249, 0.07) 100%), #50C9CE;
+    box-shadow: 0px 3px 0px #46afb3;
+    border-radius: 40px;
+    border: none;
+    font-size: 15px;
+    font-family: Poppins;
+    font-weight: 600;
+    color: white;
+    padding: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin: auto;
+    margin-left: 1%;
+    margin-bottom: 3%;
+}
+
+@media screen and (max-width: 1300px) {
+    .createHeader {
+        width: 50%;
+    }
+    
+    .createBody {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .createHeader {
+        width: 60%;
+        min-width: 300px;
+        margin-bottom: 20px;
+    }
+    
+    .createBody {
+        width: 70%;
+        border-radius: 50px;
+        min-width: 350px;
+    }
+
+    .createBody div h4 {
+        font-size: 16px;
+    }
+
+    .createBody div input {
+        width: 55%;
+        min-width: 200px;
+    }
+}
+

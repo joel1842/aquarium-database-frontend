@@ -9,7 +9,6 @@ import add from "../../../assets/add.png"
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime'
 import "./TankJournal.css"
-import e from 'cors';
 
 export const TankJournal = ({tank, levels}) => {
 
@@ -99,8 +98,6 @@ export const TankJournal = ({tank, levels}) => {
     }
 
     const backJournal = () => {
-        // const length = levels.length
-        // const entries = length - 1
 
         setPage(prevPage => prevPage - 1)
         console.log(page)

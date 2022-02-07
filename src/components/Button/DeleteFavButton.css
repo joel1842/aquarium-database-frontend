@@ -6,6 +6,7 @@
     text-shadow: 1px 2px 4px rgba(68, 65, 64, 0.4);
     border: none;
     width: 45%;
+    min-width: 120px;
     color: white;
     font-weight: 700;
     font-size: 16px;
@@ -13,9 +14,21 @@
     margin: auto;
     margin-bottom: 35px;
     font-family: Poppins;
+    transition: all 0.2s ease-in-out;
 }
 
 .deleteFav:hover {
-    background: #7ed1cd;
+    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #223a6b;
     cursor: pointer;
+    transform: scale(1.1);
+}
+
+.successFav {
+    background: radial-gradient(147.24% 111.72% at 50% 0%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #445E93;
+    box-shadow: 0px 2px 0px #2F4F79;
+    border-radius: 30px;
+    width: 45%;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 35px;
 }

@@ -190,3 +190,35 @@
 .unitSwitch button {
 
 }
+
+@media screen and (max-width: 1350px) {
+    .inputContainer {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .inputContainer {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 775px) {
+    .tankSizeHeader {
+        font-size: 28px;
+    }
+
+    .inputContainer {
+        display: block;
+    }
+
+    .subHeaderContainer {
+        width: 80%;
+    }
+
+    .sizeInputs {
+        padding-top: 5%;
+        margin: auto;
+        width: 250px;
+    }
+}

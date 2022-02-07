@@ -65,7 +65,7 @@ export const MyFish = ({tank}) => {
                         <img className="fishPic" src={fish.pic} alt={fish.name} />
                         <h3 className="tankFishName">{fish.name}</h3>
                         <h4 className="quantity">x {fish.quantity}</h4>
-                        <DeleteTankFish className="deletefish" fish={fish} />
+                        <DeleteTankFish fish={fish} />
                     </div> 
                 )
             })}

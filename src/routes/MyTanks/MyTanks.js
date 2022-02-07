@@ -15,10 +15,11 @@ const MyTanks = ({ getSearchTerm, createSwitch, create, tanks }) => {
             <StandardNavBar getSearchTerm={getSearchTerm}/>
             
             <div className="myTanksContainer">
+                {!create && 
                 <div>
                     <h1 className="myTanksHeader">My Fish Tanks</h1>
-                    {!create && <button className="newTank" onClick={createSwitch}>New Tank</button>}
-                </div>
+                    <button className="newTank" onClick={createSwitch}>New Tank</button>
+                </div>}
                 
                 {!create && tanks && tanks.map((tank, index) => {
                 let tankName = tank.tankName
@@ -35,7 +36,7 @@ const MyTanks = ({ getSearchTerm, createSwitch, create, tanks }) => {
                 </Link>)
                 })}
                 {!tanks && <h3>You don't have a tank yet!</h3>}
-                {create && <CreateTank createSwitch={createSwitch}/>}
+                {create && <CreateTank create={create} createSwitch={createSwitch}/>}
             </div>
 
             <Footer />
