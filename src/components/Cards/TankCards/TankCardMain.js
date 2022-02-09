@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import DeleteTankButton from "../../Button/DeleteTankButton"
 import aquarium from "../../../assets/aquarium.png"
 import './TankCardMain.css'
 
 export const TankCardMain = ({tank, levels, deleteSwitch}) => {
+
+    const { getAccessTokenSilently } = useAuth0()
 
     // health options 
     const good = 1
@@ -124,6 +127,29 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
         }
     }
 
+    const [file, setFile] = useState()
+
+    const getFile = (event) => {
+        console.log(event.target.files[0])
+        const formData = new FormData()
+        formData.append('image', event.target.files[0])
+        setFile(formData)
+    }
+
+    const uploadTank = async () => {
+
+        const token = await getAccessTokenSilently()
+
+        fetch('https://localhost:8000/upload', {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            body: file
+        })
+
+    }
+
     return (
         
         <div className="tankHeadContainer">
@@ -133,6 +159,13 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
                 <div className="tankNameContainer">
                     <h1 className="tankHeader">{tank.tankName}</h1>
                     <h2 className="tankSize">{tank.tankSize} {tank.unit} • {tank.tankType}</h2>
+                </div>
+
+                <div>
+                    <input type="file" onChange={(event) => {
+                        getFile(event)
+                    }}/>
+                    <button onClick={uploadTank}>Upload!</button>
                 </div>
                 
                 <DeleteTankButton tank={tank} deleteSwitch={deleteSwitch}/>
@@ -149,13 +182,13 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
                     <h2>pH Level</h2>
                     {!levels && <p>No entries!</p>}
                     {levels && <p>{levels[0].phLevel} pH</p>}
-                    
                 </div>
                 <div className="tempCard">
                     <h2>Temperature</h2>
-                    {!levels && <p>No entries!</p>}
+                    {!levels && <p><b>No entries!</b></p>}
                     {levels && <p><b>{celcius} °C</b>({fahrenheit} °F) </p> }
                 </div>
+
             </div>
 
         </div>

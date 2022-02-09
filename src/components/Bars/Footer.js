@@ -22,15 +22,15 @@ const Footer = () => {
                 </div>
                 <div className="socials">
                     <a href="https://www.linkedin.com/in/joel-lake/">
-                        <img className="socialImg" src={linkedin} />
+                        <img className="socialImg" src={linkedin} alt="Linked-In" />
                     </a>
                     <a href="https://github.com/joel1842">
-                        <img className="socialImg" src={github} />
+                        <img className="socialImg" src={github} alt="GitHub"/>
                     </a>
                 </div>
                 <div className="creativeCommons">
                     <a href="https://creativecommons.org/">
-                        <img className="ccImg" src={cc} />
+                        <img className="ccImg" src={cc} alt="Creative Commons"/>
                     </a>
                 </div>
             </div>

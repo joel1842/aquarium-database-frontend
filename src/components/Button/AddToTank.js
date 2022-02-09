@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import './AddToTank.css'
 import add from "../../assets/add.png"
 import { Checkmark } from "react-checkmark";
+import e from "cors";
 
 const AddToTank = ({ fishData, tanks }) => {
 
@@ -13,6 +14,14 @@ const AddToTank = ({ fishData, tanks }) => {
 
     const [chooseTank, setChooseTank] = useState();
     const [quantity, setQuantity] = useState(1);
+
+    const dropdownSwitch = () => {
+        if (dropdown) {
+            setDropdown(false)
+        } else {
+            setDropdown(true)
+        }
+    }
 
     useEffect(() => {
         if (tanks) {
@@ -60,11 +69,11 @@ const AddToTank = ({ fishData, tanks }) => {
         <div>
             
             {success && <Checkmark size="40px" />}
-            {!success && <button title="Add To Tank" className="plusButton" onClick={() => setDropdown(true)}>
+            {!success && <button title="Add To Tank" className="plusButton" onClick={dropdownSwitch}>
                 <img src={add} alt="Add To Tank"/>
             </button>}
             {dropdown && 
-            <div>
+            <div className="dropdown">
                 <select className="chooseTank" onChange={(event) => setChooseTank(event.target.value)}>
                     {tanks.map((tank, index) => (
                         <option value={tank.tankName} key={index}>{tank.tankName}</option>

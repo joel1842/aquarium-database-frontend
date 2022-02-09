@@ -47,3 +47,15 @@
         margin: auto;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .browseContainer {
+        margin-bottom: 30%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .browseContainer {
+        margin-bottom: 50%;
+    }
+}

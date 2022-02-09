@@ -110,7 +110,7 @@ export const TankJournal = ({tank, levels}) => {
                 <h1>Tank Journal</h1>
             </div>
 
-            {!levels && 
+            {!levels && !newEntry &&
             <div>
                 <h2 className="noEntries">No Entries Yet!</h2>
             </div>
