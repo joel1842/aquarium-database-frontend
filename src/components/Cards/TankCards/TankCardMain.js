@@ -48,11 +48,69 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
     const [careColor, setCareColor] = useState(easy)
     const [shadow, setShadow] = useState(easyShadow)
 
+    // 6.0 - 6.3
+    const six = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #FDF885"
+    // 6.4 - 6.5
+    const sixfour = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #F7FAAE"
+    // 6.6 - 6.7
+    const sixsix = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #D6EEA8" 
+    // 6.8 - 6.9
+    const sixeight = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #C1E9B4" 
+    // 7.0 - 7.1
+    const seven = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #ADE2B6" 
+    // 7.2 - 7.6
+    const seventwo = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #93D3AE" 
+    // 7.6 - 7.7
+    const sevensix = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #72C8CA" 
+    // 7.8 - 7.9 
+    const seveneight = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #E9BC2A" 
+    // 8.0 - 8.1
+    const eight = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #E8B57F" 
+    // 8.2 - 8.3
+    const eighttwo = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #C08872" 
+    // 8.4 - 8.7
+    const eightfour = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #A884B1" 
+    // 8.8 - 9.0
+    const eighteight = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #8C71A9" 
+    
+    const [phColor, setPhColor] = useState(six)
+
+    const colorSwitch = () => {
+        if (levels[0].phLevel <= 6.3) {
+            setPhColor(six)
+        } else if (levels[0].phLevel <= 6.5) {
+            setPhColor(sixfour)
+        } else if (levels[0].phLevel <= 6.7) {
+            setPhColor(sixsix)
+        } else if (levels[0].phLevel <= 6.9) {
+            setPhColor(sixeight)
+        } else if (levels[0].phLevel <= 7.1) {
+            setPhColor(seven)
+        } else if (levels[0].phLevel <= 7.5) {
+            setPhColor(seventwo)
+        } else if (levels[0].phLevel <= 7.7) {
+            setPhColor(sevensix)
+        } else if (levels[0].phLevel <= 7.9) {
+            setPhColor(seveneight)
+        } else if (levels[0].phLevel <= 8.1) {
+            setPhColor(eight)
+        } else if (levels[0].phLevel <= 8.4) {
+            setPhColor(eighttwo)
+        } else if (levels[0].phLevel <= 8.7) {
+            setPhColor(eightfour)
+        } else if (levels[0].phLevel <= 9) {
+            setPhColor(eighteight)
+        }
+
+        console.log(phColor)
+    }
+
     useEffect(() => {
         if (levels) {
             getAmmonia()
             getNitrite()
             getNitrate()
+            colorSwitch()
         }
     }, [levels])
 
@@ -178,7 +236,7 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
                     {!health && <p>No entries!</p>}
                     {health && <p>{health}</p>}
                 </div>
-                <div className="phCard">
+                <div className="phCard" style={{background: phColor}}>
                     <h2>pH Level</h2>
                     {!levels && <p>No entries!</p>}
                     {levels && <p>{levels[0].phLevel} pH</p>}
