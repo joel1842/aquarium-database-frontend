@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import DeleteTankButton from "../../Button/DeleteTankButton"
 import aquarium from "../../../assets/aquarium.png"
 import './TankCardMain.css'
+import { Checkmark } from 'react-checkmark';
 
 export const TankCardMain = ({tank, levels, deleteSwitch}) => {
 
@@ -111,6 +112,10 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
             getNitrite()
             getNitrate()
             colorSwitch()
+            if (tank.tankimg) {
+                console.log(tank.tankimg)
+                setTankPic('https://localhost:8000/img/' + tank.tankimg)
+            }
         }
     }, [levels])
 
@@ -190,9 +195,12 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
     const getFile = (event) => {
         console.log(event.target.files[0])
         const formData = new FormData()
+        formData.append('tankid', tank.id)
         formData.append('image', event.target.files[0])
         setFile(formData)
     }
+
+    const [uploadSuccess, setUploadSuccess] = useState(false)
 
     const uploadTank = async () => {
 
@@ -204,8 +212,28 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
                 Authorization: `Bearer ${token}`
             },
             body: file
+        }).then(res => {
+            if (res.ok) {
+
+                setUploadSuccess(true)
+
+                setTimeout(() => {
+                    window.location.reload()
+                }, 3000)
+            }
         })
 
+    }
+
+    const [tankPic, setTankPic] = useState()
+
+    const [addPic, setAddPic] = useState(false)
+    const addSwitch = () => {
+        if (addPic) {
+            setAddPic(false)
+        } else {
+            setAddPic(true)
+        }
     }
 
     return (
@@ -213,18 +241,30 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
         <div className="tankHeadContainer">
 
             <div className="quickInfo">
-                <img className="myTankTank" src={aquarium} alt="tank"/>
+                {!tankPic && <img className="myTankTank" src={aquarium} alt="tank"/>}
+                {tankPic && <img className="myTankPic" src={tankPic} alt="tank"/>}
                 <div className="tankNameContainer">
                     <h1 className="tankHeader">{tank.tankName}</h1>
                     <h2 className="tankSize">{tank.tankSize} {tank.unit} • {tank.tankType}</h2>
                 </div>
 
+                {!addPic && !uploadSuccess &&
                 <div>
+                    <button className="addPic" onClick={addSwitch}>Add picture 📷</button>
+                </div>}
+
+                {addPic && !uploadSuccess &&
+                <div className="uploadPic">
                     <input type="file" onChange={(event) => {
                         getFile(event)
                     }}/>
-                    <button onClick={uploadTank}>Upload!</button>
-                </div>
+                    {file && <button onClick={uploadTank}>Upload!</button>}
+                </div>}
+
+                {uploadSuccess && 
+                <div className="uploadSuccess">
+                    <Checkmark size="30px"/>
+                </div>}
                 
                 <DeleteTankButton tank={tank} deleteSwitch={deleteSwitch}/>
             </div>

@@ -19,7 +19,17 @@
 
 .myTankTank {
     width: 70%;
+    margin-top: 3%;
+}
+
+.myTankPic {
     margin-top: 5%;
+    margin-bottom: 3%;
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
 }
 
 .tankNameContainer {
@@ -51,11 +61,12 @@
     grid-area: health;
     margin-top: 10px;
     margin-bottom: 10px;
+    align-self: center;
 }
 
 .tempCard {
     background: linear-gradient(165.88deg, rgba(255, 255, 255, 0.525) -79.22%, rgba(255, 255, 255, 0.075) 99.31%), #00A676;
-    box-shadow: 0px 2px 2px #027755;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
     border-radius: 30px;
     width: 90%;
     margin: auto;
@@ -83,6 +94,7 @@
     padding: 1px;
     margin-bottom: 15px;
     text-shadow: 1px 2px 5px rgba(68, 65, 64, 0.4);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
 }
 
 .healthCard h2 {
@@ -96,7 +108,7 @@
 }
 
 .phCard {
-    box-shadow: 0px 2px 2px #A268BF;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
     border-radius: 30px;
     width: 90%;
     margin: auto;
@@ -113,4 +125,67 @@
     font-size: 27px;
     font-weight: 600;
     margin-top: 10px;
+}
+
+.addPic {
+    background: linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A;
+    box-shadow: 0px 2px 2px #65C21B;
+    border-radius: 30px;
+    border: none;
+    width: 50%;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-family: poppins;
+    grid-area: delete;
+    transition: all 0.2s ease-in-out;
+}
+
+.addPic:hover {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%), #65C21B;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.uploadPic {
+    background: linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A;
+    box-shadow: 0px 2px 2px #65C21B;
+    border-radius: 30px;
+    width: 50%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    padding: 2%;
+}
+
+.uploadPic input {
+    margin-left: 10%;
+    font-family: Poppins;
+}
+
+.uploadPic button {
+    display: block;
+    border: none;
+    margin: auto;
+    margin-top: 5%;
+    padding: 3%;
+    border-radius: 20px;
+    font-family: Poppins;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
+}
+
+.uploadSuccess {
+    background: linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A;
+    box-shadow: 0px 2px 2px #65C21B;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    width: 50%;
+    padding: 2%;
+
 }
