@@ -48,18 +48,19 @@
     box-shadow: 0px 4px 2px rgba(28, 106, 216, 0.5);
     border-radius: 50px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-    "pic name name"
-    "pic quantity delete"
+    "pic name name name"
+    "pic quantity edit delete"
     ;
     width: 90%;
 }
 
-.tankFish button {
-    border-radius: 30px;
-    border: none;
-    padding: 3px;
+.tankFish.active {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "pic name name name "
+    "pic edit edit delete";
 }
 
 .fishPic {
@@ -88,6 +89,7 @@
     grid-area: quantity;
     align-self: start;
     justify-self: end;
-    margin-right: 20px;
+    margin-top: 1px;
+    margin-right: 10px;
     text-shadow: 1px 2px 2px rgba(68, 65, 64, 0.4);
 }

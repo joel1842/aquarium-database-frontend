@@ -46,6 +46,14 @@ export const TankJournal = ({tank, levels}) => {
 
     const [timeSince, setTimeSince] = useState()
     const [page, setPage] = useState(0)
+    const [viewPage, setViewPage] = useState(1)
+    const [journalLength, setLength] = useState()
+
+    useEffect(() => {
+        if (levels) {
+            setLength(levels.length)
+        }
+    }, [levels])
 
     useEffect(() => {
         if(levels) {
@@ -93,6 +101,7 @@ export const TankJournal = ({tank, levels}) => {
             console.log(page)
         } else {
             setPage(prevPage => prevPage + 1)
+            setViewPage(prevPage => prevPage + 1)
             console.log(page)
         }
     }
@@ -100,8 +109,12 @@ export const TankJournal = ({tank, levels}) => {
     const backJournal = () => {
 
         setPage(prevPage => prevPage - 1)
+        setViewPage(prevPage => prevPage - 1)
         console.log(page)
     }
+    
+    
+
 
     return (
         <div className="tankLevelContainer">
@@ -118,6 +131,11 @@ export const TankJournal = ({tank, levels}) => {
 
             {levels && !newEntry &&
             <div className="tankLevels">
+                
+                <div className='pageNumber'>
+                    <h3>Page {viewPage}/{journalLength}</h3>
+                </div>  
+
                 <div className='timeSince'>
                     {showBack && 
                     <div>

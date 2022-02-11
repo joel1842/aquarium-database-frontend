@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useAuth0 } from '@auth0/auth0-react';
 import { DeleteTankFish } from "../../Button/DeleteTankFish"
+import { EditQuantity } from '../../Button/EditQuantity';
 import "./MyFish.css"
+import e from 'cors';
 
 export const MyFish = ({tank}) => {
 
@@ -13,6 +15,12 @@ export const MyFish = ({tank}) => {
     }, [])
 
     const [fishies, setFishies] = useState()
+
+    const [editFish, setEditFish] = useState(false)
+    const editSwitch = () => {
+        setEditFish(true)
+    }
+
 
     const catchMyFish = async () => {
         try {
@@ -60,11 +68,13 @@ export const MyFish = ({tank}) => {
             }
 
             {fishies && fishies.map((fish, index) => {
+
                 return(
-                    <div className="tankFish">
+                    <div className={editFish ? "tankFish active" : "tankFish"} key={index}>
                         <img className="fishPic" src={fish.pic} alt={fish.name} />
                         <h3 className="tankFishName">{fish.name}</h3>
-                        <h4 className="quantity">x {fish.quantity}</h4>
+                        {!editFish && <h4 className="quantity">x {fish.quantity}</h4>}
+                        <EditQuantity fish={fish} editFish={editFish} editSwitch={editSwitch}/>
                         <DeleteTankFish fish={fish} />
                     </div> 
                 )

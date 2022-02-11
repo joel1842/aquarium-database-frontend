@@ -1,0 +1,71 @@
+.editQuantity {
+    grid-area: edit;
+    align-self: start;
+}
+
+.editSwitch {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%), #DCDCDC;
+    box-shadow: 0px 2px 2px rgba(110, 110, 110, 0.25);
+    border-radius: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    padding: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
+    border: none;
+}
+
+.edit {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.edit h4 {
+    margin-top: 2px;
+    margin-bottom: 0;
+    justify-self: end;
+}
+
+.editButtons {
+    align-items: center;
+}
+
+.editButton {
+    display: inline;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%), #DCDCDC;
+    box-shadow: 0px 2px 2px rgba(110, 110, 110, 0.25);
+    border-radius: 20px;
+    border: none;
+    padding: 2%;
+    padding-left: 6%;
+    padding-right: 6%;
+    font-weight: 400;
+    font-family: Poppins;
+}
+
+.editButton.plus {
+    margin-right: 2px;
+}
+
+.submitButton {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%), #DCDCDC;
+    box-shadow: 0px 2px 2px rgba(110, 110, 110, 0.25);
+    border-radius: 20px;
+    border: none;
+    font-family: Poppins;
+    font-weight: 500;
+    padding: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: inline;
+    margin-left: 3%;
+}
+
+.editSuccess {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%), #DCDCDC;
+    box-shadow: 0px 2px 2px rgba(110, 110, 110, 0.25);
+    border-radius: 20px;
+    width: 30%;
+    margin: auto;
+    padding-bottom: 1px;
+}
