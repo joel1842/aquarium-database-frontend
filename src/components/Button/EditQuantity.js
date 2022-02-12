@@ -49,7 +49,7 @@ export const EditQuantity = ({ fish, editFish, editSwitch }) => {
             <div className='edit'>
                     <h4>x {fishQuantity}</h4>
                     <div className='editButtons'>
-                        <button className="editButton plus" onClick={() => setFishQuantity(fishQuantity + 1)}>+</button>
+                        <button className="editButton plus" onClick={() => setFishQuantity(fishQuantity + 1) }>+</button>
                         <button className="editButton minus" onClick={() => setFishQuantity(fishQuantity - 1)}>-</button>
                         <button className="submitButton" onClick={resubmitQuanity}>Submit</button>
                     </div>

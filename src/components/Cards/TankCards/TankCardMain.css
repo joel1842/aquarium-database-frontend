@@ -2,15 +2,14 @@
     background: linear-gradient(180deg, rgba(250, 249, 249, 0.7) -24.94%, rgba(250, 249, 249, 0.1) 40%), #faa064;
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
-    width: 90%;
-    margin: auto;
-    margin-right: 3%;
+    width: 95%;
     padding: 2%;
     grid-area: header;
     display: grid;
     grid-template-areas: 
     "info health";
     grid-template-columns: 60% 40%;
+    justify-self: start;
 }
 
 .quickInfo {
@@ -187,5 +186,48 @@
     margin-bottom: 5px;
     width: 50%;
     padding: 2%;
+}
 
+@media screen and (max-width: 1200px) {
+    .tankHeadContainer {
+        margin: auto;
+        margin-bottom: 3%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .tankHeadContainer {
+        display: block;
+    }
+
+    .healthCard {
+        width: 70%
+    }
+
+    .tempCard {
+        width: 70%;
+    }
+
+    .phCard {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .myTankPic {
+        width: 300px;
+        height: 200px;
+    }
+
+    .healthCard {
+        width: 90%
+    }
+
+    .tempCard {
+        width: 90%;
+    }
+
+    .phCard {
+        width: 90%;
+    }
 }

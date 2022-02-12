@@ -34,10 +34,6 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
     const [nitrateHealth, setNitrateHealth] = useState()
     // pH level 6 - 8
     // const [phLevelHealth, setPhLevelHealth] = useState()
-    // kh level 4 - 8 dKh, 70 - 140 ppm
-    // const khLevel = 5
-    // gh level 4 - 8 dGh, 70 -140 ppm
-    // const ghLevel = 6
 
     const easy = "linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A"
     const easyShadow = "0px 2px 2px #65C21B"

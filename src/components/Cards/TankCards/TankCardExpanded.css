@@ -10,3 +10,15 @@
     font-family: poppins;
     margin-bottom: 3%;
 }
+
+@media screen and (max-width: 1500px) {
+    .tankCardContainer {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .tankCardContainer {
+        display: block;
+    }
+}

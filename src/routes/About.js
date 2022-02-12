@@ -28,12 +28,12 @@ export const About = () => {
                     <div className='aboutHeader'>
                         <h1>About Me</h1>
                     </div>
-                    <div className='meContainer'>
-                        <img className="me" src={me} alt="Me! (Joel)"/>
-                    </div>
                     <div className='aboutText'>
                         <p><b>My name is Joel!</b> I am a fish keeper & programmer! I always wanted some kind of tracking tool to make keeping track of my fish tank parameters from week to week & remind me when it is time to change my water!</p>
                         <p>When I realized an all in one tool did not exist for this purpose <b>I got right to work building my own!</b></p>
+                    </div>
+                    <div className='meContainer'>
+                        <img className="me" src={me} alt="Me! (Joel)"/>
                     </div>
                 </div>
 
