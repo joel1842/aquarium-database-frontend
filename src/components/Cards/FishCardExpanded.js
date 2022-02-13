@@ -63,15 +63,16 @@ export const FishExpanded = ({ fishData, tanks }) => {
         picSwitch()
     }, [number])
 
-    const numberSwitch = () => {
-        if (number < 3) {
-            setNumber(prevNumber => prevNumber + 1)
-        } else {
-            setNumber(1)
-            console.log("Reset!")
-        }
- 
-    }
+    const [inches, setInches] = useState()
+    const [gallons, setGallons] = useState()
+    const [lowF, setLowF] = useState()
+    const [highF, setHighF] = useState()
+    useEffect(() => {
+        setInches(Number(fishData.sizecm/2.54).toFixed(1))
+        setGallons(Number(fishData.tanksizel/3.785).toFixed(0))
+        setLowF(Number((fishData.templowc * 9/5) + 32).toFixed(0))
+        setHighF(Number((fishData.temphighc * 9/5) + 32).toFixed(0))
+    }, [])
 
     const picSwitch = () => {
 
@@ -129,7 +130,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
                     <img className="thermometer" src={Thermometer} alt="Thermometer"/>
                     <h2 className="tempHead">Temperature</h2>
                     <h1 className="tempC"><b>{fishData.templowc}°C</b> - <b>{fishData.temphighc}°C</b></h1>
-                    <h2 className="tempF">({fishData.templowf}°f - {fishData.temphighf}°f)</h2>
+                    <h2 className="tempF">({lowF}°f - {highF}°f)</h2>
                 </div>
             </div>
             <div className='fishInfo'>
@@ -139,7 +140,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
                 </div>
                 <div>
                     <h3>Size</h3>
-                    <p><b>{fishData.sizecm} cm</b> ({fishData.sizein} in)</p>
+                    <p><b>{fishData.sizecm} cm</b> ({inches} in)</p>
                 </div>
                 <div>
                     <h3>Diet Type</h3>
@@ -147,7 +148,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
                 </div>
                 <div>
                     <h3>Tank Size</h3>
-                    <p><b>{fishData.tanksizel} L </b> ({fishData.tanksizeg} G)</p>
+                    <p><b>{fishData.tanksizel} L </b> ({gallons} G)</p>
                 </div>
                 <div>
                     <h3>Lifespan</h3>

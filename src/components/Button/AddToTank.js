@@ -25,7 +25,7 @@ const AddToTank = ({ fishData, tanks }) => {
 
     useEffect(() => {
         if (tanks) {
-            setChooseTank(tanks[0].tankName)
+            setChooseTank(tanks[0].id)
             console.log("tanks defined ")
         }
     }, [tanks])
@@ -38,9 +38,7 @@ const AddToTank = ({ fishData, tanks }) => {
 
             const data = {
                 tank: chooseTank,
-                pic: fishData.pic1,
-                name: fishData.name,
-                link: window.location.pathname,
+                fish: fishData.id,
                 quantity: quantity
             }
     

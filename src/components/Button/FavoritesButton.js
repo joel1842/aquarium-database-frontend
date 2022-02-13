@@ -9,8 +9,7 @@ const FavoritesButton = ({fishData}) => {
     const { getAccessTokenSilently } = useAuth0()
 
     const data = {
-        pic: fishData.pic1,
-        name: fishData.name,
+        fish: fishData.id,
         link: window.location.pathname
     }
 

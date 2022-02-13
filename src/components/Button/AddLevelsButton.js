@@ -7,7 +7,7 @@ export const AddLevelsButton = ({fishLevels, success, added}) => {
     const { getAccessTokenSilently } = useAuth0()
 
     const submitLevels = async () => {
-        if (fishLevels.tankName && fishLevels.ammonia && fishLevels.nitrate && fishLevels.nitrite && fishLevels.phLevel) {
+        if (fishLevels.tank && fishLevels.ammonia && fishLevels.nitrate && fishLevels.nitrite && fishLevels.phLevel) {
             try {
                 const token = await getAccessTokenSilently()
                 

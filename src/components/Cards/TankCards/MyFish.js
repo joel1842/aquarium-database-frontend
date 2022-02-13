@@ -4,7 +4,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { DeleteTankFish } from "../../Button/DeleteTankFish"
 import { EditQuantity } from '../../Button/EditQuantity';
 import "./MyFish.css"
-import e from 'cors';
 
 export const MyFish = ({tank}) => {
 
@@ -39,9 +38,11 @@ export const MyFish = ({tank}) => {
                 body: JSON.stringify(data)
             })
             const responseData = await response.json()
+            console.log(responseData)
  
             if (responseData.length >= 1) {
                 setFishies(responseData)
+                console.log(responseData)
                 console.log("Caught your fishies!")
             } else {
                 console.log("No fishies!")

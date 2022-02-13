@@ -15,10 +15,26 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
     const { getAccessTokenSilently } = useAuth0();
     
     const [levels, setLevels] = useState();
+    const [celcius, setCelcius] = useState();
+    const [fahrenheit, setFahrenheit] = useState();
 
     useEffect(() => {
         getLevels()
     }, [])
+
+    useEffect(() => {
+        if (levels) {
+            if(levels.tempscale === 'f') {
+                let f = levels[0].temp
+                setCelcius(Number((f - 32) * 5/9).toFixed(1))
+                setFahrenheit(Number(f).toFixed(1))
+            } else {
+                let c = levels[0].temp
+                setFahrenheit(Number((c * 9/5) + 32).toFixed(1))
+                setCelcius(Number(c).toFixed(1))
+            }
+        }
+    }, [levels])
 
     const getLevels = async () => {
         const token = await getAccessTokenSilently()
@@ -46,7 +62,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
 
             <div className="tankCardContainer">
 
-                <TankCardMain tank={tank} levels={levels} deleteSwitch={deleteSwitch}/>
+                <TankCardMain tank={tank} levels={levels} celcius={celcius} fahrenheit={fahrenheit} deleteSwitch={deleteSwitch}/>
 
                 <MyFish tank={tank}/>
 

@@ -5,7 +5,7 @@ import aquarium from "../../../assets/aquarium.png"
 import './TankCardMain.css'
 import { Checkmark } from 'react-checkmark';
 
-export const TankCardMain = ({tank, levels, deleteSwitch}) => {
+export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) => {
 
     const { getAccessTokenSilently } = useAuth0()
 
@@ -16,15 +16,13 @@ export const TankCardMain = ({tank, levels, deleteSwitch}) => {
 
     const [score, setScore] = useState()
 
-    const [celcius, setCelcius] = useState()
-    const [fahrenheit, setFahrenheit] = useState()
 
-    useEffect(() => {
-        if (levels) {
-            setCelcius(Number(levels[0].celcius).toFixed(1))
-            setFahrenheit(Number(levels[0].fahrenheit).toFixed(1))
-        }
-    }, [levels])
+    // useEffect(() => {
+    //     if (levels) {
+    //         setCelcius(Number(levels[0].celcius).toFixed(1))
+    //         setFahrenheit(Number(levels[0].fahrenheit).toFixed(1))
+    //     }
+    // }, [levels])
 
     // ammonia 0ppm, more than 2 is dangerous
     const [ammoniaHealth, setAmmoniaHealth] = useState()

@@ -40,8 +40,8 @@ export const TankJournal = ({tank, levels}) => {
         khLevel: khLevel,
         ghLevel: ghLevel,
         temp: temp,
-        tempScale: tempScale,
-        tankName: tank.tankName
+        tempscale: tempScale,
+        tank: tank.id
     }
 
     const [timeSince, setTimeSince] = useState()
