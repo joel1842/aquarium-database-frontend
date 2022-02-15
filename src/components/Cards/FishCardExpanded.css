@@ -4,7 +4,6 @@
     border-radius: 40px;
     width: 60%;
     max-width: 800px;
-    margin-top: 3%;
     margin-bottom: 3%;
     display: grid;
     grid-template-columns: 60% 40%;
@@ -12,9 +11,12 @@
 }
 
 .back {
-    position: absolute;
+    /* position: absolute;
     top: 9%;
-    left: 30%;
+    left: 30%; */
+    /* float: left; */
+    margin-top: 3%;
+    margin-right: 40%;
     border: none;
     background: none;
     transition: all 0.2s ease-in-out;
@@ -54,6 +56,10 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
+.next {
+
+}
+
 .nextPic {
     border: none;
     background: none;
@@ -62,8 +68,8 @@
     font-size: 15px;
     color: white;
     margin-bottom: 2%;
-    margin-right: 10%;
-    float: right;
+    margin-left: 60%;
+    /* float: right; */
 }
 
 .nextPic h3 {

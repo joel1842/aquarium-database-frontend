@@ -74,6 +74,15 @@ export const FishExpanded = ({ fishData, tanks }) => {
         setHighF(Number((fishData.temphighc * 9/5) + 32).toFixed(0))
     }, [])
 
+    const numberSwitch = () => {
+        if (number < 3) {
+            setNumber(prevNumber => prevNumber + 1)
+        } else {
+            setNumber(1)
+            console.log("Reset!")
+        }
+    }
+
     const picSwitch = () => {
 
         if (number === 3 && fishData.pic3 !== undefined) {
@@ -87,20 +96,24 @@ export const FishExpanded = ({ fishData, tanks }) => {
     
     return(
         <>
+        <div>
         <Link to="/browse">
             <button className="back" title="Go Back!">
                 <img src={arrow} alt="Go Back!"/>
                 <h2>Browse</h2>
             </button>
         </Link>
+        </div>
 
         <div className='fishCard'>
             <div className='fishHeader'>
                 <img className='fishImg' src={fishPic} alt='Espes Rasbora'/>
-                {/* <button className="nextPic" onClick={numberSwitch}>
-                    <h3>Next</h3>
-                    <img src={arrowRotated} alt="Next Pic..."/>
-                </button> */}
+                <div className='next'>
+                    <button className="nextPic" onClick={numberSwitch}>
+                        <h3>Next</h3>
+                        <img src={arrowRotated} alt="Next Pic..."/>
+                    </button>
+                </div>
                 <div className='fishTitle'>
                     <div className="fishNames">
                         <h1 className='fishName'>{fishData.name}</h1>
