@@ -51,7 +51,7 @@ export const Disclaimer = () => {
                     <h1>Information Disclaimer</h1>
                 </div>
                 <div className='disclaimerText'>
-                    <p>All information presented on this website is depicted as accurately as possible. The information shown on this website was not sourced by Fish-O-Pedia & all information presented is linked to its owner.</p>
+                    <p>All information presented on this website is depicted as accurately as possible. The information shown on this website was not sourced by Fish-O-Pedia & all information presented is linked back to its owner.</p>
                     <p>Some information may be incorrect. If you see incorrect information, please enter the page link & describe the error in the form below.</p>
                 </div>
                 <div className='disclaimerFormContainer'>
@@ -66,7 +66,7 @@ export const Disclaimer = () => {
                         </div>
                         <div className="disclaimerField">
                             <label>Page Link</label>
-                            <input type="text" placeholder="ex. https://fishtank.wiki/browse/RosyTetra..." onChange={(event) => setLink(event.target.value)}></input>
+                            <input type="url" placeholder="ex. https://fishtank.wiki/browse/RosyTetra..." onChange={(event) => setLink(event.target.value)}></input>
                         </div>
                         { error && link && !success &&
                         <div>

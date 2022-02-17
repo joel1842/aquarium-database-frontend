@@ -43,3 +43,45 @@
     transform: scale(1.1);
     font-weight: 800;
 }
+
+@media screen and (max-width: 1350px) {
+    .careHead {
+        width: 50%;
+    }
+
+    .careLinks {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .careHead {
+        width: 60%;
+    }
+
+    .careLinks {
+        width: 90%;
+        margin-top: 3%;
+        margin-bottom: 200px;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .careHead {
+        width: 75%;
+    }
+
+    .careLinks {
+        display: block;
+    }
+
+    .mainCare.list {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+
+    .otherCare.list {
+        margin-top: 0;
+        padding-left: 0;
+    }
+}

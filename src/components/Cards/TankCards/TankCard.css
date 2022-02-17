@@ -25,6 +25,17 @@
     grid-area: tank;
 }
 
+.tankPic {
+    margin: auto;
+    width: 200px;
+    height: 125px;
+    object-fit: cover;
+    grid-area: tank;
+    border-radius: 40px;
+    margin-right: 10%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
+}
+
 .cardTankName {
     margin-bottom: 0;
     margin-right: 10px;

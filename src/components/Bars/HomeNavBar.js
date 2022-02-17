@@ -28,7 +28,7 @@ export const HomeNavBar = () => {
                 <div className='LogoHome'>
                     <Logo />
                 </div>
-                <h3 className="tagLine">A fish & plant search tool</h3>
+                <h3 className="tagLine">A freshwater fish search tool</h3>
 
                 <div className="homeMenuIcon">
                     <button onClick={menuSwitch}>

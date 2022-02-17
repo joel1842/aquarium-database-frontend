@@ -72,17 +72,26 @@
 }
 
 .emailNotify {
-    display: inline-block;
-    margin-right: 2%;
+    display: block;
+    margin-bottom: 2%;
 }
 
 .textNotify {
-    display: inline-block;
-    margin-left: 2%;
+    display: block;
+}
+
+.react-tel-input {
+    margin-left: 5%;
+    margin-top: 3%;
 }
 
 .react-tel-input .form-control{
     font-family: Poppins;
+    width: 250px;
+}
+
+.react-tel-input .flag-dropdown {
+    margin-left: 50px;
 }
 
 .react-tel-input .country-list .country {

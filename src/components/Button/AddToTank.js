@@ -3,7 +3,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import './AddToTank.css'
 import add from "../../assets/add.png"
 import { Checkmark } from "react-checkmark";
-import e from "cors";
 
 const AddToTank = ({ fishData, tanks }) => {
 
@@ -31,7 +30,7 @@ const AddToTank = ({ fishData, tanks }) => {
     }, [tanks])
 
     const sendRequest = async () => {
-
+        console.log()
         try {
 
             const token = await getAccessTokenSilently()
@@ -74,7 +73,7 @@ const AddToTank = ({ fishData, tanks }) => {
             <div className="dropdown">
                 <select className="chooseTank" onChange={(event) => setChooseTank(event.target.value)}>
                     {tanks.map((tank, index) => (
-                        <option value={tank.tankName} key={index}>{tank.tankName}</option>
+                        <option value={tank.id} key={index}>{tank.tankName}</option>
                     ))}
                 </select>
                 <div>

@@ -30,7 +30,7 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState();
 
   const getSearchTerm = (search) => {
-    setFish([])
+    // setFish([])
     setSearchTerm(search)
     setCategory('name')
   }
@@ -148,7 +148,7 @@ const App = () => {
 
             let path = "/browse/" + fishName
 
-            return <Route exact path={path} element={<FishPage tanks={tanks} fishData={fishData}/>} key={index} />
+            return <Route exact path={path} element={<FishPage tanks={tanks} fishData={fishData}/>} key={index} getSearchTerm={getSearchTerm}/>
           })}
           
           {tanks && tanks.map((tank, index) => {
@@ -170,7 +170,7 @@ const App = () => {
           <Route exact path="/tank" element={<Tank getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/about" element={<About/>}></Route>
           <Route exact path="/browse" element={<Browse getSearchTerm={getSearchTerm} getFilterCriterion={getFilterCriterion} fish={fish} count={count} nextPage={nextPage}/>}></Route>
-          <Route exact path="/fish" element={<FishPage/>}></Route>
+          <Route exact path="/fish" element={<FishPage getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/favlist" element={<FavList getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/mytanks" element={<MyTanks getSearchTerm={getSearchTerm} createSwitch={createSwitch} create={create} tanks={tanks}/>}></Route>
           <Route exact path="/disclaimer" element={<Disclaimer />}></Route>

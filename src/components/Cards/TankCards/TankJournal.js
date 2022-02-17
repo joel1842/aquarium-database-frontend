@@ -130,26 +130,27 @@ export const TankJournal = ({tank, levels}) => {
             }
 
             {levels && !newEntry &&
-            <div className="tankLevels">
-                
-                <div className='pageNumber'>
-                    <h3>Page {viewPage}/{journalLength}</h3>
-                </div>  
+            <div className="tankLevels">  
 
-                <div className='timeSince'>
+                <div className='timeSinceContainer'>
+                    <div className="journalInfo">
+                        <div className="timeSince">
+                            <img className="timeSinceImg" src={clock} alt="Time since..."/>
+                            <h2>{timeSince}</h2>
+                        </div>
+                        <div className='pageNumber'>
+                            <h3>Page {viewPage}/{journalLength}</h3>
+                        </div>
+                    </div>
                     {showBack && 
-                    <div>
+                    <div className="backJournal">
                         <button onClick={backJournal}>
                             <img src={arrowLeft} alt="Next Entry..."/>
                             <h2>Last Entry</h2>
                         </button>
                     </div>}
-                    <div>
-                        <img src={clock} alt="Time since..."/>
-                        <h2>{timeSince}</h2>
-                    </div>
                     {showNext && 
-                    <div>
+                    <div className="nextJournal">
                         <button onClick={viewJournal}>
                             <h2>Next Entry</h2>
                             <img src={arrowRight} alt="Next Entry..."/>

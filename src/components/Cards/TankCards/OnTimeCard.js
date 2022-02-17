@@ -66,13 +66,13 @@ export const OnTimeCard = () => {
 
                     <h3>How do you want to be notified?</h3>
                     <div className="emailNotify">
-                        <label for="email">Email</label>
                         <input type="radio" id="email" value="email" name="notification" onChange={(event)=> setNotification(event.target.value)}/>
+                        <label for="email">Email</label>
                     </div>
-                    <p>{phone}</p>
+
                     <div className="textNotify">
-                        <label for="text">Text</label>
                         <input type="radio" id="text" value="text" name="notification" onChange={(event)=> setNotification(event.target.value)}/>
+                        <label for="text">Text</label>
                         {notification === "text" &&
                         <PhoneInput 
                             country={'ca'}

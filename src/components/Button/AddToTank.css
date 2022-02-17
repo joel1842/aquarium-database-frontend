@@ -80,4 +80,5 @@
 
 .checkmark {
     margin: auto;
+    filter: drop-shadow(0 1px 1px rgb(121, 121, 121));
 }

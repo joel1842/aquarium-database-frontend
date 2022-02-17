@@ -5,8 +5,6 @@ import './Care.css'
 
 export const Care = () => {
 
-
-
     return (
         <div>
             <StandardNavBar />
@@ -19,13 +17,11 @@ export const Care = () => {
                     <li>Picking a tank</li>
                     <li>Setup an aquarium</li>
                     <li>Stocking your aquarium</li>
-                    <li>Water changes</li>
                 </ul>
 
                 <ul className="otherCare list">
+                    <li>Water changes</li>
                     <li>The nitrogen cycle</li>
-                    <li>Proper diet</li>
-                    <li>Fish disease</li>
                     <li>Thriving plants</li>
                 </ul>
             </div>

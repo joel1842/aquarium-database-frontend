@@ -107,7 +107,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
 
         <div className='fishCard'>
             <div className='fishHeader'>
-                <img className='fishImg' src={fishPic} alt='Espes Rasbora'/>
+                <img className='fishImg' src={fishPic} alt={fishData.name}/>
                 <div className='next'>
                     <button className="nextPic" onClick={numberSwitch}>
                         <h3>Next</h3>
@@ -135,18 +135,19 @@ export const FishExpanded = ({ fishData, tanks }) => {
                     <h2>Care level</h2>
                     <h1>{fishData.carelevel}</h1>
                 </div>
-                <div className='temperament'>
-                    <h2>Temperament</h2>
-                    <h1>{fishData.temperament}</h1>
-                </div>
                 <div className='temperature'>
                     <img className="thermometer" src={Thermometer} alt="Thermometer"/>
                     <h2 className="tempHead">Temperature</h2>
                     <h1 className="tempC"><b>{fishData.templowc}°C</b> - <b>{fishData.temphighc}°C</b></h1>
                     <h2 className="tempF">({lowF}°f - {highF}°f)</h2>
                 </div>
+                <div className='temperament'>
+                    <h2>pH Level</h2>
+                    <h1>{fishData.phlevellow.toFixed(1)} - {fishData.phlevelhigh.toFixed(1)}</h1>
+                </div>
             </div>
             <div className='fishInfo'>
+
                 <div>
                     <h3>Origin</h3>
                     <p>{fishData.origin}</p>
