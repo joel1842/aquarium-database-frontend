@@ -3,11 +3,22 @@ import { useAuth0 } from '@auth0/auth0-react';
 import DeleteTankButton from "../../Button/DeleteTankButton"
 import aquarium from "../../../assets/aquarium.png"
 import './TankCardMain.css'
+import { storage } from '../../../firebase/firebase';
+import {ref, upload, getDownloadURL, uploadBytes} from "firebase/storage";
 import { Checkmark } from 'react-checkmark';
 
 export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) => {
 
     const { getAccessTokenSilently } = useAuth0()
+
+
+    const [tankPic, setTankPic] = useState()
+    useEffect(() => {
+        if (tank.tankimg !== undefined) {
+            setTankPic(tank.tankimg)
+            console.log(tank.tankimg)
+        }
+    }, [tank])
 
     // health options 
     const good = 1
@@ -106,10 +117,6 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
             getNitrite()
             getNitrate()
             colorSwitch()
-            if (tank.tankimg) {
-                console.log(tank.tankimg)
-                setTankPic('https://localhost:8000/img/' + tank.tankimg)
-            }
         }
     }, [levels])
 
@@ -187,25 +194,37 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
     const [file, setFile] = useState()
 
     const getFile = (event) => {
-        console.log(event.target.files[0])
-        const formData = new FormData()
-        formData.append('tankid', tank.id)
-        formData.append('image', event.target.files[0])
-        setFile(formData)
+        setFile(event.target.files[0])
+    }
+
+    const uploadTank = () => {
+        const imageRef = ref(storage, `image/${file.name}${Date.now()}`);
+        uploadBytes(imageRef, file).then(() => {
+            getDownloadURL(imageRef).then((url) => {
+                uploadLink(url)
+                console.log(url)
+            })
+        })
     }
 
     const [uploadSuccess, setUploadSuccess] = useState(false)
 
-    const uploadTank = async () => {
+    const uploadLink = async (url) => {
 
         const token = await getAccessTokenSilently()
+        const data = {
+            url: url,
+            id: tank.id
+        }
+        console.log(data)
 
         fetch('https://localhost:8000/upload', {
             method: 'POST',
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json;charset=utf-8'
             },
-            body: file
+            body: JSON.stringify(data)
         }).then(res => {
             if (res.ok) {
 
@@ -218,8 +237,6 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
         })
 
     }
-
-    const [tankPic, setTankPic] = useState()
 
     const [addPic, setAddPic] = useState(false)
     const addSwitch = () => {

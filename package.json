@@ -13,6 +13,7 @@
     "cors": "^2.8.5",
     "dayjs": "^1.10.7",
     "dotenv": "^10.0.0",
+    "firebase": "^9.6.7",
     "react": "^17.0.2",
     "react-burger-menu": "^3.0.6",
     "react-checkmark": "^1.4.0",

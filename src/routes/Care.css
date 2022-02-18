@@ -17,7 +17,7 @@
     width: 50%;
     margin: auto;
     margin-bottom: 5%;
-    padding: 2%;
+    padding: 1%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     font-weight: 600;
@@ -37,6 +37,18 @@
     padding: 5%;
     list-style-type: none;
     transition: all 0.2s ease-in-out;
+}
+
+.list li img {
+    width: 70px;
+    margin-right: 3%;
+    display: inline;
+    vertical-align: middle;
+}
+
+.list li p {
+    display: inline;
+    vertical-align: middle;
 }
 
 .list li:hover {

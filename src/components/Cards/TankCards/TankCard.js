@@ -9,7 +9,7 @@ const TankCard = ({ tank }) => {
     useEffect(() => {
         if (tank.tankimg) {
             console.log(tank.tankimg)
-            setTankPic('https://localhost:8000/img/' + tank.tankimg)
+            setTankPic(tank.tankimg)
         }
     })
 
