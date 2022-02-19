@@ -47,6 +47,18 @@ export const OnTimeCard = () => {
         }
     }
 
+    const [date, setDate] = useState()
+    const getDate = () => {
+        const dateObj = new Date();
+        const month = dateObj.getUTCMonth() + 1; //months from 1-12
+        const day = dateObj.getUTCDate();
+        const year = dateObj.getUTCFullYear();
+
+        const newdate = year + "-" + month + "-" + day;
+        setDate(newdate)
+        console.log(date)
+    }
+
 
      return (
          <div className="onTimeContainer">
@@ -65,8 +77,15 @@ export const OnTimeCard = () => {
                     </select>
 
                     <h3>How do you want to be notified?</h3>
+                    <div>
+                    {date && <input type="date" id="start" name="trip-start"
+                        value={date}
+                        min="2018-01-01" max="2018-12-31" />}
+                    </div>
+
+                    <h3>How do you want to be notified?</h3>
                     <div className="emailNotify">
-                        <input type="radio" id="email" value="email" name="notification" onChange={(event)=> setNotification(event.target.value)}/>
+                        <input type="radio" id="email" value="email" name="notification" defaultChecked onChange={(event)=> setNotification(event.target.value)}/>
                         <label for="email">Email</label>
                     </div>
 
@@ -85,7 +104,7 @@ export const OnTimeCard = () => {
                 </form>
                 {!submit && 
                 <div>
-                    <button className="onTimeSubmit" onClick={submitInfo}>Submit!</button>
+                    <button className="onTimeSubmit" onClick={getDate}>Submit!</button>
                 </div>}
                 {submit &&
                 <div className='onTimeSuccess'>
