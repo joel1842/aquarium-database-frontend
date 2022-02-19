@@ -15,7 +15,7 @@ export const DeleteTankFish = ({ fish, updateFish }) => {
         try {
             const token = await getAccessTokenSilently()
 
-            fetch('https://localhost:8000/deletetankfish/' + id, {
+            fetch('https://fishtank-wiki.herokuapp.com/deletetankfish/' + id, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,

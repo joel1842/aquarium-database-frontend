@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
 import FishCard from '../../components/Cards/FishCard';
@@ -53,7 +53,7 @@ export const Browse = ({ getSearchTerm, getFilterCriterion, fish, count, nextPag
 
                         return (
                             <Link to={url}>
-                                <FishCard fishData={fishData} key={fishData.id} />
+                                <FishCard fishData={fishData} key={index} />
                             </Link> 
                         )
                         })}

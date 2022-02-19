@@ -4,7 +4,7 @@ import DeleteTankButton from "../../Button/DeleteTankButton"
 import aquarium from "../../../assets/aquarium.png"
 import './TankCardMain.css'
 import { storage } from '../../../firebase/firebase';
-import {ref, upload, getDownloadURL, uploadBytes} from "firebase/storage";
+import {ref, getDownloadURL, uploadBytes} from "firebase/storage";
 import { Checkmark } from 'react-checkmark';
 
 export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) => {
@@ -26,14 +26,6 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
     const bad = 3
 
     const [score, setScore] = useState()
-
-
-    // useEffect(() => {
-    //     if (levels) {
-    //         setCelcius(Number(levels[0].celcius).toFixed(1))
-    //         setFahrenheit(Number(levels[0].fahrenheit).toFixed(1))
-    //     }
-    // }, [levels])
 
     // ammonia 0ppm, more than 2 is dangerous
     const [ammoniaHealth, setAmmoniaHealth] = useState()
@@ -81,38 +73,69 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
     
     const [phColor, setPhColor] = useState(six)
 
-    const colorSwitch = () => {
-        if (levels[0].phLevel <= 6.3) {
-            setPhColor(six)
-        } else if (levels[0].phLevel <= 6.5) {
-            setPhColor(sixfour)
-        } else if (levels[0].phLevel <= 6.7) {
-            setPhColor(sixsix)
-        } else if (levels[0].phLevel <= 6.9) {
-            setPhColor(sixeight)
-        } else if (levels[0].phLevel <= 7.1) {
-            setPhColor(seven)
-        } else if (levels[0].phLevel <= 7.5) {
-            setPhColor(seventwo)
-        } else if (levels[0].phLevel <= 7.7) {
-            setPhColor(sevensix)
-        } else if (levels[0].phLevel <= 7.9) {
-            setPhColor(seveneight)
-        } else if (levels[0].phLevel <= 8.1) {
-            setPhColor(eight)
-        } else if (levels[0].phLevel <= 8.4) {
-            setPhColor(eighttwo)
-        } else if (levels[0].phLevel <= 8.7) {
-            setPhColor(eightfour)
-        } else if (levels[0].phLevel <= 9) {
-            setPhColor(eighteight)
-        }
-
-        console.log(phColor)
-    }
-
     useEffect(() => {
         if (levels) {
+            const getAmmonia = () => {
+                console.log(levels[0].ammonia)
+                if (levels[0].ammonia <= 2) {
+                    setAmmoniaHealth(good)
+                } else if (levels[0].ammonia <= 4) {
+                    setAmmoniaHealth(medium)
+                } else { 
+                    setAmmoniaHealth(bad)
+                }
+            }
+        
+            const getNitrite = () => {
+                console.log(levels[0].nitrites)
+                if (levels[0].nitrites <= 0.2) {
+                    setNitriteHealth(good)
+                } else if (levels[0].nitrites <= 0.4) {
+                    setNitriteHealth(medium)
+                } else {
+                    setNitriteHealth(bad)
+                }
+            }
+        
+            const getNitrate = () => {
+                console.log(levels[0].nitrates)
+                if (levels[0].nitrates <= 40) {
+                    setNitrateHealth(good)
+                } else if (levels[0].nitrates <= 60) {
+                    setNitrateHealth(medium)
+                } else {
+                    setNitrateHealth(bad)
+                }
+            }
+
+            const colorSwitch = () => {
+                if (levels[0].phLevel <= 6.3) {
+                    setPhColor(six)
+                } else if (levels[0].phLevel <= 6.5) {
+                    setPhColor(sixfour)
+                } else if (levels[0].phLevel <= 6.7) {
+                    setPhColor(sixsix)
+                } else if (levels[0].phLevel <= 6.9) {
+                    setPhColor(sixeight)
+                } else if (levels[0].phLevel <= 7.1) {
+                    setPhColor(seven)
+                } else if (levels[0].phLevel <= 7.5) {
+                    setPhColor(seventwo)
+                } else if (levels[0].phLevel <= 7.7) {
+                    setPhColor(sevensix)
+                } else if (levels[0].phLevel <= 7.9) {
+                    setPhColor(seveneight)
+                } else if (levels[0].phLevel <= 8.1) {
+                    setPhColor(eight)
+                } else if (levels[0].phLevel <= 8.4) {
+                    setPhColor(eighttwo)
+                } else if (levels[0].phLevel <= 8.7) {
+                    setPhColor(eightfour)
+                } else if (levels[0].phLevel <= 9) {
+                    setPhColor(eighteight)
+                }
+            }
+
             getAmmonia()
             getNitrite()
             getNitrate()
@@ -122,74 +145,39 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
 
     useEffect(() => {
         if (ammoniaHealth && nitrateHealth && nitriteHealth) {
+            const getScore = () => {
+                setScore(ammoniaHealth + nitrateHealth + nitriteHealth)
+            }
             getScore()
         }
 
     }, [ammoniaHealth, nitrateHealth, nitriteHealth])
 
+    const [health, setHealth] = useState()
+
 
     useEffect(() => {
         if (score) {
+            const getHealth = () => {
+                console.log("Tank Score:", score)
+        
+                if (score === 3) {
+                    setHealth("Good 😀")
+                    setCareColor(easy)
+                    setShadow(easyShadow)
+                } else if (score <= 5) {
+                    setHealth("Medium 😐")
+                    setCareColor(med)
+                    setShadow(mediumShadow)
+                } else {
+                    setHealth("Bad 🤒")
+                    setCareColor(hard)
+                    setShadow(hardShadow)
+                }
+            }
             getHealth()
         }  
     }, [score])
-
-    const getAmmonia = () => {
-        console.log(levels[0].ammonia)
-        if (levels[0].ammonia <= 2) {
-            setAmmoniaHealth(good)
-        } else if (levels[0].ammonia <= 4) {
-            setAmmoniaHealth(medium)
-        } else { 
-            setAmmoniaHealth(bad)
-        }
-    }
-
-    const getNitrite = () => {
-        console.log(levels[0].nitrites)
-        if (levels[0].nitrites <= 0.2) {
-            setNitriteHealth(good)
-        } else if (levels[0].nitrites <= 0.4) {
-            setNitriteHealth(medium)
-        } else {
-            setNitriteHealth(bad)
-        }
-    }
-
-    const getNitrate = () => {
-        console.log(levels[0].nitrates)
-        if (levels[0].nitrates <= 40) {
-            setNitrateHealth(good)
-        } else if (levels[0].nitrates <= 60) {
-            setNitrateHealth(medium)
-        } else {
-            setNitrateHealth(bad)
-        }
-    }
-
-    const getScore = () => {
-        setScore(ammoniaHealth + nitrateHealth + nitriteHealth)
-    }
-
-    const [health, setHealth] = useState()
-
-    const getHealth = () => {
-        console.log("Tank Score:", score)
-
-        if (score === 3) {
-            setHealth("Good 😀")
-            setCareColor(easy)
-            setShadow(easyShadow)
-        } else if (score <= 5) {
-            setHealth("Medium 😐")
-            setCareColor(med)
-            setShadow(mediumShadow)
-        } else {
-            setHealth("Bad 🤒")
-            setCareColor(hard)
-            setShadow(hardShadow)
-        }
-    }
 
     const [file, setFile] = useState()
 
@@ -218,7 +206,7 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
         }
         console.log(data)
 
-        fetch('https://localhost:8000/upload', {
+        fetch('https://fishtank-wiki.herokuapp.com/upload', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,

@@ -3,7 +3,7 @@ import './DeleteFavButton.css'
 import { useAuth0 } from "@auth0/auth0-react";
 import { Checkmark } from "react-checkmark";
 
-const DeleteFavorite = ({ userData, deleteFish }) => {
+const DeleteFavorite = ({ userData }) => {
 
     const { getAccessTokenSilently } = useAuth0()
     const id = userData.id;
@@ -13,7 +13,7 @@ const DeleteFavorite = ({ userData, deleteFish }) => {
     const deleteFishie = async () => {
         try{
             const token = await getAccessTokenSilently()
-            fetch('https://localhost:8000/removefav/' + id, {
+            fetch('https://fishtank-wiki.herokuapp.com/removefav/' + id, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,

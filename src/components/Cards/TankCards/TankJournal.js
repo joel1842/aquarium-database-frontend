@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useAuth0 } from "@auth0/auth0-react";
 import { AddLevelsButton } from "../../Button/AddLevelsButton"
 import arrowLeft from "../../../assets/arrow.png"
 import arrowRight from "../../../assets/arrowrotated.png"
@@ -57,16 +56,17 @@ export const TankJournal = ({tank, levels}) => {
 
     useEffect(() => {
         if(levels) {
+            const getDate = () => {
+                let date = Number(levels[page].date)
+                dayjs.extend(relativeTime)
+                setTimeSince(dayjs().to(date))
+            }
             getDate()
         }
  
     }, [levels, page])
 
-    const getDate = () => {
-        let date = Number(levels[page].date)
-        dayjs.extend(relativeTime)
-        setTimeSince(dayjs().to(date))
-    }
+
 
     const [showNext, setShowNext] = useState(true)
     const [showBack, setShowBack] = useState(false)
@@ -90,7 +90,7 @@ export const TankJournal = ({tank, levels}) => {
             }
         }
 
-    }, [page])
+    }, [levels, page])
 
     const viewJournal = () => {
         const length = levels.length
@@ -112,9 +112,6 @@ export const TankJournal = ({tank, levels}) => {
         setViewPage(prevPage => prevPage - 1)
         console.log(page)
     }
-    
-    
-
 
     return (
         <div className="tankLevelContainer">

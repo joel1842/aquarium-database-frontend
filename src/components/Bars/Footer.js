@@ -14,10 +14,10 @@ const Footer = () => {
                 </div>
                 <div className="footerNav">
                     <nav>
-                        <a href="/about">About</a>
-                        <a href="/care">Care</a>
-                        <a href="/tank">Calculator</a>
                         <a href="/browse">Browse</a>
+                        <a href="/about">About</a>
+                        <a href="/tank">Calculator</a>
+                        <a href="/disclaimer">Disclaimer</a>
                     </nav>
                 </div>
                 <div className="socials">
