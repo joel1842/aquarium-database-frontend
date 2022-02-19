@@ -13,7 +13,7 @@ const DeleteFavorite = ({ userData, deleteFish }) => {
     const deleteFishie = async () => {
         try{
             const token = await getAccessTokenSilently()
-            fetch('https://localhost:8000/removefav/' + id, {
+            fetch('https://fishtank-wiki.herokuapp.com/removefav/' + id, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,

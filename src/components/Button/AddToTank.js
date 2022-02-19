@@ -41,7 +41,7 @@ const AddToTank = ({ fishData, tanks }) => {
                 quantity: quantity
             }
     
-            fetch('https://localhost:8000/addfish', {
+            fetch('https://fishtank-wiki.herokuapp.com/addfish', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

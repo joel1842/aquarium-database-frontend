@@ -20,7 +20,7 @@ export const EditQuantity = ({ fish, editFish, editSwitch }) => {
             fishQuantity: fishQuantity
         }
 
-        fetch('https://localhost:8000/editfish/' + id, {
+        fetch('https://fishtank-wiki.herokuapp.com/editfish/' + id, {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,

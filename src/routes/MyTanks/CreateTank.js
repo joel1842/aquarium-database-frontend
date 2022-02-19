@@ -46,7 +46,7 @@ const CreateTank = ({ create, createSwitch }) => {
             unit: unit
         }
 
-        fetch('https://localhost:8000/createtank', {
+        fetch('https://fishtank-wiki.herokuapp.com/createtank', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,

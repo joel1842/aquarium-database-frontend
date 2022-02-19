@@ -30,7 +30,7 @@ export const OnTimeCard = () => {
                 phone: phone
             }
 
-            fetch('https://localhost:8000/ontime', {
+            fetch('https://fishtank-wiki.herokuapp.com/ontime', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

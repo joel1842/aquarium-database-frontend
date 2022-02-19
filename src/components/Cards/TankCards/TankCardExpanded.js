@@ -41,7 +41,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
         const fishtankName = {
             tank: tank.tankName
         }
-        const response = await fetch('https://localhost:8000/getjournal', {
+        const response = await fetch('https://fishtank-wiki.herokuapp.com/getjournal', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -76,7 +76,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
                 tank: tank.tankName
             }
 
-            const response = await fetch('https://localhost:8000/myfish', {
+            const response = await fetch('https://fishtank-wiki.herokuapp.com/myfish', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

@@ -52,7 +52,7 @@ const App = () => {
   const getFish = async () => {
     
     try {
-        const response = await fetch(`https://localhost:8000/allfish?page=${page}&search=${searchTerm}&category=${filterCategory}`);
+        const response = await fetch(`https://fishtank-wiki.herokuapp.com/allfish?page=${page}&search=${searchTerm}&category=${filterCategory}`);
         const data = await response.json();
 
         if (searchTerm === undefined) {
@@ -104,7 +104,7 @@ const App = () => {
             user: user.email
         }
 
-        const response = await fetch('https://localhost:8000/mytanks', {
+        const response = await fetch('https://fishtank-wiki.herokuapp.com/mytanks', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,
