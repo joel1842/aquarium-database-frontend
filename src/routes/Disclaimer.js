@@ -23,7 +23,7 @@ export const Disclaimer = () => {
         try {
             const token = await getAccessTokenSilently()
 
-            fetch('https://localhost:8000/errorform', {
+            fetch('https://fishtank-wiki.herokuapp.com/errorform', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -57,7 +57,7 @@ export const Disclaimer = () => {
                 <div className='disclaimerFormContainer'>
                     <div className='disclaimerForm'>
                         <div className='disclaimerFormHeader'>
-                            <h1>Find innaccurate information?</h1>
+                            <h1>Find inaccurate information?</h1>
                         </div>
                         {/* <h2>Let us know!</h2> */}
                         <div className="disclaimerField">

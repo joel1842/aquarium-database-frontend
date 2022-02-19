@@ -23,14 +23,12 @@ const App = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
   const [fish, setFish] = useState([]);
-  const [filter, setFilter] = useState();
   const [filterCategory, setCategory] = useState();
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(21);
   const [searchTerm, setSearchTerm] = useState();
 
   const getSearchTerm = (search) => {
-    // setFish([])
     setSearchTerm(search)
     setCategory('name')
   }
@@ -46,34 +44,33 @@ const App = () => {
   }
 
   useEffect(() => {
-      getFish()
-  }, [page, searchTerm])
-
-  const getFish = async () => {
+      const getFish = async () => {
+      
+        try {
+            const response = await fetch(`https://fishtank-wiki.herokuapp.com/allfish?page=${page}&search=${searchTerm}&category=${filterCategory}`);
+            const data = await response.json();
     
-    try {
-        const response = await fetch(`https://localhost:8000/allfish?page=${page}&search=${searchTerm}&category=${filterCategory}`);
-        const data = await response.json();
-
-        if (searchTerm === undefined) {
-            setFish(oldData => oldData.concat(data.fish))
-            setCount(data.fishCount)
-        } else {
-            if (count === 21) {
+            if (searchTerm === undefined) {
                 setFish(oldData => oldData.concat(data.fish))
                 setCount(data.fishCount)
             } else {
-                setFish(data.fish)
-                setCount(data.fishCount)
+                if (count === 21) {
+                    setFish(oldData => oldData.concat(data.fish))
+                    setCount(data.fishCount)
+                } else {
+                    setFish(data.fish)
+                    setCount(data.fishCount)
+                }
+    
             }
-
+            
+        } catch (err) {
+            throw new Error(err);
         }
         
-    } catch (err) {
-        throw new Error(err);
-    }
-    
-  }
+      }
+      getFish()
+  }, [page, searchTerm, count, filterCategory])
   
 
   const [tanks, setTanks] = useState();
@@ -96,49 +93,48 @@ const App = () => {
     }
   }
 
-  const catchTanks = async() => {
-    try {
-
-        const token = await getAccessTokenSilently();
-        const data = {
-            user: user.email
-        }
-
-        const response = await fetch('https://localhost:8000/mytanks', {
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(data)
-        })
-        const responseData = await response.json()
-
-        if (responseData.length >= 1) {
-            setTanks(responseData)
-            console.log("Caught Tanks!")
-        } else {
-            setTanks()
-            console.log("No tanks!")
-        }
-
-    } catch (error) {
-        console.error()
-    }
-}
-
   useEffect(() => {
 
     if (isAuthenticated) {
-       catchTanks()
+      const catchTanks = async() => {
+          try {
+      
+              const token = await getAccessTokenSilently();
+              const data = {
+                  user: user.email
+              }
+      
+              const response = await fetch('https://fishtank-wiki.herokuapp.com/mytanks', {
+                  method: 'POST',
+                  headers: {
+                      Authorization: `Bearer ${token}`,
+                      'Content-Type': 'application/json;charset=utf-8'
+                  },
+                  body: JSON.stringify(data)
+              })
+              const responseData = await response.json()
+      
+              if (responseData.length >= 1) {
+                  setTanks(responseData)
+                  console.log("Caught Tanks!")
+              } else {
+                  setTanks()
+                  console.log("No tanks!")
+              }
+      
+          } catch (error) {
+              console.error()
+          }
+      }
+      catchTanks()
     }
 
-  }, [isAuthenticated, create, deleteTank])
+  }, [isAuthenticated, getAccessTokenSilently, user, create, deleteTank])
 
   if (fish) {
     return (
         <Routes>
-          {tanks && fish.map((fishData, index) => {
+          {fish && fish.map((fishData, index) => {
 
             let fishName = fishData.name
             fishName = fishName.replace(/\s+/g, '')

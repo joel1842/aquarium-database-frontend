@@ -8,43 +8,35 @@ import Loading from "../Loading";
 import './FavList.css';
 
 const FavList = ({ getSearchTerm }) => {
-    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0()
+
+    const { isAuthenticated, getAccessTokenSilently } = useAuth0()
     const [userFavs, setUserFavs] = useState()
-    const [deleted, setDeleted] = useState(false)
-
-    const deleteFish = () => {
-        setDeleted(true);
-    }
-
-    const catchFavs = async () => {
-        try {
-            const token = await getAccessTokenSilently();
-
-            const response = await fetch('https://localhost:8000/favList', {
-                method: 'GET',    
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Content-Type": "application/json; charset=UTF-8"
-                }
-            });
-            const responseData = await response.json()
-            if (responseData.length > 0) {
-                setUserFavs(responseData)
-            }
-            
-        } catch (error) {
-            console.log(error);
-        }
-    }
 
     useEffect(() => {
 
-        if (isAuthenticated) {
-            catchFavs()
-            setDeleted(false)
+        const catchFavs = async () => {
+            try {
+                const token = await getAccessTokenSilently();
+    
+                const response = await fetch('https://fishtank-wiki.herokuapp.com/favList', {
+                    method: 'GET',    
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json; charset=UTF-8"
+                    }
+                });
+                const responseData = await response.json()
+                if (responseData.length > 0) {
+                    setUserFavs(responseData)
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
         }
+        catchFavs()
 
-    }, [isAuthenticated, deleted])
+    }, [getAccessTokenSilently])
 
     return(
         <div>
@@ -63,7 +55,7 @@ const FavList = ({ getSearchTerm }) => {
             <div className="favContainer">
                 <h1 className='favHeader'>My Favorites</h1>
                 {isAuthenticated && userFavs && userFavs.map((userData, index) => (
-                    <FavCard userData={userData} deleteFish={deleteFish} key={index}/>
+                    <FavCard userData={userData} key={index}/>
                 ))}
             </div>}
 

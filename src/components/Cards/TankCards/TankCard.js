@@ -11,7 +11,7 @@ const TankCard = ({ tank }) => {
             console.log(tank.tankimg)
             setTankPic(tank.tankimg)
         }
-    })
+    }, [tank])
 
     return(
         <div className='tankCard'>

@@ -18,7 +18,7 @@ export const ErrorCard = () => {
         try {
             const token = await getAccessTokenSilently()
 
-            fetch('https://localhost:8000/errorform', {
+            fetch('https://fishtank-wiki.herokuapp.com/errorform', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

@@ -4,7 +4,7 @@ import {getStorage} from "firebase/storage"
 const apiKey = process.env.FIREBASE_API_KEY;
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBIYPScNr__7EwEYwS7QjA3GszTCQ5UbdY",
+    apiKey: apiKey,
     authDomain: "fish-o-pedia.firebaseapp.com",
     projectId: "fish-o-pedia",
     storageBucket: "fish-o-pedia.appspot.com",

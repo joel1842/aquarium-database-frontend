@@ -1,10 +1,7 @@
 import React from "react";
 import './FishCard.css';
-import { useAuth0 } from "@auth0/auth0-react";
 
 const FishCard = ({ fishData }) => {
-
-    const { isAuthenticated } = useAuth0()
 
     const easy = "linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A"
     const easyShadow = "0px 2px 2px #65C21B"

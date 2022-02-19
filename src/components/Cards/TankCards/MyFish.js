@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { useAuth0 } from '@auth0/auth0-react';
 import { DeleteTankFish } from "../../Button/DeleteTankFish"
 import { EditQuantity } from '../../Button/EditQuantity';
 import warning from "../../../assets/warning.png"
 import "./MyFish.css"
 
 export const MyFish = ({fishies, tank, celcius, stock, levels}) => {
-
-    const { getAccessTokenSilently } = useAuth0();
 
     const [editFish, setEditFish] = useState(false)
     const editSwitch = () => {
@@ -75,22 +72,22 @@ export const MyFish = ({fishies, tank, celcius, stock, levels}) => {
                         <DeleteTankFish fish={fish} />
                         {phlow && 
                         <div className="notice phlow">
-                            <img className="warning" src={warning}/>
+                            <img className="warning" src={warning} alt="Warning!"/>
                             <p>Tank pH too low!</p>
                         </div>}
                         {phhigh && 
                         <div className="notice phhigh">
-                            <img className="warning" src={warning}/>
+                            <img className="warning" src={warning} alt="Warning!"/>
                             <p>Tank pH too high!</p>
                         </div>}
                         {templow && 
                         <div className="notice templow">
-                            <img className="warning" src={warning}/>
+                            <img className="warning" src={warning} alt="Warning!"/>
                             <p>Tank temperature too low!</p>
                         </div>}
                         {temphigh && 
                         <div className="notice temphigh"> 
-                            <img className="warning" src={warning}/>
+                            <img className="warning" src={warning} alt="Warning!"/>
                             <p>Tank temperature too high!</p>
                         </div>}
                     </div> 

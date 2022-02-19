@@ -30,6 +30,9 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 1350px) {
-    
+@media screen and (max-width: 800px) {
+    .myTanksContainer {
+        margin-bottom: 200px;
+    }
 }
+

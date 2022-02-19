@@ -1,5 +1,5 @@
 .tankCard {
-    width: 40%;
+    width: 35%;
     min-width: 300px;
     margin: auto;
     margin-top: 20px;
@@ -7,12 +7,11 @@
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
     display: grid;
-    padding-left: 2%;
-    padding-right: 2%;
     transition: all 0.2s ease-in-out;
     grid-template-areas: 
     "tank name"
-    "tank size"
+    "tank size";
+    grid-template-columns: 40% 60%;
 }
 
 .tankCard:hover {
@@ -32,13 +31,12 @@
     object-fit: cover;
     grid-area: tank;
     border-radius: 40px;
-    margin-right: 10%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
 }
 
 .cardTankName {
     margin-bottom: 0;
-    margin-right: 10px;
+    margin-right: 10%;
     grid-area: name;
     vertical-align: middle;
     background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.525) 0%, rgba(255, 255, 255, 0.075) 100%), #4DC5AF;
@@ -50,32 +48,60 @@
 
 .cardTankSize {
     margin-top: 10px;
+    margin-right: 10%;
     grid-area: size;
     margin: none;
     text-shadow: 1px 2px 3px rgba(68, 65, 64, 0.3);
 }
 
 @media screen and (max-width: 1350px) {
+
     .tankCard {
         width: 60%;
     }
+    .cardTankName {
+        margin-right: 5%;
+    }
+    
+    .cardTankSize {
+
+        margin-right: 5%;
+
+    }
+
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
+
+    .tankPic {
+        margin-top: 4%;
+        margin-bottom: 3%;
+        width: 300px;
+        height: 200px;
+    }
+
     .tankCard {
         display: block;
     }
 
     .cardTankName {
-        margin-top: 0;
-        margin-right: 0;
+        width: 70%;
+        margin: auto;
     }
 
     .cardTankSize {
         padding-bottom: 3%;
+        margin-right: 0;
     }
 
     .tank {
         width: 220px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .tankPic {
+        width: 250px;
+        height: 150px;
     }
 }
