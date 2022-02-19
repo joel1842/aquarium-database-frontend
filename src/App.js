@@ -138,7 +138,7 @@ const App = () => {
   if (fish) {
     return (
         <Routes>
-          {tanks && fish.map((fishData, index) => {
+          {fish && fish.map((fishData, index) => {
 
             let fishName = fishData.name
             fishName = fishName.replace(/\s+/g, '')

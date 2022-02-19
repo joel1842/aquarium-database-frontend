@@ -10,13 +10,14 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.backBrowse {
+    width: 60%;
+    margin: auto;
+}
+
 .back {
-    /* position: absolute;
-    top: 9%;
-    left: 30%; */
-    /* float: left; */
-    margin-top: 3%;
-    margin-right: 40%;
+    position: relative;
+    right: 250px;
     border: none;
     background: none;
     transition: all 0.2s ease-in-out;
@@ -373,6 +374,10 @@
         padding-right: 0;
         width: 80%;
         margin: auto;
+    }
+
+    .back {
+        right: 40%;
     }
 
     .fishInfo {

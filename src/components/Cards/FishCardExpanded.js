@@ -96,13 +96,13 @@ export const FishExpanded = ({ fishData, tanks }) => {
     
     return(
         <>
-        <div>
-        <Link to="/browse">
-            <button className="back" title="Go Back!">
-                <img src={arrow} alt="Go Back!"/>
-                <h2>Browse</h2>
-            </button>
-        </Link>
+        <div className="backBrowse">
+            <Link to="/browse">
+                <button className="back" title="Go Back!">
+                    <img src={arrow} alt="Go Back!"/>
+                    <h2>Browse</h2>
+                </button>
+            </Link>
         </div>
 
         <div className='fishCard'>

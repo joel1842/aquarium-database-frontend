@@ -87,9 +87,9 @@ export const StandardNavBar = ({getSearchTerm}) => {
                             <div className="menuItem">
                                 <MenuButton label='About' link='/About'/>
                             </div>
-                            <div className="menuItem">
+                            {/* <div className="menuItem">
                                 <MenuButton label='Care' link='/care'/>
-                            </div>
+                            </div> */}
                             <div className="menuItem">
                                 <MenuButton label='Calculator' link='/tank'/>
                             </div>

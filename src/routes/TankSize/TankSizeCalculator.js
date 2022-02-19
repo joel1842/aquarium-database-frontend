@@ -144,7 +144,7 @@ const TankSizeCalculator = () => {
                         <option value="Bow Front">Bow Front</option>
                         <option value="Cylinder">Cylinder</option>
                     </select>
-                    <img className="tankPic" src={tankPic} alt="tank shape"/>
+                    <img className="calculatorTankPic" src={tankPic} alt="tank shape"/>
                 </div>
 
                 <div className="sizeInputs">
