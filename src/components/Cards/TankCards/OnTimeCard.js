@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 import "./OnTimeCard.css";
@@ -12,9 +12,6 @@ export const OnTimeCard = () => {
     const [phone, setPhone] = useState()
 
     const { user, getAccessTokenSilently } = useAuth0()
-
-    // useEffect(() => {
-    // }, [notification, interval])
 
     const [submit, setSubmit] = useState(false)
 

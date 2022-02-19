@@ -27,42 +27,41 @@ const TankSizeCalculator = () => {
 
     const [tankType, setTankType] = useState("Rectangular")
 
-    const tankBoolSwitch = () => {
-
-        console.log(tankType)
-        if (tankType === "Rectangular") {
-            setTankPic(rectanglePic)
-            setRectangular(true);
-            setCube(false);
-            setBowFront(false);
-            setCylinder(false);
-        } else if (tankType === "Cube") {
-            setTankPic(cubePic)
-            setRectangular(false);
-            setCube(true);
-            setBowFront(false);
-            setCylinder(false);
-        } else if (tankType === "Bow Front") {
-            setTankPic(bowfrontPic)
-            setRectangular(false);
-            setCube(false);
-            setBowFront(true);
-            setCylinder(false);
-        } else if (tankType === "Cylinder") {
-            setTankPic(cylinderPic)
-            setRectangular(false);
-            setCube(false);
-            setBowFront(false);
-            setCylinder(true);
-        }
-    }
-
     const tankSwitch = (event) => {
         setTankType(event.target.value);
     }
 
     useEffect(() => {
-        tankBoolSwitch();
+        if (tankType) {
+            const tankBoolSwitch = () => {
+                if (tankType === "Rectangular") {
+                    setTankPic(rectanglePic)
+                    setRectangular(true);
+                    setCube(false);
+                    setBowFront(false);
+                    setCylinder(false);
+                } else if (tankType === "Cube") {
+                    setTankPic(cubePic)
+                    setRectangular(false);
+                    setCube(true);
+                    setBowFront(false);
+                    setCylinder(false);
+                } else if (tankType === "Bow Front") {
+                    setTankPic(bowfrontPic)
+                    setRectangular(false);
+                    setCube(false);
+                    setBowFront(true);
+                    setCylinder(false);
+                } else if (tankType === "Cylinder") {
+                    setTankPic(cylinderPic)
+                    setRectangular(false);
+                    setCube(false);
+                    setBowFront(false);
+                    setCylinder(true);
+                }
+            }
+            tankBoolSwitch()
+        }
     }, [tankType])
 
     const getVolume = () => {

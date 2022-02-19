@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SearchBarCompact.css';
 import MagnifyingGlass from '../../assets/Search_duotone_icon.svg';
 import { Link } from 'react-router-dom';

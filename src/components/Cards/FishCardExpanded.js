@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FishCardExpanded.css';
 import FavoritesButton from '../Button/FavoritesButton';
@@ -60,8 +60,18 @@ export const FishExpanded = ({ fishData, tanks }) => {
     const [number, setNumber] = useState(1)
 
     useEffect(() => {
+        const picSwitch = () => {
+
+            if (number === 3 && fishData.pic3 !== undefined) {
+                setFishPic(fishData.pic3)
+            } else if (number === 2 && fishData.pic2 !== undefined) {
+                setFishPic(fishData.pic2)
+            } else {
+                setFishPic(fishData.pic1)
+            } 
+        }
         picSwitch()
-    }, [number])
+    }, [number, fishData])
 
     const [inches, setInches] = useState()
     const [gallons, setGallons] = useState()
@@ -72,7 +82,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
         setGallons(Number(fishData.tanksizel/3.785).toFixed(0))
         setLowF(Number((fishData.templowc * 9/5) + 32).toFixed(0))
         setHighF(Number((fishData.temphighc * 9/5) + 32).toFixed(0))
-    }, [])
+    }, [fishData])
 
     const numberSwitch = () => {
         if (number < 3) {
@@ -81,17 +91,6 @@ export const FishExpanded = ({ fishData, tanks }) => {
             setNumber(1)
             console.log("Reset!")
         }
-    }
-
-    const picSwitch = () => {
-
-        if (number === 3 && fishData.pic3 !== undefined) {
-            setFishPic(fishData.pic3)
-        } else if (number === 2 && fishData.pic2 !== undefined) {
-            setFishPic(fishData.pic2)
-        } else {
-            setFishPic(fishData.pic1)
-        } 
     }
     
     return(

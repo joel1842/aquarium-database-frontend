@@ -3,7 +3,7 @@ import './DeleteFavButton.css'
 import { useAuth0 } from "@auth0/auth0-react";
 import { Checkmark } from "react-checkmark";
 
-const DeleteFavorite = ({ userData, deleteFish }) => {
+const DeleteFavorite = ({ userData }) => {
 
     const { getAccessTokenSilently } = useAuth0()
     const id = userData.id;

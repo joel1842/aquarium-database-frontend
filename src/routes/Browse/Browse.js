@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { StandardNavBar } from '../../components/Bars/StandardNavBar';
 import FishCard from '../../components/Cards/FishCard';

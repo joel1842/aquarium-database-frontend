@@ -6,7 +6,7 @@ import { Checkmark } from "react-checkmark";
 
 const AddToTank = ({ fishData, tanks }) => {
 
-    const { user, getAccessTokenSilently } = useAuth0()
+    const { getAccessTokenSilently } = useAuth0()
 
     const [dropdown, setDropdown] = useState(false);
     const [success, setSuccess] = useState(false);

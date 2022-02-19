@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./createtank.css"
 
-const CreateTank = ({ create, createSwitch }) => {
+const CreateTank = ({ createSwitch }) => {
 
-    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+    const { getAccessTokenSilently } = useAuth0();
 
     const [name, setName] = useState(true)
     const [info, setInfo] = useState(false);
