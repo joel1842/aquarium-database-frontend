@@ -71,13 +71,28 @@
     text-align: center;
 }
 
+.startDate {
+    border: none;
+    font-family: poppins;
+    padding: 2%;
+    border-radius: 20px;
+    box-shadow: 0px 3px 0px #C9C9C9;
+}
+
 .emailNotify {
     display: block;
     margin-bottom: 2%;
 }
+.emailNotify input {
+    margin-right: 2%;
+}
 
 .textNotify {
     display: block;
+}
+
+.textNotify input {
+    margin-right: 2%;
 }
 
 .react-tel-input {
@@ -114,10 +129,11 @@
 
 .onTimeSubmit {
     border: none;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #AC6DCB;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #FFE156;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
     padding: 2%;
+    margin: auto;
     margin-top: 5%;
     color: white;
     font-family: Poppins;
@@ -127,10 +143,24 @@
     padding-left: 10%;
     padding-right: 10%;
     transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 6px rgba(68, 65, 64, 0.4);
+    width: 70%
+}
+
+.onTimeSubmit img {
+    width: 40px;
+    display: inline;
+    vertical-align: middle;
+    margin-right: 2%;
+}
+
+.onTimeSubmit p {
+    display: inline;
+    vertical-align: middle;
 }
 
 .onTimeSubmit:hover {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #894da7;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #ddbc29;
     transform: scale(1.1)
 }
 

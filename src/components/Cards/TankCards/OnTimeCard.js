@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 import "./OnTimeCard.css";
 import { useAuth0 } from '@auth0/auth0-react';
 import { Checkmark } from 'react-checkmark';
+import construction from "../../../assets/underconstruction.png"
 
 export const OnTimeCard = () => {
 
@@ -44,6 +45,34 @@ export const OnTimeCard = () => {
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    const [date, setDate] = useState()
+    const [showInput, setInput] = useState(false)
+
+    useEffect(() => {
+        const getDate = () => {
+            const dateObj = new Date();
+            let month = dateObj.getUTCMonth() + 1; //months from 1-12
+            let day = dateObj.getUTCDate();
+            const year = dateObj.getUTCFullYear();
+
+            if (month <= 9) {
+                month = `0${month}`
+            }
+
+            if (day <= 9) {
+                day = `0${day}`
+            }
+            
+            const newdate = `${year}-${month}-${day}`
+            setDate(newdate)
+        }
+        getDate()
+
+    }, [date])
+
+>>>>>>> Stashed changes
 
      return (
          <div className="onTimeContainer">
@@ -61,6 +90,17 @@ export const OnTimeCard = () => {
                         <option value="4 weeks">4 weeks</option>
                     </select>
 
+<<<<<<< Updated upstream
+=======
+                    <h3>Choose a start date!</h3>
+                    <div>
+                    {date && 
+                    <input className="startDate" type="date" id="start" name="trip-start"
+                        defaultValue={date}
+                        min="2022-01-01" max="2040-12-31" />}
+                    </div>
+
+>>>>>>> Stashed changes
                     <h3>How do you want to be notified?</h3>
                     <div className="emailNotify">
                         <input type="radio" id="email" value="email" name="notification" onChange={(event)=> setNotification(event.target.value)}/>
@@ -82,7 +122,14 @@ export const OnTimeCard = () => {
                 </form>
                 {!submit && 
                 <div>
+<<<<<<< Updated upstream
                     <button className="onTimeSubmit" onClick={submitInfo}>Submit!</button>
+=======
+                    <button className="onTimeSubmit">
+                        <img src={construction} alt="Under Construction!"/>
+                        <p>Under Construction!</p>
+                    </button>
+>>>>>>> Stashed changes
                 </div>}
                 {submit &&
                 <div className='onTimeSuccess'>

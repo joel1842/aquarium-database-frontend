@@ -46,6 +46,7 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
     const [careColor, setCareColor] = useState(easy)
     const [shadow, setShadow] = useState(easyShadow)
 
+
     // 6.0 - 6.3
     const six = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #FDF885"
     // 6.4 - 6.5
