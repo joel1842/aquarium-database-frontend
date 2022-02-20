@@ -34,7 +34,7 @@ const FavList = ({ getSearchTerm }) => {
                 console.log(error);
             }
         }
-        catchFavs()
+        catchFavs() 
 
     }, [getAccessTokenSilently])
 

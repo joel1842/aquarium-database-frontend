@@ -21,6 +21,11 @@ export const TankJournal = ({tank, levels}) => {
         }
     }
 
+    const [timeSince, setTimeSince] = useState()
+    const [page, setPage] = useState(0)
+    const [viewPage, setViewPage] = useState(1)
+    const [journalLength, setLength] = useState()
+
     const [ammonia, setAmmonia] = useState();
     const [nitrite, setNitrite] = useState();
     const [nitrate, setNitrate] = useState();
@@ -30,6 +35,155 @@ export const TankJournal = ({tank, levels}) => {
     const [temp, setTemp] = useState();
     const [tempScale, setTempScale] = useState("c");
     const [newEntry, setNewEntry] = useState(false);
+
+    const good = "linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A"
+    const med = "linear-gradient(166.25deg, rgba(255, 255, 255, 0.525) -38.77%, rgba(255, 255, 255, 0.075) 99.58%), #FFE156"
+    const bad = "linear-gradient(165.88deg, rgba(255, 255, 255, 0.525) -47.86%, rgba(255, 255, 255, 0.075) 89.89%), #FF3434"
+
+    // 6.0 - 6.3
+    const six = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #FDF885"
+    // 6.4 - 6.5
+    const sixfour = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #F7FAAE"
+    // 6.6 - 6.7
+    const sixsix = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #D6EEA8" 
+    // 6.8 - 6.9
+    const sixeight = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #C1E9B4" 
+    // 7.0 - 7.1
+    const seven = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #ADE2B6" 
+    // 7.2 - 7.6
+    const seventwo = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #93D3AE" 
+    // 7.6 - 7.7
+    const sevensix = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #72C8CA" 
+    // 7.8 - 7.9 
+    const seveneight = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #E9BC2A" 
+    // 8.0 - 8.1
+    const eight = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #E8B57F" 
+    // 8.2 - 8.3
+    const eighttwo = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #C08872" 
+    // 8.4 - 8.7
+    const eightfour = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #A884B1" 
+    // 8.8 - 9.0
+    const eighteight = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #8C71A9" 
+
+    const khzero = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #D7D079"
+    const khforty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #CAD691"
+    const kheighty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #95cb9d"
+    const khonetwenty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #83c09f"
+    const khoneeighty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #6cbca7"
+    const khtwoforty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #00abb7"
+
+    const ghzero = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #65b7b4"
+    const ghthirty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #3cc0c9"
+    const ghsixty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #30a4d2"
+    const ghonetwenty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #408ac3"
+    const ghoneeighty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #4162c3 "
+
+    const [ammoniaColor, setAmmoniaColor] = useState(good)
+    const [nitriteColor, setNitriteColor] = useState(good)
+    const [nitrateColor, setNitrateColor] = useState(good)
+    const [phColor, setPhColor] = useState(seven)
+    const [khColor, setKhColor] = useState(khzero)
+    const [ghColor, setGhColor] = useState(ghzero)
+
+    useEffect(() => {
+        if (levels) {
+            const ammoniaColorSwitch = () => {
+                if (levels[page].ammonia <= 2) {
+                    setAmmoniaColor(good)
+                } else if (levels[page].ammonia <= 4) {
+                    setAmmoniaColor(med)
+                } else { 
+                    setAmmoniaColor(bad)
+                }
+            }
+        
+            const nitriteColorSwitch = () => {
+                if (levels[page].nitrites <= 0.2) {
+                    setNitriteColor(good)
+                } else if (levels[page].nitrites <= 0.4) {
+                    setNitriteColor(med)
+                } else {
+                    setNitriteColor(bad)
+                }
+            }
+        
+            const nitrateColorSwitch = () => {
+                if (levels[page].nitrates <= 40) {
+                    setNitrateColor(good)
+                } else if (levels[page].nitrates <= 60) {
+                    setNitrateColor(med)
+                } else {
+                    setNitrateColor(bad)
+                }
+            }
+
+            const phColorSwitch = () => {
+                if (levels[page].phLevel <= 6.3) {
+                    setPhColor(six)
+                } else if (levels[page].phLevel <= 6.5) {
+                    setPhColor(sixfour)
+                } else if (levels[page].phLevel <= 6.7) {
+                    setPhColor(sixsix)
+                } else if (levels[page].phLevel <= 6.9) {
+                    setPhColor(sixeight)
+                } else if (levels[page].phLevel <= 7.1) {
+                    setPhColor(seven)
+                } else if (levels[page].phLevel <= 7.5) {
+                    setPhColor(seventwo)
+                } else if (levels[page].phLevel <= 7.7) {
+                    setPhColor(sevensix)
+                } else if (levels[page].phLevel <= 7.9) {
+                    setPhColor(seveneight)
+                } else if (levels[page].phLevel <= 8.1) {
+                    setPhColor(eight)
+                } else if (levels[page].phLevel <= 8.4) {
+                    setPhColor(eighttwo)
+                } else if (levels[page].phLevel <= 8.7) {
+                    setPhColor(eightfour)
+                } else if (levels[page].phLevel <= 9) {
+                    setPhColor(eighteight)
+                }
+            }
+
+            const khColorSwitch = () => {
+                if (levels[page].khLevel <= 39) {
+                    setKhColor(khzero)
+                } else if (levels[page].khLevel <= 79) {
+                    setKhColor(khforty)
+                } else if (levels[page].khLevel <= 119) {
+                    setKhColor(kheighty)
+                } else if (levels[page].khLevel <= 179) {
+                    setKhColor(khonetwenty)
+                } else if (levels[page].khLevel <= 210) {
+                    setKhColor(khoneeighty)
+                } else if (levels[page].khLevel <= 240) {
+                    setKhColor(khtwoforty)
+                }
+            }
+
+            const ghColorSwitch = () => {
+                if (levels[page].ghLevel <= 29) {
+                    setGhColor(ghzero)
+                } else if (levels[page].ghLevel <= 59) {
+                    setGhColor(ghthirty)
+                } else if (levels[page].ghLevel <= 119) {
+                    setGhColor(ghsixty)
+                } else if (levels[page].ghLevel <= 160) {
+                    setGhColor(ghonetwenty)
+                } else if (levels[page].ghLevel <= 180) {
+                    setGhColor(ghoneeighty)
+                }
+            }
+
+            ammoniaColorSwitch()
+            nitriteColorSwitch()
+            nitrateColorSwitch()
+            phColorSwitch()
+            khColorSwitch()
+            ghColorSwitch()
+        }
+    }, [levels, page])
+
 
     const fishLevels = {
         ammonia: ammonia,
@@ -42,11 +196,6 @@ export const TankJournal = ({tank, levels}) => {
         tempscale: tempScale,
         tank: tank.id
     }
-
-    const [timeSince, setTimeSince] = useState()
-    const [page, setPage] = useState(0)
-    const [viewPage, setViewPage] = useState(1)
-    const [journalLength, setLength] = useState()
 
     useEffect(() => {
         if (levels) {
@@ -155,27 +304,27 @@ export const TankJournal = ({tank, levels}) => {
                     </div>}
                 </div>
 
-                <div>
+                <div className='ammonia levels' style={{background: ammoniaColor}}>
                     <h3>Ammonia</h3>
                     <p>{levels[page].ammonia} ppm</p>
                 </div>
-                <div>
+                <div className='nitrites levels' style={{background: nitriteColor}}>
                     <h3>Nitrites</h3>
                     <p>{levels[page].nitrites} ppm</p>
                 </div>
-                <div>
+                <div className='nitrates levels' style={{background: nitrateColor}}>
                     <h3>Nitrates</h3>
                     <p>{levels[page].nitrates} ppm</p>
                 </div>
-                <div>
+                <div className='phlevel levels' style={{background: phColor}}>
                     <h3>pH Level</h3>
                     <p>{levels[page].phLevel} pH</p>
                 </div>
-                <div>
-                    <h3>Alkalinity</h3>
+                <div className='khlevel levels' style={{background: khColor}}>
+                    <h3>kH Level</h3>
                     <p>{levels[page].khLevel} ppm</p>
                 </div>
-                <div>
+                <div className='ghlevel levels' style={{background: ghColor}}>
                     <h3>dH Level</h3>
                     <p>{levels[page].ghLevel} ppm</p>
                 </div>
