@@ -45,8 +45,6 @@ export const OnTimeCard = () => {
         }
     }
 
-<<<<<<< Updated upstream
-=======
     const [date, setDate] = useState()
     const [showInput, setInput] = useState(false)
 
@@ -72,8 +70,6 @@ export const OnTimeCard = () => {
 
     }, [date])
 
->>>>>>> Stashed changes
-
      return (
          <div className="onTimeContainer">
             <div className="onTimeHeader">
@@ -90,8 +86,6 @@ export const OnTimeCard = () => {
                         <option value="4 weeks">4 weeks</option>
                     </select>
 
-<<<<<<< Updated upstream
-=======
                     <h3>Choose a start date!</h3>
                     <div>
                     {date && 
@@ -100,10 +94,9 @@ export const OnTimeCard = () => {
                         min="2022-01-01" max="2040-12-31" />}
                     </div>
 
->>>>>>> Stashed changes
                     <h3>How do you want to be notified?</h3>
                     <div className="emailNotify">
-                        <input type="radio" id="email" value="email" name="notification" onChange={(event)=> setNotification(event.target.value)}/>
+                        <input type="radio" id="email" value="email" name="notification" defaultChecked onChange={(event)=> setNotification(event.target.value)}/>
                         <label for="email">Email</label>
                     </div>
 
@@ -122,14 +115,10 @@ export const OnTimeCard = () => {
                 </form>
                 {!submit && 
                 <div>
-<<<<<<< Updated upstream
-                    <button className="onTimeSubmit" onClick={submitInfo}>Submit!</button>
-=======
                     <button className="onTimeSubmit">
                         <img src={construction} alt="Under Construction!"/>
                         <p>Under Construction!</p>
                     </button>
->>>>>>> Stashed changes
                 </div>}
                 {submit &&
                 <div className='onTimeSuccess'>
