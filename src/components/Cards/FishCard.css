@@ -7,7 +7,8 @@
     padding-bottom: 2.5%;
     margin-bottom: 5%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    -webkit-transition: transform 100ms ease-in-out;
+    align-self: center;
+    transition: transform 100ms ease-in-out;
 }
 
 .fishCardBrowse:hover {
