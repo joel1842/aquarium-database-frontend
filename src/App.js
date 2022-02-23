@@ -17,6 +17,12 @@ import Loading from './routes/Loading';
 import TankCardExpanded from './components/Cards/TankCards/TankCardExpanded';
 import { Disclaimer } from './routes/Disclaimer';
 import { Care } from './routes/Care';
+import { ChoosingFish } from './routes/Articles/ChoosingFish';
+import { SetupAquarium } from './routes/Articles/SetupAquarium';
+import { PickingATank } from './routes/Articles/PickingATank';
+import { WaterChanges } from './routes/Articles/WaterChanges';
+import { NitrogenCycle } from './routes/Articles/NitrogenCycle';
+import { ThrivingPlants } from './routes/Articles/ThrivingPlants';
 
 const App = () => {
 
@@ -171,6 +177,12 @@ const App = () => {
           <Route exact path="/mytanks" element={<MyTanks getSearchTerm={getSearchTerm} createSwitch={createSwitch} create={create} tanks={tanks}/>}></Route>
           <Route exact path="/disclaimer" element={<Disclaimer />}></Route>
           <Route exact path="/care" element={<Care />}></Route>
+          <Route exact path="/choosingfish" element={<ChoosingFish />}></Route>
+          <Route exact path="/setupaquarium" element={<SetupAquarium />}></Route>
+          <Route exact path="/pickingatank" element={<PickingATank />}></Route>
+          <Route exact path="/waterchanges" element={<WaterChanges />}></Route>
+          <Route exact path="/nitrogencycle" element={<NitrogenCycle />}></Route>
+          <Route exact path="/thrivingplants" element={<ThrivingPlants />}></Route>
           <Route exact path="/" element={<Home getSearchTerm={getSearchTerm}/>}></Route>
         </Routes>
     );

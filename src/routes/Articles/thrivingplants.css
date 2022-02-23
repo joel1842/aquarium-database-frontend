@@ -1,0 +1,68 @@
+.plantsHeader {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) -23.88%, rgba(255, 255, 255, 0.04) 100%), #FF9B3F;
+    box-shadow: 0px 6px 0px #E6964C;
+    border-radius: 25px;
+    width: 35%;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.plantsHeader img {
+    width: 70px;
+    display: inline;
+    vertical-align: middle;
+    margin-right: 2%;
+}
+
+.plantsHeader h1 {
+    display: inline;
+    vertical-align: middle;
+}
+
+.plantsBody {
+    background: linear-gradient(176.38deg, rgba(250, 249, 249, 0.49) -16.78%, rgba(250, 249, 249, 0.07) 97.03%), #FFAE78;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 80px;
+    width: 50%;
+    margin: auto;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.plantsText {
+    text-align: start;
+    font-size: 1.2em;
+    width: 80%;
+    margin: auto;
+    font-weight: 400;
+    line-height: 40px;
+
+}
+
+.plantsText.spaced {
+    margin-top: 3%;
+}
+
+.plantsSubHeader {
+    font-weight: 700;
+    font-size: 1.4em;
+    margin-top: 5%;
+}
+
+.plantsList {
+    font-size: 1.2em;
+    text-align: start;
+    width: 80%;
+    margin: auto;
+    line-height: 40px;
+}
+
+.plantsListSub {
+    font-weight: 500;
+    margin-top: 3%;
+}

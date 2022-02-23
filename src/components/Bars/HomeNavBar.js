@@ -85,9 +85,9 @@ export const HomeNavBar = () => {
                         <div>
                             <MenuButton label='Calculator' link='/tank'/>
                         </div>
-                        {/* <div>
+                        <div>
                             <MenuButton label='Care' link='/care'/>
-                        </div> */}
+                        </div>
                         <div>
                             <AuthenticationButton />
                         </div>
