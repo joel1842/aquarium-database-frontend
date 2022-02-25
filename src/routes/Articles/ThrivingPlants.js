@@ -1,10 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./thrivingplants.css"
 import plants from "../../assets/plants.png"
+import { StandardNavBar } from '../../components/Bars/StandardNavBar';
+import Footer from '../../components/Bars/Footer';
+import "./Buttons.css"
+import back from "../../assets/arrow.png"
 
-export const ThrivingPlants = () => {
+export const ThrivingPlants = ({getSearchTerm}) => {
     return (
         <div>
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
             <div className="plantsHeader">
                 <img src={plants} alt="Thriving Plants"/>
                 <h1>Thriving Plants</h1>
@@ -49,7 +55,16 @@ export const ThrivingPlants = () => {
                 <p className='plantsText spaced'>Tankmates are very crucial to the success of your plants. Some fish eat or uproot plants! So the type of tank mates you choose for a planted aquarium can make or break your setup.</p>
                 <p className='plantsText spaced'>Too many floating plants can also impact your plant growth. If you have floating plants, ensure that enough light is getting through to the bottom.</p>
                 <p className='plantsText spaced'>Research individual plants to know how it grows and what it needs specifically before buying!</p>
+                <div className="articleButton">
+                    <Link to="/nitrogencycle">
+                    <button className="careButton backButton">
+                        <img src={back} alt="Back"/>
+                        <p>Nitrogen cycle</p>
+                    </button>
+                    </ Link>
+                </div>
             </div>
+            <Footer />
         </div>
     )
 }

@@ -20,6 +20,7 @@
 .setupHeader h1 {
     display: inline;
     vertical-align: middle;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .setupBody {
@@ -28,6 +29,7 @@
     border-radius: 80px;
     width: 50%;
     margin: auto;
+    margin-bottom: 7%;
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 5%;
@@ -41,7 +43,7 @@
     margin: auto;
     font-weight: 400;
     line-height: 40px;
-
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .setupText.spaced {
@@ -52,17 +54,66 @@
     font-weight: 700;
     font-size: 1.4em;
     margin-top: 5%;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 }
 
 .setupList {
     font-size: 1.2em;
     text-align: start;
-    width: 80%;
+    width: 90%;
     margin: auto;
     line-height: 40px;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .setupListSub {
     font-weight: 500;
     margin-top: 3%;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 1275px){
+    .setupBody {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .setupHeader {
+        width: 55%;
+        margin-bottom: 3%;
+    }
+
+    .setupBody {
+        padding-top: 7%;
+        margin-bottom: 7%;
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .setupHeader {
+        width: 65%;
+    }
+
+    .setupBody {
+        padding-top: 7%;
+        margin-bottom: 7%;
+        width: 95%;
+        margin-bottom: 200px;
+    }
+
+    .setupText {
+        width: 90%;
+    }
+
+    .setupList {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .setupHeader {
+        width: 80%;
+    }
 }

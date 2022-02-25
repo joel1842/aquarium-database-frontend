@@ -1,0 +1,57 @@
+.articleButton {
+    display: inline;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.careButton {
+    width: 40%;
+    border: none;
+    border-radius: 40px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 5%;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    font-family: Poppins;
+    background: linear-gradient(180.77deg, rgba(255, 255, 255, 0.5) -64.46%, rgba(255, 255, 255, 0) 99.34%), #445E93;
+    transition: all 0.2s ease-in-out;
+}
+
+.careButton:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    background: linear-gradient(180.77deg, rgba(255, 255, 255, 0.5) -64.46%, rgba(255, 255, 255, 0) 99.34%), #2b4374;
+}
+
+.careButton img {
+    width: 30px;
+    display: inline;
+    vertical-align: middle;
+}
+
+.careButton p {
+    display: inline;
+    vertical-align: middle;
+}
+
+.nextButton img {
+    margin-left: 3%;
+}
+
+.backButton img {
+    margin-right: 3%;
+}
+
+@media screen and (max-width: 800px) {
+    .articleButton {
+        display: block;
+    }
+
+    .careButton {
+        width: 75%;
+    }
+}

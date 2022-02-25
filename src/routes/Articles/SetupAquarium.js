@@ -1,11 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./setupaquarium.css"
 import setup from "../../assets/setuptank.png"
+import "./Buttons.css"
+import back from "../../assets/arrow.png"
+import next from "../../assets/arrowrotated.png"
+import { StandardNavBar } from '../../components/Bars/StandardNavBar';
+import Footer from '../../components/Bars/Footer';
 
-export const SetupAquarium = () => {
+export const SetupAquarium = ({getSearchTerm}) => {
 
     return (
         <div>
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
             <div className="setupHeader">
                 <img src={setup} alt="Setup an aquarium"/>
                 <h1>Set up an aquarium</h1>
@@ -84,7 +91,24 @@ export const SetupAquarium = () => {
                 <p className='setupSubHeader'>How do I know if my tank is cycled?</p>
                 <p className="setupText">By the end of your initial cycle, your aquarium should have no ammonia, no nitrite, and a little bit of nitrate that can be removed through water changes.</p>
                 <p className="setupText spaced">When your tank is cycled, your ph level & temperature is within the parameters of the fish you have picked to keep, it is then safe to add fish to your aquarium.</p>
+                <div className="articleButton">
+                    <Link to="/pickingatank">
+                    <button className="careButton backButton">
+                        <img src={back} alt="Back"/>
+                        <p>Picking a tank</p>
+                    </button>
+                    </ Link>
+                </div>
+                <div className="articleButton">
+                    <Link to="/waterchanges">
+                    <button className="careButton nextButton">
+                        <p>Water changes</p>
+                        <img src={next} alt="Next"/>
+                    </button>
+                    </ Link>
+                </div>
             </div>
+            <Footer />
         </div>
     )
 }

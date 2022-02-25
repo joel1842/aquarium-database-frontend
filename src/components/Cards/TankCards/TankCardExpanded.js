@@ -10,7 +10,7 @@ import { MyFish } from "./MyFish"
 import { TankJournal } from "./TankJournal"
 import Footer from "../../Bars/Footer"
 
-const TankCardExpanded = ({tank, deleteSwitch}) => {
+const TankCardExpanded = ({getSearchTerm, tank, deleteSwitch}) => {
 
     const { getAccessTokenSilently } = useAuth0();
     
@@ -122,7 +122,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
 
     return(
         <div>
-            <StandardNavBar />
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
 
             <div className="tankCardContainer">
 

@@ -10,56 +10,63 @@ import waterchange from "../assets/waterchange.png"
 import plants from "../assets/plants.png"
 import './Care.css'
 
-export const Care = () => {
+export const Care = ({ getSearchTerm }) => {
 
     return (
         <div>
-            <StandardNavBar />
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
 
             <div className="careHead">
                 <h1>Care Information</h1>
             </div>
             <div className="careLinks">
                 <ul className="mainCare list">
+
+                    <Link to="/choosingfish">
                     <li>
-                        <Link to="/pickingatank">
-                        <img src={picking} alt="Picking a tank"/>
-                        <p>Picking a tank</p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/setupaquarium">
-                        <img src={setup} alt="Setup an aquarium"/>
-                        <p>Setup an aquarium</p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/choosingfish">
                         <img src={stocking} alt="Choosing fish"/>
                         <p>Choosing fish</p>
-                        </Link>
                     </li>
+                    </Link>
+
+                    <Link to="/pickingatank">
+                    <li>
+                        <img src={picking} alt="Picking a tank"/>
+                        <p>Picking a tank</p>  
+                    </li>
+                    </Link>
+
+                    <Link to="/setupaquarium">
+                    <li>
+                        <img src={setup} alt="Setup an aquarium"/>
+                        <p>Setup an aquarium</p>
+                        
+                    </li>
+                    </Link>
+
                 </ul>
 
                 <ul className="otherCare list">
+                    <Link to="/waterchanges">
                     <li>
-                        <Link to="/waterchanges">
                         <img src={waterchange} alt="Water changes"/>
                         <p>Water changes</p>
-                        </Link>
                     </li>
+                    </Link>
+                    
+                    <Link to="/nitrogencycle">
                     <li>
-                        <Link to="/nitrogencycle">
                         <img src={nitrogen} alt="Stocking your aquarium"/>
                         <p>The Nitrogen Cycle</p>
-                        </Link>
                     </li>
+                    </Link>
+
+                    <Link to="/thrivingplants">
                     <li>
-                        <Link to="/thrivingplants">
                         <img src={plants} alt="Thriving plants"/>
                         <p>Thriving plants</p>
-                        </Link>
                     </li>
+                    </Link>
                 </ul>
             </div>
 

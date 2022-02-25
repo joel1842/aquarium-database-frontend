@@ -20,6 +20,7 @@
 .chooseHeader h1 {
     display: inline;
     vertical-align: middle;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .chooseBody {
@@ -28,6 +29,7 @@
     border-radius: 80px;
     width: 50%;
     margin: auto;
+    margin-bottom: 7%;
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 5%;
@@ -41,15 +43,60 @@
     margin: auto;
     font-weight: 400;
     line-height: 40px;
-
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .chooseSubHeader {
     font-weight: 700;
     font-size: 1.4em;
     margin-top: 5%;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 }
 
 .chooseList {
     font-size: 1.2em;
+    width: 90%;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 1275px){
+    .chooseBody {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .chooseHeader {
+        width: 55%;
+        margin-bottom: 3%;
+    }
+
+    .chooseBody {
+        padding-top: 7%;
+        margin-bottom: 7%;
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .chooseHeader {
+        width: 65%;
+    }
+
+    .chooseBody {
+        padding-top: 7%;
+        margin-bottom: 7%;
+        width: 95%;
+        margin-bottom: 200px;
+    }
+
+    .chooseText {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .chooseHeader {
+        width: 80%;
+    }
 }

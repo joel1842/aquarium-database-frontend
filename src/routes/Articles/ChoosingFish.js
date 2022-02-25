@@ -1,10 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import choosingfish from "../../assets/stocking.png"
 import "./choosingfish.css"
+import "./Buttons.css"
+import { StandardNavBar } from '../../components/Bars/StandardNavBar';
+import Footer from '../../components/Bars/Footer';
+import next from "../../assets/arrowrotated.png";
 
-export const ChoosingFish = () => {
+export const ChoosingFish = ({ getSearchTerm }) => {
     return (
         <div>
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
             <div className='chooseHeader'>
                 <img src={choosingfish} alt="choosing a tank!" />
                 <h1>Choosing fish</h1>
@@ -30,13 +36,17 @@ export const ChoosingFish = () => {
                     <li>Barbs</li>
                 </ul>
 
-                <div>
-                    <button>
+                <div className="articleButton">
+                    <Link to="/pickingatank">
+                    <button className="careButton nextButton">
                         <p>Picking a tank</p>
+                        <img src={next} alt="Next"/>
                     </button>
+                    </ Link>
                 </div>
 
             </div>
+            <Footer />
         </div>
     )
 }

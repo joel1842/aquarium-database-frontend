@@ -1,4 +1,5 @@
 import { FilterButton } from "../Button/FilterButton"
+import "./filterbar.css"
 
 const FilterBar = ({getFilterCriterion}) => {
     return (

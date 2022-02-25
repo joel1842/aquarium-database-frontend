@@ -1,11 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./waterchanges.css"
 import change from "../../assets/waterchange.png"
+import { StandardNavBar } from '../../components/Bars/StandardNavBar';
+import Footer from '../../components/Bars/Footer';
+import "./Buttons.css"
+import back from "../../assets/arrow.png"
+import next from "../../assets/arrowrotated.png"
 
-export const WaterChanges = () => {
+export const WaterChanges = ({getSearchTerm}) => {
 
     return (
         <div>
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
             <div className='changeHeader'>
                 <img src={change} alt="Water changes"/>
                 <h1>Water changes</h1>
@@ -23,7 +30,24 @@ export const WaterChanges = () => {
                 <p className='changeText spaced'>Ensuring the water you are adding is close to the temperature of your tank water is also very important. Adding water that is a different temperature than your tank water can cause your fish to go into shock. A digital thermometer is a very helpful tool for measuring your water temperature when doing water changes.</p>
                 <p className='changeText spaced'>Although unnecessary, buying a python water changing system is a very worthy investment, it will save you a lot of time & hassle in the long run.</p>
                 <p className='changeText spaced'>Keeping track of your levels with the tank journal tool can help monitor your levels between water changes. Additionally, it will also help you remember how long it’s been since changing your tank water.</p>
+                <div className="articleButton">
+                    <Link to="/setupaquarium">
+                    <button className="careButton backButton">
+                        <img src={back} alt="Back"/>
+                        <p>Setup aquarium</p>
+                    </button>
+                    </ Link>
+                </div>
+                <div className="articleButton">
+                    <Link to="/nitrogencycle">
+                    <button className="careButton nextButton">
+                        <p>Nitrogen cycle</p>
+                        <img src={next} alt="Next"/>
+                    </button>
+                    </ Link>
+                </div>
             </div>
+            <Footer />
         </div>
     )
 }

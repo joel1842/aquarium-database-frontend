@@ -1,0 +1,31 @@
+.filterBar {
+
+    margin-top: 3%;
+    margin-bottom: 2%;
+
+}
+
+@media screen and (max-width: 750px) {
+    
+    .filterBar {
+        margin: auto;
+        margin-top: 4%;
+        width: 60%;
+    }
+    
+    .FilterButton {
+        margin-bottom: 3%;
+    }
+}
+
+@media screen and (max-width: 565px) {
+    .filterBar {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .filterBar {
+        width: 100%;
+    }
+}

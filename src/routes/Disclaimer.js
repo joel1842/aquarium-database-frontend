@@ -5,7 +5,7 @@ import Footer from '../components/Bars/Footer';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Checkmark } from 'react-checkmark'
 
-export const Disclaimer = () => {
+export const Disclaimer = ({ getSearchTerm }) => {
 
     const { getAccessTokenSilently } = useAuth0()
 
@@ -45,7 +45,7 @@ export const Disclaimer = () => {
 
     return (
         <>
-            <StandardNavBar />
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
             <div className="disclaimerCard">
                 <div className='disclaimerHeader'>
                     <h1>Information Disclaimer</h1>

@@ -72,6 +72,7 @@
 }
 
 .startDate {
+    background: linear-gradient(183.12deg, rgba(255, 255, 255, 0.2) 2.57%, rgba(255, 255, 255, 0) 97.42%), #E4E4E4;
     border: none;
     font-family: poppins;
     padding: 2%;

@@ -4,6 +4,7 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
     border-radius: 50px;
     width: 95%;
+    min-height: 575px;
     justify-self: start;
     margin-top: 30px;
     margin-bottom: 50px;

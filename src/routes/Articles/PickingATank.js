@@ -1,11 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./pickingatank.css"
 import picktank from "../../assets/pickingtank.png"
+import { StandardNavBar } from '../../components/Bars/StandardNavBar';
+import Footer from '../../components/Bars/Footer';
+import "./Buttons.css"
+import back from "../../assets/arrow.png"
+import next from "../../assets/arrowrotated.png"
 
-export const PickingATank = () => {
+export const PickingATank = ({ getSearchTerm }) => {
 
     return (
         <div>
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
             <div className='pickHeader'>
                 <img src={picktank} alt="Picking a tank"/>
                 <h1>Picking a tank</h1>
@@ -22,7 +29,24 @@ export const PickingATank = () => {
                 <p className='pickText'>When picking a tank as a beginner, a good size to aim for is between 20-50 gallons. A tank within this range gives you lots of options in stocking & is not too large for a beginner that is learning to take care of fish.</p>
                 <p className="pickSubHeader">Does tank shape matter?</p>
                 <p className='pickText'>The surface area is very important when selecting a tank for your fish. The more surface area your tank takes up the more space your fish will have to swim. A tank that holds the same volume of water and is very tall will provide less space for your fish to swim, versus a tank that is long & wide of the same volume.</p>
+                <div className="articleButton">
+                    <Link to="/choosingfish">
+                    <button className="careButton backButton">
+                        <img src={back} alt="Back"/>
+                        <p>Choosing Fish</p>
+                    </button>
+                    </ Link>
+                </div>
+                <div className="articleButton">
+                    <Link to="/setupaquarium">
+                    <button className="careButton nextButton">
+                        <p>Setup aquarium</p>
+                        <img src={next} alt="Next"/>
+                    </button>
+                    </ Link>
+                </div>
             </div>
+            <Footer />
         </div>
     )
 }

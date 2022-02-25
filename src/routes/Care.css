@@ -14,15 +14,20 @@
     background: linear-gradient(180deg, rgba(250, 249, 249, 0.49) -20%, rgba(250, 249, 249, 0.07) 100%), #FFAE78;
     box-shadow: 0px 6px 2px rgba(228, 135, 73, 0.7);
     border-radius: 80px;
-    width: 50%;
+    width: 70%;
+    max-width: 1000px;
     margin: auto;
     margin-bottom: 5%;
     padding: 1%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
     font-weight: 600;
     font-size: 24px;
     text-shadow: 1px 2px 2px rgba(68, 65, 64, 0.3);
+    padding-left: 5%;
+    padding-right: 5%;
+
 }
 
 .mainCare {
@@ -33,22 +38,26 @@
     align-self: center;
 }
 
+.list {
+    padding-left: 0;
+}
+
 .list li {
     padding: 5%;
     list-style-type: none;
     transition: all 0.2s ease-in-out;
+    display: grid;
+    grid-template-columns: 20% 80%;
 }
 
 .list li img {
     width: 70px;
-    margin-right: 3%;
-    display: inline;
-    vertical-align: middle;
+    align-self: center;
 }
 
 .list li p {
-    display: inline;
-    vertical-align: middle;
+    align-self: center;
+    margin-left: 1%;
 }
 
 .list li:hover {
@@ -56,17 +65,46 @@
     font-weight: 800;
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1250px) {
     .careHead {
         width: 50%;
     }
 
     .careLinks {
-        width: 70%;
+        display: block;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    .mainCare {
+        margin-bottom: -50px;
+    }
+
+    .otherCare {
+        margin-top: 0;
+    }
+
+    .list li {
+        width: 80%;
+        margin: auto;
+    }
+
+    .list li img {
+        width: 120px;
+    }
+
+    .list li p {
+        font-size: 1.3em;
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1100px){
+    .careLinks {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 900px) {
     .careHead {
         width: 60%;
     }
@@ -76,24 +114,57 @@
         margin-top: 3%;
         margin-bottom: 200px;
     }
+
+    .list li {
+        width: 90%;
+    }
 }
 
-@media screen and (max-width: 615px) {
+@media screen and (max-width: 775px) {
     .careHead {
         width: 75%;
     }
 
     .careLinks {
-        display: block;
+        width: 95%;
     }
 
-    .mainCare.list {
-        margin-bottom: 0;
-        padding-left: 0;
+    .list li {
+        width: 85%;
     }
 
-    .otherCare.list {
-        margin-top: 0;
-        padding-left: 0;
+    .list li img {
+        width: 90px;
+    }
+
+    .list li p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .list li {
+        width: 90%;
+    }
+    .list li img {
+        width: 70px;
+    }
+
+    .list li p {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .list li {
+        width: 95%;
+    }
+
+    .list li img {
+
+    }
+
+    .list li p {
+        font-size: 0.7em;
     }
 }

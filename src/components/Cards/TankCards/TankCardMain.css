@@ -3,6 +3,9 @@
     border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
     width: 95%;
+    min-height: 575px;
+    max-height: 600px;
+    align-self: center;
     padding: 2%;
     grid-area: header;
     display: grid;
@@ -199,6 +202,7 @@
 @media screen and (max-width: 700px) {
     .tankHeadContainer {
         display: block;
+        max-height: none;
     }
 
     .healthCard {

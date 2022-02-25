@@ -20,6 +20,7 @@
 .pickHeader h1 {
     display: inline;
     vertical-align: middle;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .pickBody {
@@ -28,6 +29,7 @@
     border-radius: 80px;
     width: 50%;
     margin: auto;
+    margin-bottom: 7%;
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 5%;
@@ -41,7 +43,8 @@
     margin: auto;
     font-weight: 400;
     line-height: 40px;
-
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    
 }
 
 .pickText.spaced {
@@ -51,5 +54,48 @@
 .pickSubHeader {
     font-weight: 700;
     font-size: 1.4em;
-    margin-top: 5%;
+    margin-top: 5%;    
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 1275px){
+    .pickBody {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .pickHeader {
+        width: 55%;
+        margin-bottom: 3%;
+    }
+
+    .pickBody {
+        padding-top: 7%;
+        margin-bottom: 7%;
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .pickHeader {
+        width: 65%;
+    }
+
+    .pickBody {
+        padding-top: 7%;
+        margin-bottom: 7%;
+        width: 95%;
+        margin-bottom: 200px;
+    }
+
+    .pickText {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .pickHeader {
+        width: 80%;
+    }
 }
