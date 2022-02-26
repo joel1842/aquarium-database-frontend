@@ -107,12 +107,12 @@ export const FishExpanded = ({ fishData, tanks }) => {
         <div className='fishCard'>
             <div className='fishHeader'>
                 <img className='fishImg' src={fishPic} alt={fishData.name}/>
-                <div className='next'>
+                {/* <div className='next'>
                     <button className="nextPic" onClick={numberSwitch}>
                         <h3>Next</h3>
                         <img src={arrowRotated} alt="Next Pic..."/>
                     </button>
-                </div>
+                </div> */}
                 <div className='fishTitle'>
                     <div className="fishNames">
                         <h1 className='fishName'>{fishData.name}</h1>
