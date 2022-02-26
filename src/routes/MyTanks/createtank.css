@@ -19,8 +19,6 @@
 
 .createBody div {
 
-    padding-top: 1%;
-    padding-bottom: 1%;
 }
 
 .createBody div h4 {
@@ -61,8 +59,14 @@
 
 }
 
-.tankType {
+.tankName {
+    padding-top: 3%;
+    padding-bottom: 5%;
+}
 
+.tankType {
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .tankType div {
@@ -70,6 +74,8 @@
     display: grid;
     grid-template-columns: 45% 55%;
     width: 50%;
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
 
 .tankType label {
@@ -81,6 +87,16 @@
 .tankType input {
     justify-self: end;
     margin-right: 15%;
+}
+
+.tankSize {
+    padding-top: 3%;
+    padding-bottom: 5%;
+}
+
+.successContainer {
+    padding-top: 10%;
+    padding-bottom: 8%;
 }
 
 .typeSubmit {

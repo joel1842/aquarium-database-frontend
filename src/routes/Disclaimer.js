@@ -10,15 +10,16 @@ export const Disclaimer = ({ getSearchTerm }) => {
     const { getAccessTokenSilently } = useAuth0()
 
     const [success, setSuccess] = useState(false)
-
     const [error, setError] = useState();
     const [link, setLink] = useState();
 
+    // data being sent to backend
     const data = {
         error: error,
         link: link
     }
 
+    // sends error to backend
     const submitError = async () => {
         try {
             const token = await getAccessTokenSilently()
@@ -59,7 +60,6 @@ export const Disclaimer = ({ getSearchTerm }) => {
                         <div className='disclaimerFormHeader'>
                             <h1>Find inaccurate information?</h1>
                         </div>
-                        {/* <h2>Let us know!</h2> */}
                         <div className="disclaimerField">
                             <label>Issue(s)</label>
                             <input type="text" placeholder="ex. Rosy Tetra pH levels are incorrect..." onChange={(event) => setError(event.target.value)}></input>

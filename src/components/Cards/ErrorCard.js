@@ -9,11 +9,13 @@ export const ErrorCard = () => {
     const [error, setError] = useState();
     const [link, setLink] = useState();
 
+    // error data
     const data = {
         error: error,
         link: link
     }
 
+    // sends error data to backend
     const submitError = async () => {
         try {
             const token = await getAccessTokenSilently()

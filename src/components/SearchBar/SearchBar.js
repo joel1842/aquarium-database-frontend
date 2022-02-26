@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './SearchBar.css';
 import MagnifyingGlass from '../../assets/Search_duotone_icon.svg';
 
-//Search Bar component. Used on StandardNavBar and anywhere you want
+// search bar component
 export const SearchBar = ({ getSearchTerm }) => {
     return(
         <div className="searchContainer">

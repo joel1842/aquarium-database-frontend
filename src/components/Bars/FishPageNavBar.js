@@ -5,14 +5,15 @@ import { MenuButton } from "../Button/MenuButton";
 import hamburger from "../../assets/hamburgermenu.png"
 import { Logo } from "../Logo/Logo"
 import { AuthenticationButton } from "../Button/Authentication/AuthenticationButton";
-import { SearchBarCompact } from "../SearchBar/SearchBarCompact";
 
+// nav bar for individual fish pages
 export const FishPageNavBar = () => {
 
     const { isAuthenticated } = useAuth0()
 
     const [open, setOpen] = useState(false)
 
+    // mobile nav bar toggle
     const menuSwitch = () => {
         if (open) {
             setOpen(false) 

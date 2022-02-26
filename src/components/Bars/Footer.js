@@ -5,6 +5,7 @@ import github from "../../assets/github.png"
 import cc from "../../assets/cclogo.png"
 import logo from "../../assets/fishopedialogo.png"
 
+// footer menu
 const Footer = () => {
     return (
         <div className="footerContainer">

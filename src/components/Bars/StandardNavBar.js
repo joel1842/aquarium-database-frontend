@@ -7,12 +7,14 @@ import { Logo } from "../Logo/Logo"
 import { AuthenticationButton } from "../Button/Authentication/AuthenticationButton";
 import { SearchBarCompact } from "../SearchBar/SearchBarCompact";
 
+// Standard Navigation Menu
 export const StandardNavBar = ({getSearchTerm}) => {
 
     const { isAuthenticated } = useAuth0()
 
     const [open, setOpen] = useState(false)
 
+    // mobile nav bar toggle
     const menuSwitch = () => {
         if (open) {
             setOpen(false) 

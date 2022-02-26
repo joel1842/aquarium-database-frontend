@@ -7,16 +7,15 @@ import { storage } from '../../../firebase/firebase';
 import {ref, getDownloadURL, uploadBytes} from "firebase/storage";
 import { Checkmark } from 'react-checkmark';
 
-export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) => {
+export const TankCardMain = ({tank, levels, celcius, fahrenheit}) => {
 
     const { getAccessTokenSilently } = useAuth0()
 
-
+    // sets picture of tank, if one has been uploaded
     const [tankPic, setTankPic] = useState()
     useEffect(() => {
         if (tank.tankimg !== undefined) {
             setTankPic(tank.tankimg)
-            console.log(tank.tankimg)
         }
     }, [tank])
 
@@ -26,16 +25,11 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
     const bad = 3
 
     const [score, setScore] = useState()
-
-    // ammonia 0ppm, more than 2 is dangerous
     const [ammoniaHealth, setAmmoniaHealth] = useState()
-    // nitrite 0 - 0.2ppm
     const [nitriteHealth, setNitriteHealth] = useState()
-    // nitrate 0 - 40ppm 
     const [nitrateHealth, setNitrateHealth] = useState()
-    // pH level 6 - 8
-    // const [phLevelHealth, setPhLevelHealth] = useState()
 
+    // tank health colors
     const easy = "linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A"
     const easyShadow = "0px 2px 2px #65C21B"
     const med = "linear-gradient(166.25deg, rgba(255, 255, 255, 0.525) -38.77%, rgba(255, 255, 255, 0.075) 99.58%), #FFE156"
@@ -46,7 +40,7 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
     const [careColor, setCareColor] = useState(easy)
     const [shadow, setShadow] = useState(easyShadow)
 
-
+    // tank ph level colors
     // 6.0 - 6.3
     const six = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #FDF885"
     // 6.4 - 6.5
@@ -76,6 +70,7 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
 
     useEffect(() => {
         if (levels) {
+            // sets ammonia health based on tank levels
             const getAmmonia = () => {
                 console.log(levels[0].ammonia)
                 if (levels[0].ammonia <= 2) {
@@ -87,6 +82,7 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
                 }
             }
         
+            // sets nitrite health based on tank levels
             const getNitrite = () => {
                 console.log(levels[0].nitrites)
                 if (levels[0].nitrites <= 0.2) {
@@ -98,6 +94,7 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
                 }
             }
         
+            // sets nitrate health based on tank levels
             const getNitrate = () => {
                 console.log(levels[0].nitrates)
                 if (levels[0].nitrates <= 40) {
@@ -109,6 +106,7 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
                 }
             }
 
+            // sets ph level color
             const colorSwitch = () => {
                 if (levels[0].phLevel <= 6.3) {
                     setPhColor(six)
@@ -144,6 +142,7 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
         }
     }, [levels])
 
+    // gets score of tank health
     useEffect(() => {
         if (ammoniaHealth && nitrateHealth && nitriteHealth) {
             const getScore = () => {
@@ -154,9 +153,10 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
 
     }, [ammoniaHealth, nitrateHealth, nitriteHealth])
 
+
     const [health, setHealth] = useState()
-
-
+    
+    // sets tank health reading based on tank score
     useEffect(() => {
         if (score) {
             const getHealth = () => {
@@ -182,10 +182,12 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
 
     const [file, setFile] = useState()
 
+    // gets tank picture file from input
     const getFile = (event) => {
         setFile(event.target.files[0])
     }
 
+    // uploads picture of tank to firebase
     const uploadTank = () => {
         const imageRef = ref(storage, `image/${file.name}${Date.now()}`);
         uploadBytes(imageRef, file).then(() => {
@@ -196,8 +198,10 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
         })
     }
 
+
     const [uploadSuccess, setUploadSuccess] = useState(false)
 
+    // uploads firebase image link to backend
     const uploadLink = async (url) => {
 
         const token = await getAccessTokenSilently()
@@ -228,6 +232,8 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
     }
 
     const [addPic, setAddPic] = useState(false)
+
+    // determines if image input is visible
     const addSwitch = () => {
         if (addPic) {
             setAddPic(false)
@@ -266,7 +272,7 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit, deleteSwitch}) 
                     <Checkmark size="30px"/>
                 </div>}
                 
-                <DeleteTankButton tank={tank} deleteSwitch={deleteSwitch}/>
+                <DeleteTankButton tank={tank}/>
             </div>
             
             <div className="quickHealth">

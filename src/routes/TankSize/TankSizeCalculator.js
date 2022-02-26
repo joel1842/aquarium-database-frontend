@@ -27,10 +27,12 @@ const TankSizeCalculator = () => {
 
     const [tankType, setTankType] = useState("Rectangular")
 
+    // sets tank shape
     const tankSwitch = (event) => {
         setTankType(event.target.value);
     }
 
+    // switches calculator based on tank shape
     useEffect(() => {
         if (tankType) {
             const tankBoolSwitch = () => {
@@ -64,6 +66,7 @@ const TankSizeCalculator = () => {
         }
     }, [tankType])
 
+    // gets tank volume for all shapes
     const getVolume = () => {
 
         let volume;
@@ -106,6 +109,7 @@ const TankSizeCalculator = () => {
         }
     }
 
+    // switches units on measurement
     const unitSwitch = () => {
         if (unitBool === true) {
             setTankVolume()

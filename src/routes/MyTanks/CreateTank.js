@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./createtank.css"
+import { Checkmark } from "react-checkmark";
 
 const CreateTank = ({ createSwitch }) => {
 
@@ -15,16 +16,19 @@ const CreateTank = ({ createSwitch }) => {
     const [unit, setUnit] = useState('Liters');
     const [unitLabel, setUnitLabel] = useState('Gallons');
 
+    // switch to display info page
     const getInfo = () => {
         setType(false)
         setInfo(true)
     }
 
+    // switch to display type page
     const getType = () => {
         setType(true)
         setName(false)
     }
 
+    // switch to set tank volume unit
     const unitSwitch = () => {
         if (unit === "Liters") {
             setUnit("Gallons")
@@ -34,7 +38,10 @@ const CreateTank = ({ createSwitch }) => {
             setUnitLabel("Gallons")
         }
     }
+
+    const [success, setSuccess] = useState(false)
     
+    // sends new tank data to backend
     const sendRequest = async () => {
 
         const token = await getAccessTokenSilently()
@@ -53,9 +60,15 @@ const CreateTank = ({ createSwitch }) => {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify(data)
-        }) 
-        
-        createSwitch()
+        }).then((res) => {
+            if (res.ok) {
+                setInfo(false)
+                setSuccess(true)
+                setTimeout(() => {
+                    window.location.reload()
+                }, 3000)
+            }
+        })
     }
 
     return(
@@ -64,7 +77,7 @@ const CreateTank = ({ createSwitch }) => {
 
             <div className="createBody">
                 {name &&
-                <div>
+                <div className="tankName">
                     <h4>What do you want to name your tank?</h4>
                     <input 
                     className="TankNameInput" 
@@ -111,7 +124,7 @@ const CreateTank = ({ createSwitch }) => {
                 </div>
                 }
                 {info && 
-                <div>
+                <div className="tankSize">
                     <h4>How big is your tank?</h4>
                     <input className="sizeInput" type="number" onChange={(event) => {
                         setTankSize(event.target.value)
@@ -120,6 +133,11 @@ const CreateTank = ({ createSwitch }) => {
                         <h1>{tankSize} {unit}</h1>
                         <button className="unitSwitch" onClick={unitSwitch}>Use {unitLabel}</button>
                         <button className="tankSubmit" onClick={sendRequest}>Submit!</button>
+                </div>}
+                {success &&
+                <div className="successContainer">
+                    <Checkmark size="large"/>
+                    <h4>Tank Created!</h4>
                 </div>}
             </div>
         </div>

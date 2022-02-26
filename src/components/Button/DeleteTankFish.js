@@ -10,6 +10,7 @@ export const DeleteTankFish = ({ fish, updateFish }) => {
 
     const [success, setSuccess] = useState(false)
 
+    // delete fish from user tank
     const removeRequest = async () => {
 
         try {

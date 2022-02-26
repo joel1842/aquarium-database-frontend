@@ -14,6 +14,7 @@ const AddToTank = ({ fishData, tanks }) => {
     const [chooseTank, setChooseTank] = useState();
     const [quantity, setQuantity] = useState(1);
 
+    // add to tank dropdown toggle
     const dropdownSwitch = () => {
         if (dropdown) {
             setDropdown(false)
@@ -22,6 +23,7 @@ const AddToTank = ({ fishData, tanks }) => {
         }
     }
 
+    // sets tank select dropdown to first tank in array
     useEffect(() => {
         if (tanks) {
             setChooseTank(tanks[0].id)
@@ -29,10 +31,10 @@ const AddToTank = ({ fishData, tanks }) => {
         }
     }, [tanks])
 
+    // sends fish & tank data to backend
     const sendRequest = async () => {
-        console.log()
-        try {
 
+        try {
             const token = await getAccessTokenSilently()
 
             const data = {
@@ -49,6 +51,7 @@ const AddToTank = ({ fishData, tanks }) => {
                 },
                 body: JSON.stringify(data)
             }).then(res => {
+
                 if(res.ok) {
                     setSuccess(true)
                     setDropdown(false)
@@ -56,9 +59,11 @@ const AddToTank = ({ fishData, tanks }) => {
                         setSuccess(false)
                     }, 3000)
                 }
+
             })
+            
         } catch (error) {
-            console.error()
+            console.log(error)
         }
     }
 
