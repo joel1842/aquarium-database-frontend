@@ -4,6 +4,8 @@ html {
     font-family: Poppins;
     color: white;
     text-align: center;
+    background-image: url(../assets/fishbackground.png);
+    background-size: 30%;
     background-color: #BEE3DB;
 }
 
