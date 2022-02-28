@@ -5,31 +5,10 @@ import FishCard from '../../components/Cards/FishCard';
 import FilterBar from '../../components/Bars/FilterBar';
 import Footer from '../../components/Bars/Footer';
 import './browse.css';
+
 export const Browse = ({ getSearchTerm, getFilterCriterion, fish, count, nextPage}) => {
-
-    // let fetching = false;
-    // let activated = false;
-
-    // useEffect(() => {
-    //     const onScroll = (event) => {
-    //         const { scrollHeight, scrollTop, clientHeight } = event.target.scrollingElement;
-
-    //         if (!activated && scrollHeight - scrollTop <= clientHeight * 1.5) {
-    //             activated = true
-    //             nextPage()
-    //             console.log('FIRED')
-    //         }
-    //     }
-
-    //     document.addEventListener("scroll", onScroll)
-    //     return () => {
-    //         document.removeEventListener("scroll", onScroll)
-    //     }
-    // }, [])
-
-
+    
     if (fish) {
-
         return(
             <div>
                 <div>

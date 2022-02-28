@@ -15,6 +15,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
 
     const {isAuthenticated} = useAuth0();
 
+    // care difficulty colors & shadows
     const easy = "linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A"
     const easyShadow = "0px 2px 2px #65C21B"
     const medium = "linear-gradient(166.25deg, rgba(255, 255, 255, 0.525) -38.77%, rgba(255, 255, 255, 0.075) 99.58%), #FFE156"
@@ -25,6 +26,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
     let careColor;
     let shadow;
 
+    // care color switch
     if (fishData.careLevel === "Difficult") {
         careColor = hard;
         shadow = hardShadow;
@@ -38,6 +40,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
 
     const [showSource, setShowSource] = useState(false);
 
+    // toggles information source dropdown
     const sourceSwitch = () => {
         if(showSource) {
             setShowSource(false)
@@ -48,6 +51,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
 
     const [showError, setShowError] = useState(false);
 
+    // toggles error input dropdown
     const errorSwitch = () => {
         if (showError) {
             setShowError(false)
@@ -59,9 +63,9 @@ export const FishExpanded = ({ fishData, tanks }) => {
     const [fishPic, setFishPic] = useState(fishData.pic1)
     const [number, setNumber] = useState(1)
 
+    // determines how many pictures are available for each fish
     useEffect(() => {
         const picSwitch = () => {
-
             if (number === 3 && fishData.pic3 !== undefined) {
                 setFishPic(fishData.pic3)
             } else if (number === 2 && fishData.pic2 !== undefined) {
@@ -73,17 +77,7 @@ export const FishExpanded = ({ fishData, tanks }) => {
         picSwitch()
     }, [number, fishData])
 
-    const [inches, setInches] = useState()
-    const [gallons, setGallons] = useState()
-    const [lowF, setLowF] = useState()
-    const [highF, setHighF] = useState()
-    useEffect(() => {
-        setInches(Number(fishData.sizecm/2.54).toFixed(1))
-        setGallons(Number(fishData.tanksizel/3.785).toFixed(0))
-        setLowF(Number((fishData.templowc * 9/5) + 32).toFixed(0))
-        setHighF(Number((fishData.temphighc * 9/5) + 32).toFixed(0))
-    }, [fishData])
-
+    // increased picture number
     const numberSwitch = () => {
         if (number < 3) {
             setNumber(prevNumber => prevNumber + 1)
@@ -92,6 +86,19 @@ export const FishExpanded = ({ fishData, tanks }) => {
             console.log("Reset!")
         }
     }
+
+    const [inches, setInches] = useState()
+    const [gallons, setGallons] = useState()
+    const [lowF, setLowF] = useState()
+    const [highF, setHighF] = useState()
+
+    // converts stored metric data to imperial
+    useEffect(() => {
+        setInches(Number(fishData.sizecm/2.54).toFixed(1))
+        setGallons(Number(fishData.tanksizel/3.785).toFixed(0))
+        setLowF(Number((fishData.templowc * 9/5) + 32).toFixed(0))
+        setHighF(Number((fishData.temphighc * 9/5) + 32).toFixed(0))
+    }, [fishData])
     
     return(
         <>
@@ -107,12 +114,12 @@ export const FishExpanded = ({ fishData, tanks }) => {
         <div className='fishCard'>
             <div className='fishHeader'>
                 <img className='fishImg' src={fishPic} alt={fishData.name}/>
-                <div className='next'>
+                {/* <div className='next'>
                     <button className="nextPic" onClick={numberSwitch}>
                         <h3>Next</h3>
                         <img src={arrowRotated} alt="Next Pic..."/>
                     </button>
-                </div>
+                </div> */}
                 <div className='fishTitle'>
                     <div className="fishNames">
                         <h1 className='fishName'>{fishData.name}</h1>
@@ -174,7 +181,8 @@ export const FishExpanded = ({ fishData, tanks }) => {
             </div>   
 
             <div className='cardButtons'>
-                <div className="sourcesContainer">
+                {!showError && 
+                <div className={showSource ? "sourcesContainer active" : "sourcesContainer"}>
                     <button className='sourcesButton' onClick={sourceSwitch}>
                         <img src={document} alt="Sources"/>
                         <h3>Sources</h3>
@@ -185,16 +193,17 @@ export const FishExpanded = ({ fishData, tanks }) => {
                         <a className='sourceLink' href={fishData.fishbase}>FishBase</a>
                         <a className='sourceLink' href={fishData.aquawiki}>AquaWiki</a>
                     </div>}
-                </div> 
+                </div>} 
 
-                <div className='errorContainer'>
+                {!showSource &&
+                <div className={showError ? 'errorContainer active' : 'errorContainer'}>
                     <button className='errorButton' onClick={errorSwitch}>
                         <img src={error} alt="Sources"/>
                         <h3>Find an error?</h3>
                     </button>
                     {showError && <ErrorCard />}
 
-                </div>
+                </div>}
             </div>
 
         </div>

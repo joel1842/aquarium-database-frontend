@@ -6,6 +6,7 @@ const TankCard = ({ tank }) => {
     
     const [tankPic, setTankPic] = useState()
 
+    // gets tank image, if one has been uploaded
     useEffect(() => {
         if (tank.tankimg) {
             console.log(tank.tankimg)

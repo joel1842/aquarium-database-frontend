@@ -8,14 +8,14 @@ import construction from "../../../assets/underconstruction.png"
 
 export const OnTimeCard = () => {
 
+    const { user, getAccessTokenSilently } = useAuth0()
+
     const [interval, setInterval] = useState()
     const [notification, setNotification] = useState('email')
     const [phone, setPhone] = useState()
-
-    const { user, getAccessTokenSilently } = useAuth0()
-
     const [submit, setSubmit] = useState(false)
 
+    // sends on time info to backend
     const submitInfo = async() => {
         try {
             console.log(notification)
@@ -46,12 +46,12 @@ export const OnTimeCard = () => {
     }
 
     const [date, setDate] = useState()
-    const [showInput, setInput] = useState(false)
 
+    // gets current date for date input
     useEffect(() => {
         const getDate = () => {
             const dateObj = new Date();
-            let month = dateObj.getUTCMonth() + 1; //months from 1-12
+            let month = dateObj.getUTCMonth() + 1;
             let day = dateObj.getUTCDate();
             const year = dateObj.getUTCFullYear();
 

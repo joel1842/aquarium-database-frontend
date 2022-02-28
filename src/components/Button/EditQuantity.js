@@ -11,6 +11,7 @@ export const EditQuantity = ({ fish, editFish, editSwitch }) => {
 
     const [fishQuantity, setFishQuantity] = useState(Number(fish.quantity))
 
+    // update fish quantity in user tank
     const resubmitQuanity = async() => {
 
         const token = await getAccessTokenSilently()

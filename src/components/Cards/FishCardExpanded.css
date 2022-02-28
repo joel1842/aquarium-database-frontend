@@ -277,6 +277,10 @@
     display: inline;
 }
 
+.sourcesContainer.active {
+    grid-column: 1/3;
+}
+
 .sourcesButton {
     border: none;
     background: none;
@@ -292,7 +296,7 @@
     width: 35px;
     display: inline;
     vertical-align: middle;
-
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
 }
 
 .sourcesButton h3 {
@@ -306,22 +310,30 @@
 }
 
 .sourceLinkContainer {
+
     background: linear-gradient(360deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), #FFCCAA;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-    width: 50%;
+    border-radius: 80px;
+    width: 70%;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
+    text-shadow: 1px 2px 3px rgba(68, 65, 64, 0.3);
 }
 
 .sourceLink {
     display: block;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 .errorContainer {
     display: inline;
+}
+
+.errorContainer.active {
+    grid-column: 1/3;
 }
 
 .errorButton {
@@ -339,6 +351,7 @@
     width: 35px;
     display: inline;
     vertical-align: middle;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
 
 }
 

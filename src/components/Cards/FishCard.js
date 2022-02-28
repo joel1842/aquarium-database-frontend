@@ -3,6 +3,7 @@ import './FishCard.css';
 
 const FishCard = ({ fishData }) => {
 
+        // care difficulty colors & shadows
     const easy = "linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A"
     const easyShadow = "0px 2px 2px #65C21B"
     const medium = "linear-gradient(166.25deg, rgba(255, 255, 255, 0.525) -38.77%, rgba(255, 255, 255, 0.075) 99.58%), #FFE156"
@@ -13,6 +14,7 @@ const FishCard = ({ fishData }) => {
     let careColor;
     let shadow;
 
+    // care color switch
     if (fishData.carelevel === "Difficult") {
         careColor = hard;
         shadow = hardShadow;
@@ -26,14 +28,16 @@ const FishCard = ({ fishData }) => {
 
     return (
         <div className='fishCardBrowse'>
+
             <div>
                 <img className='fishCardPic' src={fishData.pic1} alt={fishData.name}/>
             </div>
+
             <div className='fishCardNames'>
                 <h1 className='name'>{fishData.name}</h1>
                 <h2 className='sciName'>{fishData.scientificname}</h2>
-
             </div>
+
             <div className='fishCardInfo' style={{background: careColor, boxShadow: shadow}}>
                 <div className='sizeContainer'>
                     <h3 className='sizeHeader'>Size</h3>
@@ -44,6 +48,7 @@ const FishCard = ({ fishData }) => {
                     <h3 className='fishCare'>{fishData.carelevel}</h3>
                 </div>
             </div>
+            
         </div>
     )
 }

@@ -4,7 +4,6 @@ import { HomeNavBar } from '../components/Bars/HomeNavBar';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import Footer from '../components/Bars/Footer';
 
-
 export const Home = ({ getSearchTerm }) => {
     return (
         <div>

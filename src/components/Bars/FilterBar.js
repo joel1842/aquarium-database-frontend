@@ -2,6 +2,8 @@ import { FilterButton } from "../Button/FilterButton"
 import "./filterbar.css"
 
 const FilterBar = ({getFilterCriterion}) => {
+    
+    // browse page filter bar
     return (
         <div className="filterBar">
             <FilterButton label='Beginner' filterCriterion='beginner' category='careLevel' getFilterCriterion={getFilterCriterion}/>

@@ -24,7 +24,7 @@
 }
 
 .setupBody {
-    background: linear-gradient(176.38deg, rgba(250, 249, 249, 0.49) -16.78%, rgba(250, 249, 249, 0.07) 97.03%), #FFAE78;
+    background: linear-gradient(180deg, rgba(250, 249, 249, 0.35) -20%, rgba(250, 249, 249, 0.05) 100%), #FFA264;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
     border-radius: 80px;
     width: 50%;
@@ -62,8 +62,13 @@
     text-align: start;
     width: 90%;
     margin: auto;
+    padding-left: 30px;
     line-height: 40px;
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.setupList ul {
+    padding-left: 20px;
 }
 
 .setupListSub {
@@ -94,6 +99,7 @@
 @media screen and (max-width: 800px){
     .setupHeader {
         width: 65%;
+        font-size: 0.8em;
     }
 
     .setupBody {
@@ -103,12 +109,18 @@
         margin-bottom: 200px;
     }
 
+    .setupSubHeader {
+        font-size: 1.2em;
+    }
+
     .setupText {
         width: 90%;
+        font-size: 1em;
     }
 
     .setupList {
         width: 95%;
+        font-size: 1em;
     }
 }
 

@@ -3,13 +3,14 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Checkmark } from "react-checkmark";
 import "./DeleteTankButton.css"
 
-const DeleteTankButton = ({ tank, deleteSwitch }) => {
+const DeleteTankButton = ({ tank }) => {
 
     const { getAccessTokenSilently } = useAuth0()
     const id = tank.id;
 
     const [deleted, setDeleted] = useState(false)
 
+    // delete user tank
     const deleteTank = async () => {
         try {
 
@@ -33,8 +34,6 @@ const DeleteTankButton = ({ tank, deleteSwitch }) => {
                 }
             })
 
-            // deleteSwitch()
-            // window.history.back()
         } catch (error) {
             console.error()
         }

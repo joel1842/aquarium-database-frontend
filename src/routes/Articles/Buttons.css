@@ -10,8 +10,8 @@
     border-radius: 40px;
     padding-top: 2%;
     padding-bottom: 2%;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
     margin-top: 5%;
     color: white;
     font-size: 1.1em;
@@ -28,12 +28,13 @@
 }
 
 .careButton img {
-    width: 30px;
+    width: 25px;
     display: inline;
     vertical-align: middle;
 }
 
 .careButton p {
+    font-size: 0.9em;
     display: inline;
     vertical-align: middle;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../Loading";
@@ -8,7 +8,18 @@ import { StandardNavBar } from "../../components/Bars/StandardNavBar";
 import Footer from "../../components/Bars/Footer";
 import "./MyTanks.css";
 
-const MyTanks = ({ getSearchTerm, createSwitch, create, tanks }) => {
+const MyTanks = ({ getSearchTerm, tanks }) => {
+
+    const [create, setCreate] = useState(false);
+
+    // switch to create user tank
+    const createSwitch = () => {
+        if (create) {
+          setCreate(false)
+        } else {
+          setCreate(true)
+        }
+      }
 
     return (
         <div>

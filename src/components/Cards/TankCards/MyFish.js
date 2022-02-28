@@ -5,17 +5,21 @@ import { EditQuantity } from '../../Button/EditQuantity';
 import warning from "../../../assets/warning.png"
 import "./MyFish.css"
 
-export const MyFish = ({fishies, tank, celcius, stock, levels}) => {
+export const MyFish = ({fishies, celcius, stock, levels}) => {
 
     const [editFish, setEditFish] = useState(false)
+
+    // edit fish quantity
     const editSwitch = () => {
         setEditFish(true)
     }
 
+    // stock colors (understocked or overstocked)
     const good = "linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A"
     const bad = "linear-gradient(165.88deg, rgba(255, 255, 255, 0.525) -47.86%, rgba(255, 255, 255, 0.075) 89.89%), #FF3434"
     const [stockColor, setStockColor] = useState()
 
+    // sets stock color
     useEffect(() => {
         if (stock) {
             if (stock === "Overstocked!") {
