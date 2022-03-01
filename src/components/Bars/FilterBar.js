@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FilterButton } from "../Button/FilterButton"
 import burger from "../../assets/hamburgermenu.png"
 import "./filterbar.css"
-import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 const FilterBar = ({getFilterCriterion}) => {
 
@@ -22,7 +21,7 @@ const FilterBar = ({getFilterCriterion}) => {
                     <img src={burger} alt="Filters"/>
                     <p>Filters</p>
                 </button>
-                {active && 
+                
                 <div className={active ? 'filterBox active' : 'filterBox'}>
                     <div className='filter'>
                         <p className='filterHead'>Difficulty</p>
@@ -42,7 +41,7 @@ const FilterBar = ({getFilterCriterion}) => {
                         <FilterButton label='Monitor' filterCriterion='monitor' category='plants' getFilterCriterion={getFilterCriterion}/>
                         <FilterButton label='No' filterCriterion='no' category='plants' getFilterCriterion={getFilterCriterion}/>
                     </div>
-                </div>}
+                </div>
             </div>
         )
 

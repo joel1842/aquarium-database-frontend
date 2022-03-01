@@ -11,6 +11,13 @@
     transition: transform 100ms ease-in-out;
 }
 
+@media screen and (max-width: 950px) {
+    .fishCardBrowse {
+        margin-top: 0;
+        margin-bottom: 4%;
+    }
+}
+
 .fishCardBrowse:hover {
     transform: scale(1.05); 
 }
