@@ -10,10 +10,12 @@ export const OnTimeCard = () => {
 
     const { user, getAccessTokenSilently } = useAuth0()
 
-    const [interval, setInterval] = useState()
+    const [interval, setInterval] = useState(1)
     const [notification, setNotification] = useState('email')
     const [phone, setPhone] = useState()
     const [submit, setSubmit] = useState(false)
+    const [date, setDate] = useState()
+    const [userDate, setUserDate] = useState()
 
     // sends on time info to backend
     const submitInfo = async() => {
@@ -22,13 +24,16 @@ export const OnTimeCard = () => {
             const token = await getAccessTokenSilently()
 
             const data = {
+                date: userDate,
                 interval: interval,
-                type: notification,
+                contacttype: notification,
                 email: user.email,
                 phone: phone
             }
 
-            fetch('https://fishtank-wiki.herokuapp.com/ontime', {
+            console.log(data)
+
+            fetch('http://localhost:8000/ontime', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -44,8 +49,6 @@ export const OnTimeCard = () => {
             throw new Error(err)
         }
     }
-
-    const [date, setDate] = useState()
 
     // gets current date for date input
     useEffect(() => {
@@ -65,6 +68,7 @@ export const OnTimeCard = () => {
             
             const newdate = `${year}-${month}-${day}`
             setDate(newdate)
+            setUserDate(newdate)
         }
         getDate()
 
@@ -81,9 +85,9 @@ export const OnTimeCard = () => {
                     <h3>How often do you change your water?</h3>
                     <label className="everyLabel" for="interval">Every</label>
                     <select className="intervalInput" id="interval" name="interval" onChange={(event)=> setInterval(event.target.value)}>
-                        <option value="week">Week</option>
-                        <option value="2 weeks">2 Weeks</option>
-                        <option value="4 weeks">4 weeks</option>
+                        <option value="1">Week</option>
+                        <option value="2">2 Weeks</option>
+                        <option value="4">4 weeks</option>
                     </select>
 
                     <h3>Choose a start date!</h3>
@@ -91,6 +95,7 @@ export const OnTimeCard = () => {
                     {date && 
                     <input className="startDate" type="date" id="start" name="trip-start"
                         defaultValue={date}
+                        onChange={(e) => setUserDate(e.target.value)}
                         min="2022-01-01" max="2040-12-31" />}
                     </div>
 
@@ -120,6 +125,13 @@ export const OnTimeCard = () => {
                         <p>Under Construction!</p>
                     </button>
                 </div>}
+                {/* {!submit && 
+                    <div>
+                        <button onClick={submitInfo}>
+                            <p>Submit!</p>
+                        </button>
+                    </div>
+                } */}
                 {submit &&
                 <div className='onTimeSuccess'>
                     <Checkmark size='30px'/>

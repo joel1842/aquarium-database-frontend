@@ -1,7 +1,7 @@
 .plusButton {
     border: none;
     background: none;
-    -webkit-transition: transform 100ms ease-in-out;
+    transition: transform 100ms ease-in-out;
 }
 
 .plusButton img {

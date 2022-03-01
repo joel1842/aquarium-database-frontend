@@ -27,6 +27,7 @@ html {
     padding-bottom: 20px;
     grid-template-areas: 
     "header nav socials cc";
+    filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.15));
 }
 
 .footerHead {
