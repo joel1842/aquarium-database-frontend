@@ -10,6 +10,7 @@ const DeleteFavorite = ({ userData }) => {
 
     const [success, setSuccess] = useState(false)
 
+    // delete fish from favorites list
     const deleteFishie = async () => {
         try{
             const token = await getAccessTokenSilently()

@@ -8,6 +8,7 @@ const FavoritesButton = ({fishData}) => {
     
     const { getAccessTokenSilently } = useAuth0()
 
+    // fish data
     const data = {
         fish: fishData.id,
         link: window.location.pathname
@@ -15,6 +16,7 @@ const FavoritesButton = ({fishData}) => {
 
     const [success, setSuccess] = useState(false)
 
+    // add fish to favorites list
     const sendRequest = async () => {
         try {
 
@@ -38,7 +40,7 @@ const FavoritesButton = ({fishData}) => {
             console.error()
         }
     }
-
+    
     if (success) {
         return <Checkmark size="40px"/>
     } else {

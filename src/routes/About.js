@@ -6,10 +6,10 @@ import myfish from "../assets/myfish.JPG"
 import me from "../assets/me.jpg"
 import built from "../assets/built.jpg"
 
-export const About = () => {
+export const About = ({ getSearchTerm }) => {
     return(
         <>
-            <StandardNavBar/>
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
             <div className="aboutContainer">
                 <div className='goal'>
                     <div className='goalHeader'>

@@ -5,6 +5,7 @@ import github from "../../assets/github.png"
 import cc from "../../assets/cclogo.png"
 import logo from "../../assets/fishopedialogo.png"
 
+// footer menu
 const Footer = () => {
     return (
         <div className="footerContainer">
@@ -14,7 +15,7 @@ const Footer = () => {
                 </div>
                 <div className="footerNav">
                     <nav>
-                        <a href="/browse">Browse</a>
+                        <a href="/care">Care</a>
                         <a href="/about">About</a>
                         <a href="/tank">Calculator</a>
                         <a href="/disclaimer">Disclaimer</a>

@@ -6,6 +6,7 @@ export const AddLevelsButton = ({fishLevels, success, added}) => {
 
     const { getAccessTokenSilently } = useAuth0()
 
+    // sends levels from new entry form to backend
     const submitLevels = async () => {
         if (fishLevels.tank && fishLevels.ammonia && fishLevels.nitrate && fishLevels.nitrite && fishLevels.phLevel) {
             try {

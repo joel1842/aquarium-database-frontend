@@ -11,16 +11,6 @@ import "./TankJournal.css"
 
 export const TankJournal = ({tank, levels}) => {
 
-    const [success, setSuccess] = useState(false)
-    const added = () => {
-        if (success === false) {
-            setSuccess(true)
-            console.log("TRUE")
-        } else {
-            setSuccess(false)
-        }
-    }
-
     const [timeSince, setTimeSince] = useState()
     const [page, setPage] = useState(0)
     const [viewPage, setViewPage] = useState(1)
@@ -36,10 +26,35 @@ export const TankJournal = ({tank, levels}) => {
     const [tempScale, setTempScale] = useState("c");
     const [newEntry, setNewEntry] = useState(false);
 
+    const [success, setSuccess] = useState(false)
+    // determines success of new journal entry
+    const added = () => {
+        if (success === false) {
+            setSuccess(true)
+        } else {
+            setSuccess(false)
+        }
+    }
+
+    // new journal entry levels
+    const fishLevels = {
+        ammonia: ammonia,
+        nitrite: nitrite,
+        nitrate: nitrate,
+        phLevel: phLevel,
+        khLevel: khLevel,
+        ghLevel: ghLevel,
+        temp: temp,
+        tempscale: tempScale,
+        tank: tank.id
+    }
+
+    // tank health colors
     const good = "linear-gradient(165.41deg, rgba(255, 255, 255, 0.525) -19.95%, rgba(255, 255, 255, 0.075) 98.98%), #7BE22A"
     const med = "linear-gradient(166.25deg, rgba(255, 255, 255, 0.525) -38.77%, rgba(255, 255, 255, 0.075) 99.58%), #FFE156"
     const bad = "linear-gradient(165.88deg, rgba(255, 255, 255, 0.525) -47.86%, rgba(255, 255, 255, 0.075) 89.89%), #FF3434"
 
+    // tank ph level colors
     // 6.0 - 6.3
     const six = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #FDF885"
     // 6.4 - 6.5
@@ -65,13 +80,15 @@ export const TankJournal = ({tank, levels}) => {
     // 8.8 - 9.0
     const eighteight = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #8C71A9" 
 
+    // tank kh level colors
     const khzero = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #D7D079"
     const khforty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #CAD691"
     const kheighty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #95cb9d"
     const khonetwenty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #83c09f"
     const khoneeighty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #6cbca7"
     const khtwoforty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #00abb7"
-
+ 
+    // tank gh level colors
     const ghzero = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #65b7b4"
     const ghthirty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #3cc0c9"
     const ghsixty = "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #30a4d2"
@@ -85,6 +102,7 @@ export const TankJournal = ({tank, levels}) => {
     const [khColor, setKhColor] = useState(khzero)
     const [ghColor, setGhColor] = useState(ghzero)
 
+    // sets level colors
     useEffect(() => {
         if (levels) {
             const ammoniaColorSwitch = () => {
@@ -184,27 +202,16 @@ export const TankJournal = ({tank, levels}) => {
         }
     }, [levels, page])
 
-
-    const fishLevels = {
-        ammonia: ammonia,
-        nitrite: nitrite,
-        nitrate: nitrate,
-        phLevel: phLevel,
-        khLevel: khLevel,
-        ghLevel: ghLevel,
-        temp: temp,
-        tempscale: tempScale,
-        tank: tank.id
-    }
-
+    // gets number of journal entries
     useEffect(() => {
         if (levels) {
             setLength(levels.length)
         }
     }, [levels])
 
+    // gets time since journal entry was submitted
     useEffect(() => {
-        if(levels) {
+        if (levels) {
             const getDate = () => {
                 let date = Number(levels[page].date)
                 dayjs.extend(relativeTime)
@@ -216,10 +223,10 @@ export const TankJournal = ({tank, levels}) => {
     }, [levels, page])
 
 
-
     const [showNext, setShowNext] = useState(true)
     const [showBack, setShowBack] = useState(false)
 
+    // determines if back or next button should be visible
     useEffect(() => {
 
         if (levels) {
@@ -241,25 +248,27 @@ export const TankJournal = ({tank, levels}) => {
 
     }, [levels, page])
 
+
+    // sets page number & moves forward in journal
     const viewJournal = () => {
+
         const length = levels.length
         const entries = length - 1
 
         if (entries === page) {
             console.log("No more pages!")
-            console.log(page)
         } else {
             setPage(prevPage => prevPage + 1)
             setViewPage(prevPage => prevPage + 1)
-            console.log(page)
         }
     }
 
+    // sets page number & moves backwards in journal
     const backJournal = () => {
 
         setPage(prevPage => prevPage - 1)
         setViewPage(prevPage => prevPage - 1)
-        console.log(page)
+
     }
 
     return (

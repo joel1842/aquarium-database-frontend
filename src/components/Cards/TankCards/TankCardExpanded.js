@@ -10,7 +10,7 @@ import { MyFish } from "./MyFish"
 import { TankJournal } from "./TankJournal"
 import Footer from "../../Bars/Footer"
 
-const TankCardExpanded = ({tank, deleteSwitch}) => {
+const TankCardExpanded = ({getSearchTerm, tank}) => {
 
     const { getAccessTokenSilently } = useAuth0();
     
@@ -18,6 +18,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
     const [celcius, setCelcius] = useState();
     const [fahrenheit, setFahrenheit] = useState();
 
+    // gets all journal entries for user tank
     useEffect(() => {
         const getLevels = async () => {
             const token = await getAccessTokenSilently()
@@ -40,6 +41,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
         getLevels()
     }, [getAccessTokenSilently, tank.tankName])
 
+    // converts temperature stored in database
     useEffect(() => {
         if (levels) {
             if(levels.tempscale === 'f') {
@@ -54,6 +56,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
         }
     }, [levels])
 
+    // catches the fish in user tank
     useEffect(() => {
         const catchMyFish = async () => {
             try {
@@ -92,6 +95,7 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
     const [fishies, setFishies] = useState()
     const [stock, setStock] = useState()
 
+    // gets size of each fish, determines if tank is overstocked
     useEffect(() => {
         if (fishies && tank) {
             const getStock = () => {
@@ -122,11 +126,11 @@ const TankCardExpanded = ({tank, deleteSwitch}) => {
 
     return(
         <div>
-            <StandardNavBar />
+            <StandardNavBar getSearchTerm={getSearchTerm}/>
 
             <div className="tankCardContainer">
 
-                <TankCardMain tank={tank} levels={levels} celcius={celcius} fahrenheit={fahrenheit} deleteSwitch={deleteSwitch}/>
+                <TankCardMain tank={tank} levels={levels} celcius={celcius} fahrenheit={fahrenheit}/>
 
                 <MyFish fishies={fishies} levels={levels} celcius={celcius} stock={stock} tank={tank}/>
 

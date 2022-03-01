@@ -5,10 +5,9 @@ import { MenuButton } from "../Button/MenuButton";
 import hamburger from "../../assets/hamburgermenu.png"
 import { Logo } from "../Logo/Logo"
 import { AuthenticationButton } from "../Button/Authentication/AuthenticationButton";
-import { SearchBarCompact } from "../SearchBar/SearchBarCompact";
 
-// Standard Navigation Menu
-export const StandardNavBar = ({getSearchTerm}) => {
+// nav bar for individual fish pages
+export const FishPageNavBar = () => {
 
     const { isAuthenticated } = useAuth0()
 
@@ -29,9 +28,6 @@ export const StandardNavBar = ({getSearchTerm}) => {
                 <div className="logo">
                     <Logo/>
                 </div>
-                <div className='SearchBar'>
-                    <SearchBarCompact getSearchTerm={getSearchTerm}/>
-                </div>
                 <div className="menuIcon">
                     <button onClick={menuSwitch}>
                         <img src={hamburger} alt="Menu"/>
@@ -40,9 +36,6 @@ export const StandardNavBar = ({getSearchTerm}) => {
                 <div className="navContainer">         
                     <ul className={open ? 'navMenu active' : 'navMenu'}>      
                         <li>
-                            <div className='SearchBarMobile'>
-                                <SearchBarCompact getSearchTerm={getSearchTerm}/>
-                            </div>
                             <div className="menuItem">
                                 <MenuButton label='Browse' link='/browse'/>
                             </div>
@@ -69,9 +62,6 @@ export const StandardNavBar = ({getSearchTerm}) => {
                 <div className="logo">
                     <Logo/>
                 </div>
-                <div className='SearchBar'>
-                    <SearchBarCompact getSearchTerm={getSearchTerm}/>
-                </div>
                 <div className="menuIcon">
                     <button onClick={menuSwitch}>
                         <img src={hamburger} alt="Menu"/>
@@ -80,9 +70,6 @@ export const StandardNavBar = ({getSearchTerm}) => {
                 <div className="navContainer">         
                     <ul className={open ? 'navMenu active' : 'navMenu'}>      
                         <li>
-                            <div className='SearchBarMobile'>
-                                <SearchBarCompact getSearchTerm={getSearchTerm}/>
-                            </div>
                             <div className="menuItem">
                                 <MenuButton label='Browse' link='/browse'/>
                             </div>
@@ -104,5 +91,4 @@ export const StandardNavBar = ({getSearchTerm}) => {
             </nav>
         )
     }
-    
 }

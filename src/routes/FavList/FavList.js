@@ -12,6 +12,7 @@ const FavList = ({ getSearchTerm }) => {
     const { isAuthenticated, getAccessTokenSilently } = useAuth0()
     const [userFavs, setUserFavs] = useState()
 
+    // catches user favorite fish
     useEffect(() => {
 
         const catchFavs = async () => {

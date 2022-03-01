@@ -3,7 +3,7 @@ import './SearchBarCompact.css';
 import MagnifyingGlass from '../../assets/Search_duotone_icon.svg';
 import { Link } from 'react-router-dom';
 
-//Search bar but more compact than standard search bar. To be used on nav bars and small places :D
+// search bar but more compact than standard search bar
 export const SearchBarCompact = ({getSearchTerm}) => {
 
     return(

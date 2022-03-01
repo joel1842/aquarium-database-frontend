@@ -44,7 +44,6 @@ const FilterBar = ({getFilterCriterion}) => {
                 </div>
             </div>
         )
-
 }
 
 export default FilterBar;

@@ -6,13 +6,14 @@ import { useAuth0 } from '@auth0/auth0-react';
 import hamburger from "../../assets/hamburgermenu.png"
 import './HomeNavBar.css';
 
-//Standard Nav Bar
+// Home Navigation Menu
 export const HomeNavBar = () => {
 
     const {isAuthenticated} = useAuth0();
 
     const [open, setOpen] = useState(false)
 
+    // mobile nav bar toggle
     const menuSwitch = () => {
         if (open) {
             setOpen(false) 
@@ -85,9 +86,9 @@ export const HomeNavBar = () => {
                         <div>
                             <MenuButton label='Calculator' link='/tank'/>
                         </div>
-                        {/* <div>
+                        <div>
                             <MenuButton label='Care' link='/care'/>
-                        </div> */}
+                        </div>
                         <div>
                             <AuthenticationButton />
                         </div>

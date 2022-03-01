@@ -17,6 +17,12 @@ import Loading from './routes/Loading';
 import TankCardExpanded from './components/Cards/TankCards/TankCardExpanded';
 import { Disclaimer } from './routes/Disclaimer';
 import { Care } from './routes/Care';
+import { ChoosingFish } from './routes/Articles/ChoosingFish';
+import { SetupAquarium } from './routes/Articles/SetupAquarium';
+import { PickingATank } from './routes/Articles/PickingATank';
+import { WaterChanges } from './routes/Articles/WaterChanges';
+import { NitrogenCycle } from './routes/Articles/NitrogenCycle';
+import { ThrivingPlants } from './routes/Articles/ThrivingPlants';
 
 const App = () => {
 
@@ -28,21 +34,25 @@ const App = () => {
   const [count, setCount] = useState(21);
   const [searchTerm, setSearchTerm] = useState();
 
+  // gets search term from nav bar
   const getSearchTerm = (search) => {
     setSearchTerm(search)
     setCategory('name')
   }
 
+  // gets filter term 
   const getFilterCriterion = (filter, category) => {
       setFish([])
       setSearchTerm(filter)
       setCategory(category)
   }
 
+  // increases page query to load another page of fish
   const nextPage = () => {
     setPage(prevPage => prevPage + 1)
   }
 
+  // catches all fish
   useEffect(() => {
       const getFish = async () => {
       
@@ -74,25 +84,8 @@ const App = () => {
   
 
   const [tanks, setTanks] = useState();
-  const [create, setCreate] = useState(false);
-  const [deleteTank, setDeleteTank] = useState(false);
 
-  const createSwitch = () => {
-    if (create) {
-      setCreate(false)
-    } else {
-      setCreate(true)
-    }
-  }
-
-  const deleteSwitch = () => {
-    if (deleteTank) {
-      setDeleteTank(false) 
-    } else {
-      setDeleteTank(true)
-    }
-  }
-
+  // catches user tanks
   useEffect(() => {
 
     if (isAuthenticated) {
@@ -129,7 +122,7 @@ const App = () => {
       catchTanks()
     }
 
-  }, [isAuthenticated, getAccessTokenSilently, user, create, deleteTank])
+  }, [isAuthenticated, getAccessTokenSilently, user])
 
   if (fish) {
     return (
@@ -144,7 +137,7 @@ const App = () => {
 
             let path = "/browse/" + fishName
 
-            return <Route exact path={path} element={<FishPage tanks={tanks} fishData={fishData}/>} key={index} getSearchTerm={getSearchTerm}/>
+            return <Route exact path={path} element={<FishPage tanks={tanks} fishData={fishData}/>} key={index}/>
           })}
           
           {tanks && tanks.map((tank, index) => {
@@ -158,19 +151,24 @@ const App = () => {
             let path = "/" + tankName;
             console.log(path);
 
-            return <Route exact path={path} element={<TankCardExpanded tank={tank} deleteSwitch={deleteSwitch}/>} key={index} />
+            return <Route exact path={path} element={<TankCardExpanded getSearchTerm={getSearchTerm} tank={tank}/>} key={index} />
           })}
 
           <Route exact path="/loading" element={<Loading/>}></Route>
           <Route exact path="/compatibility" element={<Compatibility/>}></Route>
           <Route exact path="/tank" element={<Tank getSearchTerm={getSearchTerm}/>}></Route>
-          <Route exact path="/about" element={<About/>}></Route>
+          <Route exact path="/about" element={<About getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/browse" element={<Browse getSearchTerm={getSearchTerm} getFilterCriterion={getFilterCriterion} fish={fish} count={count} nextPage={nextPage}/>}></Route>
-          <Route exact path="/fish" element={<FishPage getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/favlist" element={<FavList getSearchTerm={getSearchTerm}/>}></Route>
-          <Route exact path="/mytanks" element={<MyTanks getSearchTerm={getSearchTerm} createSwitch={createSwitch} create={create} tanks={tanks}/>}></Route>
-          <Route exact path="/disclaimer" element={<Disclaimer />}></Route>
-          <Route exact path="/care" element={<Care />}></Route>
+          <Route exact path="/mytanks" element={<MyTanks getSearchTerm={getSearchTerm} tanks={tanks}/>}></Route>
+          <Route exact path="/disclaimer" element={<Disclaimer getSearchTerm={getSearchTerm}/>}></Route>
+          <Route exact path="/care" element={<Care getSearchTerm={getSearchTerm}/>}></Route>
+          <Route exact path="/choosingfish" element={<ChoosingFish getSearchTerm={getSearchTerm}/>}></Route>
+          <Route exact path="/setupaquarium" element={<SetupAquarium getSearchTerm={getSearchTerm}/>}></Route>
+          <Route exact path="/pickingatank" element={<PickingATank getSearchTerm={getSearchTerm}/>}></Route>
+          <Route exact path="/waterchanges" element={<WaterChanges getSearchTerm={getSearchTerm}/>}></Route>
+          <Route exact path="/nitrogencycle" element={<NitrogenCycle getSearchTerm={getSearchTerm}/>}></Route>
+          <Route exact path="/thrivingplants" element={<ThrivingPlants getSearchTerm={getSearchTerm}/>}></Route>
           <Route exact path="/" element={<Home getSearchTerm={getSearchTerm}/>}></Route>
         </Routes>
     );
