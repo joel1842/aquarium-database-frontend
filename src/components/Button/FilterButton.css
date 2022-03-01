@@ -3,21 +3,30 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: none;
     border-radius: 25px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 5px;
+    margin: auto;
+    margin-top: 15px;
+    display: block;
+    min-width: 80px;
 }
 
 .FilterButton:hover {
-    background: #7ed1cd;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%), rgb(92, 189, 184);
 }
 
 .FilterButton p {
     font-family: Poppins;
     font-weight: 600;
-    font-size: 1.1em;
+    font-size: 1em;
     color: rgb(109, 109, 109);
     text-decoration: none;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .FilterButton p {
+        font-size: 0.9em;
+    }
 }

@@ -248,9 +248,11 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) -126.58%, rgba(255, 255, 255, 0) 100%), #FF9B3F;
     box-shadow: 0px 2px 2px #DD6A00;
     border-radius: 25px;
-    width: 80%;
+    width: 90%;
     margin: auto;
     padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     margin-top: 4%;
     margin-bottom: 3%;
 }
