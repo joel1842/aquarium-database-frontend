@@ -68,7 +68,7 @@ const AddToTank = ({ fishData, tanks }) => {
     }
 
     return (
-        <div>
+        <div className="addContainer">
             
             {success && <Checkmark size="40px" />}
             {!success && <button title="Add To Tank" className="plusButton" onClick={dropdownSwitch}>

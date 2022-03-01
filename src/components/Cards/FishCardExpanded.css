@@ -13,6 +13,7 @@
 .backBrowse {
     width: 60%;
     margin: auto;
+    margin-top: 2%;
 }
 
 .back {
@@ -101,10 +102,12 @@
     padding-bottom: 10px;
     width: 85%;
     margin: auto;
+    margin-top: 3%;
 }
 
 .fishNames {
     grid-area: name;
+
 }
 
 .fishName { 
@@ -375,6 +378,10 @@
 }
 
 @media screen and (max-width: 800px) {
+    .backBrowse {
+        margin-top: 5%;
+    }
+
     .fishCard {
         margin-bottom: 200px;
     }
@@ -405,9 +412,10 @@
 
     .fishTitle {
         display: block;
-        padding-top: 5%;
         width: 90%;
+        padding-top: 10px;
     }
+    
 
     .fishImg {
         height: 200px;
@@ -415,10 +423,12 @@
 
     .fishName {
         text-align: center; 
+        margin: auto;
     }
     
     .subName {
         text-align: center;
+        margin: auto;
     }
 
     .fastFacts {
