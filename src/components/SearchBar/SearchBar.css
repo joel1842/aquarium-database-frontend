@@ -11,10 +11,12 @@
     background: #555B6E;
     border-radius: 20px;
     cursor: pointer;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.3)
+    box-shadow: 0 3px 3px rgba(0,0,0,0.3);
+    vertical-align: middle;
 }
 
 .SearchText {
+    vertical-align: middle;
     margin-right: 0.5em;
     height: 2.8em;
     bottom: 15px;

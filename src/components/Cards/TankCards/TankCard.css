@@ -11,7 +11,9 @@
     grid-template-areas: 
     "tank name"
     "tank size";
+    grid-column-gap: 20px;
     grid-template-columns: 40% 60%;
+    padding-left: 15px;
 }
 
 .tankCard:hover {
@@ -58,6 +60,8 @@
 
     .tankCard {
         width: 60%;
+        grid-column-gap: 0;
+        padding-left: 0;
     }
     .cardTankName {
         margin-right: 5%;

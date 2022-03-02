@@ -31,8 +31,6 @@ export const OnTimeCard = () => {
                 phone: phone
             }
 
-            console.log(data)
-
             fetch('http://localhost:8000/ontime', {
                 method: 'POST',
                 headers: {

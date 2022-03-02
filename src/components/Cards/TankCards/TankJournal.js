@@ -273,6 +273,7 @@ export const TankJournal = ({tank, levels}) => {
 
     return (
         <div className="tankLevelContainer">
+
             <div className="tankLevelHeader">
                 <img src={journal} alt="Tank Journal"/>
                 <h1>Tank Journal</h1>
