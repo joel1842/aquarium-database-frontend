@@ -16,7 +16,7 @@ const DeleteTankButton = ({ tank }) => {
 
             const token = await getAccessTokenSilently()
 
-            fetch('https://fishtank-wiki.herokuapp.com/deletetank/' + id, {
+            fetch('https://fishtank-wiki.herokuapp.com/tanks/deletetank/' + id, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,

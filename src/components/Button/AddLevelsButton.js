@@ -12,7 +12,7 @@ export const AddLevelsButton = ({fishLevels, success, added}) => {
             try {
                 const token = await getAccessTokenSilently()
                 
-                fetch('https://fishtank-wiki.herokuapp.com/newentry', {
+                fetch('https://fishtank-wiki.herokuapp.com/journal/newentry', {
                     method: 'POST',
                     headers: {
                         Authorization: `Bearer ${token}`,

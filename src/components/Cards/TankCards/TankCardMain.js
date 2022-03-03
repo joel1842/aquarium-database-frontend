@@ -211,7 +211,7 @@ export const TankCardMain = ({tank, levels, celcius, fahrenheit}) => {
         }
         console.log(data)
 
-        fetch('https://fishtank-wiki.herokuapp.com/upload', {
+        fetch('https://fishtank-wiki.herokuapp.com/tanks/upload', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,

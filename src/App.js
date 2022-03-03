@@ -97,7 +97,7 @@ const App = () => {
                   user: user.email
               }
       
-              const response = await fetch('https://fishtank-wiki.herokuapp.com/mytanks', {
+              const response = await fetch('https://fishtank-wiki.herokuapp.com/tanks/mytanks', {
                   method: 'POST',
                   headers: {
                       Authorization: `Bearer ${token}`,

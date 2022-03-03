@@ -19,7 +19,7 @@ const FavList = ({ getSearchTerm }) => {
             try {
                 const token = await getAccessTokenSilently();
     
-                const response = await fetch('https://fishtank-wiki.herokuapp.com/favList', {
+                const response = await fetch('https://fishtank-wiki.herokuapp.com/favorites/favlist', {
                     method: 'GET',    
                     headers: {
                         Authorization: `Bearer ${token}`,
