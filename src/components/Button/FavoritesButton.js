@@ -22,7 +22,7 @@ const FavoritesButton = ({fishData}) => {
 
             const token = await getAccessTokenSilently()
 
-            fetch('https://fishtank-wiki.herokuapp.com/favorites', {
+            fetch('https://fishtank-wiki.herokuapp.com/favorites/addfav/', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

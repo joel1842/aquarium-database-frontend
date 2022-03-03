@@ -25,7 +25,7 @@ const TankCardExpanded = ({getSearchTerm, tank}) => {
             const fishtankName = {
                 tank: tank.tankName
             }
-            const response = await fetch('https://fishtank-wiki.herokuapp.com/getjournal', {
+            const response = await fetch('https://fishtank-wiki.herokuapp.com/journal/getjournal', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -65,7 +65,7 @@ const TankCardExpanded = ({getSearchTerm, tank}) => {
                     tank: tank.tankName
                 }
     
-                const response = await fetch('https://fishtank-wiki.herokuapp.com/myfish', {
+                const response = await fetch('https://fishtank-wiki.herokuapp.com/myfish/catchfish', {
                     method: 'POST',
                     headers: {
                         Authorization: `Bearer ${token}`,
